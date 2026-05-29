@@ -16,7 +16,7 @@ CONFIG = {
     "MODE": os.getenv("TRADING_MODE", "PAPER"),
     "COINS": ["BTC", "ETH", "BNB"],
     "TIMEFRAME": "15m",
-    "MARGIN_PER_TRADE": float(os.getenv("MARGIN_PER_TRADE", "2.0")),
+    "MARGIN_PER_TRADE": float(os.getenv("MARGIN_PER_TRADE") or "2.0"),
     "LEVERAGE": int(os.getenv("LEVERAGE", "10")),
     "API_URL": "https://api.hyperliquid.xyz/info",
     "TRADES_FILE": TRADES_FILE_PATH,
