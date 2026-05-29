@@ -1,0 +1,29 @@
+{
+  "trades": [
+    {
+      "timestamp": "2026-05-29T00:30:00",
+      "coin": "BTC",
+      "signal": "LONG",
+      "entry_price": 73317,
+      "tp": 74366,
+      "sl": 72317,
+      "margin": 2.0,
+      "status": "OPEN"
+    },
+    {
+      "timestamp": "2026-05-29T00:15:00",
+      "coin": "ETH",
+      "signal": "WNS",
+      "entry_price": 2002.9,
+      "tp": 2033,
+      "sl": 1982,
+      "margin": 2.0,
+      "status": "OPEN"
+    }
+  ],
+  "summary": {
+    "total_trades": 2,
+    "total_profit": 0,
+    "total_loss": 0
+  }
+}

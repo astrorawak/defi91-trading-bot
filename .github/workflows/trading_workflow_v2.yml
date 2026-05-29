@@ -1,0 +1,48 @@
+name: DeFi91 Trading Bot
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'  # Berjalan setiap 15 menit
+  workflow_dispatch:
+
+jobs:
+  trade:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install requests numpy eth-account hyperliquid-python-sdk
+
+      - name: Run Trading Bot
+        env:
+          TRADING_MODE: ${{ secrets.TRADING_MODE }}
+          MARGIN_PER_TRADE: ${{ secrets.MARGIN_PER_TRADE }}
+          LEVERAGE: ${{ secrets.LEVERAGE }}
+        run: python github_bot_v2.py
+
+      - name: Commit and push trades data
+        run: |
+          git config --local user.email "bot@defi91.local"
+          git config --local user.name "DeFi91 Bot"
+          git add trades.json
+          git commit -m "Auto: Update trades data - $(date)" || echo "No changes to commit"
+          git push
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          include_dot_files: true
