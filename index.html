@@ -81,6 +81,7 @@
         .stat-card.loss { border-top-color: #ef4444; }
         .stat-card.trades { border-top-color: #3b82f6; }
         .stat-card.winrate { border-top-color: #f59e0b; }
+        .stat-card.unrealized { border-top-color: #8b5cf6; }
 
         .stat-label {
             font-size: 12px;
@@ -101,6 +102,7 @@
         .stat-card.loss .stat-value { color: #ef4444; }
         .stat-card.trades .stat-value { color: #3b82f6; }
         .stat-card.winrate .stat-value { color: #f59e0b; }
+        .stat-card.unrealized .stat-value { color: #8b5cf6; }
 
         .stat-change {
             font-size: 12px;
@@ -109,6 +111,114 @@
 
         .stat-change.positive { color: #10b981; }
         .stat-change.negative { color: #ef4444; }
+
+        /* Open Positions Section */
+        .open-positions {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            border-left: 5px solid #8b5cf6;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #8b5cf6;
+            border-radius: 2px;
+        }
+
+        .positions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .position-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .position-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .position-coin {
+            font-weight: 600;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .position-signal {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .position-signal.long {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .position-signal.short {
+            background: #fee2e2;
+            color: #7f1d1d;
+        }
+
+        .position-detail {
+            font-size: 12px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .position-label {
+            color: #999;
+        }
+
+        .position-value {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .position-pnl {
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .position-pnl.profit {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .position-pnl.loss {
+            background: #fee2e2;
+            color: #7f1d1d;
+        }
 
         /* Summary Tabs */
         .summary-tabs {
@@ -304,7 +414,6 @@
 
         .status-open { background: #dbeafe; color: #1e40af; }
         .status-closed { background: #dcfce7; color: #166534; }
-        .status-pending { background: #fef3c7; color: #92400e; }
 
         .signal-badge {
             display: inline-block;
@@ -317,7 +426,6 @@
 
         .signal-long { background: #d1fae5; color: #065f46; }
         .signal-short { background: #fee2e2; color: #7f1d1d; }
-        .signal-wns { background: #f3e8ff; color: #581c87; }
 
         .coin-badge {
             display: inline-block;
@@ -369,6 +477,10 @@
 
             .header h1 {
                 font-size: 24px;
+            }
+
+            .positions-grid {
+                grid-template-columns: 1fr;
             }
 
             .tab-buttons {
@@ -474,6 +586,20 @@
                 <div class="stat-label">Win Rate</div>
                 <div class="stat-value" id="winRate">0%</div>
                 <div class="stat-change" id="winRateChange">0 dari 0 trades</div>
+            </div>
+
+            <div class="stat-card unrealized">
+                <div class="stat-label">Unrealized P&L</div>
+                <div class="stat-value" id="unrealizedPnL">$0.00</div>
+                <div class="stat-change" id="openPositionsCount">0 posisi terbuka</div>
+            </div>
+        </div>
+
+        <!-- Open Positions -->
+        <div class="open-positions">
+            <div class="section-title">📍 Posisi Terbuka (Real-time)</div>
+            <div class="positions-grid" id="openPositionsGrid">
+                <div class="loading"><div class="spinner"></div>Memuat data...</div>
             </div>
         </div>
 
@@ -608,6 +734,7 @@
                 const data = await response.json();
                 
                 updateStats(data.trades);
+                updateOpenPositions(data.trades);
                 updateSummaries(data.trades);
                 updateCharts(data.trades);
                 updateTable(data.trades);
@@ -625,23 +752,32 @@
                 document.getElementById('totalProfit').textContent = '$0.00';
                 document.getElementById('totalLoss').textContent = '$0.00';
                 document.getElementById('winRate').textContent = '0%';
+                document.getElementById('unrealizedPnL').textContent = '$0.00';
                 return;
             }
 
             let totalProfit = 0, totalLoss = 0, winTrades = 0, lossTrades = 0;
             let longCount = 0, shortCount = 0;
             let profitTrades = [], lossTrades_ = [];
+            let unrealizedPnL = 0;
+            let openTrades = 0;
 
             trades.forEach(trade => {
                 const pnl = parseFloat(trade.pnl) || 0;
-                if (pnl > 0) {
-                    totalProfit += pnl;
-                    winTrades++;
-                    profitTrades.push(pnl);
-                } else if (pnl < 0) {
-                    totalLoss += Math.abs(pnl);
-                    lossTrades++;
-                    lossTrades_.push(Math.abs(pnl));
+                
+                if (trade.status === 'OPEN') {
+                    unrealizedPnL += pnl;
+                    openTrades++;
+                } else {
+                    if (pnl > 0) {
+                        totalProfit += pnl;
+                        winTrades++;
+                        profitTrades.push(pnl);
+                    } else if (pnl < 0) {
+                        totalLoss += Math.abs(pnl);
+                        lossTrades++;
+                        lossTrades_.push(Math.abs(pnl));
+                    }
                 }
 
                 if (trade.signal === 'LONG') longCount++;
@@ -658,11 +794,67 @@
             document.getElementById('totalLoss').textContent = '$' + totalLoss.toFixed(2);
             document.getElementById('winRate').textContent = winRate + '%';
             document.getElementById('winRateChange').textContent = `${winTrades} dari ${trades.length} trades`;
+            document.getElementById('unrealizedPnL').textContent = (unrealizedPnL > 0 ? '+' : '') + '$' + unrealizedPnL.toFixed(2);
+            document.getElementById('openPositionsCount').textContent = `${openTrades} posisi terbuka`;
             document.getElementById('avgProfit').textContent = '$' + avgProfit;
             document.getElementById('avgLoss').textContent = '$' + avgLoss;
             document.getElementById('profitFactor').textContent = profitFactor;
             document.getElementById('longTrades').textContent = longCount;
             document.getElementById('shortTrades').textContent = shortCount;
+        }
+
+        function updateOpenPositions(trades) {
+            const openTrades = trades.filter(t => t.status === 'OPEN');
+            
+            if (openTrades.length === 0) {
+                document.getElementById('openPositionsGrid').innerHTML = 
+                    '<div style="grid-column: 1/-1; text-align: center; padding: 30px; color: #999;">Tidak ada posisi terbuka</div>';
+                return;
+            }
+
+            const html = openTrades.map(trade => {
+                const unrealizedPnL = parseFloat(trade.pnl) || 0;
+                const unrealizedPercent = ((unrealizedPnL / parseFloat(trade.margin)) * 100).toFixed(2);
+                const pnlClass = unrealizedPnL > 0 ? 'profit' : 'loss';
+                
+                return `
+                    <div class="position-card">
+                        <div class="position-header">
+                            <span class="position-coin">${trade.coin}</span>
+                            <span class="position-signal ${trade.signal.toLowerCase()}">${trade.signal}</span>
+                        </div>
+                        <div class="position-detail">
+                            <span class="position-label">Entry:</span>
+                            <span class="position-value">$${parseFloat(trade.entry).toFixed(2)}</span>
+                        </div>
+                        <div class="position-detail">
+                            <span class="position-label">Current:</span>
+                            <span class="position-value">$${parseFloat(trade.entry).toFixed(2)}</span>
+                        </div>
+                        <div class="position-detail">
+                            <span class="position-label">Margin:</span>
+                            <span class="position-value">$${parseFloat(trade.margin).toFixed(2)}</span>
+                        </div>
+                        <div class="position-detail">
+                            <span class="position-label">Leverage:</span>
+                            <span class="position-value">${trade.leverage}x</span>
+                        </div>
+                        <div class="position-detail">
+                            <span class="position-label">TP:</span>
+                            <span class="position-value" style="color: #10b981;">$${parseFloat(trade.tp).toFixed(2)}</span>
+                        </div>
+                        <div class="position-detail">
+                            <span class="position-label">SL:</span>
+                            <span class="position-value" style="color: #ef4444;">$${parseFloat(trade.sl).toFixed(2)}</span>
+                        </div>
+                        <div class="position-pnl ${pnlClass}">
+                            ${unrealizedPnL > 0 ? '+' : ''}$${unrealizedPnL.toFixed(2)} (${unrealizedPercent}%)
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('openPositionsGrid').innerHTML = html;
         }
 
         function updateSummaries(trades) {
@@ -741,7 +933,7 @@
             // Monthly Summary
             const monthlyStats = {};
             trades.forEach(trade => {
-                const monthKey = trade.time.substring(0, 7); // YYYY-MM
+                const monthKey = trade.time.substring(0, 7);
                 if (!monthlyStats[monthKey]) {
                     monthlyStats[monthKey] = { profit: 0, loss: 0, count: 0, winCount: 0 };
                 }
