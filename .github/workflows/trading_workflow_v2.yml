@@ -2,7 +2,7 @@ name: DeFi91 Trading Bot
 
 on:
   schedule:
-    - cron: '*/15 * * * *'  # Berjalan setiap 15 menit
+    - cron: '*/15 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -14,12 +14,12 @@ jobs:
     
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -27,22 +27,21 @@ jobs:
 
       - name: Run Trading Bot
         env:
-          TRADING_MODE: ${{ secrets.TRADING_MODE }}
-          MARGIN_PER_TRADE: ${{ secrets.MARGIN_PER_TRADE }}
-          LEVERAGE: ${{ secrets.LEVERAGE }}
+          HYPERLIQUID_ADDRESS: ${{ secrets.HYPERLIQUID_ADDRESS }}
+          HYPERLIQUID_PRIVATE_KEY: ${{ secrets.HYPERLIQUID_PRIVATE_KEY }}
         run: python github_bot_v2.py
 
       - name: Commit and push trades data
         run: |
           git config --local user.email "bot@defi91.local"
           git config --local user.name "DeFi91 Bot"
-          git add trades.json
-          git commit -m "Auto: Update trades data - $(date)" || echo "No changes to commit"
-          git push
+          git add trades.json || true
+          git diff --staged --quiet || git commit -m "Auto: Update trades - $(date '+%Y-%m-%d %H:%M')"
+          git push || true
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
-          include_dot_files: true
+          keep_files: true
