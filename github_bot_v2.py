@@ -556,6 +556,8 @@ def run_bot():
         trade_result = execute_trade(exchange, info, coin, direction, current_price)
         
         if trade_result.get("success"):
+            trade_result["cvd_score"] = str(onchain_score)
+            trade_result["rsi"] = tech_details.get("rsi", "N/A")
             trades_executed.append(trade_result)
             available -= MARGIN_PER_TRADE
             print(f"  ✅ TRADE EXECUTED SUCCESSFULLY!")
@@ -590,22 +592,25 @@ def save_trades_json(new_trades, status, message):
     data["bot_status"] = "ACTIVE"
     data["account_wallet"] = MAIN_WALLET
     
-    # Add new trades
+    # Add new trades (field names match dashboard JS: signal, entry, tp, sl, time, pnl)
     for trade in new_trades:
         trade_entry = {
             "id": len(data.get("trades", [])) + 1,
-            "timestamp": get_wib_time().strftime("%Y-%m-%d %H:%M:%S"),
+            "time": get_wib_time().strftime("%Y-%m-%d %H:%M:%S"),
             "coin": trade["coin"],
-            "direction": trade["direction"],
-            "entry_price": trade["entry_price"],
-            "tp_price": trade["tp_price"],
-            "sl_price": trade["sl_price"],
+            "signal": trade["direction"],
+            "entry": trade["entry_price"],
+            "tp": trade["tp_price"],
+            "sl": trade["sl_price"],
             "size": trade["size"],
             "margin": MARGIN_PER_TRADE,
             "leverage": LEVERAGE,
             "tp_set": trade["tp_set"],
             "sl_set": trade["sl_set"],
             "status": "OPEN",
+            "pnl": 0.0,
+            "cvd_score": trade.get("cvd_score", "N/A"),
+            "rsi": trade.get("rsi", "N/A"),
         }
         data.setdefault("trades", []).append(trade_entry)
     

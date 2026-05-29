@@ -733,6 +733,7 @@
                 const response = await fetch('trades.json');
                 const data = await response.json();
                 
+                document.getElementById('tradingMode').textContent = data.mode || 'PAPER';
                 updateStats(data.trades);
                 updateOpenPositions(data.trades);
                 updateSummaries(data.trades);
