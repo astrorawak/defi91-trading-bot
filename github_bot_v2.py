@@ -24,16 +24,31 @@ from hyperliquid.utils import constants
 PRIVATE_KEY = os.getenv("HYPERLIQUID_PRIVATE_KEY", "")
 MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 
-# Trading Parameters (sesuai strategi almarhum)
-WATCHLIST = ["BTC", "ETH", "BNB"]  # Coin yang almarhum kuasai
-MARGIN_PER_TRADE = 2.0  # $2 per trade (marking)
+# Trading Parameters (agresif & terukur - mempercepat akumulasi)
+WATCHLIST = [
+    "BTC",   # #1 volume - Raja crypto
+    "HYPE",  # #2 volume - Native Hyperliquid token
+    "ETH",   # #3 volume - King of altcoins
+    "SOL",   # #5 volume - Ecosystem terkuat
+    "NEAR",  # #6 volume - AI narrative
+    "XRP",   # #7 volume - Payment leader
+    "WLD",   # #9 volume - AI/Worldcoin
+    "SUI",   # #13 volume - Move ecosystem
+    "DOGE",  # #19 volume - Meme king
+    "BNB",   # Exchange coin - almarhum kuasai
+]
+MARGIN_PER_TRADE = 1.5  # $1.5 per trade (lebih banyak posisi, risiko terjaga)
 LEVERAGE = 10  # 10x leverage
 TP_PERCENT = 0.02  # 2% Take Profit
 SL_PERCENT = 0.01  # 1% Stop Loss
 ENTRY_THRESHOLD = 2  # Minimum score untuk entry
+MAX_OPEN_POSITIONS = 7  # Maksimal 7 posisi bersamaan ($1.5 x 7 = $10.5 margin)
 
 # Size decimals per coin (dari Hyperliquid metadata)
-SZ_DECIMALS = {"BTC": 5, "ETH": 4, "BNB": 3}
+SZ_DECIMALS = {
+    "BTC": 5, "ETH": 4, "BNB": 3, "SOL": 2, "HYPE": 2,
+    "XRP": 0, "NEAR": 1, "DOGE": 0, "SUI": 1, "WLD": 1,
+}
 
 # ============================================================
 # HELPER FUNCTIONS
@@ -46,6 +61,23 @@ def round_size(coin, size):
     """Round size to correct decimals for each coin"""
     decimals = SZ_DECIMALS.get(coin, 4)
     return round(size, decimals)
+
+def format_price(price):
+    """Format price to max 5 significant figures for Hyperliquid API"""
+    if price >= 10000:
+        return round(price, 0)
+    elif price >= 1000:
+        return round(price, 1)
+    elif price >= 100:
+        return round(price, 1)
+    elif price >= 10:
+        return round(price, 2)
+    elif price >= 1:
+        return round(price, 3)
+    elif price >= 0.1:
+        return round(price, 4)
+    else:
+        return round(price, 5)
 
 def calculate_rsi(prices, period=14):
     """Calculate RSI from price array"""
@@ -346,15 +378,15 @@ def execute_trade(exchange, info, coin, direction, current_price):
     size = position_value / current_price
     size = round_size(coin, size)
     
-    # Calculate TP/SL prices
+    # Calculate TP/SL prices (format_price ensures Hyperliquid compatibility)
     if is_buy:  # LONG
-        tp_price = int(current_price * (1 + TP_PERCENT))
-        sl_price = int(current_price * (1 - SL_PERCENT))
-        limit_px = int(current_price + 100)  # Slippage allowance for buy
+        tp_price = format_price(current_price * (1 + TP_PERCENT))
+        sl_price = format_price(current_price * (1 - SL_PERCENT))
+        limit_px = format_price(current_price * 1.005)  # 0.5% slippage
     else:  # SHORT
-        tp_price = int(current_price * (1 - TP_PERCENT))
-        sl_price = int(current_price * (1 + SL_PERCENT))
-        limit_px = int(current_price - 100)  # Slippage allowance for sell
+        tp_price = format_price(current_price * (1 - TP_PERCENT))
+        sl_price = format_price(current_price * (1 + SL_PERCENT))
+        limit_px = format_price(current_price * 0.995)  # 0.5% slippage
     
     print(f"\n  EXECUTING {direction} {coin}")
     print(f"  Size: {size} | Margin: ${MARGIN_PER_TRADE} | Leverage: {LEVERAGE}x")
@@ -504,6 +536,10 @@ def run_bot():
         if coin in open_coins:
             print(f"\n--- {coin}: SKIP (already has open position) ---")
             continue
+        
+        if len(open_coins) + len(trades_executed) >= MAX_OPEN_POSITIONS:
+            print(f"\n--- {coin}: SKIP (max {MAX_OPEN_POSITIONS} positions reached) ---")
+            break
         
         if available < MARGIN_PER_TRADE:
             print(f"\n--- {coin}: SKIP (insufficient balance) ---")
