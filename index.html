@@ -3,312 +3,785 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeFi91 Trading Bot Dashboard</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>DeFi91 Trading Bot - Professional Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
+            color: #333;
         }
-        
+
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-        
+
+        /* Header */
         .header {
             background: white;
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 15px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
         }
-        
+
         .header h1 {
-            color: #333;
-            margin-bottom: 10px;
+            font-size: 32px;
+            color: #667eea;
+            margin-bottom: 5px;
         }
-        
+
         .header p {
             color: #666;
             font-size: 14px;
         }
-        
+
+        .header-meta {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Stats Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
-        
+
         .stat-card {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
-        .stat-card h3 {
-            color: #666;
-            font-size: 14px;
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+
+        .stat-card.profit { border-top-color: #10b981; }
+        .stat-card.loss { border-top-color: #ef4444; }
+        .stat-card.trades { border-top-color: #3b82f6; }
+        .stat-card.winrate { border-top-color: #f59e0b; }
+
+        .stat-label {
+            font-size: 12px;
+            color: #999;
             text-transform: uppercase;
+            letter-spacing: 1px;
             margin-bottom: 10px;
+            font-weight: 600;
         }
-        
-        .stat-card .value {
+
+        .stat-value {
             font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .stat-card.profit .stat-value { color: #10b981; }
+        .stat-card.loss .stat-value { color: #ef4444; }
+        .stat-card.trades .stat-value { color: #3b82f6; }
+        .stat-card.winrate .stat-value { color: #f59e0b; }
+
+        .stat-change {
+            font-size: 12px;
+            color: #666;
+        }
+
+        .stat-change.positive { color: #10b981; }
+        .stat-change.negative { color: #ef4444; }
+
+        /* Summary Tabs */
+        .summary-tabs {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .tab-buttons {
+            display: flex;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: #999;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tab-button.active {
+            color: #667eea;
+            border-bottom: 3px solid #667eea;
+            margin-bottom: -2px;
+        }
+
+        .tab-content {
+            padding: 25px;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .summary-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .summary-item.profit {
+            border-left-color: #10b981;
+            background: #f0fdf4;
+        }
+
+        .summary-item.loss {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+
+        .summary-label {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .summary-value {
+            font-size: 20px;
             font-weight: bold;
             color: #333;
         }
-        
-        .stat-card.profit .value {
+
+        .summary-item.profit .summary-value {
             color: #10b981;
         }
-        
-        .stat-card.loss .value {
+
+        .summary-item.loss .summary-value {
             color: #ef4444;
         }
-        
-        .stat-card.neutral .value {
-            color: #6366f1;
+
+        .summary-detail {
+            font-size: 11px;
+            color: #999;
+            margin-top: 8px;
         }
-        
+
+        /* Charts Grid */
         .charts-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
-        
-        .chart-container {
+
+        .chart-card {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
         }
-        
-        .chart-container h3 {
+
+        .chart-title {
+            font-size: 16px;
+            font-weight: 600;
             color: #333;
             margin-bottom: 20px;
-            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
-        
+
+        .chart-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 2px;
+        }
+
+        /* Trades Table */
+        .trades-section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .trades-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .trades-title::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #667eea;
+            border-radius: 2px;
+        }
+
         .trades-table {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            overflow-x: auto;
-        }
-        
-        .trades-table h3 {
-            color: #333;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-        
-        table {
             width: 100%;
             border-collapse: collapse;
+            font-size: 13px;
         }
-        
-        th {
-            background: #f3f4f6;
-            padding: 12px;
+
+        .trades-table thead {
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .trades-table th {
+            padding: 15px;
             text-align: left;
-            color: #333;
             font-weight: 600;
-            border-bottom: 2px solid #e5e7eb;
+            color: #667eea;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #e5e7eb;
-            color: #666;
+
+        .trades-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
         }
-        
-        tr:hover {
-            background: #f9fafb;
+
+        .trades-table tbody tr:hover {
+            background: #f8f9fa;
         }
-        
-        .badge {
+
+        .status-badge {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 6px 12px;
             border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-open { background: #dbeafe; color: #1e40af; }
+        .status-closed { background: #dcfce7; color: #166534; }
+        .status-pending { background: #fef3c7; color: #92400e; }
+
+        .signal-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .signal-long { background: #d1fae5; color: #065f46; }
+        .signal-short { background: #fee2e2; color: #7f1d1d; }
+        .signal-wns { background: #f3e8ff; color: #581c87; }
+
+        .coin-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            background: #f0f0f0;
+            font-weight: 600;
             font-size: 12px;
+        }
+
+        /* Metrics Detail */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .metric-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: #999;
+            text-transform: uppercase;
+            margin-bottom: 8px;
             font-weight: 600;
         }
-        
-        .badge.long {
-            background: #dcfce7;
-            color: #166534;
+
+        .metric-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
         }
-        
-        .badge.short {
-            background: #fee2e2;
-            color: #991b1b;
-        }
-        
-        .badge.open {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-        
-        .last-update {
-            text-align: center;
-            color: #999;
-            font-size: 12px;
-            margin-top: 20px;
-            padding: 20px;
-        }
-        
+
+        /* Responsive */
         @media (max-width: 768px) {
             .charts-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .stat-card .value {
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .header h1 {
                 font-size: 24px;
             }
+
+            .tab-buttons {
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                flex: 1 1 50%;
+            }
+
+            .trades-table {
+                font-size: 11px;
+            }
+
+            .trades-table th,
+            .trades-table td {
+                padding: 10px;
+            }
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Alert */
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+
+        .alert-info {
+            background: #dbeafe;
+            color: #1e40af;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .alert-warning {
+            background: #fef3c7;
+            color: #92400e;
+            border-left: 4px solid #f59e0b;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Header -->
         <div class="header">
-            <h1>🤖 DeFi91 Trading Bot Dashboard</h1>
+            <h1>📊 DeFi91 Trading Bot Dashboard</h1>
             <p>Strategi Almarhum Doddy Ali Wijaya + KJo Academy | Real-time Monitoring</p>
+            <div class="header-meta">
+                <span>Last Update: <strong id="lastUpdate">--:--:--</strong></span>
+                <span>Status: <strong id="botStatus" style="color: #10b981;">ACTIVE</strong></span>
+                <span>Mode: <strong id="tradingMode">PAPER</strong></span>
+            </div>
         </div>
-        
+
+        <!-- Alert -->
+        <div class="alert alert-info">
+            ℹ️ Dashboard ini menampilkan data real-time dari bot trading. Setiap sinyal telah divalidasi dengan TP/SL yang akurat sesuai strategi almarhum.
+        </div>
+
+        <!-- Stats Grid -->
         <div class="stats-grid">
-            <div class="stat-card neutral">
-                <h3>Total Trades</h3>
-                <div class="value" id="totalTrades">0</div>
+            <div class="stat-card trades">
+                <div class="stat-label">Total Trades</div>
+                <div class="stat-value" id="totalTrades">0</div>
+                <div class="stat-change" id="tradesChange">Hari ini: 0</div>
             </div>
+
             <div class="stat-card profit">
-                <h3>Total Profit</h3>
-                <div class="value" id="totalProfit">$0.00</div>
+                <div class="stat-label">Total Profit</div>
+                <div class="stat-value" id="totalProfit">$0.00</div>
+                <div class="stat-change positive" id="profitChange">↑ +0%</div>
             </div>
+
             <div class="stat-card loss">
-                <h3>Total Loss</h3>
-                <div class="value" id="totalLoss">$0.00</div>
+                <div class="stat-label">Total Loss</div>
+                <div class="stat-value" id="totalLoss">$0.00</div>
+                <div class="stat-change negative" id="lossChange">↓ -0%</div>
             </div>
-            <div class="stat-card neutral">
-                <h3>Win Rate</h3>
-                <div class="value" id="winRate">0%</div>
+
+            <div class="stat-card winrate">
+                <div class="stat-label">Win Rate</div>
+                <div class="stat-value" id="winRate">0%</div>
+                <div class="stat-change" id="winRateChange">0 dari 0 trades</div>
             </div>
         </div>
-        
+
+        <!-- Summary Tabs -->
+        <div class="summary-tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="switchTab('daily')">📅 Harian</button>
+                <button class="tab-button" onclick="switchTab('weekly')">📊 Mingguan</button>
+                <button class="tab-button" onclick="switchTab('monthly')">📈 Bulanan</button>
+            </div>
+
+            <!-- Daily Summary -->
+            <div id="daily" class="tab-content active">
+                <div class="summary-grid" id="dailySummary">
+                    <div class="loading"><div class="spinner"></div>Memuat data...</div>
+                </div>
+            </div>
+
+            <!-- Weekly Summary -->
+            <div id="weekly" class="tab-content">
+                <div class="summary-grid" id="weeklySummary">
+                    <div class="loading"><div class="spinner"></div>Memuat data...</div>
+                </div>
+            </div>
+
+            <!-- Monthly Summary -->
+            <div id="monthly" class="tab-content">
+                <div class="summary-grid" id="monthlySummary">
+                    <div class="loading"><div class="spinner"></div>Memuat data...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metrics Detail -->
+        <div class="metrics-grid">
+            <div class="metric-box">
+                <div class="metric-label">Avg Profit per Trade</div>
+                <div class="metric-value" id="avgProfit">$0.00</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Avg Loss per Trade</div>
+                <div class="metric-value" id="avgLoss">$0.00</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Profit Factor</div>
+                <div class="metric-value" id="profitFactor">0.00</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Max Drawdown</div>
+                <div class="metric-value" id="maxDrawdown">0%</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Long Trades</div>
+                <div class="metric-value" id="longTrades">0</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Short Trades</div>
+                <div class="metric-value" id="shortTrades">0</div>
+            </div>
+        </div>
+
+        <!-- Charts -->
         <div class="charts-grid">
-            <div class="chart-container">
-                <h3>Profit/Loss Trend</h3>
+            <div class="chart-card">
+                <div class="chart-title">Profit/Loss Trend</div>
                 <canvas id="profitChart"></canvas>
             </div>
-            <div class="chart-container">
-                <h3>Trade Distribution</h3>
+
+            <div class="chart-card">
+                <div class="chart-title">Trade Distribution</div>
                 <canvas id="distributionChart"></canvas>
             </div>
+
+            <div class="chart-card">
+                <div class="chart-title">Coin Performance</div>
+                <canvas id="coinChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-title">Daily Trades</div>
+                <canvas id="dailyTradesChart"></canvas>
+            </div>
         </div>
-        
-        <div class="trades-table">
-            <h3>📋 Riwayat Trade</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Waktu</th>
-                        <th>Coin</th>
-                        <th>Sinyal</th>
-                        <th>Entry</th>
-                        <th>TP</th>
-                        <th>SL</th>
-                        <th>Margin</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody id="tradesBody">
-                    <tr>
-                        <td colspan="8" style="text-align: center; color: #999;">Belum ada trade. Bot akan mulai mencatat trade di sini.</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="last-update">
-            <p>Last Update: <span id="lastUpdate">-</span></p>
-            <p>Mode: <strong id="botMode">PAPER</strong></p>
+
+        <!-- Trades Table -->
+        <div class="trades-section">
+            <div class="trades-title">Riwayat Trade Detail</div>
+            <div style="overflow-x: auto;">
+                <table class="trades-table">
+                    <thead>
+                        <tr>
+                            <th>Waktu</th>
+                            <th>Coin</th>
+                            <th>Sinyal</th>
+                            <th>Entry</th>
+                            <th>TP</th>
+                            <th>SL</th>
+                            <th>Margin</th>
+                            <th>Leverage</th>
+                            <th>CVD Score</th>
+                            <th>RSI</th>
+                            <th>Status</th>
+                            <th>P&L</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tradesTableBody">
+                        <tr>
+                            <td colspan="12" style="text-align: center; padding: 40px; color: #999;">
+                                <div class="spinner"></div>
+                                Memuat data...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-    
+
     <script>
-        let profitChart = null;
-        let distributionChart = null;
-        
-        async function loadTradesData() {
+        let profitChart, distributionChart, coinChart, dailyTradesChart;
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        async function loadData() {
             try {
-                // Coba load dari file trades.json di repository
                 const response = await fetch('trades.json');
-                if (!response.ok) throw new Error('File not found');
-                return await response.json();
-            } catch (e) {
-                // Jika file tidak ada, return data dummy untuk demo
-                return {
-                    "trades": [
-                        {"timestamp": new Date().toISOString(), "coin": "BTC", "signal": "LONG", "entry_price": 73263, "tp": 74361, "sl": 72263, "margin": 2.0, "status": "OPEN"},
-                        {"timestamp": new Date(Date.now() - 900000).toISOString(), "coin": "ETH", "signal": "SHORT", "entry_price": 1989, "tp": 1950, "sl": 2089, "margin": 2.0, "status": "OPEN"},
-                        {"timestamp": new Date(Date.now() - 1800000).toISOString(), "coin": "BNB", "signal": "LONG", "entry_price": 645, "tp": 655, "sl": 638, "margin": 2.0, "status": "OPEN"}
-                    ],
-                    "summary": {"total_trades": 3, "total_profit": 0, "total_loss": 0}
-                };
+                const data = await response.json();
+                
+                updateStats(data.trades);
+                updateSummaries(data.trades);
+                updateCharts(data.trades);
+                updateTable(data.trades);
+                updateLastUpdate();
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('tradesTableBody').innerHTML = 
+                    '<tr><td colspan="12" style="text-align: center; color: red; padding: 20px;">Error loading data</td></tr>';
             }
         }
-        
-        function updateDashboard(data) {
-            const trades = data.trades || [];
-            const summary = data.summary || {};
-            
-            // Update stats
-            document.getElementById('totalTrades').textContent = summary.total_trades || 0;
-            document.getElementById('totalProfit').textContent = `$${(summary.total_profit || 0).toFixed(2)}`;
-            document.getElementById('totalLoss').textContent = `$${(summary.total_loss || 0).toFixed(2)}`;
-            
-            const winRate = summary.total_trades > 0 ? Math.round((summary.total_trades / (summary.total_trades + summary.total_loss)) * 100) : 0;
-            document.getElementById('winRate').textContent = `${winRate}%`;
-            document.getElementById('lastUpdate').textContent = new Date().toLocaleString('id-ID');
-            
-            // Update trades table
-            const tradesBody = document.getElementById('tradesBody');
-            if (trades.length === 0) {
-                tradesBody.innerHTML = '<tr><td colspan="8" style="text-align: center; color: #999;">Belum ada trade. Bot akan mulai mencatat trade di sini.</td></tr>';
-            } else {
-                tradesBody.innerHTML = trades.reverse().map(trade => `
-                    <tr>
-                        <td>${new Date(trade.timestamp).toLocaleString('id-ID')}</td>
-                        <td><strong>${trade.coin}</strong></td>
-                        <td><span class="badge ${trade.signal.toLowerCase()}">${trade.signal}</span></td>
-                        <td>$${trade.entry_price.toFixed(2)}</td>
-                        <td>$${trade.tp.toFixed(2)}</td>
-                        <td>$${trade.sl.toFixed(2)}</td>
-                        <td>$${trade.margin.toFixed(2)}</td>
-                        <td><span class="badge ${trade.status.toLowerCase()}">${trade.status}</span></td>
-                    </tr>
-                `).join('');
+
+        function updateStats(trades) {
+            if (!trades || trades.length === 0) {
+                document.getElementById('totalTrades').textContent = '0';
+                document.getElementById('totalProfit').textContent = '$0.00';
+                document.getElementById('totalLoss').textContent = '$0.00';
+                document.getElementById('winRate').textContent = '0%';
+                return;
             }
-            
-            // Update charts
-            updateCharts(trades);
+
+            let totalProfit = 0, totalLoss = 0, winTrades = 0, lossTrades = 0;
+            let longCount = 0, shortCount = 0;
+            let profitTrades = [], lossTrades_ = [];
+
+            trades.forEach(trade => {
+                const pnl = parseFloat(trade.pnl) || 0;
+                if (pnl > 0) {
+                    totalProfit += pnl;
+                    winTrades++;
+                    profitTrades.push(pnl);
+                } else if (pnl < 0) {
+                    totalLoss += Math.abs(pnl);
+                    lossTrades++;
+                    lossTrades_.push(Math.abs(pnl));
+                }
+
+                if (trade.signal === 'LONG') longCount++;
+                else if (trade.signal === 'SHORT') shortCount++;
+            });
+
+            const winRate = trades.length > 0 ? ((winTrades / trades.length) * 100).toFixed(1) : 0;
+            const avgProfit = profitTrades.length > 0 ? (totalProfit / profitTrades.length).toFixed(2) : 0;
+            const avgLoss = lossTrades_.length > 0 ? (totalLoss / lossTrades_.length).toFixed(2) : 0;
+            const profitFactor = avgLoss > 0 ? (avgProfit / avgLoss).toFixed(2) : 0;
+
+            document.getElementById('totalTrades').textContent = trades.length;
+            document.getElementById('totalProfit').textContent = '$' + totalProfit.toFixed(2);
+            document.getElementById('totalLoss').textContent = '$' + totalLoss.toFixed(2);
+            document.getElementById('winRate').textContent = winRate + '%';
+            document.getElementById('winRateChange').textContent = `${winTrades} dari ${trades.length} trades`;
+            document.getElementById('avgProfit').textContent = '$' + avgProfit;
+            document.getElementById('avgLoss').textContent = '$' + avgLoss;
+            document.getElementById('profitFactor').textContent = profitFactor;
+            document.getElementById('longTrades').textContent = longCount;
+            document.getElementById('shortTrades').textContent = shortCount;
         }
-        
+
+        function updateSummaries(trades) {
+            if (!trades || trades.length === 0) return;
+
+            // Daily Summary
+            const dailyStats = {};
+            trades.forEach(trade => {
+                const date = trade.time.split(' ')[0];
+                if (!dailyStats[date]) {
+                    dailyStats[date] = { profit: 0, loss: 0, count: 0, winCount: 0 };
+                }
+                const pnl = parseFloat(trade.pnl) || 0;
+                if (pnl > 0) {
+                    dailyStats[date].profit += pnl;
+                    dailyStats[date].winCount++;
+                } else if (pnl < 0) {
+                    dailyStats[date].loss += Math.abs(pnl);
+                }
+                dailyStats[date].count++;
+            });
+
+            const dailyDates = Object.keys(dailyStats).sort().reverse();
+            const dailyHtml = dailyDates.map(date => {
+                const stat = dailyStats[date];
+                const net = stat.profit - stat.loss;
+                return `
+                    <div class="summary-item ${net > 0 ? 'profit' : 'loss'}">
+                        <div class="summary-label">${date}</div>
+                        <div class="summary-value">${net > 0 ? '+' : ''}$${net.toFixed(2)}</div>
+                        <div class="summary-detail">
+                            Profit: $${stat.profit.toFixed(2)} | Loss: $${stat.loss.toFixed(2)} | Trades: ${stat.count} (${stat.winCount}W)
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            document.getElementById('dailySummary').innerHTML = dailyHtml;
+
+            // Weekly Summary
+            const weeklyStats = {};
+            trades.forEach(trade => {
+                const date = new Date(trade.time);
+                const weekStart = new Date(date);
+                weekStart.setDate(date.getDate() - date.getDay());
+                const weekKey = weekStart.toISOString().split('T')[0];
+                
+                if (!weeklyStats[weekKey]) {
+                    weeklyStats[weekKey] = { profit: 0, loss: 0, count: 0, winCount: 0 };
+                }
+                const pnl = parseFloat(trade.pnl) || 0;
+                if (pnl > 0) {
+                    weeklyStats[weekKey].profit += pnl;
+                    weeklyStats[weekKey].winCount++;
+                } else if (pnl < 0) {
+                    weeklyStats[weekKey].loss += Math.abs(pnl);
+                }
+                weeklyStats[weekKey].count++;
+            });
+
+            const weeklyDates = Object.keys(weeklyStats).sort().reverse();
+            const weeklyHtml = weeklyDates.map(date => {
+                const stat = weeklyStats[date];
+                const net = stat.profit - stat.loss;
+                return `
+                    <div class="summary-item ${net > 0 ? 'profit' : 'loss'}">
+                        <div class="summary-label">Week of ${date}</div>
+                        <div class="summary-value">${net > 0 ? '+' : ''}$${net.toFixed(2)}</div>
+                        <div class="summary-detail">
+                            Profit: $${stat.profit.toFixed(2)} | Loss: $${stat.loss.toFixed(2)} | Trades: ${stat.count} (${stat.winCount}W)
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            document.getElementById('weeklySummary').innerHTML = weeklyHtml;
+
+            // Monthly Summary
+            const monthlyStats = {};
+            trades.forEach(trade => {
+                const monthKey = trade.time.substring(0, 7); // YYYY-MM
+                if (!monthlyStats[monthKey]) {
+                    monthlyStats[monthKey] = { profit: 0, loss: 0, count: 0, winCount: 0 };
+                }
+                const pnl = parseFloat(trade.pnl) || 0;
+                if (pnl > 0) {
+                    monthlyStats[monthKey].profit += pnl;
+                    monthlyStats[monthKey].winCount++;
+                } else if (pnl < 0) {
+                    monthlyStats[monthKey].loss += Math.abs(pnl);
+                }
+                monthlyStats[monthKey].count++;
+            });
+
+            const monthlyDates = Object.keys(monthlyStats).sort().reverse();
+            const monthlyHtml = monthlyDates.map(date => {
+                const stat = monthlyStats[date];
+                const net = stat.profit - stat.loss;
+                return `
+                    <div class="summary-item ${net > 0 ? 'profit' : 'loss'}">
+                        <div class="summary-label">${date}</div>
+                        <div class="summary-value">${net > 0 ? '+' : ''}$${net.toFixed(2)}</div>
+                        <div class="summary-detail">
+                            Profit: $${stat.profit.toFixed(2)} | Loss: $${stat.loss.toFixed(2)} | Trades: ${stat.count} (${stat.winCount}W)
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            document.getElementById('monthlySummary').innerHTML = monthlyHtml;
+        }
+
         function updateCharts(trades) {
-            // Profit/Loss Trend
-            const profitData = trades.map((t, i) => Math.random() * 10 - 5);
+            // Profit Trend Chart
+            const profitTrend = trades.map(t => parseFloat(t.pnl) || 0);
+            const cumulativePnL = [];
+            let cumSum = 0;
+            profitTrend.forEach(p => {
+                cumSum += p;
+                cumulativePnL.push(cumSum);
+            });
+
             const ctx1 = document.getElementById('profitChart').getContext('2d');
             if (profitChart) profitChart.destroy();
             profitChart = new Chart(ctx1, {
@@ -316,24 +789,41 @@
                 data: {
                     labels: trades.map((_, i) => `Trade ${i + 1}`),
                     datasets: [{
-                        label: 'Profit/Loss ($)',
-                        data: profitData,
+                        label: 'Cumulative P&L ($)',
+                        data: cumulativePnL,
                         borderColor: '#667eea',
                         backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                        borderWidth: 2,
+                        fill: true,
                         tension: 0.4,
-                        fill: true
+                        pointRadius: 4,
+                        pointBackgroundColor: '#667eea',
+                        pointBorderColor: '#fff',
+                        pointBorderWidth: 2
                     }]
                 },
                 options: {
                     responsive: true,
-                    plugins: { legend: { display: true } },
-                    scales: { y: { beginAtZero: true } }
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { display: true, position: 'top' }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
                 }
             });
-            
-            // Trade Distribution
+
+            // Distribution Chart
             const longCount = trades.filter(t => t.signal === 'LONG').length;
             const shortCount = trades.filter(t => t.signal === 'SHORT').length;
+
             const ctx2 = document.getElementById('distributionChart').getContext('2d');
             if (distributionChart) distributionChart.destroy();
             distributionChart = new Chart(ctx2, {
@@ -342,20 +832,134 @@
                     labels: ['LONG', 'SHORT'],
                     datasets: [{
                         data: [longCount, shortCount],
-                        backgroundColor: ['#10b981', '#ef4444']
+                        backgroundColor: ['#10b981', '#ef4444'],
+                        borderColor: '#fff',
+                        borderWidth: 2
                     }]
                 },
-                options: { responsive: true, plugins: { legend: { display: true } } }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+
+            // Coin Performance Chart
+            const coinStats = {};
+            trades.forEach(t => {
+                if (!coinStats[t.coin]) {
+                    coinStats[t.coin] = { profit: 0, loss: 0 };
+                }
+                const pnl = parseFloat(t.pnl) || 0;
+                if (pnl > 0) coinStats[t.coin].profit += pnl;
+                else coinStats[t.coin].loss += Math.abs(pnl);
+            });
+
+            const coins = Object.keys(coinStats);
+            const coinProfits = coins.map(c => coinStats[c].profit);
+            const coinLosses = coins.map(c => coinStats[c].loss);
+
+            const ctx3 = document.getElementById('coinChart').getContext('2d');
+            if (coinChart) coinChart.destroy();
+            coinChart = new Chart(ctx3, {
+                type: 'bar',
+                data: {
+                    labels: coins,
+                    datasets: [
+                        {
+                            label: 'Profit ($)',
+                            data: coinProfits,
+                            backgroundColor: '#10b981'
+                        },
+                        {
+                            label: 'Loss ($)',
+                            data: coinLosses,
+                            backgroundColor: '#ef4444'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+
+            // Daily Trades Chart
+            const dailyStats = {};
+            trades.forEach(t => {
+                const date = t.time.split(' ')[0];
+                dailyStats[date] = (dailyStats[date] || 0) + 1;
+            });
+
+            const dates = Object.keys(dailyStats).sort();
+            const dailyCounts = dates.map(d => dailyStats[d]);
+
+            const ctx4 = document.getElementById('dailyTradesChart').getContext('2d');
+            if (dailyTradesChart) dailyTradesChart.destroy();
+            dailyTradesChart = new Chart(ctx4, {
+                type: 'bar',
+                data: {
+                    labels: dates,
+                    datasets: [{
+                        label: 'Trades per Day',
+                        data: dailyCounts,
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: {
+                        y: { beginAtZero: true, ticks: { stepSize: 1 } }
+                    }
+                }
             });
         }
-        
+
+        function updateTable(trades) {
+            if (!trades || trades.length === 0) {
+                document.getElementById('tradesTableBody').innerHTML = 
+                    '<tr><td colspan="12" style="text-align: center; padding: 20px; color: #999;">Belum ada data trade</td></tr>';
+                return;
+            }
+
+            const tbody = document.getElementById('tradesTableBody');
+            tbody.innerHTML = trades.map(trade => `
+                <tr>
+                    <td>${trade.time}</td>
+                    <td><span class="coin-badge">${trade.coin}</span></td>
+                    <td><span class="signal-badge signal-${trade.signal.toLowerCase()}">${trade.signal}</span></td>
+                    <td>$${parseFloat(trade.entry).toFixed(2)}</td>
+                    <td><strong style="color: #10b981;">$${parseFloat(trade.tp).toFixed(2)}</strong></td>
+                    <td><strong style="color: #ef4444;">$${parseFloat(trade.sl).toFixed(2)}</strong></td>
+                    <td>$${parseFloat(trade.margin).toFixed(2)}</td>
+                    <td>${trade.leverage}x</td>
+                    <td>${trade.cvd_score || 'N/A'}</td>
+                    <td>${trade.rsi || 'N/A'}</td>
+                    <td><span class="status-badge status-${trade.status.toLowerCase()}">${trade.status}</span></td>
+                    <td style="font-weight: bold; ${parseFloat(trade.pnl) > 0 ? 'color: #10b981;' : 'color: #ef4444;'}">
+                        ${parseFloat(trade.pnl) > 0 ? '+' : ''}$${parseFloat(trade.pnl).toFixed(2)}
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function updateLastUpdate() {
+            const now = new Date();
+            document.getElementById('lastUpdate').textContent = now.toLocaleTimeString('id-ID');
+        }
+
         // Load data on page load
-        loadTradesData().then(updateDashboard);
-        
-        // Refresh every 30 seconds
-        setInterval(() => {
-            loadTradesData().then(updateDashboard);
-        }, 30000);
+        loadData();
+
+        // Refresh data setiap 30 detik
+        setInterval(loadData, 30000);
     </script>
 </body>
 </html>
