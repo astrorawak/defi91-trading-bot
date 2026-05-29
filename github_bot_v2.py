@@ -539,15 +539,9 @@ def manage_open_positions(exchange, info, all_mids):
             close_reason = f"Signal reversed to STRONG LONG (score: {total_score})"
         
         if should_close:
-            print(f"    ⚡ SMART EXIT: {close_reason}")
+            print(f"    \u26a1 SMART EXIT: {close_reason}")
             try:
-                # Cancel semua open orders untuk koin ini (TP/SL lama)
-                open_orders = info.open_orders(MAIN_WALLET)
-                for order in open_orders:
-                    if order.get("coin") == coin:
-                        exchange.cancel(coin, order["oid"])
-                
-                # Close posisi dengan IOC order (lebih reliable daripada market_close)
+                # STEP 1: Close posisi DULU (sebelum cancel TP/SL)
                 close_size = abs(szi)
                 close_is_buy = not is_long  # Opposite direction to close
                 if close_is_buy:
@@ -569,7 +563,14 @@ def manage_open_positions(exchange, info, all_mids):
                 if statuses and "filled" in statuses[0]:
                     exit_price = float(statuses[0]["filled"]["avgPx"])
                     actual_pnl = (exit_price - entry_px) / entry_px if is_long else (entry_px - exit_price) / entry_px
-                    print(f"    ✅ Position CLOSED @ ${exit_price} (Smart Exit) | PnL: {actual_pnl*100:.2f}%")
+                    print(f"    \u2705 Position CLOSED @ ${exit_price} (Smart Exit) | PnL: {actual_pnl*100:.2f}%")
+                    
+                    # STEP 2: Cancel TP/SL HANYA jika close berhasil
+                    open_orders = info.open_orders(MAIN_WALLET)
+                    for order in open_orders:
+                        if order.get("coin") == coin:
+                            exchange.cancel(coin, order["oid"])
+                    
                     actions_taken.append({
                         "coin": coin,
                         "action": "SMART_EXIT",
@@ -579,10 +580,11 @@ def manage_open_positions(exchange, info, all_mids):
                         "exit": exit_price,
                     })
                 else:
-                    print(f"    ❌ Close failed: {statuses}")
+                    # Close gagal - JANGAN cancel TP/SL, biarkan proteksi tetap aktif
+                    print(f"    \u274c Close failed (TP/SL tetap aktif): {statuses}")
             except Exception as e:
-                print(f"    ❌ Smart Exit error: {e}")
-            continue  # Posisi sudah ditutup, lanjut ke posisi berikutnya
+                print(f"    \u274c Smart Exit error (TP/SL tetap aktif): {e}")
+            continue  # Lanjut ke posisi berikutnya
         
         # ─────────────────────────────────────────────────────────
         # STEP 2: TRAILING STOP - Geser SL mengunci profit
