@@ -456,13 +456,23 @@ def run_bot():
     info = Info(constants.MAINNET_API_URL, skip_ws=True)
     exchange = Exchange(account, constants.MAINNET_API_URL)
     
-    # Check account
+    # Check account - Unified Account: saldo USDC ada di spotClearinghouseState
+    spot_payload = {"type": "spotClearinghouseState", "user": MAIN_WALLET}
+    spot_resp = requests.post("https://api.hyperliquid.xyz/info", json=spot_payload, timeout=10)
+    spot_data = spot_resp.json()
+    usdc_balance = 0.0
+    for bal in spot_data.get("balances", []):
+        if bal.get("coin") == "USDC":
+            usdc_balance = float(bal.get("total", 0))
+            break
+    
     user_state = info.user_state(MAIN_WALLET)
-    account_value = float(user_state.get("marginSummary", {}).get("accountValue", 0))
     margin_used = float(user_state.get("marginSummary", {}).get("totalMarginUsed", 0))
+    account_value = usdc_balance
     available = account_value - margin_used
     
-    print(f"\nAccount Value: ${account_value:.2f}")
+    print(f"\nAccount Value (Unified): ${account_value:.2f}")
+    print(f"USDC Balance: ${usdc_balance:.2f}")
     print(f"Margin Used: ${margin_used:.2f}")
     print(f"Available: ${available:.2f}")
     
