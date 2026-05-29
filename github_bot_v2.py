@@ -24,16 +24,31 @@ from hyperliquid.utils import constants
 PRIVATE_KEY = os.getenv("HYPERLIQUID_PRIVATE_KEY", "")
 MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 
-# Trading Parameters (sesuai strategi almarhum)
-WATCHLIST = ["BTC", "ETH", "BNB"]  # Coin yang almarhum kuasai
-MARGIN_PER_TRADE = 2.0  # $2 per trade (marking)
+# Trading Parameters (agresif & terukur - mempercepat akumulasi)
+WATCHLIST = [
+    "BTC",   # #1 volume - Raja crypto
+    "HYPE",  # #2 volume - Native Hyperliquid token
+    "ETH",   # #3 volume - King of altcoins
+    "SOL",   # #5 volume - Ecosystem terkuat
+    "NEAR",  # #6 volume - AI narrative
+    "XRP",   # #7 volume - Payment leader
+    "WLD",   # #9 volume - AI/Worldcoin
+    "SUI",   # #13 volume - Move ecosystem
+    "DOGE",  # #19 volume - Meme king
+    "BNB",   # Exchange coin - almarhum kuasai
+]
+MARGIN_PER_TRADE = 1.5  # $1.5 per trade (lebih banyak posisi, risiko terjaga)
 LEVERAGE = 10  # 10x leverage
 TP_PERCENT = 0.02  # 2% Take Profit
 SL_PERCENT = 0.01  # 1% Stop Loss
 ENTRY_THRESHOLD = 2  # Minimum score untuk entry
+MAX_OPEN_POSITIONS = 7  # Maksimal 7 posisi bersamaan ($1.5 x 7 = $10.5 margin)
 
 # Size decimals per coin (dari Hyperliquid metadata)
-SZ_DECIMALS = {"BTC": 5, "ETH": 4, "BNB": 3}
+SZ_DECIMALS = {
+    "BTC": 5, "ETH": 4, "BNB": 3, "SOL": 2, "HYPE": 2,
+    "XRP": 0, "NEAR": 1, "DOGE": 0, "SUI": 1, "WLD": 1,
+}
 
 # ============================================================
 # HELPER FUNCTIONS
@@ -46,6 +61,23 @@ def round_size(coin, size):
     """Round size to correct decimals for each coin"""
     decimals = SZ_DECIMALS.get(coin, 4)
     return round(size, decimals)
+
+def format_price(price):
+    """Format price to max 5 significant figures for Hyperliquid API"""
+    if price >= 10000:
+        return round(price, 0)
+    elif price >= 1000:
+        return round(price, 1)
+    elif price >= 100:
+        return round(price, 1)
+    elif price >= 10:
+        return round(price, 2)
+    elif price >= 1:
+        return round(price, 3)
+    elif price >= 0.1:
+        return round(price, 4)
+    else:
+        return round(price, 5)
 
 def calculate_rsi(prices, period=14):
     """Calculate RSI from price array"""
@@ -346,15 +378,15 @@ def execute_trade(exchange, info, coin, direction, current_price):
     size = position_value / current_price
     size = round_size(coin, size)
     
-    # Calculate TP/SL prices
+    # Calculate TP/SL prices (format_price ensures Hyperliquid compatibility)
     if is_buy:  # LONG
-        tp_price = int(current_price * (1 + TP_PERCENT))
-        sl_price = int(current_price * (1 - SL_PERCENT))
-        limit_px = int(current_price + 100)  # Slippage allowance for buy
+        tp_price = format_price(current_price * (1 + TP_PERCENT))
+        sl_price = format_price(current_price * (1 - SL_PERCENT))
+        limit_px = format_price(current_price * 1.005)  # 0.5% slippage
     else:  # SHORT
-        tp_price = int(current_price * (1 - TP_PERCENT))
-        sl_price = int(current_price * (1 + SL_PERCENT))
-        limit_px = int(current_price - 100)  # Slippage allowance for sell
+        tp_price = format_price(current_price * (1 - TP_PERCENT))
+        sl_price = format_price(current_price * (1 + SL_PERCENT))
+        limit_px = format_price(current_price * 0.995)  # 0.5% slippage
     
     print(f"\n  EXECUTING {direction} {coin}")
     print(f"  Size: {size} | Margin: ${MARGIN_PER_TRADE} | Leverage: {LEVERAGE}x")
@@ -437,6 +469,214 @@ def execute_trade(exchange, info, coin, direction, current_price):
         return {"success": False, "error": str(e)}
 
 # ============================================================
+# SMART EXIT + TRAILING STOP (Opsi B + C)
+# ============================================================
+SMART_EXIT_THRESHOLD = 3  # Skor berlawanan >= 3 = early close
+TRAILING_BREAKEVEN = 0.01  # Profit >= 1% → SL geser ke breakeven
+TRAILING_LOCK = 0.015  # Profit >= 1.5% → SL geser ke +1%
+
+def manage_open_positions(exchange, info, all_mids):
+    """
+    Smart Exit + Trailing Stop:
+    1. Analisa ulang setiap posisi terbuka
+    2. Jika sinyal berbalik kuat (skor >= 3 berlawanan) → early close
+    3. Jika profit >= 1% → geser SL ke breakeven
+    4. Jika profit >= 1.5% → geser SL ke +1% (profit terkunci)
+    """
+    print(f"\n{'='*60}")
+    print(f"SMART POSITION MANAGEMENT")
+    print(f"{'='*60}")
+    
+    user_state = info.user_state(MAIN_WALLET)
+    positions = user_state.get("assetPositions", [])
+    
+    actions_taken = []
+    
+    for pos in positions:
+        p = pos.get("position", {})
+        coin = p.get("coin")
+        szi = float(p.get("szi", 0))
+        entry_px = float(p.get("entryPx", 0))
+        
+        if szi == 0 or coin not in WATCHLIST:
+            continue
+        
+        is_long = szi > 0
+        direction = "LONG" if is_long else "SHORT"
+        current_price = float(all_mids.get(coin, 0))
+        
+        if current_price == 0 or entry_px == 0:
+            continue
+        
+        # Hitung profit/loss saat ini
+        if is_long:
+            pnl_percent = (current_price - entry_px) / entry_px
+        else:
+            pnl_percent = (entry_px - current_price) / entry_px
+        
+        print(f"\n  [{coin}] {direction} | Entry: ${entry_px:.4f} | Now: ${current_price:.4f} | PnL: {pnl_percent*100:.2f}%")
+        
+        # ─────────────────────────────────────────────────────────
+        # STEP 1: SMART EXIT - Analisa ulang sinyal
+        # ─────────────────────────────────────────────────────────
+        onchain_score, _ = analyze_onchain(coin)
+        tech_score, _ = analyze_technical(coin)
+        total_score = onchain_score + tech_score
+        
+        print(f"    Re-analysis Score: {total_score}/12")
+        
+        # Cek apakah sinyal berbalik kuat
+        should_close = False
+        close_reason = ""
+        
+        if is_long and total_score <= -SMART_EXIT_THRESHOLD:
+            # Posisi LONG tapi sinyal sekarang STRONG SHORT
+            should_close = True
+            close_reason = f"Signal reversed to STRONG SHORT (score: {total_score})"
+        elif not is_long and total_score >= SMART_EXIT_THRESHOLD:
+            # Posisi SHORT tapi sinyal sekarang STRONG LONG
+            should_close = True
+            close_reason = f"Signal reversed to STRONG LONG (score: {total_score})"
+        
+        if should_close:
+            print(f"    \u26a1 SMART EXIT: {close_reason}")
+            try:
+                # STEP 1: Close posisi DULU (sebelum cancel TP/SL)
+                close_size = abs(szi)
+                close_is_buy = not is_long  # Opposite direction to close
+                if close_is_buy:
+                    close_px = format_price(current_price * 1.005)  # Slippage
+                else:
+                    close_px = format_price(current_price * 0.995)  # Slippage
+                
+                close_order = {
+                    "coin": coin,
+                    "is_buy": close_is_buy,
+                    "sz": close_size,
+                    "limit_px": close_px,
+                    "order_type": {"limit": {"tif": "Ioc"}},
+                    "reduce_only": True,
+                }
+                result = exchange.bulk_orders([close_order])
+                statuses = result.get("response", {}).get("data", {}).get("statuses", [])
+                
+                if statuses and "filled" in statuses[0]:
+                    exit_price = float(statuses[0]["filled"]["avgPx"])
+                    actual_pnl = (exit_price - entry_px) / entry_px if is_long else (entry_px - exit_price) / entry_px
+                    print(f"    \u2705 Position CLOSED @ ${exit_price} (Smart Exit) | PnL: {actual_pnl*100:.2f}%")
+                    
+                    # STEP 2: Cancel TP/SL HANYA jika close berhasil
+                    open_orders = info.open_orders(MAIN_WALLET)
+                    for order in open_orders:
+                        if order.get("coin") == coin:
+                            exchange.cancel(coin, order["oid"])
+                    
+                    actions_taken.append({
+                        "coin": coin,
+                        "action": "SMART_EXIT",
+                        "reason": close_reason,
+                        "pnl_percent": actual_pnl,
+                        "entry": entry_px,
+                        "exit": exit_price,
+                    })
+                else:
+                    # Close gagal - JANGAN cancel TP/SL, biarkan proteksi tetap aktif
+                    print(f"    \u274c Close failed (TP/SL tetap aktif): {statuses}")
+            except Exception as e:
+                print(f"    \u274c Smart Exit error (TP/SL tetap aktif): {e}")
+            continue  # Lanjut ke posisi berikutnya
+        
+        # ─────────────────────────────────────────────────────────
+        # STEP 2: TRAILING STOP - Geser SL mengunci profit
+        # ─────────────────────────────────────────────────────────
+        if pnl_percent >= TRAILING_BREAKEVEN:
+            # Tentukan SL baru
+            if pnl_percent >= TRAILING_LOCK:
+                # Profit >= 1.5% → Lock profit di +1%
+                if is_long:
+                    new_sl = format_price(entry_px * 1.01)
+                else:
+                    new_sl = format_price(entry_px * 0.99)
+                trail_type = "LOCK +1%"
+            else:
+                # Profit >= 1% → Geser ke breakeven
+                new_sl = format_price(entry_px)
+                trail_type = "BREAKEVEN"
+            
+            # Cek apakah SL saat ini sudah lebih baik dari new_sl
+            # Ambil open orders untuk cari SL yang aktif
+            open_orders = info.open_orders(MAIN_WALLET)
+            current_sl_oid = None
+            current_sl_price = None
+            
+            for order in open_orders:
+                if (order.get("coin") == coin and 
+                    order.get("orderType", "") == "Stop Market" and
+                    order.get("reduceOnly", False)):
+                    current_sl_oid = order["oid"]
+                    current_sl_price = float(order.get("triggerPx", 0))
+                    break
+            
+            # Hanya geser SL jika SL baru lebih baik (lebih dekat ke profit)
+            should_trail = False
+            if current_sl_price is not None:
+                if is_long and new_sl > current_sl_price:
+                    should_trail = True  # SL naik = lebih baik untuk LONG
+                elif not is_long and new_sl < current_sl_price:
+                    should_trail = True  # SL turun = lebih baik untuk SHORT
+            elif current_sl_oid is None:
+                # Tidak ada SL terpasang, pasang baru
+                should_trail = True
+            
+            if should_trail:
+                print(f"    📈 TRAILING STOP: {trail_type} | New SL: ${new_sl}")
+                try:
+                    # Cancel SL lama
+                    if current_sl_oid:
+                        exchange.cancel(coin, current_sl_oid)
+                    
+                    # Pasang SL baru
+                    size = abs(szi)
+                    sl_order = {
+                        "coin": coin,
+                        "is_buy": not is_long,  # Opposite direction
+                        "sz": size,
+                        "limit_px": new_sl,
+                        "order_type": {"trigger": {"triggerPx": new_sl, "isMarket": True, "tpsl": "sl"}},
+                        "reduce_only": True,
+                    }
+                    result = exchange.bulk_orders([sl_order])
+                    statuses = result.get("response", {}).get("data", {}).get("statuses", [])
+                    
+                    if statuses and "resting" in statuses[0]:
+                        print(f"    ✅ SL updated to ${new_sl} ({trail_type})")
+                        actions_taken.append({
+                            "coin": coin,
+                            "action": "TRAILING_STOP",
+                            "reason": trail_type,
+                            "old_sl": current_sl_price,
+                            "new_sl": new_sl,
+                            "pnl_percent": pnl_percent,
+                        })
+                    else:
+                        print(f"    ❌ SL update failed: {statuses}")
+                except Exception as e:
+                    print(f"    ❌ Trailing Stop error: {e}")
+            else:
+                print(f"    ✅ SL already optimal (current: ${current_sl_price}, target: ${new_sl})")
+        else:
+            print(f"    ⏳ Holding (PnL {pnl_percent*100:.2f}% < 1% trailing threshold)")
+    
+    if not actions_taken:
+        print(f"\n  No position adjustments needed.")
+    else:
+        print(f"\n  Actions taken: {len(actions_taken)}")
+        for a in actions_taken:
+            print(f"    - {a['coin']}: {a['action']} ({a['reason']})")
+    
+    return actions_taken
+
+# ============================================================
 # MAIN BOT LOGIC
 # ============================================================
 def run_bot():
@@ -456,13 +696,23 @@ def run_bot():
     info = Info(constants.MAINNET_API_URL, skip_ws=True)
     exchange = Exchange(account, constants.MAINNET_API_URL)
     
-    # Check account
+    # Check account - Unified Account: saldo USDC ada di spotClearinghouseState
+    spot_payload = {"type": "spotClearinghouseState", "user": MAIN_WALLET}
+    spot_resp = requests.post("https://api.hyperliquid.xyz/info", json=spot_payload, timeout=10)
+    spot_data = spot_resp.json()
+    usdc_balance = 0.0
+    for bal in spot_data.get("balances", []):
+        if bal.get("coin") == "USDC":
+            usdc_balance = float(bal.get("total", 0))
+            break
+    
     user_state = info.user_state(MAIN_WALLET)
-    account_value = float(user_state.get("marginSummary", {}).get("accountValue", 0))
     margin_used = float(user_state.get("marginSummary", {}).get("totalMarginUsed", 0))
+    account_value = usdc_balance
     available = account_value - margin_used
     
-    print(f"\nAccount Value: ${account_value:.2f}")
+    print(f"\nAccount Value (Unified): ${account_value:.2f}")
+    print(f"USDC Balance: ${usdc_balance:.2f}")
     print(f"Margin Used: ${margin_used:.2f}")
     print(f"Available: ${available:.2f}")
     
@@ -487,6 +737,34 @@ def run_bot():
     # Get all mid prices
     all_mids = info.all_mids()
     
+    # ═══════════════════════════════════════════════════════════
+    # SMART POSITION MANAGEMENT (Analisa ulang + Trailing Stop)
+    # Dijalankan SEBELUM mencari entry baru
+    # ═══════════════════════════════════════════════════════════
+    if open_coins:
+        smart_actions = manage_open_positions(exchange, info, all_mids)
+        
+        # Refresh posisi setelah smart exit (mungkin ada yang ditutup)
+        if smart_actions:
+            user_state = info.user_state(MAIN_WALLET)
+            positions = user_state.get("assetPositions", [])
+            open_coins = []
+            for pos in positions:
+                p = pos.get("position", {})
+                coin_name = p.get("coin")
+                szi = float(p.get("szi", 0))
+                if szi != 0:
+                    open_coins.append(coin_name)
+            
+            # Recalculate available balance
+            margin_used = float(user_state.get("marginSummary", {}).get("totalMarginUsed", 0))
+            available = account_value - margin_used
+            print(f"\n  [Updated] Open positions: {len(open_coins)} | Available: ${available:.2f}")
+    
+    # ═══════════════════════════════════════════════════════════
+    # MENCARI ENTRY BARU
+    # ═══════════════════════════════════════════════════════════
+    
     # Analyze each coin
     trades_executed = []
     
@@ -494,6 +772,10 @@ def run_bot():
         if coin in open_coins:
             print(f"\n--- {coin}: SKIP (already has open position) ---")
             continue
+        
+        if len(open_coins) + len(trades_executed) >= MAX_OPEN_POSITIONS:
+            print(f"\n--- {coin}: SKIP (max {MAX_OPEN_POSITIONS} positions reached) ---")
+            break
         
         if available < MARGIN_PER_TRADE:
             print(f"\n--- {coin}: SKIP (insufficient balance) ---")
@@ -546,6 +828,8 @@ def run_bot():
         trade_result = execute_trade(exchange, info, coin, direction, current_price)
         
         if trade_result.get("success"):
+            trade_result["cvd_score"] = str(onchain_score)
+            trade_result["rsi"] = tech_details.get("rsi", "N/A")
             trades_executed.append(trade_result)
             available -= MARGIN_PER_TRADE
             print(f"  ✅ TRADE EXECUTED SUCCESSFULLY!")
@@ -580,22 +864,25 @@ def save_trades_json(new_trades, status, message):
     data["bot_status"] = "ACTIVE"
     data["account_wallet"] = MAIN_WALLET
     
-    # Add new trades
+    # Add new trades (field names match dashboard JS: signal, entry, tp, sl, time, pnl)
     for trade in new_trades:
         trade_entry = {
             "id": len(data.get("trades", [])) + 1,
-            "timestamp": get_wib_time().strftime("%Y-%m-%d %H:%M:%S"),
+            "time": get_wib_time().strftime("%Y-%m-%d %H:%M:%S"),
             "coin": trade["coin"],
-            "direction": trade["direction"],
-            "entry_price": trade["entry_price"],
-            "tp_price": trade["tp_price"],
-            "sl_price": trade["sl_price"],
+            "signal": trade["direction"],
+            "entry": trade["entry_price"],
+            "tp": trade["tp_price"],
+            "sl": trade["sl_price"],
             "size": trade["size"],
             "margin": MARGIN_PER_TRADE,
             "leverage": LEVERAGE,
             "tp_set": trade["tp_set"],
             "sl_set": trade["sl_set"],
             "status": "OPEN",
+            "pnl": 0.0,
+            "cvd_score": trade.get("cvd_score", "N/A"),
+            "rsi": trade.get("rsi", "N/A"),
         }
         data.setdefault("trades", []).append(trade_entry)
     
