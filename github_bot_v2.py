@@ -13,7 +13,7 @@ from pathlib import Path
 TRADES_FILE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "trades.json")
 
 CONFIG = {
-    "MODE": os.getenv("TRADING_MODE", "PAPER"),
+    "MODE": os.getenv("TRADING_MODE", "LIVE"),
     "COINS": ["BTC", "ETH", "BNB"],
     "TIMEFRAME": "15m",
     "MARGIN_PER_TRADE": float(os.getenv("MARGIN_PER_TRADE") or "2.0"),
