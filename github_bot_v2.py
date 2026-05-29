@@ -430,7 +430,7 @@ def execute_trade(exchange, info, coin, direction, current_price):
     ]
     
     try:
-        result = exchange.bulk_orders(orders)
+        result = exchange.bulk_orders(orders, grouping="normalTpsl")
         statuses = result.get("response", {}).get("data", {}).get("statuses", [])
         
         order_filled = False
