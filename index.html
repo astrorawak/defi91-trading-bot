@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeFi91 Trading Bot | Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--bg:#0a0e17;--bg2:#111827;--card:#1a2332;--card-h:#1f2b3d;--border:#2d3748;--t1:#e2e8f0;--t2:#94a3b8;--t3:#64748b;--green:#10b981;--green-d:rgba(16,185,129,.15);--red:#ef4444;--red-d:rgba(239,68,68,.15);--blue:#3b82f6;--blue-d:rgba(59,130,246,.15);--yellow:#f59e0b;--yellow-d:rgba(245,158,11,.15);--purple:#8b5cf6}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;line-height:1.6}
+        .header{background:var(--bg2);border-bottom:1px solid var(--border);padding:16px 24px;position:sticky;top:0;z-index:100;backdrop-filter:blur(10px)}
+        .header-content{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+        .logo{display:flex;align-items:center;gap:12px}
+        .logo-icon{width:40px;height:40px;background:linear-gradient(135deg,#3b82f6,#2563eb);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:bold;color:#fff}
+        .logo-text h1{font-size:18px;font-weight:700;color:var(--t1)}
+        .logo-text span{font-size:11px;color:var(--t3)}
+        .header-status{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+        .status-badge{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;background:var(--green-d);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+        .status-dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+        .last-update{font-size:11px;color:var(--t3)}
+        .container{max-width:1400px;margin:0 auto;padding:24px}
+        .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:24px}
+        .stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:all .3s ease}
+        .stat-card:hover{background:var(--card-h);transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.3)}
+        .stat-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);margin-bottom:8px}
+        .stat-value{font-size:26px;font-weight:700}
+        .stat-value.green{color:var(--green)}.stat-value.red{color:var(--red)}.stat-value.blue{color:var(--blue)}.stat-value.yellow{color:var(--yellow)}.stat-value.purple{color:var(--purple)}
+        .stat-sub{font-size:12px;color:var(--t3);margin-top:4px}
+        .balance-card{background:linear-gradient(135deg,#1a2332,#0f172a);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+        .balance-left h3{font-size:13px;color:var(--t3);margin-bottom:4px}
+        .balance-amount{font-size:36px;font-weight:700;color:var(--t1)}
+        .balance-change{font-size:14px;margin-top:4px}
+        .balance-right{text-align:right}
+        .balance-right .metric{margin-bottom:8px}
+        .balance-right .metric-label{font-size:11px;color:var(--t3)}
+        .balance-right .metric-value{font-size:16px;font-weight:600;color:var(--green)}
+        .section-title{font-size:16px;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+        .section-title .count{background:var(--blue-d);color:var(--blue);padding:2px 8px;border-radius:10px;font-size:12px}
+        .positions-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:24px}
+        .position-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;position:relative;overflow:hidden}
+        .position-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+        .position-card.long::before{background:linear-gradient(135deg,#10b981,#059669)}
+        .position-card.short::before{background:linear-gradient(135deg,#ef4444,#dc2626)}
+        .position-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+        .coin-name{font-size:16px;font-weight:700}
+        .signal-badge{font-size:11px;font-weight:600;padding:3px 8px;border-radius:4px}
+        .signal-badge.long{background:var(--green-d);color:var(--green)}
+        .signal-badge.short{background:var(--red-d);color:var(--red)}
+        .position-pnl{font-size:18px;font-weight:700}
+        .position-details{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+        .position-detail{display:flex;justify-content:space-between;font-size:12px;padding:4px 0;border-bottom:1px solid rgba(45,55,72,.5)}
+        .position-detail .label{color:var(--t3)}
+        .position-detail .value{font-weight:600;color:var(--t2)}
+        .charts-grid{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-bottom:24px}
+        @media(max-width:768px){.charts-grid{grid-template-columns:1fr}}
+        .chart-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+        .chart-card h3{font-size:14px;font-weight:600;margin-bottom:16px;color:var(--t2)}
+        .rekap-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px}
+        .rekap-tabs{display:flex;gap:4px;margin-bottom:16px;background:var(--bg);border-radius:8px;padding:4px}
+        .rekap-tab{flex:1;padding:8px 16px;border:none;background:transparent;color:var(--t3);font-size:13px;font-weight:600;border-radius:6px;cursor:pointer;transition:all .2s}
+        .rekap-tab.active{background:var(--blue);color:#fff}
+        .rekap-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+        .rekap-item{text-align:center;padding:12px;background:var(--bg);border-radius:8px}
+        .rekap-item .value{font-size:20px;font-weight:700}
+        .rekap-item .label{font-size:11px;color:var(--t3);margin-top:4px}
+        .table-section{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:24px}
+        .table-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+        .table-header h3{font-size:14px;font-weight:600}
+        .table-wrapper{overflow-x:auto}
+        table{width:100%;border-collapse:collapse}
+        th{padding:12px 16px;text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:var(--t3);background:rgba(0,0,0,.2);border-bottom:1px solid var(--border)}
+        td{padding:12px 16px;font-size:13px;border-bottom:1px solid rgba(45,55,72,.3)}
+        tr:hover td{background:rgba(59,130,246,.05)}
+        .badge-open{background:var(--blue-d);color:var(--blue);padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600}
+        .badge-tp{background:var(--green-d);color:var(--green);padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600}
+        .badge-sl{background:var(--red-d);color:var(--red);padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600}
+        .activity-section{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:24px}
+        .activity-item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(45,55,72,.3)}
+        .activity-item:last-child{border-bottom:none}
+        .activity-dot{width:8px;height:8px;border-radius:50%;margin-top:6px;flex-shrink:0}
+        .activity-dot.buy{background:var(--green)}.activity-dot.sell{background:var(--red)}.activity-dot.info{background:var(--blue)}
+        .activity-text{font-size:13px;color:var(--t2)}
+        .activity-time{font-size:11px;color:var(--t3)}
+        .footer{text-align:center;padding:24px;color:var(--t3);font-size:12px;border-top:1px solid var(--border);margin-top:24px}
+        @media(max-width:768px){.container{padding:12px}.stats-grid{grid-template-columns:repeat(2,1fr)}.positions-grid{grid-template-columns:1fr}.balance-card{flex-direction:column;text-align:center}.balance-right{text-align:center}.header-content{flex-direction:column}}
+        .empty-state{padding:32px;text-align:center;color:var(--t3);font-size:13px}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">D9</div>
+                <div class="logo-text">
+                    <h1>DeFi91 Trading Bot</h1>
+                    <span>Strategi Almarhum Doddy Ali Wijaya + KJo Academy</span>
+                </div>
+            </div>
+            <div class="header-status">
+                <div class="status-badge"><div class="status-dot"></div><span id="mode-badge">LIVE</span></div>
+                <div class="last-update">Last Update: <span id="last-update">Loading...</span></div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="balance-card">
+            <div class="balance-left">
+                <h3>Account Balance</h3>
+                <div class="balance-amount" id="balance">$55.00</div>
+                <div class="balance-change" id="balance-change"></div>
+            </div>
+            <div class="balance-right">
+                <div class="metric"><div class="metric-label">Profit Factor</div><div class="metric-value" id="profit-factor">-</div></div>
+                <div class="metric"><div class="metric-label">Max Drawdown</div><div class="metric-value" id="max-dd" style="color:var(--red)">-</div></div>
+            </div>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card"><div class="stat-label">Total Trades</div><div class="stat-value blue" id="total-trades">0</div><div class="stat-sub">Hari ini: <span id="today-trades">0</span></div></div>
+            <div class="stat-card"><div class="stat-label">Total Profit</div><div class="stat-value green" id="total-profit">$0.00</div><div class="stat-sub" id="profit-pct">+0%</div></div>
+            <div class="stat-card"><div class="stat-label">Total Loss</div><div class="stat-value red" id="total-loss">$0.00</div><div class="stat-sub" id="loss-pct">0%</div></div>
+            <div class="stat-card"><div class="stat-label">Win Rate</div><div class="stat-value yellow" id="win-rate">0%</div><div class="stat-sub" id="win-loss-count">W:0 | L:0</div></div>
+            <div class="stat-card"><div class="stat-label">Unrealized P&L</div><div class="stat-value purple" id="unrealized-pnl">$0.00</div><div class="stat-sub" id="open-count">0 posisi terbuka</div></div>
+            <div class="stat-card"><div class="stat-label">Net Profit</div><div class="stat-value green" id="net-profit">$0.00</div><div class="stat-sub">Profit - Loss</div></div>
+        </div>
+        <div class="section-title">Posisi Terbuka <span class="count" id="positions-count">0</span></div>
+        <div class="positions-grid" id="positions-container"><div class="empty-state">Bot sedang menganalisa pasar...</div></div>
+        <div class="activity-section"><div class="section-title">Aktivitas Bot</div><div id="activity-log"><div class="empty-state">Memuat aktivitas...</div></div></div>
+        <div class="charts-grid">
+            <div class="chart-card"><h3>Profit/Loss Trend (Cumulative)</h3><canvas id="pnl-chart" height="200"></canvas></div>
+            <div class="chart-card"><h3>Trade Distribution</h3><canvas id="dist-chart" height="200"></canvas></div>
+        </div>
+        <div class="rekap-section">
+            <div class="section-title">Rekapitulasi</div>
+            <div class="rekap-tabs">
+                <button class="rekap-tab active" onclick="showRekap('daily',this)">Harian</button>
+                <button class="rekap-tab" onclick="showRekap('weekly',this)">Mingguan</button>
+                <button class="rekap-tab" onclick="showRekap('monthly',this)">Bulanan</button>
+            </div>
+            <div class="rekap-content" id="rekap-content">
+                <div class="rekap-item"><div class="value green" id="rekap-profit">$0.00</div><div class="label">Profit</div></div>
+                <div class="rekap-item"><div class="value red" id="rekap-loss">$0.00</div><div class="label">Loss</div></div>
+                <div class="rekap-item"><div class="value blue" id="rekap-trades">0</div><div class="label">Trades</div></div>
+                <div class="rekap-item"><div class="value yellow" id="rekap-winrate">0%</div><div class="label">Win Rate</div></div>
+                <div class="rekap-item"><div class="value" id="rekap-net">$0.00</div><div class="label">Net P&L</div></div>
+            </div>
+        </div>
+        <div class="table-section">
+            <div class="table-header"><h3>Riwayat Trade</h3><span style="font-size:12px;color:var(--t3)" id="table-count">0 trades</span></div>
+            <div class="table-wrapper">
+                <table><thead><tr><th>#</th><th>Waktu</th><th>Coin</th><th>Sinyal</th><th>Entry</th><th>TP</th><th>SL</th><th>Margin</th><th>Lev</th><th>Status</th><th>P&L</th></tr></thead>
+                <tbody id="trades-table"><tr><td colspan="11" class="empty-state">Memuat data...</td></tr></tbody></table>
+            </div>
+        </div>
+    </div>
+    <div class="footer">DeFi91 Trading Bot &mdash; In Memory of Almarhum Doddy Ali Wijaya (RetroFlux91)<br>Strategi: CVD + Order Flow + RSI + MACD | Scalping Futures | Hyperliquid</div>
+    <script>
+    let tradesData=null,pnlChart=null,distChart=null;
+    async function fetchData(){try{const r=await fetch('trades.json?t='+Date.now());if(r.ok){tradesData=await r.json();updateDashboard()}}catch(e){console.log('Fetching...',e)}}
+    function updateDashboard(){if(!tradesData)return;const s=tradesData.summary||{},trades=tradesData.trades||[],open=tradesData.open_positions||[];
+    document.getElementById('mode-badge').textContent=tradesData.mode||'LIVE';
+    document.getElementById('last-update').textContent=tradesData.last_update||'--';
+    document.getElementById('total-trades').textContent=s.total_trades||0;
+    document.getElementById('today-trades').textContent=s.today_trades||0;
+    document.getElementById('total-profit').textContent='$'+(s.total_profit||0).toFixed(2);
+    document.getElementById('total-loss').textContent='$'+(s.total_loss||0).toFixed(2);
+    const tt=(s.win_count||0)+(s.loss_count||0);
+    const wr=tt>0?((s.win_count/tt)*100).toFixed(1):'0.0';
+    document.getElementById('win-rate').textContent=wr+'%';
+    document.getElementById('win-loss-count').textContent='W:'+(s.win_count||0)+' | L:'+(s.loss_count||0);
+    const net=(s.total_profit||0)-(s.total_loss||0);
+    const netEl=document.getElementById('net-profit');netEl.textContent=(net>=0?'+':'')+' $'+net.toFixed(2);netEl.className='stat-value '+(net>=0?'green':'red');
+    const bal=55+net;document.getElementById('balance').textContent='$'+bal.toFixed(2);
+    const chEl=document.getElementById('balance-change');const chPct=((net/55)*100).toFixed(2);
+    chEl.textContent=(net>=0?'+':'')+' $'+net.toFixed(2)+' ('+chPct+'%)';chEl.style.color=net>=0?'var(--green)':'var(--red)';
+    const pf=s.total_loss>0?(s.total_profit/s.total_loss).toFixed(2):'-';document.getElementById('profit-factor').textContent=pf;
+    document.getElementById('positions-count').textContent=open.length;
+    document.getElementById('open-count').textContent=open.length+' posisi terbuka';
+    renderPositions(open);renderActivity(trades);renderPnLChart(trades);renderDistChart(trades);renderTable(trades);updateRekap(trades,'daily')}
+    function renderPositions(positions){const c=document.getElementById('positions-container');
+    if(!positions.length){c.innerHTML='<div class="empty-state">Tidak ada posisi terbuka. Bot menunggu sinyal kuat.</div>';document.getElementById('unrealized-pnl').textContent='$0.00';return}
+    let totalU=0,html='';positions.forEach(p=>{const isL=p.signal==='LONG';const cls=isL?'long':'short';const u=p.pnl||0;totalU+=u;const col=u>=0?'var(--green)':'var(--red)';const sign=u>=0?'+':'';
+    html+=`<div class="position-card ${cls}"><div class="position-header"><div><span class="coin-name">${p.coin}</span> <span class="signal-badge ${cls}">${p.signal}</span></div><div class="position-pnl" style="color:${col}">${sign}$${u.toFixed(4)}</div></div><div class="position-details"><div class="position-detail"><span class="label">Entry</span><span class="value">$${p.entry_price.toLocaleString()}</span></div><div class="position-detail"><span class="label">Margin</span><span class="value">$${p.margin}</span></div><div class="position-detail"><span class="label">TP</span><span class="value" style="color:var(--green)">$${p.tp.toLocaleString()}</span></div><div class="position-detail"><span class="label">SL</span><span class="value" style="color:var(--red)">$${p.sl.toLocaleString()}</span></div><div class="position-detail"><span class="label">Leverage</span><span class="value">${p.leverage}x</span></div><div class="position-detail"><span class="label">Size</span><span class="value">${p.position_size} ${p.coin}</span></div></div></div>`});
+    c.innerHTML=html;const uEl=document.getElementById('unrealized-pnl');uEl.textContent=(totalU>=0?'+':'')+' $'+totalU.toFixed(4);uEl.className='stat-value '+(totalU>=0?'green':'red')}
+    function renderActivity(trades){const c=document.getElementById('activity-log');const recent=trades.slice(-8).reverse();
+    if(!recent.length){c.innerHTML='<div class="empty-state">Belum ada aktivitas.</div>';return}
+    let html='';recent.forEach(t=>{const dc=t.signal==='LONG'?'buy':'sell';const act=t.status==='OPEN'?'Membuka posisi':(t.status==='TP'?'Take Profit':'Stop Loss');const pnl=t.pnl?` | P&L: $${t.pnl.toFixed(4)}`:'';
+    html+=`<div class="activity-item"><div class="activity-dot ${dc}"></div><div><div class="activity-text">${act} <strong>${t.signal} ${t.coin}</strong> @ $${t.entry_price.toLocaleString()} (${t.leverage}x)${pnl}</div><div class="activity-time">${t.timestamp}</div></div></div>`});c.innerHTML=html}
+    function renderPnLChart(trades){const closed=trades.filter(t=>t.status!=='OPEN');const ctx=document.getElementById('pnl-chart').getContext('2d');if(pnlChart)pnlChart.destroy();
+    let cum=0;const labels=['Start'];const data=[0];closed.forEach((t,i)=>{cum+=t.pnl;labels.push('#'+(i+1));data.push(parseFloat(cum.toFixed(4)))});
+    pnlChart=new Chart(ctx,{type:'line',data:{labels,datasets:[{label:'Cumulative P&L ($)',data,borderColor:cum>=0?'#10b981':'#ef4444',backgroundColor:cum>=0?'rgba(16,185,129,.1)':'rgba(239,68,68,.1)',fill:true,tension:.4,pointRadius:3}]},options:{responsive:true,plugins:{legend:{labels:{color:'#94a3b8'}}},scales:{x:{ticks:{color:'#64748b'},grid:{color:'rgba(45,55,72,.3)'}},y:{ticks:{color:'#64748b'},grid:{color:'rgba(45,55,72,.3)'}}}}})}
+    function renderDistChart(trades){const l=trades.filter(t=>t.signal==='LONG').length;const s=trades.filter(t=>t.signal==='SHORT').length;const ctx=document.getElementById('dist-chart').getContext('2d');if(distChart)distChart.destroy();
+    distChart=new Chart(ctx,{type:'doughnut',data:{labels:['LONG','SHORT'],datasets:[{data:[l||0,s||0],backgroundColor:['#10b981','#ef4444'],borderWidth:0}]},options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#94a3b8',padding:16}}}}})}
+    function renderTable(trades){const tbody=document.getElementById('trades-table');document.getElementById('table-count').textContent=trades.length+' trades';
+    if(!trades.length){tbody.innerHTML='<tr><td colspan="11" class="empty-state">Belum ada trade.</td></tr>';return}
+    let html='';trades.slice().reverse().forEach(t=>{const sc=t.signal==='LONG'?'signal-badge long':'signal-badge short';let sb='';if(t.status==='OPEN')sb='<span class="badge-open">OPEN</span>';else if(t.status==='TP')sb='<span class="badge-tp">TP</span>';else sb='<span class="badge-sl">SL</span>';
+    const pc=t.pnl>0?'var(--green)':t.pnl<0?'var(--red)':'var(--t3)';const pt=t.pnl!==0?(t.pnl>0?'+':'')+' $'+t.pnl.toFixed(4):'-';
+    html+=`<tr><td>${t.id}</td><td style="font-size:11px">${t.timestamp}</td><td><strong>${t.coin}</strong></td><td><span class="${sc}">${t.signal}</span></td><td>$${t.entry_price.toLocaleString()}</td><td style="color:var(--green)">$${t.tp.toLocaleString()}</td><td style="color:var(--red)">$${t.sl.toLocaleString()}</td><td>$${t.margin}</td><td>${t.leverage}x</td><td>${sb}</td><td style="color:${pc};font-weight:600">${pt}</td></tr>`});tbody.innerHTML=html}
+    function showRekap(period,btn){document.querySelectorAll('.rekap-tab').forEach(t=>t.classList.remove('active'));btn.classList.add('active');if(tradesData)updateRekap(tradesData.trades||[],period)}
+    function updateRekap(trades,period){const now=new Date();let filtered=[];trades.forEach(t=>{if(t.status==='OPEN')return;const m=t.timestamp.match(/(\d{4})-(\d{2})-(\d{2})/);if(!m)return;const d=new Date(m[1],m[2]-1,m[3]);const diff=(now-d)/(1000*60*60*24);
+    if(period==='daily'&&diff<=1)filtered.push(t);else if(period==='weekly'&&diff<=7)filtered.push(t);else if(period==='monthly'&&diff<=30)filtered.push(t)});
+    let profit=0,loss=0,wins=0;filtered.forEach(t=>{if(t.pnl>0){profit+=t.pnl;wins++}else if(t.pnl<0)loss+=Math.abs(t.pnl)});
+    const wr=filtered.length>0?((wins/filtered.length)*100).toFixed(1):'0.0';const net=profit-loss;
+    document.getElementById('rekap-profit').textContent='$'+profit.toFixed(2);
+    document.getElementById('rekap-loss').textContent='$'+loss.toFixed(2);
+    document.getElementById('rekap-trades').textContent=filtered.length;
+    document.getElementById('rekap-winrate').textContent=wr+'%';
+    const nEl=document.getElementById('rekap-net');nEl.textContent=(net>=0?'+':'')+' $'+net.toFixed(2);nEl.className='value '+(net>=0?'green':'red')}
+    fetchData();setInterval(fetchData,30000);
+    </script>
+</body>
+</html>
