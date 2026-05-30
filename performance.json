@@ -8,7 +8,12 @@
   "win_rate": 0,
   "avg_profit": 0.0,
   "best_trade": "--",
-  "equity_curve": [],
+  "equity_curve": [
+    {
+      "time": "14:29",
+      "equity": -0.0446
+    }
+  ],
   "daily_pnl": [],
   "closed_trades": [],
   "ai_report": {
