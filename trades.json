@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-05-30 18:07:18",
+  "last_update": "2026-05-30 19:17:32",
   "trades": [
     {
       "id": 1,
@@ -865,6 +865,60 @@
       "pnl": 0.0,
       "cvd_score": "2",
       "rsi": "39.5"
+    },
+    {
+      "id": 49,
+      "time": "2026-05-30 19:17:32",
+      "coin": "HYPE",
+      "signal": "LONG",
+      "entry": 67.611,
+      "tp": 68.97,
+      "sl": 66.94,
+      "size": 0.22,
+      "margin": 1.5,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "4",
+      "rsi": "75.6"
+    },
+    {
+      "id": 50,
+      "time": "2026-05-30 19:17:32",
+      "coin": "ETH",
+      "signal": "LONG",
+      "entry": 2017.2,
+      "tp": 2057.5,
+      "sl": 1997.0,
+      "size": 0.0074,
+      "margin": 1.5,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "3",
+      "rsi": "62.0"
+    },
+    {
+      "id": 51,
+      "time": "2026-05-30 19:17:32",
+      "coin": "NEAR",
+      "signal": "SHORT",
+      "entry": 2.4084,
+      "tp": 2.362,
+      "sl": 2.434,
+      "size": 6.2,
+      "margin": 1.5,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "54.5"
     }
   ],
   "summary": {
