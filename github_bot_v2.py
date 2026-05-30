@@ -566,8 +566,10 @@ def manage_open_positions(exchange, info, all_mids):
                     print(f"    \u2705 Position CLOSED @ ${exit_price} (Smart Exit) | PnL: {actual_pnl*100:.2f}%")
                     
                     # STEP 2: Cancel TP/SL HANYA jika close berhasil
-                    open_orders = info.open_orders(MAIN_WALLET)
-                    for order in open_orders:
+                    fe_payload = {"type": "frontendOpenOrders", "user": MAIN_WALLET}
+                    fe_resp = requests.post("https://api.hyperliquid.xyz/info", json=fe_payload, timeout=10)
+                    fe_orders = fe_resp.json()
+                    for order in fe_orders:
                         if order.get("coin") == coin:
                             exchange.cancel(coin, order["oid"])
                     
@@ -604,12 +606,14 @@ def manage_open_positions(exchange, info, all_mids):
                 trail_type = "BREAKEVEN"
             
             # Cek apakah SL saat ini sudah lebih baik dari new_sl
-            # Ambil open orders untuk cari SL yang aktif
-            open_orders = info.open_orders(MAIN_WALLET)
+            # Gunakan frontendOpenOrders untuk melihat trigger orders
+            fe_payload = {"type": "frontendOpenOrders", "user": MAIN_WALLET}
+            fe_resp = requests.post("https://api.hyperliquid.xyz/info", json=fe_payload, timeout=10)
+            fe_orders = fe_resp.json()
             current_sl_oid = None
             current_sl_price = None
             
-            for order in open_orders:
+            for order in fe_orders:
                 if (order.get("coin") == coin and 
                     order.get("orderType", "") == "Stop Market" and
                     order.get("reduceOnly", False)):
@@ -635,17 +639,10 @@ def manage_open_positions(exchange, info, all_mids):
                     if current_sl_oid:
                         exchange.cancel(coin, current_sl_oid)
                     
-                    # Pasang SL baru
+                    # Pasang SL baru (gunakan exchange.order individual, bukan bulk_orders)
                     size = abs(szi)
-                    sl_order = {
-                        "coin": coin,
-                        "is_buy": not is_long,  # Opposite direction
-                        "sz": size,
-                        "limit_px": new_sl,
-                        "order_type": {"trigger": {"triggerPx": new_sl, "isMarket": True, "tpsl": "sl"}},
-                        "reduce_only": True,
-                    }
-                    result = exchange.bulk_orders([sl_order])
+                    order_type = {"trigger": {"triggerPx": new_sl, "isMarket": True, "tpsl": "sl"}}
+                    result = exchange.order(coin, not is_long, size, new_sl, order_type, reduce_only=True)
                     statuses = result.get("response", {}).get("data", {}).get("statuses", [])
                     
                     if statuses and "resting" in statuses[0]:
