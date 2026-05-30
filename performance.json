@@ -1,0 +1,18 @@
+{
+  "total_pnl": 0.0,
+  "wins": 0,
+  "losses": 0,
+  "total_trades": 0,
+  "today_trades": 0,
+  "today_pnl": 0.0,
+  "win_rate": 0,
+  "avg_profit": 0.0,
+  "best_trade": "--",
+  "equity_curve": [],
+  "daily_pnl": [],
+  "closed_trades": [],
+  "ai_report": {
+    "content": "Bot baru saja diaktifkan. Laporan performa pertama akan tersedia besok jam 13:00 WIB setelah bot mengumpulkan data trading selama 24 jam.",
+    "time": "30 Mei 2026, 15:00 WIB"
+  }
+}

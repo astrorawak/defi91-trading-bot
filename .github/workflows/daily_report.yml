@@ -1,0 +1,36 @@
+name: DeFi91 Daily Performance Report
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Setiap hari jam 06:00 UTC = 13:00 WIB
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install Dependencies
+        run: pip install requests numpy eth-account hyperliquid-python-sdk openai
+      
+      - name: Generate Daily Report
+        env:
+          HYPERLIQUID_PRIVATE_KEY: ${{ secrets.HYPERLIQUID_PRIVATE_KEY }}
+          HYPERLIQUID_ADDRESS: ${{ secrets.HYPERLIQUID_ADDRESS }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+        run: python daily_report.py
+      
+      - name: Commit Performance Data
+        run: |
+          git config --global user.name "DeFi91 Bot"
+          git config --global user.email "bot@defi91.com"
+          git add performance.json
+          git diff --staged --quiet || git commit -m "Daily report: $(date +'%Y-%m-%d')"
+          git push

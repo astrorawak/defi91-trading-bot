@@ -1,606 +1,446 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeFi91 Bot Monitor</title>
+    <title>Trading Bot By: Karman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        :root {
-            --bg: #0a0e17;
-            --card: #111827;
-            --border: #1f2937;
-            --accent: #00f0ff;
-            --accent2: #7c3aed;
-            --green: #10b981;
-            --red: #ef4444;
-            --text: #e5e7eb;
-            --muted: #6b7280;
-        }
-        
         body {
-            font-family: 'SF Mono', 'Fira Code', monospace;
-            background: var(--bg);
-            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
             min-height: 100vh;
             overflow-x: hidden;
         }
-        
-        /* Animated background grid */
+
         body::before {
             content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background: 
-                linear-gradient(rgba(0,240,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0,240,255,0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
-            pointer-events: none;
-            z-index: 0;
+                radial-gradient(ellipse at 20% 50%, rgba(0, 255, 136, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 200, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(138, 43, 226, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            animation: bgPulse 8s ease-in-out infinite alternate;
         }
-        
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+
+        @keyframes bgPulse {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        /* Header */
+
         .header {
             text-align: center;
-            padding: 30px 0;
+            padding: 40px 20px 20px;
         }
-        
+
         .header h1 {
-            font-size: 2.5rem;
+            font-family: 'Orbitron', monospace;
+            font-size: 2.8rem;
             font-weight: 900;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            background: linear-gradient(135deg, #00ff88, #00c8ff, #8a2be2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: titleGlow 3s ease-in-out infinite alternate;
         }
-        
+
+        @keyframes titleGlow {
+            0% { filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.3)); }
+            100% { filter: drop-shadow(0 0 25px rgba(0, 200, 255, 0.5)); }
+        }
+
         .header .subtitle {
-            color: var(--muted);
-            font-size: 0.85rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.95rem;
+            color: #666;
             margin-top: 8px;
+            letter-spacing: 2px;
         }
-        
-        .pulse-dot {
+
+        .header .status-badge {
             display: inline-block;
-            width: 8px;
-            height: 8px;
-            background: var(--green);
-            border-radius: 50%;
-            margin-right: 6px;
+            margin-top: 15px;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.4);
+            color: #00ff88;
             animation: pulse 2s infinite;
         }
-        
+
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.5); }
+            0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 136, 0.2); }
+            50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); }
         }
-        
-        /* Stats Row */
-        .stats-row {
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .perf-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 12px;
-            margin: 20px 0;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
         }
-        
-        .stat-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 16px;
+
+        .perf-card {
+            background: rgba(20, 20, 30, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 20px;
             text-align: center;
-            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
         }
-        
-        .stat-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 0 20px rgba(0,240,255,0.1);
+
+        .perf-card:hover {
+            border-color: rgba(0, 255, 136, 0.3);
             transform: translateY(-2px);
         }
-        
-        .stat-card .label {
-            font-size: 0.7rem;
-            color: var(--muted);
+
+        .perf-card .label {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.75rem;
+            color: #666;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 8px;
         }
-        
-        .stat-card .value {
-            font-size: 1.4rem;
+
+        .perf-card .value {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.6rem;
             font-weight: 700;
-            margin-top: 4px;
         }
-        
-        .stat-card .value.positive { color: var(--green); }
-        .stat-card .value.negative { color: var(--red); }
-        .stat-card .value.accent { color: var(--accent); }
-        
-        /* Chart Section */
+
+        .value.profit { color: #00ff88; }
+        .value.loss { color: #ff4444; }
+        .value.neutral { color: #00c8ff; }
+
+        .perf-card .change {
+            font-size: 0.75rem;
+            margin-top: 5px;
+            color: #888;
+        }
+
         .chart-section {
-            background: var(--card);
-            border: 1px solid var(--border);
+            background: rgba(20, 20, 30, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             border-radius: 16px;
-            padding: 24px;
-            margin: 20px 0;
-            position: relative;
-            overflow: hidden;
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
         }
-        
-        .chart-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent));
-            background-size: 200% 100%;
-            animation: shimmer 3s linear infinite;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        
-        .chart-title {
-            font-size: 0.85rem;
-            color: var(--muted);
+
+        .chart-section h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            color: #888;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 16px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
+
         .chart-container {
             position: relative;
             height: 250px;
         }
-        
-        /* Position Cards */
-        .positions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 12px;
-            margin: 20px 0;
-        }
-        
-        .position-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 16px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-        
-        .position-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-        }
-        
-        .position-card.long { border-left: 3px solid var(--green); }
-        .position-card.short { border-left: 3px solid var(--red); }
-        
-        .position-card .coin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .position-card .coin-name {
-            font-size: 1.1rem;
-            font-weight: 700;
-        }
-        
-        .position-card .direction {
-            font-size: 0.7rem;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        
-        .direction.long { background: rgba(16,185,129,0.15); color: var(--green); }
-        .direction.short { background: rgba(239,68,68,0.15); color: var(--red); }
-        
-        .position-card .price-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.75rem;
-            color: var(--muted);
-            margin: 4px 0;
-        }
-        
-        .position-card .price-row span:last-child {
-            color: var(--text);
-            font-weight: 500;
-        }
-        
-        .position-card .pnl-bar {
-            margin-top: 10px;
-            height: 4px;
-            background: var(--border);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        
-        .position-card .pnl-bar .fill {
-            height: 100%;
-            border-radius: 2px;
-            transition: width 0.5s;
-        }
-        
-        .position-card .pnl-bar .fill.positive { background: var(--green); }
-        .position-card .pnl-bar .fill.negative { background: var(--red); }
-        
-        /* Activity Log */
-        .activity-log {
-            background: var(--card);
-            border: 1px solid var(--border);
+
+        .daily-report {
+            background: rgba(20, 20, 30, 0.8);
+            border: 1px solid rgba(138, 43, 226, 0.2);
             border-radius: 16px;
-            padding: 24px;
-            margin: 20px 0;
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
         }
-        
-        .log-entry {
-            display: flex;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 0.8rem;
+
+        .daily-report h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            color: #8a2be2;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
         }
-        
-        .log-entry:last-child { border-bottom: none; }
-        
-        .log-entry .time {
-            color: var(--muted);
-            min-width: 60px;
+
+        .report-content {
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: #ccc;
+            white-space: pre-line;
         }
-        
-        .log-entry .action {
-            padding: 2px 6px;
-            border-radius: 3px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin: 0 8px;
-            min-width: 50px;
-            text-align: center;
+
+        .report-meta {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
-        
-        .log-entry .action.entry { background: rgba(0,240,255,0.15); color: var(--accent); }
-        .log-entry .action.exit { background: rgba(124,58,237,0.15); color: var(--accent2); }
-        .log-entry .action.smart { background: rgba(245,158,11,0.15); color: #f59e0b; }
-        .log-entry .action.trail { background: rgba(16,185,129,0.15); color: var(--green); }
-        
-        .log-entry .detail { color: var(--text); }
-        
-        /* Footer */
+
+        .trade-history { overflow-x: auto; }
+
+        .trade-history table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+
+        .trade-history th {
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #666;
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .trade-history td {
+            padding: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .trade-history tr:hover { background: rgba(255, 255, 255, 0.02); }
+
+        .badge-long { color: #00ff88; font-weight: 600; }
+        .badge-short { color: #ff6b6b; font-weight: 600; }
+        .pnl-positive { color: #00ff88; font-weight: 600; }
+        .pnl-negative { color: #ff4444; font-weight: 600; }
+
         .footer {
             text-align: center;
-            padding: 20px;
-            color: var(--muted);
-            font-size: 0.7rem;
+            padding: 30px;
+            color: #444;
+            font-size: 0.75rem;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 1px;
         }
-        
-        /* Responsive */
+
         @media (max-width: 768px) {
             .header h1 { font-size: 1.8rem; }
-            .stats-row { grid-template-columns: repeat(2, 1fr); }
-            .positions-grid { grid-template-columns: 1fr; }
-            .chart-container { height: 200px; }
+            .perf-grid { grid-template-columns: repeat(2, 1fr); }
+            .perf-card .value { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Trading Bot By: Karman</h1>
+        <div class="subtitle">Strategi Almarhum Doddy Ali Wijaya + KJo Academy</div>
+        <div class="status-badge">● LIVE - AUTO TRADING</div>
+    </div>
+
     <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>DeFi91</h1>
-            <div class="subtitle">
-                <span class="pulse-dot"></span>
-                <span id="status">CONNECTING...</span> | 
-                <span id="lastUpdate">--</span>
+        <div class="perf-grid">
+            <div class="perf-card">
+                <div class="label">Total P&L</div>
+                <div class="value neutral" id="totalPnl">$0.00</div>
+                <div class="change" id="pnlChange">Loading...</div>
             </div>
-        </div>
-        
-        <!-- Stats -->
-        <div class="stats-row">
-            <div class="stat-card">
-                <div class="label">Balance</div>
-                <div class="value accent" id="balance">--</div>
-            </div>
-            <div class="stat-card">
-                <div class="label">Open Positions</div>
-                <div class="value" id="openPositions">--</div>
-            </div>
-            <div class="stat-card">
-                <div class="label">Total Trades</div>
-                <div class="value" id="totalTrades">--</div>
-            </div>
-            <div class="stat-card">
+            <div class="perf-card">
                 <div class="label">Win Rate</div>
-                <div class="value" id="winRate">--</div>
+                <div class="value neutral" id="winRate">--%</div>
+                <div class="change" id="winLoss">W: 0 / L: 0</div>
             </div>
-            <div class="stat-card">
-                <div class="label">Net PnL</div>
-                <div class="value" id="netPnl">--</div>
+            <div class="perf-card">
+                <div class="label">Total Trades</div>
+                <div class="value neutral" id="totalTrades">0</div>
+                <div class="change" id="todayTrades">Hari ini: 0</div>
+            </div>
+            <div class="perf-card">
+                <div class="label">Avg Profit/Trade</div>
+                <div class="value neutral" id="avgProfit">$0.00</div>
+                <div class="change" id="bestTrade">Best: --</div>
             </div>
         </div>
-        
-        <!-- PnL Chart -->
+
         <div class="chart-section">
-            <div class="chart-title">Equity Curve</div>
+            <h2>Equity Curve (Pergerakan Profit Kumulatif)</h2>
             <div class="chart-container">
-                <canvas id="pnlChart"></canvas>
+                <canvas id="equityChart"></canvas>
             </div>
         </div>
-        
-        <!-- Trade Distribution Chart -->
+
         <div class="chart-section">
-            <div class="chart-title">Trade Activity</div>
+            <h2>Profit & Loss Harian</h2>
             <div class="chart-container">
-                <canvas id="activityChart"></canvas>
+                <canvas id="dailyPnlChart"></canvas>
             </div>
         </div>
-        
-        <!-- Active Positions -->
+
+        <div class="daily-report">
+            <h2>AI Daily Performance Report</h2>
+            <div class="report-content" id="reportContent">Menunggu laporan harian pertama...
+Laporan AI akan diperbarui setiap hari jam 13:00 WIB.</div>
+            <div class="report-meta" id="reportMeta">Belum ada laporan</div>
+        </div>
+
         <div class="chart-section">
-            <div class="chart-title">Active Positions</div>
-            <div class="positions-grid" id="positionsGrid">
+            <h2>Riwayat Trade Terakhir (Closed)</h2>
+            <div class="trade-history">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Waktu</th>
+                            <th>Koin</th>
+                            <th>Arah</th>
+                            <th>Entry</th>
+                            <th>Exit</th>
+                            <th>P&L</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tradeTable">
+                        <tr><td colspan="6" style="text-align:center; color:#666;">Menunggu data trade yang sudah closed...</td></tr>
+                    </tbody>
+                </table>
             </div>
-        </div>
-        
-        <!-- Activity Log -->
-        <div class="activity-log">
-            <div class="chart-title">Bot Activity Log</div>
-            <div id="activityLog">
-            </div>
-        </div>
-        
-        <!-- Footer -->
-        <div class="footer">
-            DeFi91 Trading Bot &bull; Strategy: Almarhum Doddy Ali Wijaya + KJo Academy<br>
-            Auto-refresh every 60s
         </div>
     </div>
-    
+
+    <div class="footer">
+        Trading Bot By Karman &bull; Auto-refresh setiap 60 detik &bull; AI Report setiap 13:00 WIB
+    </div>
+
     <script>
-        let pnlChart, activityChart;
-        
+        Chart.defaults.color = '#666';
+        Chart.defaults.borderColor = 'rgba(255,255,255,0.03)';
+
+        const equityCtx = document.getElementById('equityChart').getContext('2d');
+        const equityChart = new Chart(equityCtx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Equity ($)',
+                    data: [],
+                    borderColor: '#00ff88',
+                    backgroundColor: 'rgba(0, 255, 136, 0.05)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 5,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { maxTicksLimit: 8 } },
+                    y: { grid: { color: 'rgba(255,255,255,0.03)' } }
+                }
+            }
+        });
+
+        const dailyCtx = document.getElementById('dailyPnlChart').getContext('2d');
+        const dailyPnlChart = new Chart(dailyCtx, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'P&L ($)',
+                    data: [],
+                    backgroundColor: [],
+                    borderRadius: 4,
+                    borderSkipped: false,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false } },
+                    y: { grid: { color: 'rgba(255,255,255,0.03)' } }
+                }
+            }
+        });
+
         async function loadData() {
             try {
-                const resp = await fetch('trades.json?t=' + Date.now());
+                const resp = await fetch('performance.json?' + Date.now());
                 const data = await resp.json();
-                updateDashboard(data);
+
+                const totalPnl = data.total_pnl || 0;
+                const el = document.getElementById('totalPnl');
+                el.textContent = (totalPnl >= 0 ? '+' : '') + '$' + totalPnl.toFixed(2);
+                el.className = 'value ' + (totalPnl >= 0 ? 'profit' : 'loss');
+
+                const wr = data.win_rate || 0;
+                const wrEl = document.getElementById('winRate');
+                wrEl.textContent = wr.toFixed(0) + '%';
+                wrEl.className = 'value ' + (wr >= 50 ? 'profit' : 'neutral');
+
+                document.getElementById('winLoss').textContent = 'W: ' + (data.wins || 0) + ' / L: ' + (data.losses || 0);
+                document.getElementById('totalTrades').textContent = data.total_trades || 0;
+                document.getElementById('todayTrades').textContent = 'Hari ini: ' + (data.today_trades || 0);
+
+                const avgP = data.avg_profit || 0;
+                const avgEl = document.getElementById('avgProfit');
+                avgEl.textContent = (avgP >= 0 ? '+' : '') + '$' + avgP.toFixed(3);
+                avgEl.className = 'value ' + (avgP >= 0 ? 'profit' : 'loss');
+
+                document.getElementById('bestTrade').textContent = 'Best: ' + (data.best_trade || '--');
+                document.getElementById('pnlChange').textContent = 'Hari ini: ' + (data.today_pnl != null ? ((data.today_pnl >= 0 ? '+' : '') + '$' + data.today_pnl.toFixed(2)) : '$0.00');
+
+                if (data.equity_curve && data.equity_curve.length > 0) {
+                    equityChart.data.labels = data.equity_curve.map(e => e.time);
+                    equityChart.data.datasets[0].data = data.equity_curve.map(e => e.equity);
+                    equityChart.update();
+                }
+
+                if (data.daily_pnl && data.daily_pnl.length > 0) {
+                    dailyPnlChart.data.labels = data.daily_pnl.map(d => d.date);
+                    dailyPnlChart.data.datasets[0].data = data.daily_pnl.map(d => d.pnl);
+                    dailyPnlChart.data.datasets[0].backgroundColor = data.daily_pnl.map(d => 
+                        d.pnl >= 0 ? 'rgba(0, 255, 136, 0.6)' : 'rgba(255, 68, 68, 0.6)'
+                    );
+                    dailyPnlChart.update();
+                }
+
+                if (data.closed_trades && data.closed_trades.length > 0) {
+                    const tbody = document.getElementById('tradeTable');
+                    tbody.innerHTML = data.closed_trades.slice(-15).reverse().map(t => `
+                        <tr>
+                            <td>${t.time || '--'}</td>
+                            <td>${t.coin}</td>
+                            <td class="${t.direction === 'LONG' ? 'badge-long' : 'badge-short'}">${t.direction}</td>
+                            <td>$${t.entry}</td>
+                            <td>$${t.exit || '--'}</td>
+                            <td class="${t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${t.pnl >= 0 ? '+' : ''}$${t.pnl.toFixed(3)}</td>
+                        </tr>
+                    `).join('');
+                }
+
+                if (data.ai_report) {
+                    document.getElementById('reportContent').textContent = data.ai_report.content || 'Belum ada laporan';
+                    document.getElementById('reportMeta').textContent = 'Diperbarui: ' + (data.ai_report.time || '--');
+                }
+
             } catch (e) {
-                document.getElementById('status').textContent = 'OFFLINE';
+                console.log('Waiting for performance data...', e);
             }
         }
-        
-        function updateDashboard(data) {
-            document.getElementById('status').textContent = data.bot_status || 'ACTIVE';
-            document.getElementById('lastUpdate').textContent = data.last_update || '--';
-            
-            const trades = data.trades || [];
-            const openTrades = trades.filter(t => t.status === 'OPEN');
-            const closedTrades = trades.filter(t => t.status === 'CLOSED');
-            
-            document.getElementById('balance').textContent = '$' + (data.balance || '54.75');
-            document.getElementById('openPositions').textContent = openTrades.length;
-            document.getElementById('totalTrades').textContent = trades.length;
-            
-            const wins = closedTrades.filter(t => (t.pnl || 0) > 0).length;
-            const wr = closedTrades.length > 0 ? Math.round(wins / closedTrades.length * 100) : 0;
-            document.getElementById('winRate').textContent = closedTrades.length > 0 ? wr + '%' : '--';
-            
-            const netPnl = closedTrades.reduce((sum, t) => sum + (t.pnl || 0), 0);
-            const pnlEl = document.getElementById('netPnl');
-            pnlEl.textContent = closedTrades.length > 0 ? ((netPnl >= 0 ? '+' : '') + netPnl.toFixed(4) + '$') : '--';
-            pnlEl.className = 'value ' + (netPnl >= 0 ? 'positive' : 'negative');
-            
-            renderPositions(openTrades);
-            renderLog(trades);
-            renderPnlChart(trades);
-            renderActivityChart(trades);
-        }
-        
-        function renderPositions(positions) {
-            const grid = document.getElementById('positionsGrid');
-            if (positions.length === 0) {
-                grid.innerHTML = '<p style="color:var(--muted);text-align:center;padding:20px;width:100%;">No open positions</p>';
-                return;
-            }
-            
-            grid.innerHTML = positions.map(p => {
-                const isLong = (p.signal || '').toUpperCase() === 'LONG';
-                const dir = isLong ? 'long' : 'short';
-                const entry = parseFloat(p.entry) || 0;
-                const tp = parseFloat(p.tp) || 0;
-                const sl = parseFloat(p.sl) || 0;
-                const range = Math.abs(tp - sl);
-                const progress = range > 0 ? Math.min(100, Math.max(0, Math.abs(entry - sl) / range * 100)) : 50;
-                
-                return `
-                <div class="position-card ${dir}">
-                    <div class="coin-header">
-                        <span class="coin-name">${p.coin}</span>
-                        <span class="direction ${dir}">${dir.toUpperCase()}</span>
-                    </div>
-                    <div class="price-row"><span>Entry</span><span>$${entry}</span></div>
-                    <div class="price-row"><span>TP</span><span style="color:var(--green)">$${tp}</span></div>
-                    <div class="price-row"><span>SL</span><span style="color:var(--red)">$${sl}</span></div>
-                    <div class="price-row"><span>Margin</span><span>$${p.margin || '1.5'} (${p.leverage || '10'}x)</span></div>
-                    <div class="pnl-bar"><div class="fill ${isLong ? 'positive' : 'negative'}" style="width:${progress}%"></div></div>
-                </div>`;
-            }).join('');
-        }
-        
-        function renderLog(trades) {
-            const log = document.getElementById('activityLog');
-            const recent = trades.slice(-12).reverse();
-            
-            log.innerHTML = recent.map(t => {
-                const time = (t.time || '').split(' ')[1] || '--:--';
-                let actionClass = 'entry';
-                let actionText = 'ENTRY';
-                
-                if (t.status === 'CLOSED') {
-                    actionClass = (t.pnl || 0) >= 0 ? 'exit' : 'smart';
-                    actionText = (t.pnl || 0) >= 0 ? 'TP HIT' : 'SL HIT';
-                }
-                if (t.action === 'SMART_EXIT') {
-                    actionClass = 'smart';
-                    actionText = 'SMART';
-                }
-                if (t.action === 'TRAILING_STOP') {
-                    actionClass = 'trail';
-                    actionText = 'TRAIL';
-                }
-                
-                const signal = (p => p === 'LONG' ? 'LONG' : p === 'SHORT' ? 'SHORT' : p)((t.signal || '').toUpperCase());
-                return `
-                <div class="log-entry">
-                    <span class="time">${time}</span>
-                    <span class="action ${actionClass}">${actionText}</span>
-                    <span class="detail">${t.coin} ${signal} @ $${t.entry || '--'}</span>
-                </div>`;
-            }).join('');
-            
-            if (recent.length === 0) {
-                log.innerHTML = '<p style="color:var(--muted);text-align:center;padding:20px;">No activity yet</p>';
-            }
-        }
-        
-        function renderPnlChart(trades) {
-            const ctx = document.getElementById('pnlChart').getContext('2d');
-            
-            let cumPnl = 0;
-            const labels = ['Start'];
-            const dataPoints = [0];
-            
-            trades.forEach((t, i) => {
-                cumPnl += (t.pnl || 0);
-                labels.push(t.coin || `#${i+1}`);
-                dataPoints.push(parseFloat(cumPnl.toFixed(4)));
-            });
-            
-            if (pnlChart) pnlChart.destroy();
-            
-            const gradient = ctx.createLinearGradient(0, 0, 0, 250);
-            gradient.addColorStop(0, 'rgba(0,240,255,0.2)');
-            gradient.addColorStop(1, 'rgba(0,240,255,0)');
-            
-            pnlChart = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        data: dataPoints,
-                        borderColor: '#00f0ff',
-                        borderWidth: 2,
-                        backgroundColor: gradient,
-                        fill: true,
-                        tension: 0.4,
-                        pointRadius: 3,
-                        pointBackgroundColor: '#00f0ff',
-                        pointBorderColor: '#0a0e17',
-                        pointBorderWidth: 2,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: '#1f2937',
-                            borderColor: '#374151',
-                            borderWidth: 1,
-                            titleColor: '#e5e7eb',
-                            bodyColor: '#e5e7eb',
-                        }
-                    },
-                    scales: {
-                        x: {
-                            grid: { color: 'rgba(255,255,255,0.05)' },
-                            ticks: { color: '#6b7280', font: { size: 10 } }
-                        },
-                        y: {
-                            grid: { color: 'rgba(255,255,255,0.05)' },
-                            ticks: { 
-                                color: '#6b7280', 
-                                font: { size: 10 },
-                                callback: v => '$' + v.toFixed(2)
-                            }
-                        }
-                    }
-                }
-            });
-        }
-        
-        function renderActivityChart(trades) {
-            const ctx = document.getElementById('activityChart').getContext('2d');
-            
-            const coinCounts = {};
-            trades.forEach(t => {
-                const coin = t.coin || 'Unknown';
-                coinCounts[coin] = (coinCounts[coin] || 0) + 1;
-            });
-            
-            const coins = Object.keys(coinCounts);
-            const counts = Object.values(coinCounts);
-            
-            const colors = coins.map((_, i) => {
-                const hue = (i * 137.5) % 360;
-                return `hsla(${hue}, 70%, 60%, 0.8)`;
-            });
-            
-            if (activityChart) activityChart.destroy();
-            
-            activityChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: coins,
-                    datasets: [{
-                        data: counts,
-                        backgroundColor: colors,
-                        borderRadius: 6,
-                        borderSkipped: false,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: {
-                            grid: { display: false },
-                            ticks: { color: '#6b7280', font: { size: 11, weight: 'bold' } }
-                        },
-                        y: {
-                            grid: { color: 'rgba(255,255,255,0.05)' },
-                            ticks: { color: '#6b7280', stepSize: 1, font: { size: 10 } }
-                        }
-                    }
-                }
-            });
-        }
-        
+
         loadData();
         setInterval(loadData, 60000);
     </script>

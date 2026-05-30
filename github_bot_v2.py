@@ -893,7 +893,58 @@ def save_trades_json(new_trades, status, message):
     print(f"\n  trades.json updated ({len(new_trades)} new trades)")
 
 # ============================================================
+# PERFORMANCE TRACKING (Mini update setiap run)
+# ============================================================
+def update_performance_mini():
+    """Update equity curve di performance.json setiap bot run"""
+    perf_file = "performance.json"
+    
+    try:
+        with open(perf_file, "r") as f:
+            data = json.load(f)
+    except:
+        data = {
+            "total_pnl": 0.0, "wins": 0, "losses": 0,
+            "total_trades": 0, "today_trades": 0, "today_pnl": 0.0,
+            "win_rate": 0, "avg_profit": 0.0, "best_trade": "--",
+            "equity_curve": [], "daily_pnl": [], "closed_trades": [],
+            "ai_report": None,
+        }
+    
+    # Get current unrealized P&L from positions
+    try:
+        spot_payload = {"type": "spotClearinghouseState", "user": MAIN_WALLET}
+        spot_resp = requests.post("https://api.hyperliquid.xyz/info", json=spot_payload, timeout=10)
+        spot_data = spot_resp.json()
+        usdc_balance = 0.0
+        for bal in spot_data.get("balances", []):
+            if bal.get("coin") == "USDC":
+                usdc_balance = float(bal.get("total", 0))
+                break
+        
+        info_temp = Info(constants.MAINNET_API_URL, skip_ws=True)
+        user_state = info_temp.user_state(MAIN_WALLET)
+        positions = user_state.get("assetPositions", [])
+        unrealized = sum(float(p.get("position", {}).get("unrealizedPnl", 0)) for p in positions if float(p.get("position", {}).get("szi", 0)) != 0)
+        
+        # Add equity point (total_pnl + unrealized)
+        current_equity = data.get("total_pnl", 0) + unrealized
+        equity_point = {
+            "time": get_wib_time().strftime("%H:%M"),
+            "equity": round(current_equity, 4),
+        }
+        data.setdefault("equity_curve", []).append(equity_point)
+        data["equity_curve"] = data["equity_curve"][-100:]
+        
+        with open(perf_file, "w") as f:
+            json.dump(data, f, indent=2)
+        print(f"\n  performance.json equity updated: ${current_equity:.4f}")
+    except Exception as e:
+        print(f"\n  performance.json update skipped: {e}")
+
+# ============================================================
 # ENTRY POINT
 # ============================================================
 if __name__ == "__main__":
     run_bot()
+    update_performance_mini()
