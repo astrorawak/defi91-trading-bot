@@ -5,11 +5,16 @@ on:
     - cron: '0 6 * * *'  # Setiap hari jam 06:00 UTC = 13:00 WIB
   workflow_dispatch:  # Manual trigger
 
+permissions:
+  contents: write
+
 jobs:
   report:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       
       - name: Setup Python
         uses: actions/setup-python@v5
