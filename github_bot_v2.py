@@ -37,12 +37,18 @@ WATCHLIST = [
     "DOGE",  # #19 volume - Meme king
     "BNB",   # Exchange coin - almarhum kuasai
 ]
-MARGIN_PER_TRADE = 2.0  # $2 per trade
-LEVERAGE = 20  # 20x leverage (2x lebih agresif)
+MARGIN_PER_TRADE = 1.50  # $1.50 per trade
+TARGET_LEVERAGE = 20  # Target 20x leverage (akan disesuaikan jika koin max < 20x)
 TP_PERCENT = 0.025  # 2.5% Take Profit (leverage tinggi = target lebih besar)
 SL_PERCENT = 0.012  # 1.2% Stop Loss (Risk:Reward = 1:2)
 ENTRY_THRESHOLD = 3  # Minimum score 3 untuk entry (lebih ketat = lebih akurat)
-MAX_OPEN_POSITIONS = 5  # Maksimal 5 posisi ($2 x 5 = $10 margin, sisa buffer)
+MAX_OPEN_POSITIONS = 5  # Maksimal 5 posisi ($1.50 x 5 = $7.50 margin, sisa buffer)
+
+# Mapping max leverage per koin (berdasarkan API Hyperliquid)
+MAX_LEVERAGE_MAP = {
+    "BTC": 40, "ETH": 25, "SOL": 20, "XRP": 20,
+    "BNB": 10, "DOGE": 10, "SUI": 10, "WLD": 10, "NEAR": 10, "HYPE": 10
+}
 
 # Size decimals per coin (dari Hyperliquid metadata)
 SZ_DECIMALS = {
@@ -373,8 +379,12 @@ def execute_trade(exchange, info, coin, direction, current_price):
     """
     is_buy = (direction == "LONG")
     
-    # Calculate size
-    position_value = MARGIN_PER_TRADE * LEVERAGE
+    # Tentukan leverage yang akan digunakan (min dari TARGET_LEVERAGE dan max koin)
+    max_coin_leverage = MAX_LEVERAGE_MAP.get(coin, 10)
+    actual_leverage = min(TARGET_LEVERAGE, max_coin_leverage)
+    
+    # Calculate size berdasarkan actual_leverage agar margin tetap $1.50
+    position_value = MARGIN_PER_TRADE * actual_leverage
     size = position_value / current_price
     size = round_size(coin, size)
     
@@ -389,13 +399,13 @@ def execute_trade(exchange, info, coin, direction, current_price):
         limit_px = format_price(current_price * 0.995)  # 0.5% slippage
     
     print(f"\n  EXECUTING {direction} {coin}")
-    print(f"  Size: {size} | Margin: ${MARGIN_PER_TRADE} | Leverage: {LEVERAGE}x")
+    print(f"  Size: {size} | Margin: ${MARGIN_PER_TRADE} | Leverage: {actual_leverage}x")
     print(f"  Entry ~${current_price:.2f} | TP: ${tp_price} | SL: ${sl_price}")
     
-    # Set leverage first (cross margin, 20x)
+    # Set leverage first (cross margin)
     try:
-        exchange.update_leverage(LEVERAGE, coin, is_cross=True)
-        print(f"  ✅ Leverage set to {LEVERAGE}x for {coin}")
+        exchange.update_leverage(actual_leverage, coin, is_cross=True)
+        print(f"  ✅ Leverage set to {actual_leverage}x for {coin}")
     except Exception as e:
         print(f"  ⚠️ Could not set leverage: {e}")
     
