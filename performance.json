@@ -8,7 +8,64 @@
   "win_rate": 0,
   "avg_profit": 0.0,
   "best_trade": "--",
-  "equity_curve": [],
+  "equity_curve": [
+    {
+      "time": "14:29",
+      "equity": -0.0446
+    },
+    {
+      "time": "16:32",
+      "equity": -0.0149
+    },
+    {
+      "time": "18:07",
+      "equity": 0.0956
+    },
+    {
+      "time": "19:17",
+      "equity": 0.0894
+    },
+    {
+      "time": "21:15",
+      "equity": 0.1198
+    },
+    {
+      "time": "22:49",
+      "equity": -0.1105
+    },
+    {
+      "time": "00:15",
+      "equity": 0.0508
+    },
+    {
+      "time": "01:17",
+      "equity": 0.0927
+    },
+    {
+      "time": "02:50",
+      "equity": 0.2052
+    },
+    {
+      "time": "04:05",
+      "equity": 0.1518
+    },
+    {
+      "time": "05:14",
+      "equity": -0.0724
+    },
+    {
+      "time": "06:30",
+      "equity": -0.0717
+    },
+    {
+      "time": "08:37",
+      "equity": 0.2549
+    },
+    {
+      "time": "13:03",
+      "equity": 0.0423
+    }
+  ],
   "daily_pnl": [],
   "closed_trades": [],
   "ai_report": {
