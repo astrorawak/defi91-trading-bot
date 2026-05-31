@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-05-31 13:03:57",
+  "last_update": "2026-05-31 14:46:45",
   "trades": [
     {
       "id": 1,
@@ -1387,6 +1387,24 @@
       "pnl": 0.0,
       "cvd_score": "3",
       "rsi": "44.9"
+    },
+    {
+      "id": 78,
+      "time": "2026-05-31 14:46:45",
+      "coin": "NEAR",
+      "signal": "LONG",
+      "entry": 2.30267,
+      "tp": 2.359,
+      "sl": 2.274,
+      "size": 17.4,
+      "margin": 2.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "1",
+      "rsi": "47.5"
     }
   ],
   "summary": {
