@@ -474,6 +474,7 @@ def execute_trade(exchange, info, coin, direction, current_price):
             "size": size,
             "direction": direction,
             "coin": coin,
+            "leverage": actual_leverage,
         }
     except Exception as e:
         print(f"  ❌ Execution error: {e}")
@@ -901,7 +902,7 @@ def save_trades_json(new_trades, status, message):
             "sl": trade["sl_price"],
             "size": trade["size"],
             "margin": MARGIN_PER_TRADE,
-            "leverage": LEVERAGE,
+            "leverage": trade.get("leverage", TARGET_LEVERAGE),
             "tp_set": trade["tp_set"],
             "sl_set": trade["sl_set"],
             "status": "OPEN",
