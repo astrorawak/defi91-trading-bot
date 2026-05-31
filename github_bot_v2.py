@@ -392,11 +392,12 @@ def execute_trade(exchange, info, coin, direction, current_price):
     print(f"  Size: {size} | Margin: ${MARGIN_PER_TRADE} | Leverage: {LEVERAGE}x")
     print(f"  Entry ~${current_price:.2f} | TP: ${tp_price} | SL: ${sl_price}")
     
-    # Set leverage first
+    # Set leverage first (cross margin, 20x)
     try:
-        exchange.update_leverage(LEVERAGE, coin)
-    except:
-        pass
+        exchange.update_leverage(LEVERAGE, coin, is_cross=True)
+        print(f"  ✅ Leverage set to {LEVERAGE}x for {coin}")
+    except Exception as e:
+        print(f"  ⚠️ Could not set leverage: {e}")
     
     # Grouped order: Market + TP + SL
     orders = [
