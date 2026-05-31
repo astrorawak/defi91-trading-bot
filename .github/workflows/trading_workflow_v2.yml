@@ -2,7 +2,20 @@ name: DeFi91 Trading Bot
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    # Jadwal tepat sasaran - jam volatilitas tinggi crypto:
+    # Sesi Asia Open (08:00-10:00 WIB = 01:00-03:00 UTC)
+    - cron: '0 1 * * *'   # 08:00 WIB - Asia market open
+    - cron: '30 2 * * *'  # 09:30 WIB - Asia momentum peak
+    # Sesi London Open (14:00-16:00 WIB = 07:00-09:00 UTC)
+    - cron: '0 7 * * *'   # 14:00 WIB - London open (volatilitas tinggi)
+    - cron: '30 8 * * *'  # 15:30 WIB - London momentum
+    # Sesi New York Open (20:00-22:00 WIB = 13:00-15:00 UTC)
+    - cron: '0 13 * * *'  # 20:00 WIB - NY open (volatilitas tertinggi)
+    - cron: '30 14 * * *' # 21:30 WIB - NY momentum peak
+    # Sesi Overlap & Late Night
+    - cron: '0 16 * * *'  # 23:00 WIB - Late NY / crypto whale hour
+    - cron: '0 19 * * *'  # 02:00 WIB - Asia late night (big moves)
+    - cron: '0 22 * * *'  # 05:00 WIB - Pre-Asia open
   workflow_dispatch:
 
 jobs:
