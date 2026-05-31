@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-05-31 14:46:45",
+  "last_update": "2026-05-31 17:29:48",
   "trades": [
     {
       "id": 1,
@@ -1405,6 +1405,42 @@
       "pnl": 0.0,
       "cvd_score": "1",
       "rsi": "47.5"
+    },
+    {
+      "id": 79,
+      "time": "2026-05-31 17:29:48",
+      "coin": "ETH",
+      "signal": "LONG",
+      "entry": 2017.6,
+      "tp": 2067.7,
+      "sl": 1993.0,
+      "size": 0.0149,
+      "margin": 1.5,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "3",
+      "rsi": "29.6"
+    },
+    {
+      "id": 80,
+      "time": "2026-05-31 17:29:48",
+      "coin": "WLD",
+      "signal": "LONG",
+      "entry": 0.33276,
+      "tp": 0.3414,
+      "sl": 0.3291,
+      "size": 45.0,
+      "margin": 1.5,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "3",
+      "rsi": "35.9"
     }
   ],
   "summary": {
