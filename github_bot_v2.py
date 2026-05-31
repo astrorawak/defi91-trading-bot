@@ -24,7 +24,7 @@ from hyperliquid.utils import constants
 PRIVATE_KEY = os.getenv("HYPERLIQUID_PRIVATE_KEY", "")
 MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 
-# Trading Parameters (agresif & terukur - mempercepat akumulasi)
+# Trading Parameters (AGRESIF - leverage tinggi, filter ketat, profit besar)
 WATCHLIST = [
     "BTC",   # #1 volume - Raja crypto
     "HYPE",  # #2 volume - Native Hyperliquid token
@@ -37,12 +37,12 @@ WATCHLIST = [
     "DOGE",  # #19 volume - Meme king
     "BNB",   # Exchange coin - almarhum kuasai
 ]
-MARGIN_PER_TRADE = 1.5  # $1.5 per trade (lebih banyak posisi, risiko terjaga)
-LEVERAGE = 10  # 10x leverage
-TP_PERCENT = 0.02  # 2% Take Profit
-SL_PERCENT = 0.01  # 1% Stop Loss
-ENTRY_THRESHOLD = 2  # Minimum score untuk entry
-MAX_OPEN_POSITIONS = 7  # Maksimal 7 posisi bersamaan ($1.5 x 7 = $10.5 margin)
+MARGIN_PER_TRADE = 2.0  # $2 per trade
+LEVERAGE = 20  # 20x leverage (2x lebih agresif)
+TP_PERCENT = 0.025  # 2.5% Take Profit (leverage tinggi = target lebih besar)
+SL_PERCENT = 0.012  # 1.2% Stop Loss (Risk:Reward = 1:2)
+ENTRY_THRESHOLD = 3  # Minimum score 3 untuk entry (lebih ketat = lebih akurat)
+MAX_OPEN_POSITIONS = 5  # Maksimal 5 posisi ($2 x 5 = $10 margin, sisa buffer)
 
 # Size decimals per coin (dari Hyperliquid metadata)
 SZ_DECIMALS = {
@@ -471,8 +471,8 @@ def execute_trade(exchange, info, coin, direction, current_price):
 # ============================================================
 # SMART EXIT + TRAILING STOP (Opsi B + C)
 # ============================================================
-SMART_EXIT_THRESHOLD = 3  # Skor berlawanan >= 3 = early close
-TRAILING_BREAKEVEN = 0.01  # Profit >= 1% → SL geser ke breakeven
+SMART_EXIT_THRESHOLD = 4  # Skor berlawanan >= 4 = early close (lebih ketat, hindari false signal)
+TRAILING_BREAKEVEN = 0.008  # Profit >= 0.8% → SL geser ke breakeven (leverage tinggi = cepat profit)
 TRAILING_LOCK = 0.015  # Profit >= 1.5% → SL geser ke +1%
 
 def manage_open_positions(exchange, info, all_mids):
@@ -541,13 +541,16 @@ def manage_open_positions(exchange, info, all_mids):
         if should_close:
             print(f"    \u26a1 SMART EXIT: {close_reason}")
             try:
-                # STEP 1: Close posisi DULU (sebelum cancel TP/SL)
                 close_size = abs(szi)
-                close_is_buy = not is_long  # Opposite direction to close
+                close_success = False
+                exit_price = current_price
+                
+                # STEP 1: CLOSE POSISI dengan IOC order (reliable, tidak bergantung market_close)
+                close_is_buy = not is_long
                 if close_is_buy:
-                    close_px = format_price(current_price * 1.005)  # Slippage
+                    close_px = format_price(current_price * 1.03)  # 3% slippage for buy
                 else:
-                    close_px = format_price(current_price * 0.995)  # Slippage
+                    close_px = format_price(current_price * 0.97)  # 3% slippage for sell
                 
                 close_order = {
                     "coin": coin,
@@ -558,20 +561,34 @@ def manage_open_positions(exchange, info, all_mids):
                     "reduce_only": True,
                 }
                 result = exchange.bulk_orders([close_order])
-                statuses = result.get("response", {}).get("data", {}).get("statuses", [])
+                if isinstance(result, dict):
+                    if result.get("status") == "ok":
+                        statuses = result.get("response", {}).get("data", {}).get("statuses", [])
+                        if statuses and "filled" in statuses[0]:
+                            exit_price = float(statuses[0]["filled"]["avgPx"])
+                            close_success = True
+                    else:
+                        print(f"    API Error: {result.get('response', 'Unknown')}")
+                elif isinstance(result, str):
+                    print(f"    API returned string: {result[:100]}")
+                    close_success = False
                 
-                if statuses and "filled" in statuses[0]:
-                    exit_price = float(statuses[0]["filled"]["avgPx"])
-                    actual_pnl = (exit_price - entry_px) / entry_px if is_long else (entry_px - exit_price) / entry_px
-                    print(f"    \u2705 Position CLOSED @ ${exit_price} (Smart Exit) | PnL: {actual_pnl*100:.2f}%")
-                    
-                    # STEP 2: Cancel TP/SL HANYA jika close berhasil
+                if close_success:
+                    # STEP 2: Close berhasil → Cancel TP/SL yang tersisa
+                    time.sleep(0.5)
                     fe_payload = {"type": "frontendOpenOrders", "user": MAIN_WALLET}
                     fe_resp = requests.post("https://api.hyperliquid.xyz/info", json=fe_payload, timeout=10)
                     fe_orders = fe_resp.json()
                     for order in fe_orders:
                         if order.get("coin") == coin:
-                            exchange.cancel(coin, order["oid"])
+                            try:
+                                exchange.cancel(coin, order["oid"])
+                            except:
+                                pass
+                    
+                    actual_pnl = (exit_price - entry_px) / entry_px if is_long else (entry_px - exit_price) / entry_px
+                    print(f"    \u2705 Position CLOSED @ ${exit_price} (Smart Exit) | PnL: {actual_pnl*100:.2f}%")
+                    print(f"    \u2705 TP/SL cancelled (position closed)")
                     
                     actions_taken.append({
                         "coin": coin,
@@ -582,10 +599,10 @@ def manage_open_positions(exchange, info, all_mids):
                         "exit": exit_price,
                     })
                 else:
-                    # Close gagal - JANGAN cancel TP/SL, biarkan proteksi tetap aktif
-                    print(f"    \u274c Close failed (TP/SL tetap aktif): {statuses}")
+                    # Close gagal - TP/SL MASIH TERPASANG (posisi tetap aman)
+                    print(f"    \u274c Close failed, TP/SL still active (position protected)")
             except Exception as e:
-                print(f"    \u274c Smart Exit error (TP/SL tetap aktif): {e}")
+                print(f"    \u274c Smart Exit error: {e}")
             continue  # Lanjut ke posisi berikutnya
         
         # ─────────────────────────────────────────────────────────
