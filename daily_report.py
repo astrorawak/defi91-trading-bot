@@ -141,7 +141,7 @@ def generate_ai_report(account_data, trade_stats):
 Kamu adalah AI analyst untuk Trading Bot milik Karman.
 Bot ini menggunakan strategi Almarhum Doddy Ali Wijaya (CVD/Order Flow) + KJo Academy (RSI/MACD).
 Bot trading di Hyperliquid Perpetual Futures dengan 10 koin (BTC, HYPE, ETH, SOL, NEAR, XRP, WLD, SUI, DOGE, BNB).
-Margin per trade: $1.5, Leverage: 10x, TP: 2%, SL: 1%.
+Margin per trade: $2, Leverage: 20x, TP: 2.5%, SL: 1.2%. Entry threshold: skor >= 3 (ketat).
 
 DATA HARI INI ({get_wib_time().strftime('%d %B %Y')}):
 - Saldo: ${account_data['balance']:.2f}
@@ -246,11 +246,35 @@ def update_performance_json(account_data, trade_stats, ai_report):
     data["today_trades"] = trade_stats["total_trades"]
     data["today_pnl"] = trade_stats["total_pnl"]
     
-    # Accumulate totals
-    data["total_pnl"] = data.get("total_pnl", 0) + trade_stats["total_pnl"]
-    data["wins"] = data.get("wins", 0) + trade_stats["wins"]
-    data["losses"] = data.get("losses", 0) + trade_stats["losses"]
-    data["total_trades"] = data.get("total_trades", 0) + trade_stats["total_trades"]
+    # Cek apakah hari ini sudah pernah diproses (prevent double-counting)
+    today_str = get_wib_time().strftime("%Y-%m-%d")
+    last_report_date = data.get("last_report_date", "")
+    
+    if last_report_date != today_str:
+        # Hari baru - akumulasi totals
+        data["total_pnl"] = data.get("total_pnl", 0) + trade_stats["total_pnl"]
+        data["wins"] = data.get("wins", 0) + trade_stats["wins"]
+        data["losses"] = data.get("losses", 0) + trade_stats["losses"]
+        data["total_trades"] = data.get("total_trades", 0) + trade_stats["total_trades"]
+        data["last_report_date"] = today_str
+    else:
+        # Hari yang sama - update (replace), bukan akumulasi
+        # Hitung selisih dari update sebelumnya
+        prev_today_pnl = data.get("_prev_today_pnl", 0)
+        prev_today_wins = data.get("_prev_today_wins", 0)
+        prev_today_losses = data.get("_prev_today_losses", 0)
+        prev_today_trades = data.get("_prev_today_trades", 0)
+        
+        data["total_pnl"] = data.get("total_pnl", 0) - prev_today_pnl + trade_stats["total_pnl"]
+        data["wins"] = data.get("wins", 0) - prev_today_wins + trade_stats["wins"]
+        data["losses"] = data.get("losses", 0) - prev_today_losses + trade_stats["losses"]
+        data["total_trades"] = data.get("total_trades", 0) - prev_today_trades + trade_stats["total_trades"]
+    
+    # Simpan data hari ini untuk referensi jika dijalankan ulang
+    data["_prev_today_pnl"] = trade_stats["total_pnl"]
+    data["_prev_today_wins"] = trade_stats["wins"]
+    data["_prev_today_losses"] = trade_stats["losses"]
+    data["_prev_today_trades"] = trade_stats["total_trades"]
     
     total_completed = data["wins"] + data["losses"]
     data["win_rate"] = (data["wins"] / total_completed * 100) if total_completed > 0 else 0

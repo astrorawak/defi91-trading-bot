@@ -541,66 +541,54 @@ def manage_open_positions(exchange, info, all_mids):
         if should_close:
             print(f"    \u26a1 SMART EXIT: {close_reason}")
             try:
-                # STEP 1: Cancel TP/SL DULU agar tidak konflik dengan close
-                fe_payload = {"type": "frontendOpenOrders", "user": MAIN_WALLET}
-                fe_resp = requests.post("https://api.hyperliquid.xyz/info", json=fe_payload, timeout=10)
-                fe_orders = fe_resp.json()
-                cancelled_orders = []
-                for order in fe_orders:
-                    if order.get("coin") == coin:
-                        try:
-                            exchange.cancel(coin, order["oid"])
-                            cancelled_orders.append(order["oid"])
-                        except:
-                            pass
-                
-                time.sleep(1)  # Tunggu cancel selesai
-                
-                # STEP 2: Close posisi dengan market_close
                 close_size = abs(szi)
-                close_result = exchange.market_close(coin)
-                
-                # Cek apakah close berhasil
                 close_success = False
                 exit_price = current_price
                 
-                if isinstance(close_result, dict):
-                    status = close_result.get("status", "")
-                    if status == "ok":
-                        resp_data = close_result.get("response", {}).get("data", {}).get("statuses", [])
-                        if resp_data and "filled" in resp_data[0]:
-                            exit_price = float(resp_data[0]["filled"]["avgPx"])
-                            close_success = True
-                        elif resp_data and "resting" in resp_data[0]:
-                            exit_price = current_price
-                            close_success = True
+                # STEP 1: CLOSE POSISI dengan IOC order (reliable, tidak bergantung market_close)
+                close_is_buy = not is_long
+                if close_is_buy:
+                    close_px = format_price(current_price * 1.03)  # 3% slippage for buy
+                else:
+                    close_px = format_price(current_price * 0.97)  # 3% slippage for sell
                 
-                if not close_success:
-                    # Fallback: manual IOC order dengan slippage besar
-                    close_is_buy = not is_long
-                    if close_is_buy:
-                        close_px = format_price(current_price * 1.03)  # 3% slippage
-                    else:
-                        close_px = format_price(current_price * 0.97)  # 3% slippage
-                    
-                    close_order = {
-                        "coin": coin,
-                        "is_buy": close_is_buy,
-                        "sz": close_size,
-                        "limit_px": close_px,
-                        "order_type": {"limit": {"tif": "Ioc"}},
-                        "reduce_only": True,
-                    }
-                    result = exchange.bulk_orders([close_order])
-                    if isinstance(result, dict):
+                close_order = {
+                    "coin": coin,
+                    "is_buy": close_is_buy,
+                    "sz": close_size,
+                    "limit_px": close_px,
+                    "order_type": {"limit": {"tif": "Ioc"}},
+                    "reduce_only": True,
+                }
+                result = exchange.bulk_orders([close_order])
+                if isinstance(result, dict):
+                    if result.get("status") == "ok":
                         statuses = result.get("response", {}).get("data", {}).get("statuses", [])
                         if statuses and "filled" in statuses[0]:
                             exit_price = float(statuses[0]["filled"]["avgPx"])
                             close_success = True
+                    else:
+                        print(f"    API Error: {result.get('response', 'Unknown')}")
+                elif isinstance(result, str):
+                    print(f"    API returned string: {result[:100]}")
+                    close_success = False
                 
                 if close_success:
+                    # STEP 2: Close berhasil → Cancel TP/SL yang tersisa
+                    time.sleep(0.5)
+                    fe_payload = {"type": "frontendOpenOrders", "user": MAIN_WALLET}
+                    fe_resp = requests.post("https://api.hyperliquid.xyz/info", json=fe_payload, timeout=10)
+                    fe_orders = fe_resp.json()
+                    for order in fe_orders:
+                        if order.get("coin") == coin:
+                            try:
+                                exchange.cancel(coin, order["oid"])
+                            except:
+                                pass
+                    
                     actual_pnl = (exit_price - entry_px) / entry_px if is_long else (entry_px - exit_price) / entry_px
                     print(f"    \u2705 Position CLOSED @ ${exit_price} (Smart Exit) | PnL: {actual_pnl*100:.2f}%")
+                    print(f"    \u2705 TP/SL cancelled (position closed)")
                     
                     actions_taken.append({
                         "coin": coin,
@@ -611,22 +599,8 @@ def manage_open_positions(exchange, info, all_mids):
                         "exit": exit_price,
                     })
                 else:
-                    # Close gagal - pasang ulang TP/SL
-                    print(f"    \u274c Close failed, re-setting TP/SL...")
-                    tp_price = format_price(entry_px * (1 + TP_PERCENT)) if is_long else format_price(entry_px * (1 - TP_PERCENT))
-                    sl_price = format_price(entry_px * (1 - SL_PERCENT)) if is_long else format_price(entry_px * (1 + SL_PERCENT))
-                    tp_order = {
-                        "coin": coin, "is_buy": not is_long, "sz": close_size,
-                        "limit_px": tp_price, "order_type": {"trigger": {"triggerPx": tp_price, "isMarket": True, "tpsl": "tp"}},
-                        "reduce_only": True,
-                    }
-                    sl_order = {
-                        "coin": coin, "is_buy": not is_long, "sz": close_size,
-                        "limit_px": sl_price, "order_type": {"trigger": {"triggerPx": sl_price, "isMarket": True, "tpsl": "sl"}},
-                        "reduce_only": True,
-                    }
-                    exchange.bulk_orders([tp_order, sl_order])
-                    print(f"    \u2705 TP/SL re-set: TP={tp_price} SL={sl_price}")
+                    # Close gagal - TP/SL MASIH TERPASANG (posisi tetap aman)
+                    print(f"    \u274c Close failed, TP/SL still active (position protected)")
             except Exception as e:
                 print(f"    \u274c Smart Exit error: {e}")
             continue  # Lanjut ke posisi berikutnya
