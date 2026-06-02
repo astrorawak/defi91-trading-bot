@@ -37,12 +37,12 @@ WATCHLIST = [
     "DOGE",  # #19 volume - Meme king
     "BNB",   # Exchange coin - almarhum kuasai
 ]
-MARGIN_PER_TRADE = 1.50  # $1.50 per trade
+MARGIN_PER_TRADE = 5.00  # $5.00 per trade (target $1/hari)
 TARGET_LEVERAGE = 20  # Target 20x leverage (akan disesuaikan jika koin max < 20x)
 TP_PERCENT = 0.025  # 2.5% Take Profit (leverage tinggi = target lebih besar)
 SL_PERCENT = 0.012  # 1.2% Stop Loss (Risk:Reward = 1:2)
-ENTRY_THRESHOLD = 3  # Minimum score 3 untuk entry (lebih ketat = lebih akurat)
-MAX_OPEN_POSITIONS = 5  # Maksimal 5 posisi ($1.50 x 5 = $7.50 margin, sisa buffer)
+ENTRY_THRESHOLD = 4  # Minimum score 4 untuk entry (quality over quantity)
+MAX_OPEN_POSITIONS = 5  # Maksimal 5 posisi ($5.00 x 5 = $25 margin, sisa buffer)
 
 # Mapping max leverage per koin (berdasarkan API Hyperliquid)
 MAX_LEVERAGE_MAP = {
