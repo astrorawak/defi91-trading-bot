@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-03 13:00:38",
+  "last_update": "2026-06-03 14:19:11",
   "trades": [
     {
       "id": 1,
@@ -2575,6 +2575,24 @@
       "pnl": 0.0,
       "cvd_score": "-3",
       "rsi": "51.1"
+    },
+    {
+      "id": 144,
+      "time": "2026-06-03 14:19:11",
+      "coin": "HYPE",
+      "signal": "LONG",
+      "entry": 72.555,
+      "tp": 74.24,
+      "sl": 71.56,
+      "size": 0.69,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "5",
+      "rsi": "66.9"
     }
   ],
   "summary": {
