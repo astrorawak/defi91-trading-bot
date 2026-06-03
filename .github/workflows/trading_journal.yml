@@ -1,0 +1,45 @@
+name: Trading Journal Generator
+
+on:
+  schedule:
+    # Setiap hari jam 21:00 WIB (14:00 UTC)
+    - cron: '0 14 * * *'
+  workflow_dispatch:
+
+jobs:
+  journal:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests eth-account hyperliquid-python-sdk
+
+      - name: Generate Trading Journal
+        env:
+          HYPERLIQUID_PRIVATE_KEY: ${{ secrets.HYPERLIQUID_PRIVATE_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ secrets.OPENAI_BASE_URL }}
+        run: python journal_generator.py
+
+      - name: Commit and push journal
+        run: |
+          git config user.name "DeFi91 Bot"
+          git config user.email "bot@defi91.com"
+          git add journal.json
+          git diff --cached --quiet || git commit -m "Journal: $(date -u +'%Y-%m-%d')"
+          git push
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
+          publish_branch: gh-pages
