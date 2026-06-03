@@ -84,6 +84,46 @@
             50% { box-shadow: 0 0 20px rgba(0, 255, 136, 0.4); }
         }
 
+        /* Tab Navigation */
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+            margin: 20px auto;
+            max-width: 500px;
+            background: rgba(20, 20, 30, 0.8);
+            border-radius: 12px;
+            padding: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            background: transparent;
+            color: #666;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover { color: #aaa; }
+
+        .tab-btn.active {
+            background: rgba(0, 255, 136, 0.15);
+            color: #00ff88;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
@@ -225,6 +265,134 @@
         .pnl-positive { color: #00ff88; font-weight: 600; }
         .pnl-negative { color: #ff4444; font-weight: 600; }
 
+        /* Journal Styles */
+        .journal-section {
+            background: rgba(20, 20, 30, 0.8);
+            border: 1px solid rgba(0, 200, 255, 0.15);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .journal-section h2 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            color: #00c8ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 200, 255, 0.1);
+        }
+
+        .journal-date-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .journal-date-nav button {
+            background: rgba(0, 200, 255, 0.1);
+            border: 1px solid rgba(0, 200, 255, 0.3);
+            color: #00c8ff;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .journal-date-nav button:hover {
+            background: rgba(0, 200, 255, 0.2);
+        }
+
+        .journal-date-nav .current-date {
+            font-family: 'Orbitron', monospace;
+            font-size: 1rem;
+            color: #00c8ff;
+        }
+
+        .journal-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .journal-stat {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .journal-stat .stat-label {
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .journal-stat .stat-value {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.1rem;
+            margin-top: 5px;
+        }
+
+        .journal-trades-table {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .journal-trades-table table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8rem;
+        }
+
+        .journal-trades-table th {
+            font-family: 'Rajdhani', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #00c8ff;
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 200, 255, 0.1);
+            font-size: 0.7rem;
+        }
+
+        .journal-trades-table td {
+            padding: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+            font-size: 0.8rem;
+        }
+
+        .journal-narrative {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+            line-height: 1.9;
+            font-size: 0.9rem;
+            color: #ccc;
+            white-space: pre-line;
+        }
+
+        .journal-narrative strong {
+            color: #00c8ff;
+        }
+
+        .journal-empty {
+            text-align: center;
+            padding: 40px;
+            color: #555;
+            font-style: italic;
+        }
+
         .footer {
             text-align: center;
             padding: 30px;
@@ -238,6 +406,8 @@
             .header h1 { font-size: 1.8rem; }
             .perf-grid { grid-template-columns: repeat(2, 1fr); }
             .perf-card .value { font-size: 1.2rem; }
+            .journal-stats { grid-template-columns: repeat(2, 1fr); }
+            .tab-btn { font-size: 0.7rem; padding: 8px 10px; }
         }
     </style>
 </head>
@@ -248,81 +418,203 @@
         <div class="status-badge">● LIVE - AUTO TRADING</div>
     </div>
 
-    <div class="container">
-        <div class="perf-grid">
-            <div class="perf-card">
-                <div class="label">Total P&L</div>
-                <div class="value neutral" id="totalPnl">$0.00</div>
-                <div class="change" id="pnlChange">Loading...</div>
-            </div>
-            <div class="perf-card">
-                <div class="label">Win Rate</div>
-                <div class="value neutral" id="winRate">--%</div>
-                <div class="change" id="winLoss">W: 0 / L: 0</div>
-            </div>
-            <div class="perf-card">
-                <div class="label">Total Trades</div>
-                <div class="value neutral" id="totalTrades">0</div>
-                <div class="change" id="todayTrades">Hari ini: 0</div>
-            </div>
-            <div class="perf-card">
-                <div class="label">Avg Profit/Trade</div>
-                <div class="value neutral" id="avgProfit">$0.00</div>
-                <div class="change" id="bestTrade">Best: --</div>
-            </div>
-        </div>
+    <!-- Tab Navigation -->
+    <div class="tab-nav">
+        <button class="tab-btn active" onclick="switchTab('dashboard')">Dashboard</button>
+        <button class="tab-btn" onclick="switchTab('journal')">Jurnal Trading</button>
+    </div>
 
-        <div class="chart-section">
-            <h2>Equity Curve (Pergerakan Profit Kumulatif)</h2>
-            <div class="chart-container">
-                <canvas id="equityChart"></canvas>
+    <!-- Dashboard Tab -->
+    <div class="tab-content active" id="tab-dashboard">
+        <div class="container">
+            <div class="perf-grid">
+                <div class="perf-card">
+                    <div class="label">Total P&L</div>
+                    <div class="value neutral" id="totalPnl">$0.00</div>
+                    <div class="change" id="pnlChange">Loading...</div>
+                </div>
+                <div class="perf-card">
+                    <div class="label">Win Rate</div>
+                    <div class="value neutral" id="winRate">--%</div>
+                    <div class="change" id="winLoss">W: 0 / L: 0</div>
+                </div>
+                <div class="perf-card">
+                    <div class="label">Total Trades</div>
+                    <div class="value neutral" id="totalTrades">0</div>
+                    <div class="change" id="todayTrades">Hari ini: 0</div>
+                </div>
+                <div class="perf-card">
+                    <div class="label">Avg Profit/Trade</div>
+                    <div class="value neutral" id="avgProfit">$0.00</div>
+                    <div class="change" id="bestTrade">Best: --</div>
+                </div>
             </div>
-        </div>
 
-        <div class="chart-section">
-            <h2>Profit & Loss Harian</h2>
-            <div class="chart-container">
-                <canvas id="dailyPnlChart"></canvas>
+            <div class="chart-section">
+                <h2>Equity Curve (Pergerakan Profit Kumulatif)</h2>
+                <div class="chart-container">
+                    <canvas id="equityChart"></canvas>
+                </div>
             </div>
-        </div>
 
-        <div class="daily-report">
-            <h2>AI Daily Performance Report</h2>
-            <div class="report-content" id="reportContent">Menunggu laporan harian pertama...
+            <div class="chart-section">
+                <h2>Profit & Loss Harian</h2>
+                <div class="chart-container">
+                    <canvas id="dailyPnlChart"></canvas>
+                </div>
+            </div>
+
+            <div class="daily-report">
+                <h2>AI Daily Performance Report</h2>
+                <div class="report-content" id="reportContent">Menunggu laporan harian pertama...
 Laporan AI akan diperbarui setiap hari jam 13:00 WIB.</div>
-            <div class="report-meta" id="reportMeta">Belum ada laporan</div>
-        </div>
+                <div class="report-meta" id="reportMeta">Belum ada laporan</div>
+            </div>
 
-        <div class="chart-section">
-            <h2>Riwayat Trade Terakhir (Closed)</h2>
-            <div class="trade-history">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Waktu</th>
-                            <th>Koin</th>
-                            <th>Arah</th>
-                            <th>Entry</th>
-                            <th>Exit</th>
-                            <th>P&L</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tradeTable">
-                        <tr><td colspan="6" style="text-align:center; color:#666;">Menunggu data trade yang sudah closed...</td></tr>
-                    </tbody>
-                </table>
+            <div class="chart-section">
+                <h2>Riwayat Trade Terakhir (Closed)</h2>
+                <div class="trade-history">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Waktu</th>
+                                <th>Koin</th>
+                                <th>Arah</th>
+                                <th>Entry</th>
+                                <th>Exit</th>
+                                <th>P&L</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tradeTable">
+                            <tr><td colspan="6" style="text-align:center; color:#666;">Menunggu data trade yang sudah closed...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Journal Tab -->
+    <div class="tab-content" id="tab-journal">
+        <div class="container">
+            <div class="journal-section">
+                <h2>Jurnal Trading Harian</h2>
+                
+                <div class="journal-date-nav">
+                    <button onclick="prevJournal()">&#9664; Sebelumnya</button>
+                    <span class="current-date" id="journalDate">Loading...</span>
+                    <button onclick="nextJournal()">Berikutnya &#9654;</button>
+                </div>
+
+                <!-- Journal Stats -->
+                <div class="journal-stats" id="journalStats">
+                    <div class="journal-stat">
+                        <div class="stat-label">Saldo</div>
+                        <div class="stat-value neutral" id="jBalance">--</div>
+                    </div>
+                    <div class="journal-stat">
+                        <div class="stat-label">P&L Hari Ini</div>
+                        <div class="stat-value" id="jPnl">--</div>
+                    </div>
+                    <div class="journal-stat">
+                        <div class="stat-label">Win Rate</div>
+                        <div class="stat-value" id="jWinRate">--</div>
+                    </div>
+                    <div class="journal-stat">
+                        <div class="stat-label">Total Trade</div>
+                        <div class="stat-value neutral" id="jTotalTrade">--</div>
+                    </div>
+                </div>
+
+                <!-- Trade Table: Entries -->
+                <h3 style="color:#00c8ff; font-family:'Rajdhani',sans-serif; font-size:0.9rem; letter-spacing:1px; margin:15px 0 10px; text-transform:uppercase;">Trade yang Dibuka Hari Ini</h3>
+                <div class="journal-trades-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Waktu</th>
+                                <th>Koin</th>
+                                <th>Arah</th>
+                                <th>Entry</th>
+                                <th>TP</th>
+                                <th>SL</th>
+                                <th>Margin</th>
+                                <th>Lev</th>
+                                <th>CVD</th>
+                                <th>RSI</th>
+                            </tr>
+                        </thead>
+                        <tbody id="jEntriesTable">
+                            <tr><td colspan="10" style="text-align:center;color:#555;">Belum ada data</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Trade Table: Closed -->
+                <h3 style="color:#00c8ff; font-family:'Rajdhani',sans-serif; font-size:0.9rem; letter-spacing:1px; margin:15px 0 10px; text-transform:uppercase;">Trade yang Ditutup Hari Ini</h3>
+                <div class="journal-trades-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Waktu</th>
+                                <th>Koin</th>
+                                <th>Arah</th>
+                                <th>Exit Price</th>
+                                <th>P&L</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="jClosedTable">
+                            <tr><td colspan="6" style="text-align:center;color:#555;">Belum ada data</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Posisi Terbuka -->
+                <h3 style="color:#00c8ff; font-family:'Rajdhani',sans-serif; font-size:0.9rem; letter-spacing:1px; margin:15px 0 10px; text-transform:uppercase;">Posisi Masih Terbuka</h3>
+                <div class="journal-trades-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Koin</th>
+                                <th>Arah</th>
+                                <th>Entry</th>
+                                <th>Leverage</th>
+                                <th>Unrealized P&L</th>
+                            </tr>
+                        </thead>
+                        <tbody id="jOpenTable">
+                            <tr><td colspan="5" style="text-align:center;color:#555;">Belum ada data</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- AI Journal Narrative -->
+                <h3 style="color:#00c8ff; font-family:'Rajdhani',sans-serif; font-size:0.9rem; letter-spacing:1px; margin:20px 0 10px; text-transform:uppercase;">Analisa & Pelajaran Hari Ini</h3>
+                <div class="journal-narrative" id="jNarrative">
+                    Jurnal akan di-generate otomatis setiap hari jam 21:00 WIB...
+                </div>
             </div>
         </div>
     </div>
 
     <div class="footer">
-        Trading Bot By Karman &bull; Auto-refresh setiap 60 detik &bull; AI Report setiap 13:00 WIB
+        Trading Bot By Karman &bull; Auto-refresh setiap 60 detik &bull; Jurnal harian jam 21:00 WIB
     </div>
 
     <script>
         Chart.defaults.color = '#666';
         Chart.defaults.borderColor = 'rgba(255,255,255,0.03)';
 
+        // Tab switching
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + tab).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // Charts
         const equityCtx = document.getElementById('equityChart').getContext('2d');
         const equityChart = new Chart(equityCtx, {
             type: 'line',
@@ -375,6 +667,7 @@ Laporan AI akan diperbarui setiap hari jam 13:00 WIB.</div>
             }
         });
 
+        // Load Performance Data
         async function loadData() {
             try {
                 const resp = await fetch('performance.json?' + Date.now());
@@ -441,8 +734,132 @@ Laporan AI akan diperbarui setiap hari jam 13:00 WIB.</div>
             }
         }
 
+        // Journal Data
+        let journalData = [];
+        let currentJournalIdx = 0;
+
+        async function loadJournal() {
+            try {
+                const resp = await fetch('journal.json?' + Date.now());
+                const data = await resp.json();
+                journalData = data.journals || [];
+                currentJournalIdx = journalData.length - 1; // Latest
+                renderJournal();
+            } catch (e) {
+                document.getElementById('jNarrative').textContent = 'Jurnal akan tersedia setelah generate pertama kali (jam 21:00 WIB)...';
+            }
+        }
+
+        function renderJournal() {
+            if (journalData.length === 0) {
+                document.getElementById('journalDate').textContent = 'Belum ada jurnal';
+                return;
+            }
+
+            const j = journalData[currentJournalIdx];
+            
+            // Date
+            document.getElementById('journalDate').textContent = j.date_display || j.date;
+            
+            // Stats
+            document.getElementById('jBalance').textContent = '$' + (j.balance || 0).toFixed(2);
+            
+            const pnlEl = document.getElementById('jPnl');
+            const pnl = j.total_pnl || 0;
+            pnlEl.textContent = (pnl >= 0 ? '+' : '') + '$' + pnl.toFixed(4);
+            pnlEl.className = 'stat-value ' + (pnl >= 0 ? 'profit' : 'loss');
+            
+            const wrEl = document.getElementById('jWinRate');
+            const wr = j.win_rate || 0;
+            wrEl.textContent = wr.toFixed(0) + '%';
+            wrEl.className = 'stat-value ' + (wr >= 50 ? 'profit' : 'neutral');
+            
+            document.getElementById('jTotalTrade').textContent = j.total_closed || 0;
+
+            // Entries Table
+            const entriesTbody = document.getElementById('jEntriesTable');
+            if (j.entries_today && j.entries_today.length > 0) {
+                entriesTbody.innerHTML = j.entries_today.map(t => `
+                    <tr>
+                        <td>${(t.time || '').split(' ')[1] || t.time || '--'}</td>
+                        <td>${t.coin}</td>
+                        <td class="${t.direction === 'LONG' ? 'badge-long' : 'badge-short'}">${t.direction}</td>
+                        <td>$${t.entry}</td>
+                        <td>$${t.tp}</td>
+                        <td>$${t.sl}</td>
+                        <td>$${t.margin}</td>
+                        <td>${t.leverage}x</td>
+                        <td>${t.cvd_score}</td>
+                        <td>${t.rsi}</td>
+                    </tr>
+                `).join('');
+            } else {
+                entriesTbody.innerHTML = '<tr><td colspan="10" style="text-align:center;color:#555;">Tidak ada entry baru</td></tr>';
+            }
+
+            // Closed Table
+            const closedTbody = document.getElementById('jClosedTable');
+            if (j.closed_today && j.closed_today.length > 0) {
+                closedTbody.innerHTML = j.closed_today.map(t => {
+                    const status = t.pnl >= 0 ? 'WIN' : 'LOSS';
+                    const statusClass = t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative';
+                    return `
+                        <tr>
+                            <td>${t.time || '--'}</td>
+                            <td>${t.coin}</td>
+                            <td class="${t.direction === 'LONG' ? 'badge-long' : 'badge-short'}">${t.direction}</td>
+                            <td>$${t.exit_price}</td>
+                            <td class="${statusClass}">${t.pnl >= 0 ? '+' : ''}$${t.pnl.toFixed(4)}</td>
+                            <td class="${statusClass}">${status}</td>
+                        </tr>
+                    `;
+                }).join('');
+            } else {
+                closedTbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:#555;">Tidak ada trade yang ditutup</td></tr>';
+            }
+
+            // Open Positions
+            const openTbody = document.getElementById('jOpenTable');
+            if (j.open_positions && j.open_positions.length > 0) {
+                openTbody.innerHTML = j.open_positions.map(p => {
+                    const pnlClass = p.unrealized_pnl >= 0 ? 'pnl-positive' : 'pnl-negative';
+                    return `
+                        <tr>
+                            <td>${p.coin}</td>
+                            <td class="${p.direction === 'LONG' ? 'badge-long' : 'badge-short'}">${p.direction}</td>
+                            <td>$${p.entry}</td>
+                            <td>${p.leverage || 10}x</td>
+                            <td class="${pnlClass}">${p.unrealized_pnl >= 0 ? '+' : ''}$${p.unrealized_pnl.toFixed(4)}</td>
+                        </tr>
+                    `;
+                }).join('');
+            } else {
+                openTbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:#555;">Tidak ada posisi terbuka</td></tr>';
+            }
+
+            // Narrative
+            document.getElementById('jNarrative').textContent = j.journal_content || 'Jurnal belum tersedia untuk hari ini.';
+        }
+
+        function prevJournal() {
+            if (currentJournalIdx > 0) {
+                currentJournalIdx--;
+                renderJournal();
+            }
+        }
+
+        function nextJournal() {
+            if (currentJournalIdx < journalData.length - 1) {
+                currentJournalIdx++;
+                renderJournal();
+            }
+        }
+
+        // Init
         loadData();
+        loadJournal();
         setInterval(loadData, 60000);
+        setInterval(loadJournal, 300000); // Refresh journal every 5 min
     </script>
 </body>
 </html>
