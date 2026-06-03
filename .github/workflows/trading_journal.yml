@@ -2,8 +2,8 @@ name: Trading Journal Generator
 
 on:
   schedule:
-    # Setiap hari jam 21:00 WIB (14:00 UTC)
-    - cron: '0 14 * * *'
+    # Setiap hari jam 13:00 WIB (06:00 UTC)
+    - cron: '0 6 * * *'
   workflow_dispatch:
 
 jobs:
