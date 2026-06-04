@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-05 00:27:42",
+  "last_update": "2026-06-05 01:22:48",
   "trades": [
     {
       "id": 1,
@@ -3187,6 +3187,60 @@
       "pnl": 0.0,
       "cvd_score": "2",
       "rsi": "34.7"
+    },
+    {
+      "id": 178,
+      "time": "2026-06-05 01:22:48",
+      "coin": "BTC",
+      "signal": "LONG",
+      "entry": 63391.0,
+      "tp": 64992.0,
+      "sl": 62646.0,
+      "size": 0.00158,
+      "margin": 5.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "5",
+      "rsi": "41.8"
+    },
+    {
+      "id": 179,
+      "time": "2026-06-05 01:22:48",
+      "coin": "HYPE",
+      "signal": "LONG",
+      "entry": 66.224,
+      "tp": 67.9,
+      "sl": 65.44,
+      "size": 0.75,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "2",
+      "rsi": "42.5"
+    },
+    {
+      "id": 180,
+      "time": "2026-06-05 01:22:48",
+      "coin": "XRP",
+      "signal": "SHORT",
+      "entry": 1.1685,
+      "tp": 1.139,
+      "sl": 1.182,
+      "size": 86.0,
+      "margin": 5.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-2",
+      "rsi": "47.4"
     }
   ],
   "summary": {
