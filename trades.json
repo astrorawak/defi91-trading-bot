@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-04 18:29:40",
+  "last_update": "2026-06-04 23:17:39",
   "trades": [
     {
       "id": 1,
@@ -3097,6 +3097,42 @@
       "pnl": 0.0,
       "cvd_score": "-5",
       "rsi": "40.8"
+    },
+    {
+      "id": 173,
+      "time": "2026-06-04 23:17:39",
+      "coin": "HYPE",
+      "signal": "LONG",
+      "entry": 68.047,
+      "tp": 69.71,
+      "sl": 67.19,
+      "size": 0.74,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "5",
+      "rsi": "52.2"
+    },
+    {
+      "id": 174,
+      "time": "2026-06-04 23:17:39",
+      "coin": "BNB",
+      "signal": "LONG",
+      "entry": 604.95,
+      "tp": 620.1,
+      "sl": 597.7,
+      "size": 0.083,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "4",
+      "rsi": "54.8"
     }
   ],
   "summary": {
