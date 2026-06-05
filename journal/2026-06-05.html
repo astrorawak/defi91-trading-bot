@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurnal Trading - Friday, 05 June 2026 | By Karman</title>
+    <meta name="description" content="Jurnal Trading Harian Bot DeFi91 - Friday, 05 June 2026. Strategi Almarhum Doddy Ali Wijaya + KJo Academy.">
+    <meta property="og:title" content="Jurnal Trading - Friday, 05 June 2026 | By Karman">
+    <meta property="og:description" content="P&L: +$4.77 | Win Rate: 43% | Trades: 44">
+    <meta property="og:type" content="article">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 1px solid rgba(0,255,136,0.2);
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00ff88, #00c8ff, #8a2be2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+        .header .subtitle {
+            color: #888;
+            font-size: 0.9rem;
+        }
+        .header .date {
+            font-family: 'Orbitron', monospace;
+            font-size: 1.2rem;
+            color: #00ff88;
+            margin-top: 10px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        .stat-card .label { font-size: 0.75rem; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+        .stat-card .value { font-family: 'Orbitron', monospace; font-size: 1.4rem; margin-top: 5px; }
+        .profit { color: #00ff88; }
+        .loss { color: #ff4757; }
+        .long { color: #00ff88; font-weight: 600; }
+        .short { color: #ff4757; font-weight: 600; }
+        .section {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+            color: #00c8ff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        th {
+            background: rgba(0,200,255,0.1);
+            padding: 10px 8px;
+            text-align: left;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #aaa;
+        }
+        td {
+            padding: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .journal-content {
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+        .journal-content h3 {
+            color: #00c8ff;
+            margin: 20px 0 10px;
+            font-size: 1rem;
+        }
+        .journal-content strong {
+            color: #00ff88;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #555;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            margin-top: 30px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #00c8ff;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .back-link:hover { color: #00ff88; }
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            table { font-size: 0.75rem; }
+            td, th { padding: 6px 4px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Trading Bot By: Karman</h1>
+            <div class="subtitle">Strategi Almarhum Doddy Ali Wijaya + KJo Academy</div>
+            <div class="date">Friday, 05 June 2026</div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="label">Saldo</div>
+                <div class="value">$68.29</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">P&L Hari Ini</div>
+                <div class="value profit">+$4.7664</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Win Rate</div>
+                <div class="value">43%</div>
+            </div>
+            <div class="stat-card">
+                <div class="label">Total Trade</div>
+                <div class="value">44</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Trade yang Dibuka Hari Ini</h2>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead><tr>
+                    <th>Waktu</th><th>Koin</th><th>Arah</th><th>Entry</th><th>TP</th><th>SL</th><th>Margin</th><th>Lev</th><th>CVD</th><th>RSI</th>
+                </tr></thead>
+                <tbody><tr>
+            <td>00:27</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63225.0</td>
+            <td>$64781.0</td>
+            <td>$62442.0</td>
+            <td>$5.0</td>
+            <td>20x</td>
+            <td>0</td>
+            <td>31.2</td>
+        </tr><tr>
+            <td>00:27</td>
+            <td>ETH</td>
+            <td class="long">LONG</td>
+            <td>$1765.0</td>
+            <td>$1808.5</td>
+            <td>$1743.2</td>
+            <td>$5.0</td>
+            <td>20x</td>
+            <td>3</td>
+            <td>38.0</td>
+        </tr><tr>
+            <td>00:27</td>
+            <td>SOL</td>
+            <td class="long">LONG</td>
+            <td>$69.191</td>
+            <td>$70.9</td>
+            <td>$68.34</td>
+            <td>$5.0</td>
+            <td>20x</td>
+            <td>2</td>
+            <td>34.7</td>
+        </tr><tr>
+            <td>01:22</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63391.0</td>
+            <td>$64992.0</td>
+            <td>$62646.0</td>
+            <td>$5.0</td>
+            <td>20x</td>
+            <td>5</td>
+            <td>41.8</td>
+        </tr><tr>
+            <td>01:22</td>
+            <td>HYPE</td>
+            <td class="long">LONG</td>
+            <td>$66.224</td>
+            <td>$67.9</td>
+            <td>$65.44</td>
+            <td>$5.0</td>
+            <td>10x</td>
+            <td>2</td>
+            <td>42.5</td>
+        </tr><tr>
+            <td>01:22</td>
+            <td>XRP</td>
+            <td class="short">SHORT</td>
+            <td>$1.1685</td>
+            <td>$1.139</td>
+            <td>$1.182</td>
+            <td>$5.0</td>
+            <td>20x</td>
+            <td>-2</td>
+            <td>47.4</td>
+        </tr><tr>
+            <td>04:01</td>
+            <td>SOL</td>
+            <td class="short">SHORT</td>
+            <td>$68.738</td>
+            <td>$66.99</td>
+            <td>$69.53</td>
+            <td>$5.0</td>
+            <td>20x</td>
+            <td>-4</td>
+            <td>51.4</td>
+        </tr><tr>
+            <td>04:01</td>
+            <td>WLD</td>
+            <td class="long">LONG</td>
+            <td>$0.5246</td>
+            <td>$0.5376</td>
+            <td>$0.5182</td>
+            <td>$5.0</td>
+            <td>10x</td>
+            <td>4</td>
+            <td>29.4</td>
+        </tr><tr>
+            <td>06:02</td>
+            <td>BTC</td>
+            <td class="short">SHORT</td>
+            <td>$63697.0</td>
+            <td>$62115.0</td>
+            <td>$64472.0</td>
+            <td>$5.0</td>
+            <td>20x</td>
+            <td>-3</td>
+            <td>48.2</td>
+        </tr><tr>
+            <td>06:02</td>
+            <td>DOGE</td>
+            <td class="long">LONG</td>
+            <td>$0.088094</td>
+            <td>$0.09033</td>
+            <td>$0.08707</td>
+            <td>$5.0</td>
+            <td>10x</td>
+            <td>4</td>
+            <td>33.7</td>
+        </tr><tr>
+            <td>12:12</td>
+            <td>HYPE</td>
+            <td class="long">LONG</td>
+            <td>$62.826</td>
+            <td>$64.43</td>
+            <td>$62.11</td>
+            <td>$5.0</td>
+            <td>10x</td>
+            <td>4</td>
+            <td>35.3</td>
+        </tr><tr>
+            <td>12:12</td>
+            <td>ETH</td>
+            <td class="short">SHORT</td>
+            <td>$1731.5</td>
+            <td>$1689.2</td>
+            <td>$1753.3</td>
+            <td>$5.0</td>
+            <td>20x</td>
+            <td>-4</td>
+            <td>35.7</td>
+        </tr><tr>
+            <td>12:12</td>
+            <td>XRP</td>
+            <td class="short">SHORT</td>
+            <td>$1.137</td>
+            <td>$1.109</td>
+            <td>$1.151</td>
+            <td>$5.0</td>
+            <td>20x</td>
+            <td>-4</td>
+            <td>36.6</td>
+        </tr><tr>
+            <td>12:12</td>
+            <td>SUI</td>
+            <td class="short">SHORT</td>
+            <td>$0.7381</td>
+            <td>$0.7199</td>
+            <td>$0.7472</td>
+            <td>$5.0</td>
+            <td>10x</td>
+            <td>-5</td>
+            <td>36.3</td>
+        </tr><tr>
+            <td>13:47</td>
+            <td>BTC</td>
+            <td class="short">SHORT</td>
+            <td>$61862.0</td>
+            <td>$60325.0</td>
+            <td>$62614.0</td>
+            <td>$5.0</td>
+            <td>20x</td>
+            <td>-5</td>
+            <td>42.4</td>
+        </tr><tr>
+            <td>13:47</td>
+            <td>HYPE</td>
+            <td class="short">SHORT</td>
+            <td>$60.925</td>
+            <td>$59.39</td>
+            <td>$61.64</td>
+            <td>$5.0</td>
+            <td>10x</td>
+            <td>-5</td>
+            <td>40.0</td>
+        </tr></tbody>
+            </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Trade yang Ditutup Hari Ini</h2>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead><tr>
+                    <th>Waktu</th><th>Koin</th><th>Arah</th><th>Exit Price</th><th>P&L</th><th>Status</th>
+                </tr></thead>
+                <tbody><tr>
+            <td>14:36</td>
+            <td>BTC</td>
+            <td class="short">SHORT</td>
+            <td>$62630.0</td>
+            <td class="loss">$-0.0845</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>14:36</td>
+            <td>BTC</td>
+            <td class="short">SHORT</td>
+            <td>$62630.0</td>
+            <td class="loss">$-0.1306</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>14:36</td>
+            <td>BTC</td>
+            <td class="short">SHORT</td>
+            <td>$62630.0</td>
+            <td class="loss">$-1.0291</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>14:06</td>
+            <td>HYPE</td>
+            <td class="short">SHORT</td>
+            <td>$59.401</td>
+            <td class="profit">$1.2497</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>13:18</td>
+            <td>XRP</td>
+            <td class="short">SHORT</td>
+            <td>$1.1087</td>
+            <td class="profit">$2.4904</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>13:13</td>
+            <td>SUI</td>
+            <td class="short">SHORT</td>
+            <td>$0.7199</td>
+            <td class="profit">$1.2321</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>13:03</td>
+            <td>BTC</td>
+            <td class="short">SHORT</td>
+            <td>$62070.0</td>
+            <td class="profit">$2.5544</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>12:49</td>
+            <td>HYPE</td>
+            <td class="long">LONG</td>
+            <td>$61.986</td>
+            <td class="loss">$-0.6720</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>12:47</td>
+            <td>ETH</td>
+            <td class="short">SHORT</td>
+            <td>$1688.1</td>
+            <td class="profit">$2.5042</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>10:42</td>
+            <td>SOL</td>
+            <td class="short">SHORT</td>
+            <td>$66.995</td>
+            <td class="profit">$2.5448</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>09:07</td>
+            <td>ETH</td>
+            <td class="long">LONG</td>
+            <td>$1743.2</td>
+            <td class="loss">$-1.2361</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>08:04</td>
+            <td>DOGE</td>
+            <td class="long">LONG</td>
+            <td>$0.087033</td>
+            <td class="loss">$-0.4668</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>08:04</td>
+            <td>DOGE</td>
+            <td class="long">LONG</td>
+            <td>$0.087048</td>
+            <td class="loss">$-0.1328</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>08:04</td>
+            <td>BNB</td>
+            <td class="long">LONG</td>
+            <td>$597.58</td>
+            <td class="loss">$-0.6117</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>06:01</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63699.0</td>
+            <td class="profit">$0.0246</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>06:01</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63699.0</td>
+            <td class="profit">$0.0739</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>06:01</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63699.0</td>
+            <td class="profit">$0.0524</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>06:01</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63700.0</td>
+            <td class="profit">$0.0525</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>06:01</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63700.0</td>
+            <td class="profit">$0.0525</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>06:01</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63701.0</td>
+            <td class="profit">$0.0527</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>06:01</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63701.0</td>
+            <td class="profit">$0.0744</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>06:01</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63701.0</td>
+            <td class="profit">$0.0527</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>06:01</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63702.0</td>
+            <td class="profit">$0.0529</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>04:09</td>
+            <td>WLD</td>
+            <td class="long">LONG</td>
+            <td>$0.53818</td>
+            <td class="profit">$1.2942</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>04:00</td>
+            <td>HYPE</td>
+            <td class="long">LONG</td>
+            <td>$67.019</td>
+            <td class="profit">$0.5962</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>01:30</td>
+            <td>XRP</td>
+            <td class="short">SHORT</td>
+            <td>$1.1823</td>
+            <td class="loss">$-1.1868</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>01:22</td>
+            <td>SOL</td>
+            <td class="long">LONG</td>
+            <td>$68.96</td>
+            <td class="loss">$-0.1825</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>01:22</td>
+            <td>SOL</td>
+            <td class="long">LONG</td>
+            <td>$68.96</td>
+            <td class="loss">$-0.0508</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>01:22</td>
+            <td>SOL</td>
+            <td class="long">LONG</td>
+            <td>$68.963</td>
+            <td class="loss">$-0.1003</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>01:22</td>
+            <td>BTC</td>
+            <td class="long">LONG</td>
+            <td>$63392.0</td>
+            <td class="profit">$0.2639</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>00:34</td>
+            <td>HYPE</td>
+            <td class="long">LONG</td>
+            <td>$67.135</td>
+            <td class="loss">$-0.6749</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>19:27</td>
+            <td>BNB</td>
+            <td class="short">SHORT</td>
+            <td>$599.98</td>
+            <td class="loss">$-0.6090</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>19:24</td>
+            <td>BTC</td>
+            <td class="short">SHORT</td>
+            <td>$63378.0</td>
+            <td class="loss">$-1.3104</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>19:24</td>
+            <td>DOGE</td>
+            <td class="short">SHORT</td>
+            <td>$0.088842</td>
+            <td class="loss">$-0.2675</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>19:24</td>
+            <td>DOGE</td>
+            <td class="short">SHORT</td>
+            <td>$0.088828</td>
+            <td class="loss">$-0.1490</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>19:24</td>
+            <td>DOGE</td>
+            <td class="short">SHORT</td>
+            <td>$0.08879</td>
+            <td class="loss">$-0.2631</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>19:24</td>
+            <td>SUI</td>
+            <td class="short">SHORT</td>
+            <td>$0.77577</td>
+            <td class="loss">$-0.5829</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>18:42</td>
+            <td>NEAR</td>
+            <td class="short">SHORT</td>
+            <td>$2.3852</td>
+            <td class="loss">$-0.3058</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>18:42</td>
+            <td>NEAR</td>
+            <td class="short">SHORT</td>
+            <td>$2.385</td>
+            <td class="loss">$-0.1297</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>18:42</td>
+            <td>NEAR</td>
+            <td class="short">SHORT</td>
+            <td>$2.3846</td>
+            <td class="loss">$-0.1496</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>18:12</td>
+            <td>WLD</td>
+            <td class="short">SHORT</td>
+            <td>$0.48694</td>
+            <td class="profit">$1.1642</td>
+            <td class="profit">WIN</td>
+        </tr><tr>
+            <td>17:49</td>
+            <td>SOL</td>
+            <td class="long">LONG</td>
+            <td>$67.656</td>
+            <td class="loss">$-0.8229</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>17:49</td>
+            <td>SOL</td>
+            <td class="long">LONG</td>
+            <td>$67.657</td>
+            <td class="loss">$-0.2033</td>
+            <td class="loss">LOSS</td>
+        </tr><tr>
+            <td>17:49</td>
+            <td>SOL</td>
+            <td class="long">LONG</td>
+            <td>$67.66</td>
+            <td class="loss">$-0.2642</td>
+            <td class="loss">LOSS</td>
+        </tr></tbody>
+            </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Posisi Masih Terbuka</h2>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead><tr>
+                    <th>Koin</th><th>Arah</th><th>Entry</th><th>Leverage</th><th>Unrealized P&L</th>
+                </tr></thead>
+                <tbody><tr><td colspan="5" style="text-align:center;opacity:0.5;">Tidak ada posisi terbuka</td></tr></tbody>
+            </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Analisa & Pelajaran Hari Ini</h2>
+            <div class="journal-content">
+                <p><strong>Jurnal Trading Hari Ini – Jumat, 05 Juni 2026<strong></p><p><strong>1. Ringkasan Hari Ini<strong>  <br>Hari ini cukup dinamis, banyak posisi terbuka dan tertutup dengan hasil beragam. Ada yang profit, ada juga yang mengalami loss, dan pasar tampak cukup volatile dengan pergerakan yang cukup cepat. Secara umum, hari ini menunjukkan kondisi pasar yang sedang sideways dengan potensi breakout di beberapa momen.</p><p><strong>2. Analisa Kenapa Bot Masuk Posisi<strong>  <br>- <strong>BTC Long (00:27 & 01:22)<strong>  <br>  Bot melihat volume delta positif dan order book imbalance yang mengindikasikan adanya tekanan beli. RSI di bawah 40 (31.2 dan 41.8) memberi sinyal momentum oversold, memperkuat peluang naik. Skor CVD tinggi (5) dan momentum dari support/resistance membuat bot yakin masuk long.  <br>- <strong>ETH Long & Short (00:27 & 12:12)<strong>  <br>  Entry long di dekat support, RSI di sekitar 38, dan MACD mulai menunjukkan potensi bullish. Sementara short di harga sedikit lebih tinggi, RSI di 35.7 dan CVD negatif (-4) menandakan adanya tekanan jual, sehingga bot masuk short sebagai antisipasi pergerakan koreksi.  <br>- <strong>SOL & WLD (00:27 & 04:01)<strong>  <br>  Long di support dengan RSI sekitar 34-35, dan CVD positif menunjukkan adanya minat beli yang kuat. Di sisi lain, short di SOL menunjukkan adanya ketidakpastian dan peluang koreksi, dengan CVD negatif (-4).  <br>- <strong>Dari posisi lainnya<strong>, bot memanfaatkan kombinasi sinyal order flow dan indikator teknikal seperti RSI dan support/resistance yang cukup dekat untuk masuk, baik long maupun short, tergantung kondisi pasar saat itu.</p><p><strong>3. Analisa Kenapa Bot Keluar Posisi<strong>  <br>- <strong>Profit-taking<strong>  <br>  Banyak posisi yang mencapai target profit, seperti ETH short dan BTC short di sekitar level support/resistance, serta WLD long yang keluar dengan profit sekitar 1.29.  <br>- <strong>Cut Loss<strong>  <br>  Beberapa posisi mengalami loss, misalnya ETH long dan DOGE long yang keluar di kerugian kecil karena pergerakan berbalik arah. Ada juga posisi yang keluar karena sinyal reversal dari indikator seperti RSI yang melewati level overbought/oversold.  <br>- <strong>Smart Exit<strong>  <br>  Pada posisi yang tidak mencapai target, bot menutup posisi saat sinyal teknikal menunjukkan pembalikan, misalnya di HYPE short dan beberapa posisi lain yang keluar sebelum kerugian membesar.</p><p><strong>4. Pelajaran Penting Hari Ini<strong>  <br>Hari ini menunjukkan pentingnya kombinasi analisa order flow dan indikator teknikal untuk mengantisipasi pergerakan pasar. Meskipun ada posisi yang profit, masih banyak juga yang mengalami loss, mengingat kondisi pasar yang sideways dan cepat berubah. Kunci utama adalah disiplin dalam mengelola level TP dan SL serta memahami sinyal pembalikan dari RSI dan MACD.  <br>Selain itu, jangan lupa bahwa tidak semua sinyal akan berjalan mulus; manajemen risiko tetap menjadi prioritas utama.</p><p><strong>5. Koneksi dengan Berita/Sentimen Pasar<strong>  <br>Tidak ada berita besar yang terlihat mempengaruhi pasar hari ini secara langsung, namun sentimen umum pasar masih cenderung wait-and-see. Beberapa altcoin menunjukkan pergerakan koreksi, kemungkinan karena adanya aksi ambil keuntungan setelah rally sebelumnya. Bitcoin tetap stabil di kisaran tertentu, menunggu momentum baru.</p><p><strong>6. Skor Performa Hari Ini<strong>  <br>Saya beri nilai 6 dari 10. Hari ini cukup variatif, ada peluang bagus dari kombinasi strategi, tapi juga banyak posisi yang berakhir loss. Ini mengingatkan kita bahwa pasar bisa tidak pasti, dan pentingnya konsistensi serta disiplin dalam trading.  </p><p><strong>Kesimpulan<strong>  <br>Hari ini mengajarkan kita untuk selalu waspada terhadap perubahan pasar dan pentingnya kerangka analisa yang lengkap. Kombinasi order flow dan teknikal tetap menjadi andalan untuk mengidentifikasi peluang dan mengelola risiko. Jangan lupa, setiap kerugian adalah pelajaran berharga untuk menjadi trader yang lebih baik.</p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Generated: 16:54 WIB | Trading Bot By Karman</p>
+            <a href="../index.html" class="back-link">&#8592; Kembali ke Dashboard</a>
+            <br>
+            <a href="index.html" class="back-link">&#8592; Semua Jurnal</a>
+        </div>
+    </div>
+</body>
+</html>
