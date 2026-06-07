@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-07 05:55:48",
+  "last_update": "2026-06-07 12:18:53",
   "trades": [
     {
       "id": 1,
@@ -4303,6 +4303,60 @@
       "pnl": 0.0,
       "cvd_score": "-2",
       "rsi": "59.3"
+    },
+    {
+      "id": 240,
+      "time": "2026-06-07 12:18:53",
+      "coin": "HYPE",
+      "signal": "LONG",
+      "entry": 59.646,
+      "tp": 61.13,
+      "sl": 58.92,
+      "size": 0.84,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "5",
+      "rsi": "72.2"
+    },
+    {
+      "id": 241,
+      "time": "2026-06-07 12:18:53",
+      "coin": "NEAR",
+      "signal": "LONG",
+      "entry": 1.8786,
+      "tp": 1.925,
+      "sl": 1.856,
+      "size": 26.6,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "4",
+      "rsi": "30.2"
+    },
+    {
+      "id": 242,
+      "time": "2026-06-07 12:18:53",
+      "coin": "WLD",
+      "signal": "LONG",
+      "entry": 0.45495,
+      "tp": 0.4664,
+      "sl": 0.4496,
+      "size": 109.9,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "4",
+      "rsi": "38.7"
     }
   ],
   "summary": {
