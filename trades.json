@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-08 12:27:21",
+  "last_update": "2026-06-08 14:11:26",
   "trades": [
     {
       "id": 1,
@@ -4753,6 +4753,42 @@
       "pnl": 0.0,
       "cvd_score": "3",
       "rsi": "20.5"
+    },
+    {
+      "id": 265,
+      "time": "2026-06-08 14:11:26",
+      "coin": "WLD",
+      "signal": "SHORT",
+      "entry": 0.47534,
+      "tp": 0.4634,
+      "sl": 0.481,
+      "size": 105.2,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-2",
+      "rsi": "51.4"
+    },
+    {
+      "id": 266,
+      "time": "2026-06-08 14:11:26",
+      "coin": "SUI",
+      "signal": "SHORT",
+      "entry": 0.74354,
+      "tp": 0.7249,
+      "sl": 0.7524,
+      "size": 67.3,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "43.1"
     }
   ],
   "summary": {
