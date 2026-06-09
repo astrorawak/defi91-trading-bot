@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-09 12:00:42",
+  "last_update": "2026-06-09 13:30:34",
   "trades": [
     {
       "id": 1,
@@ -5167,6 +5167,24 @@
       "pnl": 0.0,
       "cvd_score": "-3",
       "rsi": "69.0"
+    },
+    {
+      "id": 288,
+      "time": "2026-06-09 13:30:34",
+      "coin": "DOGE",
+      "signal": "SHORT",
+      "entry": 0.086592,
+      "tp": 0.08441,
+      "sl": 0.08761,
+      "size": 578.0,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-3",
+      "rsi": "76.2"
     }
   ],
   "summary": {
