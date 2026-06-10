@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-10 06:12:01",
+  "last_update": "2026-06-10 12:13:11",
   "trades": [
     {
       "id": 1,
@@ -5509,6 +5509,42 @@
       "pnl": 0.0,
       "cvd_score": "0",
       "rsi": "38.6"
+    },
+    {
+      "id": 307,
+      "time": "2026-06-10 12:13:11",
+      "coin": "SUI",
+      "signal": "SHORT",
+      "entry": 0.73874,
+      "tp": 0.7206,
+      "sl": 0.7479,
+      "size": 67.7,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "34.6"
+    },
+    {
+      "id": 308,
+      "time": "2026-06-10 12:13:11",
+      "coin": "BNB",
+      "signal": "LONG",
+      "entry": 584.71,
+      "tp": 599.4,
+      "sl": 577.8,
+      "size": 0.085,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "5",
+      "rsi": "26.3"
     }
   ],
   "summary": {
