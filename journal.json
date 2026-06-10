@@ -3248,6 +3248,442 @@
       ],
       "journal_content": "**Jurnal Trading Hari Ini – Selasa, 09 Juni 2026**\n\n---\n\n**1. Ringkasan Hari Ini**  \nHari ini pasar cukup ramai dengan berbagai posisi terbuka, baik long maupun short, karena pergerakan harga yang cukup volatile. Banyak trader yang ambil peluang dari sinyal order flow dan indikator teknikal, walaupun hasilnya belum semuanya memuaskan. Overall, hari ini jadi pelajaran bahwa gabungan strategi perlu diimbangi dengan manajemen risiko yang ketat.\n\n---\n\n**2. Analisa Kenapa Bot Masuk Posisi**  \n\n- **BTC Long (Entry: $63,381)**  \n  *CVD dan Order Flow:* Score CVD 1, artinya volume delta menunjukkan adanya tekanan beli yang cukup kuat, kemungkinan ada order imbalance di sisi beli.  \n  *Teknikal:* RSI di angka 39, mendekati oversold, dan harga mendekati support di sekitar $63.000, jadi bot merasa peluang reversal cukup tinggi.  \n  *Kesimpulan:* Bot masuk karena sinyal order flow positif dan support teknikal yang mendukung potensi kenaikan.\n\n- **ETH Long (Entry: $1,680.6)**  \n  *CVD:* Score 3, menunjukkan adanya kenaikan volume beli.  \n  *Teknikal:* RSI 45.6, posisi netral, dan harga dekat support di $1,680.  \n  *Kesimpulan:* Kombinasi order flow dan support/support resistance membuat bot yakin untuk masuk.\n\n- **WLD Long (Entry: $0.51619)**  \n  *CVD:* Score 5, sangat positif, tanda volume beli sangat dominan.  \n  *Teknikal:* RSI tinggi di 70.6, menunjukkan momentum kuat dan kemungkinan overbought, namun bot tetap masuk karena volume dan posisi dekat resistance kecil.  \n  *Kesimpulan:* Bot mengantisipasi momentum lanjutan meski risiko overbought.\n\n- **SOL Long (Entry: $67.409)**  \n  *CVD:* Score 4, menandakan kenaikan order flow beli.  \n  *Teknikal:* RSI 52.4, netral, harga mendekati support di $67.  \n  *Kesimpulan:* Entry berdasarkan kombinasi order flow positif dan support yang bisa memantulkan harga.\n\n- **SUI Long (Entry: $0.76572)**  \n  *CVD:* Score 3, cukup positif.  \n  *Teknikal:* RSI 51.2, netral, dan posisi dekat support di $0.76.  \n  *Kesimpulan:* Entry didukung oleh volume dan posisi support yang bagus.\n\n- **HYPE Short (Entry: $63.956)**  \n  *CVD:* Score -2, menunjukkan adanya tekanan jual.  \n  *Teknikal:* RSI 53.1, netral, tapi harga mendekati resistance di sekitar $64.  \n  *Kesimpulan:* Bot melihat potensi reversal turun dari sinyal order flow dan resistance.\n\n- **SUI Short (Entry: $0.76699)**  \n  *CVD:* Score -4, menunjukkan dominasi jual cukup kuat.  \n  *Teknikal:* RSI 60.5, agak overbought, harga dekat resistance.  \n  *Kesimpulan:* Entry berdasarkan order flow dan posisi resistance.\n\n- **DOGE Short (Entry: $0.087326)**  \n  *CVD:* Score -3, indikasi tekanan jual.  \n  *Teknikal:* RSI 65.6, overbought, dan posisi di atas support kecil.  \n  *Kesimpulan:* Bot masuk karena volume jual dan overbought.\n\n- **DOGE Long (Entry: $0.087055)**  \n  *CVD:* Score 3, ada volume beli yang cukup kuat.  \n  *Teknikal:* RSI 52.2, posisi netral, dan dekat support.  \n  *Kesimpulan:* Gabungan sinyal order flow dan support memicu posisi long.\n\n- **HYPE Short (12:00)** dan lainnya juga mengikuti pola serupa, mengandalkan volume delta dan kondisi teknikal.\n\n---\n\n**3. Analisa Kenapa Bot Keluar Posisi**  \n\n- Banyak posisi yang kena TP karena harga mencapai target sesuai analisa, seperti ETH dan BTC yang keluar profit.  \n- Sebagian besar posisi mengalami kerugian karena harga menyentuh SL, misalnya HYPE short yang keluar rugi $0.614 dan SOL long yang rugi $1.14.  \n- Ada juga keluar karena sinyal berbalik, misalnya HYPE short di 12:00 yang keluar karena momentum berbalik ke arah bawah setelah sebelumnya diambil saat kondisi overbought.\n\nHari ini, banyak trader yang keluar dari posisi loss karena pasar cukup volatile dan sering berbalik arah. Manajemen risiko tampaknya cukup penting hari ini.\n\n---\n\n**4. Pelajaran Penting Hari Ini**  \nStrategi gabungan memang membantu, tapi tetap harus waspada dengan pergerakan cepat dan sinyal berbalik. Penggunaan volume delta dan indikator support/resistance membantu masuk dan keluar tepat waktu, tapi perlu juga disiplin cut loss. Pasar cenderung sideways dengan volatilitas tinggi, jadi penting menjaga posisi dan tidak serakah.\n\n---\n\n**5. Koneksi dengan Berita/Sentimen Pasar**  \nTidak ada berita besar hari ini yang terdengar signifikan, tapi pasar nampak sedang mencari arah. Sentimen umumnya campur aduk, banyak trader bermain safe dengan TP dan SL ketat. Kemungkinan besar pasar sedang menunggu berita ekonomi global yang bisa memicu pergerakan besar.\n\n---\n\n**6. Skor Performa Hari Ini: 6/10**  \nHasil hari ini cukup beragam, ada yang profit tapi banyak juga yang rugi. Strategi gabungan cukup membantu, tapi market yang volatile membuat hasil tidak stabil. Penting untuk terus belajar dan menerapkan manajemen risiko ketat.\n\n---\n\nItulah hari ini, semoga insight ini membantu kita makin paham cara membaca pasar dan mengelola posisi dengan lebih baik. Tetap disiplin dan selamat trading!",
       "generated_at": "16:49 WIB"
+    },
+    {
+      "date": "2026-06-10",
+      "date_display": "Wednesday, 10 June 2026",
+      "balance": 35.8989771,
+      "margin_used": 14.939499,
+      "unrealized_pnl": 0.295485,
+      "total_closed": 25,
+      "wins": 9,
+      "losses": 16,
+      "total_pnl": 1.0235349999999999,
+      "win_rate": 36.0,
+      "entries_today": [
+        {
+          "time": "2026-06-10 00:08:01",
+          "coin": "HYPE",
+          "direction": "LONG",
+          "entry": 59.213,
+          "tp": 60.68,
+          "sl": 58.49,
+          "margin": 5.0,
+          "leverage": 10,
+          "cvd_score": "5",
+          "rsi": "29.6"
+        },
+        {
+          "time": "2026-06-10 00:08:01",
+          "coin": "ETH",
+          "direction": "SHORT",
+          "entry": 1637.1,
+          "tp": 1595.6,
+          "sl": 1656.2,
+          "margin": 5.0,
+          "leverage": 20,
+          "cvd_score": "-3",
+          "rsi": "30.1"
+        },
+        {
+          "time": "2026-06-10 00:08:01",
+          "coin": "WLD",
+          "direction": "LONG",
+          "entry": 0.49877,
+          "tp": 0.51,
+          "sl": 0.4916,
+          "margin": 5.0,
+          "leverage": 10,
+          "cvd_score": "4",
+          "rsi": "34.9"
+        },
+        {
+          "time": "2026-06-10 00:08:01",
+          "coin": "BNB",
+          "direction": "SHORT",
+          "entry": 589.24,
+          "tp": 574.8,
+          "sl": 596.6,
+          "margin": 5.0,
+          "leverage": 10,
+          "cvd_score": "-5",
+          "rsi": "37.9"
+        },
+        {
+          "time": "2026-06-10 01:11:00",
+          "coin": "SOL",
+          "direction": "SHORT",
+          "entry": 64.86,
+          "tp": 63.24,
+          "sl": 65.64,
+          "margin": 5.0,
+          "leverage": 20,
+          "cvd_score": "-3",
+          "rsi": "56.3"
+        },
+        {
+          "time": "2026-06-10 01:11:00",
+          "coin": "XRP",
+          "direction": "SHORT",
+          "entry": 1.1375,
+          "tp": 1.109,
+          "sl": 1.151,
+          "margin": 5.0,
+          "leverage": 20,
+          "cvd_score": "-3",
+          "rsi": "54.2"
+        },
+        {
+          "time": "2026-06-10 04:03:59",
+          "coin": "HYPE",
+          "direction": "SHORT",
+          "entry": 59.183,
+          "tp": 57.69,
+          "sl": 59.88,
+          "margin": 5.0,
+          "leverage": 10,
+          "cvd_score": "-2",
+          "rsi": "54.0"
+        },
+        {
+          "time": "2026-06-10 04:03:59",
+          "coin": "ETH",
+          "direction": "SHORT",
+          "entry": 1657.69,
+          "tp": 1616.5,
+          "sl": 1677.8,
+          "margin": 5.0,
+          "leverage": 20,
+          "cvd_score": "-3",
+          "rsi": "70.4"
+        },
+        {
+          "time": "2026-06-10 04:03:59",
+          "coin": "SOL",
+          "direction": "SHORT",
+          "entry": 65.4007,
+          "tp": 63.79,
+          "sl": 66.21,
+          "margin": 5.0,
+          "leverage": 20,
+          "cvd_score": "-5",
+          "rsi": "66.8"
+        },
+        {
+          "time": "2026-06-10 04:03:59",
+          "coin": "WLD",
+          "direction": "LONG",
+          "entry": 0.52075,
+          "tp": 0.5346,
+          "sl": 0.5153,
+          "margin": 5.0,
+          "leverage": 10,
+          "cvd_score": "5",
+          "rsi": "54.6"
+        },
+        {
+          "time": "2026-06-10 06:12:01",
+          "coin": "BTC",
+          "direction": "LONG",
+          "entry": 61642.0,
+          "tp": 63180.0,
+          "sl": 60900.0,
+          "margin": 5.0,
+          "leverage": 20,
+          "cvd_score": "5",
+          "rsi": "41.6"
+        },
+        {
+          "time": "2026-06-10 06:12:01",
+          "coin": "XRP",
+          "direction": "LONG",
+          "entry": 1.1347,
+          "tp": 1.162,
+          "sl": 1.12,
+          "margin": 5.0,
+          "leverage": 20,
+          "cvd_score": "0",
+          "rsi": "38.6"
+        },
+        {
+          "time": "2026-06-10 12:13:11",
+          "coin": "SUI",
+          "direction": "SHORT",
+          "entry": 0.73874,
+          "tp": 0.7206,
+          "sl": 0.7479,
+          "margin": 5.0,
+          "leverage": 10,
+          "cvd_score": "-4",
+          "rsi": "34.6"
+        },
+        {
+          "time": "2026-06-10 12:13:11",
+          "coin": "BNB",
+          "direction": "LONG",
+          "entry": 584.71,
+          "tp": 599.4,
+          "sl": 577.8,
+          "margin": 5.0,
+          "leverage": 10,
+          "cvd_score": "5",
+          "rsi": "26.3"
+        },
+        {
+          "time": "2026-06-10 13:46:31",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "entry": 61420.0,
+          "tp": 59904.0,
+          "sl": 62177.0,
+          "margin": 5.0,
+          "leverage": 20,
+          "cvd_score": "-5",
+          "rsi": "43.6"
+        },
+        {
+          "time": "2026-06-10 13:46:31",
+          "coin": "DOGE",
+          "direction": "SHORT",
+          "entry": 0.083674,
+          "tp": 0.08162,
+          "sl": 0.08472,
+          "margin": 5.0,
+          "leverage": 10,
+          "cvd_score": "-3",
+          "rsi": "33.6"
+        }
+      ],
+      "closed_today": [
+        {
+          "time": "14:09",
+          "coin": "SUI",
+          "direction": "SHORT",
+          "exit_price": 0.74824,
+          "pnl": -0.64315,
+          "fee": 0.022795
+        },
+        {
+          "time": "13:35",
+          "coin": "SOL",
+          "direction": "SHORT",
+          "exit_price": 63.785,
+          "pnl": 2.472021,
+          "fee": 0.043915
+        },
+        {
+          "time": "12:12",
+          "coin": "BTC",
+          "direction": "LONG",
+          "exit_price": 61115.0,
+          "pnl": -0.85374,
+          "fee": 0.044552
+        },
+        {
+          "time": "09:25",
+          "coin": "XRP",
+          "direction": "LONG",
+          "exit_price": 1.1196,
+          "pnl": -0.906,
+          "fee": 0.030229
+        },
+        {
+          "time": "09:25",
+          "coin": "XRP",
+          "direction": "LONG",
+          "exit_price": 1.1196,
+          "pnl": -0.2718,
+          "fee": 0.009068
+        },
+        {
+          "time": "09:25",
+          "coin": "XRP",
+          "direction": "LONG",
+          "exit_price": 1.1198,
+          "pnl": -0.149,
+          "fee": 0.005039
+        },
+        {
+          "time": "06:11",
+          "coin": "XRP",
+          "direction": "SHORT",
+          "exit_price": 1.1347,
+          "pnl": 0.2464,
+          "fee": 0.044934
+        },
+        {
+          "time": "06:11",
+          "coin": "ETH",
+          "direction": "SHORT",
+          "exit_price": 1635.7,
+          "pnl": 1.325997,
+          "fee": 0.044384
+        },
+        {
+          "time": "04:56",
+          "coin": "HYPE",
+          "direction": "SHORT",
+          "exit_price": 57.683,
+          "pnl": 1.275,
+          "fee": 0.022063
+        },
+        {
+          "time": "04:19",
+          "coin": "WLD",
+          "direction": "LONG",
+          "exit_price": 0.51514,
+          "pnl": -0.537999,
+          "fee": 0.02223
+        },
+        {
+          "time": "03:15",
+          "coin": "SOL",
+          "direction": "SHORT",
+          "exit_price": 65.656,
+          "pnl": -1.22584,
+          "fee": 0.045499
+        },
+        {
+          "time": "02:56",
+          "coin": "BNB",
+          "direction": "SHORT",
+          "exit_price": 596.67,
+          "pnl": -0.63155,
+          "fee": 0.022822
+        },
+        {
+          "time": "02:44",
+          "coin": "HYPE",
+          "direction": "LONG",
+          "exit_price": 58.472,
+          "pnl": -0.62244,
+          "fee": 0.022102
+        },
+        {
+          "time": "02:32",
+          "coin": "ETH",
+          "direction": "SHORT",
+          "exit_price": 1656.5,
+          "pnl": -1.18534,
+          "fee": 0.045545
+        },
+        {
+          "time": "00:18",
+          "coin": "WLD",
+          "direction": "LONG",
+          "exit_price": 0.51049,
+          "pnl": 1.17786,
+          "fee": 0.023086
+        },
+        {
+          "time": "23:39",
+          "coin": "ETH",
+          "direction": "LONG",
+          "exit_price": 1618.4,
+          "pnl": -1.2078,
+          "fee": 0.044425
+        },
+        {
+          "time": "23:05",
+          "coin": "NEAR",
+          "direction": "LONG",
+          "exit_price": 2.0414,
+          "pnl": -0.65582,
+          "fee": 0.02223
+        },
+        {
+          "time": "21:20",
+          "coin": "XRP",
+          "direction": "LONG",
+          "exit_price": 1.1426,
+          "pnl": -1.204,
+          "fee": 0.044218
+        },
+        {
+          "time": "21:20",
+          "coin": "ETH",
+          "direction": "SHORT",
+          "exit_price": 1642.1,
+          "pnl": 2.57955,
+          "fee": 0.043819
+        },
+        {
+          "time": "21:15",
+          "coin": "SOL",
+          "direction": "SHORT",
+          "exit_price": 65.292,
+          "pnl": 2.51214,
+          "fee": 0.043778
+        },
+        {
+          "time": "20:21",
+          "coin": "HYPE",
+          "direction": "LONG",
+          "exit_price": 61.305,
+          "pnl": -0.62532,
+          "fee": 0.022345
+        },
+        {
+          "time": "19:10",
+          "coin": "NEAR",
+          "direction": "SHORT",
+          "exit_price": 2.1828,
+          "pnl": -0.6728,
+          "fee": 0.022788
+        },
+        {
+          "time": "18:04",
+          "coin": "WLD",
+          "direction": "LONG",
+          "exit_price": 0.50928,
+          "pnl": -0.68191,
+          "fee": 0.02223
+        },
+        {
+          "time": "17:36",
+          "coin": "XRP",
+          "direction": "SHORT",
+          "exit_price": 1.1567,
+          "pnl": 0.7912,
+          "fee": 0.044764
+        },
+        {
+          "time": "17:36",
+          "coin": "DOGE",
+          "direction": "SHORT",
+          "exit_price": 0.08535,
+          "pnl": 0.717876,
+          "fee": 0.022199
+        }
+      ],
+      "open_positions": [
+        {
+          "coin": "BTC",
+          "direction": "SHORT",
+          "size": 0.00163,
+          "entry": 61420.0,
+          "unrealized_pnl": 0.2445,
+          "leverage": 20
+        },
+        {
+          "coin": "BNB",
+          "direction": "LONG",
+          "size": 0.085,
+          "entry": 584.71,
+          "unrealized_pnl": -0.0714,
+          "leverage": 10
+        },
+        {
+          "coin": "DOGE",
+          "direction": "SHORT",
+          "size": 597.0,
+          "entry": 0.083674,
+          "unrealized_pnl": 0.122385,
+          "leverage": 10
+        }
+      ],
+      "journal_content": "**Jurnal Trading Hari Ini – Rabu, 10 Juni 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**\nHari ini penuh dengan pergerakan yang cukup volatile di pasar crypto. Banyak posisi yang terbuka dan tertutup, sebagian besar karena pergerakan harga yang didukung oleh volume dan momentum teknikal yang cukup berbeda dari hari biasanya. Walaupun ada beberapa posisi yang berhasil, secara keseluruhan performa hari ini cukup menantang.\n\n---\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**\n\n- **HYPE Long dan Short (00:08 & 04:04)**\n  - *CVD/Order Flow:* Score positif untuk Long (+5) dan Short (-2/ -3) menunjukkan adanya volume delta yang kuat, memberi sinyal ada tekanan beli dan jual yang signifikan.\n  - *Teknikal:* RSI di bawah 30 untuk posisi Long (29.6, 34.6), mengindikasikan kondisi oversold, sehingga bot memanfaatkan peluang reversal. Untuk Short, RSI di atas 50 (54.0, 54.6, 66.8) mengindikasikan momentum jual yang kuat.\n  - *Kenapa masuk:* Bot melihat adanya imbalance order book dan momentum yang mengarah ke pembalikan di support/resistance. Skor CVD tinggi memberi keyakinan posisi ini akan berbalik.\n\n- **ETH dan BNB (00:08 & 12:13)**\n  - *CVD & Teknikal:* CVD negatif (-3/-5) menandakan tekanan jual, namun RSI di sekitar 30-37 untuk BNB dan ETH menunjukkan oversold, sehingga bot masuk posisi short untuk mengikuti momentum.\n  - *Support/Resistance:* Harga mendekati level support yang kuat, tapi volume delta mendukung keberlanjutan tekanan jual.\n\n- **Bitcoin dan Altcoin (06:12, 13:46)**\n  - *CVD:* Score positif untuk posisi long di BTC dan XRP menunjukkan ada kekuatan beli.\n  - *Teknikal:* RSI di 40-an dan posisi di support/resistance tertentu jadi pertimbangan masuk.\n  - *Alasan:* Bot mencoba mengantisipasi rebound setelah koreksi.\n\n---\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**\n\n- **Posisi Profit**\n  - *Contoh:* SOL short (13:35) dan XRP short (06:11) mencapai TP karena pasar mulai melemah di level target, sesuai analisa support/resistance.\n  - *Contoh:* ETH short dan DOGE short (21:20) berhasil profit karena indikator momentum berbalik dan harga mulai melemah di level yang diperkirakan.\n\n- **Cut Loss dan Reversal**\n  - *Contoh:* BTC long (12:12) dan beberapa posisi lain keluar karena harga menyentuh SL, menandakan tidak ada pembalikan yang cukup kuat, dan momentum berbalik arah.\n  - *Smart Exit:* Beberapa posisi tertutup karena indikator RSI dan CVD menunjukkan perubahan tren, seperti HYPE short dan WLD long yang keluar saat indikator mulai menunjukkan overbought atau oversold yang berlawanan.\n\n---\n\n### 4. **Pelajaran Penting Hari Ini**\nHari ini menunjukkan pentingnya kombinasi volume order flow dan analisa teknikal. Meski ada sinyal oversold atau overbought, tidak semua peluang berbalik profit karena pasar sangat dinamis dan dipengaruhi sentimen. Strategi gabungan ini membantu mengurangi risiko dan meningkatkan akurasi entri dan exit. Tapi, tetap penting untuk disiplin mengikuti SL dan TP, apalagi saat pasar sedang sideways dan bergoyang.\n\n---\n\n### 5. **Koneksi dengan Berita/Sentimen Pasar**\nTidak ada berita besar yang muncul hari ini, tapi sentimen pasar tampaknya masih dipengaruhi oleh ketidakpastian global dan aksi jual beli yang cukup agresif di beberapa altcoin. Volume yang tinggi dan pergerakan yang cepat menunjukkan adanya minat besar dari trader dan investor, mungkin dipicu oleh fluktuasi harga Bitcoin dan beberapa token yang sedang trending.\n\n---\n\n### 6. **Skor Performa Hari Ini: 6/10**\nBot cukup aktif dan berhasil memanfaatkan momentum, tapi performanya tidak sempurna. Banyak posisi yang tertutup rugi dan hanya beberapa yang berhasil profit, menunjukkan bahwa pasar hari ini cukup tricky dan membutuhkan pengelolaan risiko yang ketat.\n\n---\n\n**Penutup:**  \nHari ini mengingatkan kita bahwa di pasar crypto, kombinasi analisa volume dan teknikal sangat penting. Ketika pasar menunjukkan sinyal oversold/overbought, tetap harus waspada dan tidak serakah. Terus belajar dari setiap trade dan pantau pergerakan pasar secara ketat!",
+      "generated_at": "17:05 WIB"
     }
   ]
 }
