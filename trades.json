@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-10 12:13:11",
+  "last_update": "2026-06-10 13:46:31",
   "trades": [
     {
       "id": 1,
@@ -5545,6 +5545,42 @@
       "pnl": 0.0,
       "cvd_score": "5",
       "rsi": "26.3"
+    },
+    {
+      "id": 309,
+      "time": "2026-06-10 13:46:31",
+      "coin": "BTC",
+      "signal": "SHORT",
+      "entry": 61420.0,
+      "tp": 59904.0,
+      "sl": 62177.0,
+      "size": 0.00163,
+      "margin": 5.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-5",
+      "rsi": "43.6"
+    },
+    {
+      "id": 310,
+      "time": "2026-06-10 13:46:31",
+      "coin": "DOGE",
+      "signal": "SHORT",
+      "entry": 0.083674,
+      "tp": 0.08162,
+      "sl": 0.08472,
+      "size": 597.0,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-3",
+      "rsi": "33.6"
     }
   ],
   "summary": {
