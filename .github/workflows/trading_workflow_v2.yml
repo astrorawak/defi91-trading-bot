@@ -44,6 +44,8 @@ jobs:
         env:
           HYPERLIQUID_ADDRESS: ${{ secrets.HYPERLIQUID_ADDRESS }}
           HYPERLIQUID_PRIVATE_KEY: ${{ secrets.HYPERLIQUID_PRIVATE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python github_bot_v2.py
 
       - name: Commit and push trades data
