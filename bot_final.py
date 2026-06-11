@@ -512,7 +512,7 @@ def manage_open_positions(exchange, info, all_mids):
         szi = float(p.get("szi", 0))
         entry_px = float(p.get("entryPx", 0))
         
-        if szi == 0 or coin not in WATCHLIST:
+        if szi == 0:
             continue
         
         is_long = szi > 0
