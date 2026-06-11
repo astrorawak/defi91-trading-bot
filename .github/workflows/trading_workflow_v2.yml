@@ -4,6 +4,7 @@ on:
   schedule:
     # Jadwal tepat sasaran - jam volatilitas tinggi crypto:
     # Sesi Asia Open (08:00-10:00 WIB = 01:00-03:00 UTC)
+    - cron: '0 0 * * *'   # 07:00 WIB - Daily Report Telegram
     - cron: '0 1 * * *'   # 08:00 WIB - Asia market open
     - cron: '30 2 * * *'  # 09:30 WIB - Asia momentum peak
     # Sesi London Open (14:00-16:00 WIB = 07:00-09:00 UTC)
@@ -51,6 +52,13 @@ jobs:
           git add trades.json performance.json market_regime.json || true
           git diff --staged --quiet || git commit -m "Auto: Update trades - $(date '+%Y-%m-%d %H:%M')"
           git push || true
+
+      - name: Send Daily Telegram Report
+        if: github.event.schedule == '0 0 * * *' || github.event_name == 'workflow_dispatch'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python telegram_reporter.py || true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
