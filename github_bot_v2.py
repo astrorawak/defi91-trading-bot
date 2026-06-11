@@ -18,6 +18,7 @@ from hyperliquid.info import Info
 from hyperliquid.exchange import Exchange
 from hyperliquid.utils import constants
 from market_regime_filter import detect_market_regime_global
+from telegram_signals import send_trade_signal, send_close_signal
 
 # ============================================================
 # KONFIGURASI
@@ -611,6 +612,11 @@ def manage_open_positions(exchange, info, all_mids):
                         "entry": entry_px,
                         "exit": exit_price,
                     })
+                    
+                    # Send Telegram Signal
+                    # Calculate approximate USD PnL based on margin and leverage
+                    usd_pnl = MARGIN_PER_TRADE * TARGET_LEVERAGE * actual_pnl
+                    send_close_signal(coin, direction, exit_price, usd_pnl, close_reason)
                 else:
                     # Close gagal - TP/SL MASIH TERPASANG (posisi tetap aman)
                     print(f"    \u274c Close failed, TP/SL still active (position protected)")
@@ -896,6 +902,18 @@ def run_bot():
             trades_executed.append(trade_result)
             available -= MARGIN_PER_TRADE
             print(f"  ✅ TRADE EXECUTED SUCCESSFULLY!")
+            
+            # Send Telegram Signal
+            send_trade_signal(
+                coin, 
+                direction, 
+                trade_result["entry_price"], 
+                trade_result["tp_price"], 
+                trade_result["sl_price"], 
+                trade_result.get("leverage", TARGET_LEVERAGE), 
+                MARGIN_PER_TRADE, 
+                onchain_score + tech_score
+            )
         else:
             print(f"  ❌ Trade failed: {trade_result.get('error', 'Unknown')}")
     
