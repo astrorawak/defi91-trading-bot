@@ -4,6 +4,7 @@ on:
   schedule:
     # Jadwal tepat sasaran - jam volatilitas tinggi crypto:
     # Sesi Asia Open (08:00-10:00 WIB = 01:00-03:00 UTC)
+    - cron: '0 0 * * 0'   # 07:00 WIB (Minggu) - Weekly Insights Telegram
     - cron: '0 0 * * *'   # 07:00 WIB - Daily Report Telegram
     - cron: '0 1 * * *'   # 08:00 WIB - Asia market open
     - cron: '30 2 * * *'  # 09:30 WIB - Asia momentum peak
@@ -54,11 +55,15 @@ jobs:
           git push || true
 
       - name: Send Daily Telegram Report
-        if: github.event.schedule == '0 0 * * *' || github.event_name == 'workflow_dispatch'
+        if: github.event.schedule == '0 0 * * *' || github.event.schedule == '0 0 * * 0'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python telegram_reporter.py || true
+        run: |
+          python telegram_reporter.py
+          if [ "$(date +'%u')" = "7" ]; then
+            python weekly_insights.py
+          fi
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
