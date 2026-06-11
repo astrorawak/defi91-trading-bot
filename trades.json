@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-12 00:50:00",
+  "last_update": "2026-06-12 01:50:26",
   "trades": [
     {
       "id": 1,
@@ -6067,6 +6067,42 @@
       "pnl": 0.0,
       "cvd_score": "-2",
       "rsi": "66.8"
+    },
+    {
+      "id": 338,
+      "time": "2026-06-12 01:50:26",
+      "coin": "ENA",
+      "signal": "LONG",
+      "entry": 0.07791,
+      "tp": 0.07981,
+      "sl": 0.07693,
+      "size": 642.0,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "5",
+      "rsi": "62.1"
+    },
+    {
+      "id": 339,
+      "time": "2026-06-12 01:50:26",
+      "coin": "ADA",
+      "signal": "SHORT",
+      "entry": 0.16959,
+      "tp": 0.1653,
+      "sl": 0.1716,
+      "size": 295.0,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "64.5"
     }
   ],
   "summary": {
