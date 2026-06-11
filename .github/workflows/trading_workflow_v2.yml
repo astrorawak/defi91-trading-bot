@@ -48,7 +48,7 @@ jobs:
         run: |
           git config --local user.email "bot@defi91.local"
           git config --local user.name "DeFi91 Bot"
-          git add trades.json performance.json || true
+          git add trades.json performance.json market_regime.json || true
           git diff --staged --quiet || git commit -m "Auto: Update trades - $(date '+%Y-%m-%d %H:%M')"
           git push || true
 

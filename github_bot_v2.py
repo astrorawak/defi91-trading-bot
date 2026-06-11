@@ -17,6 +17,7 @@ from eth_account import Account
 from hyperliquid.info import Info
 from hyperliquid.exchange import Exchange
 from hyperliquid.utils import constants
+from market_regime_filter import detect_market_regime_global
 
 # ============================================================
 # KONFIGURASI
@@ -786,6 +787,22 @@ def run_bot():
             margin_used = float(user_state.get("marginSummary", {}).get("totalMarginUsed", 0))
             available = account_value - margin_used
             print(f"\n  [Updated] Open positions: {len(open_coins)} | Available: ${available:.2f}")
+    
+    # ═══════════════════════════════════════════════════════════
+    # MARKET REGIME FILTER
+    # ═══════════════════════════════════════════════════════════
+    print("\n[MARKET REGIME] Mendeteksi kondisi pasar...")
+    regime_data = detect_market_regime_global(WATCHLIST)
+    global_regime = regime_data["global_regime"]
+    print(f"  Status Pasar Global: {global_regime} ({regime_data['trending_coins']} Trending, {regime_data['neutral_coins']} Neutral, {regime_data['chopsaw_coins']} Chopsaw)")
+    
+    # Simpan status pasar ke file untuk dashboard
+    try:
+        with open("market_regime.json", "w") as f:
+            json.dump(regime_data, f)
+        print("  market_regime.json saved.")
+    except Exception as e:
+        print(f"  Gagal menyimpan market_regime.json: {e}")
     
     # ═══════════════════════════════════════════════════════════
     # MENCARI ENTRY BARU
