@@ -58,6 +58,7 @@ def generate_daily_report():
     market_regime = load_json("market_regime.json", {})
     trades_data = load_json("trades.json", {"trades": []})
     trades = trades_data.get("trades", []) if isinstance(trades_data, dict) else trades_data
+    grid_data = load_json("grid_trades.json", {})
     
     # Calculate today's stats
     today_trades = [t for t in trades if isinstance(t, dict) and t.get("time", "").startswith(date_str)]
@@ -88,6 +89,18 @@ def generate_daily_report():
     msg += f"<b>Overall Performance:</b>\n"
     msg += f"🏆 Total PnL: <b>${total_pnl:.2f}</b>\n"
     msg += f"🎯 Win Rate: {win_rate:.1f}%\n\n"
+    
+    # Grid Bot Stats
+    if grid_data and "summary" in grid_data:
+        grid_summary = grid_data["summary"]
+        grid_pnl = grid_summary.get("total_profit_usd", 0)
+        grid_trades = grid_summary.get("total_trades_completed", 0)
+        active_grids = len([k for k, v in grid_data.get("grid_config", {}).get("pairs", {}).items() if v.get("status") == "active"])
+        
+        msg += f"<b>Grid Bot Performance:</b>\n"
+        msg += f"🕸️ Grid PnL: <b>${grid_pnl:.2f}</b>\n"
+        msg += f"🔄 Grid Trades: {grid_trades} completed\n"
+        msg += f"⚡ Active Grids: {active_grids} pairs\n\n"
     
     # Get open positions
     open_positions = [t for t in trades if t.get("status") == "OPEN"]

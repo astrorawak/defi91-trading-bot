@@ -1,0 +1,14 @@
+{
+  "grid_config": {
+    "last_updated": "",
+    "pairs": {}
+  },
+  "active_orders": [],
+  "completed_trades": [],
+  "summary": {
+    "total_profit_usd": 0.0,
+    "total_trades_completed": 0,
+    "total_grids_executed": 0,
+    "start_date": "2026-06-11"
+  }
+}

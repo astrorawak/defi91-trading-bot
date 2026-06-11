@@ -436,12 +436,13 @@
 
     <!-- Tab Navigation -->
         <div class="tab-nav">
-            <button class="tab-btn active" onclick="switchTab('dashboard')">DASHBOARD</button>
+            <button class="tab-btn active" onclick="switchTab('dashboard')">SCALPING BOT</button>
+            <button class="tab-btn" onclick="switchTab('grid')">GRID BOT</button>
             <button class="tab-btn" onclick="switchTab('journal')">JURNAL TRADING</button>
             <a href="community.html" class="tab-btn" style="text-decoration: none; display: inline-block; text-align: center; line-height: 1.5;">COMMUNITY</a>
         </div>
 
-    <!-- Dashboard Tab -->
+    <!-- Scalping Bot Tab -->
     <div class="tab-content active" id="tab-dashboard">
         <div class="container">
             <div class="perf-grid">
@@ -504,6 +505,76 @@ Laporan AI akan diperbarui setiap hari jam 13:00 WIB.</div>
                         </thead>
                         <tbody id="tradeTable">
                             <tr><td colspan="6" style="text-align:center; color:#666;">Menunggu data trade yang sudah closed...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid Bot Tab -->
+    <div class="tab-content" id="tab-grid">
+        <div class="container">
+            <div class="perf-grid">
+                <div class="perf-card">
+                    <div class="label">Total Grid Profit</div>
+                    <div class="value profit" id="gridTotalProfit">+$0.00</div>
+                    <div class="change">Akumulasi profit dari Grid</div>
+                </div>
+                <div class="perf-card">
+                    <div class="label">Active Grids</div>
+                    <div class="value neutral" id="gridActivePairs">0</div>
+                    <div class="change">Pair yang sedang berjalan</div>
+                </div>
+                <div class="perf-card">
+                    <div class="label">Completed Trades</div>
+                    <div class="value neutral" id="gridCompletedTrades">0</div>
+                    <div class="change">Total buy/sell selesai</div>
+                </div>
+                <div class="perf-card">
+                    <div class="label">Grid Budget</div>
+                    <div class="value neutral" id="gridBudget">$25.00</div>
+                    <div class="change">Alokasi dana untuk Grid</div>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <h2>Active Grid Pairs</h2>
+                <div class="trade-history">
+                    <table id="gridPairsTable">
+                        <thead>
+                            <tr>
+                                <th>Pair</th>
+                                <th>Status</th>
+                                <th>Center Price</th>
+                                <th>Range</th>
+                                <th>Interval</th>
+                                <th>Open Orders</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td colspan="6" style="text-align:center">Loading grid data...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="chart-section">
+                <h2>Recent Grid Trades</h2>
+                <div class="trade-history">
+                    <table id="gridHistoryTable">
+                        <thead>
+                            <tr>
+                                <th>Waktu (UTC)</th>
+                                <th>Pair</th>
+                                <th>Buy Price</th>
+                                <th>Sell Price</th>
+                                <th>Size</th>
+                                <th>Profit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td colspan="6" style="text-align:center">Loading history...</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -891,9 +962,11 @@ Laporan AI akan diperbarui setiap hari jam 13:00 WIB.</div>
         // Init
         loadMarketRegime();
         loadData();
+        loadGridData();
         loadJournal();
         setInterval(loadMarketRegime, 60000);
         setInterval(loadData, 60000);
+        setInterval(loadGridData, 60000);
         setInterval(loadJournal, 300000); // Refresh journal every 5 min
     </script>
 </body>

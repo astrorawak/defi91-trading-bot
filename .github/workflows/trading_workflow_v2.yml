@@ -48,11 +48,19 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python github_bot_v2.py
 
+      - name: Run Grid Bot
+        env:
+          HYPERLIQUID_ADDRESS: ${{ secrets.HYPERLIQUID_ADDRESS }}
+          HYPERLIQUID_PRIVATE_KEY: ${{ secrets.HYPERLIQUID_PRIVATE_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python grid_bot.py
+
       - name: Commit and push trades data
         run: |
           git config --local user.email "bot@defi91.local"
           git config --local user.name "DeFi91 Bot"
-          git add trades.json performance.json market_regime.json || true
+          git add trades.json performance.json market_regime.json grid_trades.json || true
           git diff --staged --quiet || git commit -m "Auto: Update trades - $(date '+%Y-%m-%d %H:%M')"
           git push || true
 
