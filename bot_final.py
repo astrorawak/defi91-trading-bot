@@ -791,6 +791,18 @@ def run_bot():
     # MENCARI ENTRY BARU
     # ═══════════════════════════════════════════════════════════
     
+    # Cek apakah sudah mencapai batas maksimal posisi
+    if len(open_coins) >= MAX_OPEN_POSITIONS:
+        print(f"\n[3] MAKSIMAL POSISI TERCAPAI ({MAX_OPEN_POSITIONS}/{MAX_OPEN_POSITIONS})")
+        print("Bot tidak akan mencari sinyal baru sampai ada posisi yang ditutup.")
+        return
+        
+    # Jika pasar CHOPSAW, skip entry baru
+    if global_regime == "CHOPSAW":
+        print(f"\n[3] PASAR CHOPSAW TERDETEKSI - SKIP ENTRY BARU")
+        print("Bot hanya akan mengelola posisi yang sudah terbuka.")
+        return
+    
     # Analyze each coin
     trades_executed = []
     
@@ -817,6 +829,14 @@ def run_bot():
             continue
         
         print(f"  Current Price: ${current_price:.2f}")
+        
+        # Cek regime koin spesifik
+        coin_regime = regime_data["coins"].get(coin, {}).get("regime", "UNKNOWN")
+        if coin_regime == "CHOPSAW":
+            print(f"  [REGIME] Koin sedang CHOPSAW (Konsolidasi ketat) -> SKIP")
+            continue
+        else:
+            print(f"  [REGIME] {coin_regime}")
         
         # On-Chain Analysis (Almarhum)
         onchain_score, onchain_details = analyze_onchain(coin)

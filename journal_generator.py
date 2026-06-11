@@ -743,6 +743,7 @@ def save_journal(journal_content, account_data, trade_stats, today_entries):
     journal_entry = {
         "date": today_str,
         "date_display": today.strftime("%A, %d %B %Y"),
+        "market_regime": account_data.get("market_regime", "UNKNOWN"),
         "balance": account_data["balance"],
         "margin_used": account_data["margin_used"],
         "unrealized_pnl": account_data["unrealized_pnl"],
@@ -803,6 +804,17 @@ def main():
     # 1. Get account data
     print("\n[1] Fetching account data...")
     account_data = get_account_data()
+    
+    # Get Market Regime
+    market_regime = "UNKNOWN"
+    try:
+        if os.path.exists("market_regime.json"):
+            with open("market_regime.json", "r") as f:
+                regime_data = json.load(f)
+                market_regime = regime_data.get("global_regime", "UNKNOWN")
+    except Exception as e:
+        print(f"Error reading market regime: {e}")
+    account_data["market_regime"] = market_regime
     print(f"  Balance: ${account_data['balance']:.2f}")
     print(f"  Open positions: {len(account_data['open_positions'])}")
     

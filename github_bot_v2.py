@@ -26,34 +26,34 @@ MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 
 # Trading Parameters (AGRESIF - leverage tinggi, filter ketat, profit besar)
 WATCHLIST = [
-    "BTC",   # #1 volume - Raja crypto
-    "HYPE",  # #2 volume - Native Hyperliquid token
-    "ETH",   # #3 volume - King of altcoins
-    "SOL",   # #5 volume - Ecosystem terkuat
-    "NEAR",  # #6 volume - AI narrative
-    "XRP",   # #7 volume - Payment leader
-    "WLD",   # #9 volume - AI/Worldcoin
-    "SUI",   # #13 volume - Move ecosystem
-    "DOGE",  # #19 volume - Meme king
-    "BNB",   # Exchange coin - almarhum kuasai
+    "BTC",   # #1 volume - Raja crypto (Profit konsisten)
+    "ETH",   # #2 volume - King of altcoins (Profit konsisten)
+    "ZEC",   # Volatilitas tinggi, cocok untuk scalping
+    "CRV",   # Volatilitas tinggi, cocok untuk scalping
+    "ENA",   # Volatilitas tinggi, cocok untuk scalping
+    "TON",   # Volatilitas tinggi, cocok untuk scalping
+    "ADA",   # Volatilitas tinggi, cocok untuk scalping
+    "FARTCOIN", # Volatilitas tinggi, cocok untuk scalping
+    "LIT",   # Volatilitas tinggi, cocok untuk scalping
+    "VVV",   # Volatilitas tinggi, cocok untuk scalping
 ]
 MARGIN_PER_TRADE = 5.00  # $5.00 per trade (target $1/hari)
 TARGET_LEVERAGE = 20  # Target 20x leverage (akan disesuaikan jika koin max < 20x)
 TP_PERCENT = 0.025  # 2.5% Take Profit (leverage tinggi = target lebih besar)
 SL_PERCENT = 0.012  # 1.2% Stop Loss (Risk:Reward = 1:2)
-ENTRY_THRESHOLD = 4  # Minimum score 4 untuk entry (quality over quantity)
+ENTRY_THRESHOLD = 5  # Minimum score 5 untuk entry (lebih ketat agar lebih akurat)
 MAX_OPEN_POSITIONS = 5  # Maksimal 5 posisi ($5.00 x 5 = $25 margin, sisa buffer)
 
 # Mapping max leverage per koin (berdasarkan API Hyperliquid)
 MAX_LEVERAGE_MAP = {
-    "BTC": 40, "ETH": 25, "SOL": 20, "XRP": 20,
-    "BNB": 10, "DOGE": 10, "SUI": 10, "WLD": 10, "NEAR": 10, "HYPE": 10
+    "BTC": 40, "ETH": 25, "ZEC": 10, "CRV": 10,
+    "ENA": 10, "TON": 10, "ADA": 10, "FARTCOIN": 10, "LIT": 5, "VVV": 3
 }
 
 # Size decimals per coin (dari Hyperliquid metadata)
 SZ_DECIMALS = {
-    "BTC": 5, "ETH": 4, "BNB": 3, "SOL": 2, "HYPE": 2,
-    "XRP": 0, "NEAR": 1, "DOGE": 0, "SUI": 1, "WLD": 1,
+    "BTC": 5, "ETH": 4, "ZEC": 2, "CRV": 1,
+    "ENA": 0, "TON": 1, "ADA": 0, "FARTCOIN": 0, "LIT": 1, "VVV": 1,
 }
 
 # ============================================================
@@ -791,6 +791,18 @@ def run_bot():
     # MENCARI ENTRY BARU
     # ═══════════════════════════════════════════════════════════
     
+    # Cek apakah sudah mencapai batas maksimal posisi
+    if len(open_coins) >= MAX_OPEN_POSITIONS:
+        print(f"\n[3] MAKSIMAL POSISI TERCAPAI ({MAX_OPEN_POSITIONS}/{MAX_OPEN_POSITIONS})")
+        print("Bot tidak akan mencari sinyal baru sampai ada posisi yang ditutup.")
+        return
+        
+    # Jika pasar CHOPSAW, skip entry baru
+    if global_regime == "CHOPSAW":
+        print(f"\n[3] PASAR CHOPSAW TERDETEKSI - SKIP ENTRY BARU")
+        print("Bot hanya akan mengelola posisi yang sudah terbuka.")
+        return
+    
     # Analyze each coin
     trades_executed = []
     
@@ -817,6 +829,14 @@ def run_bot():
             continue
         
         print(f"  Current Price: ${current_price:.2f}")
+        
+        # Cek regime koin spesifik
+        coin_regime = regime_data["coins"].get(coin, {}).get("regime", "UNKNOWN")
+        if coin_regime == "CHOPSAW":
+            print(f"  [REGIME] Koin sedang CHOPSAW (Konsolidasi ketat) -> SKIP")
+            continue
+        else:
+            print(f"  [REGIME] {coin_regime}")
         
         # On-Chain Analysis (Almarhum)
         onchain_score, onchain_details = analyze_onchain(coin)
