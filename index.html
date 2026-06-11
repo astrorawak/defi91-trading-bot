@@ -78,6 +78,21 @@
             color: #00ff88;
             animation: pulse 2s infinite;
         }
+        
+        .header .regime-badge {
+            display: inline-block;
+            margin-top: 15px;
+            margin-left: 10px;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .regime-green { background: rgba(0, 255, 136, 0.1); border: 1px solid rgba(0, 255, 136, 0.4); color: #00ff88; }
+        .regime-yellow { background: rgba(255, 204, 0, 0.1); border: 1px solid rgba(255, 204, 0, 0.4); color: #ffcc00; }
+        .regime-red { background: rgba(255, 68, 68, 0.1); border: 1px solid rgba(255, 68, 68, 0.4); color: #ff4444; }
+        .regime-gray { background: rgba(153, 153, 153, 0.1); border: 1px solid rgba(153, 153, 153, 0.4); color: #999999; }
 
         @keyframes pulse {
             0%, 100% { box-shadow: 0 0 5px rgba(0, 255, 136, 0.2); }
@@ -416,13 +431,15 @@
         <h1>Trading Bot By: Karman</h1>
         <div class="subtitle">Strategi Almarhum Doddy Ali Wijaya + KJo Academy</div>
         <div class="status-badge">● LIVE - AUTO TRADING</div>
+        <div class="regime-badge regime-gray" id="marketRegimeBadge">Market: LOADING...</div>
     </div>
 
     <!-- Tab Navigation -->
-    <div class="tab-nav">
-        <button class="tab-btn active" onclick="switchTab('dashboard')">Dashboard</button>
-        <button class="tab-btn" onclick="switchTab('journal')">Jurnal Trading</button>
-    </div>
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="switchTab('dashboard')">DASHBOARD</button>
+            <button class="tab-btn" onclick="switchTab('journal')">JURNAL TRADING</button>
+            <a href="community.html" class="tab-btn" style="text-decoration: none; display: inline-block; text-align: center; line-height: 1.5;">COMMUNITY</a>
+        </div>
 
     <!-- Dashboard Tab -->
     <div class="tab-content active" id="tab-dashboard">
@@ -667,6 +684,22 @@ Laporan AI akan diperbarui setiap hari jam 13:00 WIB.</div>
             }
         });
 
+        // Load Market Regime
+        async function loadMarketRegime() {
+            try {
+                const resp = await fetch('market_regime.json?' + Date.now());
+                const data = await resp.json();
+                const badge = document.getElementById('marketRegimeBadge');
+                
+                if (data && data.global_regime) {
+                    badge.textContent = 'Market: ' + data.global_regime;
+                    badge.className = 'regime-badge regime-' + (data.color || 'gray');
+                }
+            } catch (e) {
+                console.log('Waiting for market regime data...', e);
+            }
+        }
+
         // Load Performance Data
         async function loadData() {
             try {
@@ -856,8 +889,10 @@ Laporan AI akan diperbarui setiap hari jam 13:00 WIB.</div>
         }
 
         // Init
+        loadMarketRegime();
         loadData();
         loadJournal();
+        setInterval(loadMarketRegime, 60000);
         setInterval(loadData, 60000);
         setInterval(loadJournal, 300000); // Refresh journal every 5 min
     </script>
