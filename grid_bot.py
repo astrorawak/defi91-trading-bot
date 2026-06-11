@@ -18,6 +18,21 @@ GRID_RANGE_MULTIPLIER = 2.0
 GRID_MIN_PROFIT_PER_GRID = 0.15
 MIN_ACCOUNT_BALANCE = 20.0 # Safety buffer untuk scalping bot
 
+# Telegram
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
+
+def send_grid_telegram(msg):
+    """Send grid bot notification to Telegram"""
+    if not TELEGRAM_BOT_TOKEN or not TELEGRAM_CHAT_ID:
+        return
+    try:
+        url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
+        payload = {"chat_id": TELEGRAM_CHAT_ID, "text": msg, "parse_mode": "HTML", "disable_web_page_preview": True}
+        requests.post(url, json=payload, timeout=10)
+    except:
+        pass
+
 # --- INITIALIZATION ---
 PRIVATE_KEY = os.getenv("HYPERLIQUID_PRIVATE_KEY", "")
 if not PRIVATE_KEY:
@@ -264,6 +279,12 @@ def manage_grid(coin, grid_config, active_orders, current_price, meta_info):
                     "completed_at": datetime.now(timezone.utc).isoformat()
                 })
                 print(f"  -> Profit locked: ${profit:.4f}")
+                send_grid_telegram(
+                    f"\U0001f578\ufe0f <b>Grid Bot - Trade Completed!</b>\n"
+                    f"Pair: <b>{coin}</b>\n"
+                    f"Buy: ${new_price:.4f} -> Sell: ${order['price']:.4f}\n"
+                    f"Profit: <b>+${profit:.4f}</b>"
+                )
                 
             orders_to_place.append({
                 "coin": coin,
@@ -307,8 +328,10 @@ def main():
     
     if regime == "TRENDING":
         print("Market is TRENDING. Grid bot standby. Scalping bot is active.")
+        send_grid_telegram("\U0001f578\ufe0f <b>Grid Bot Status:</b> STANDBY\nMarket is TRENDING - Scalping bot is active.")
     else:
         print("Market is SIDEWAYS/CHOPSAW. Grid bot active.")
+        send_grid_telegram(f"\U0001f578\ufe0f <b>Grid Bot Status:</b> ACTIVE\nMarket: {regime} - Grid bot scanning for opportunities.")
     
     balance = get_account_balance()
     print(f"Current Account Balance: ${balance:.2f}")
