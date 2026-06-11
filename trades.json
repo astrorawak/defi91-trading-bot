@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-12 01:50:26",
+  "last_update": "2026-06-12 06:15:02",
   "trades": [
     {
       "id": 1,
@@ -6103,6 +6103,24 @@
       "pnl": 0.0,
       "cvd_score": "-4",
       "rsi": "64.5"
+    },
+    {
+      "id": 340,
+      "time": "2026-06-12 06:15:02",
+      "coin": "ETH",
+      "signal": "LONG",
+      "entry": 1672.6,
+      "tp": 1714.5,
+      "sl": 1652.6,
+      "size": 0.0598,
+      "margin": 5.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "4",
+      "rsi": "37.4"
     }
   ],
   "summary": {
