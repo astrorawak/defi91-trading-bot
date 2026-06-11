@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-11 23:45:27",
+  "last_update": "2026-06-12 00:50:00",
   "trades": [
     {
       "id": 1,
@@ -6013,6 +6013,60 @@
       "pnl": 0.0,
       "cvd_score": "3",
       "rsi": "58.6"
+    },
+    {
+      "id": 335,
+      "time": "2026-06-12 00:50:00",
+      "coin": "BTC",
+      "signal": "SHORT",
+      "entry": 63568.0,
+      "tp": 61973.0,
+      "sl": 64325.0,
+      "size": 0.00157,
+      "margin": 5.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-2",
+      "rsi": "64.0"
+    },
+    {
+      "id": 336,
+      "time": "2026-06-12 00:50:00",
+      "coin": "ENA",
+      "signal": "LONG",
+      "entry": 0.077954,
+      "tp": 0.07984,
+      "sl": 0.07696,
+      "size": 642.0,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "5",
+      "rsi": "65.0"
+    },
+    {
+      "id": 337,
+      "time": "2026-06-12 00:50:00",
+      "coin": "TON",
+      "signal": "SHORT",
+      "entry": 1.6594,
+      "tp": 1.614,
+      "sl": 1.675,
+      "size": 30.2,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-2",
+      "rsi": "66.8"
     }
   ],
   "summary": {
