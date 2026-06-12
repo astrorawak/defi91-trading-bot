@@ -57,10 +57,17 @@ def get_market_regime():
     return "UNKNOWN"
 
 def get_account_balance():
+    """Get USDC balance from Unified Account (spotClearinghouseState)"""
     try:
-        user_state = info.user_state(MAIN_WALLET)
-        margin_summary = user_state.get("marginSummary", {})
-        return float(margin_summary.get("accountValue", 0))
+        spot_payload = {"type": "spotClearinghouseState", "user": MAIN_WALLET}
+        spot_resp = requests.post("https://api.hyperliquid.xyz/info", json=spot_payload, timeout=10)
+        spot_data = spot_resp.json()
+        usdc_balance = 0.0
+        for bal in spot_data.get("balances", []):
+            if bal.get("coin") == "USDC":
+                usdc_balance = float(bal.get("total", 0))
+                break
+        return usdc_balance
     except Exception as e:
         print(f"Error getting balance: {e}")
         return 0.0
