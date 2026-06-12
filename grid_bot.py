@@ -40,7 +40,9 @@ if not PRIVATE_KEY:
     exit(1)
 
 account = Account.from_key(PRIVATE_KEY)
-MAIN_WALLET = account.address
+# Use hardcoded main wallet address (same as scalping bot)
+# Agent wallet address differs from main account address on Hyperliquid
+MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 print(f"Using wallet: {MAIN_WALLET}")
 
 info = Info(constants.MAINNET_API_URL, skip_ws=True)
