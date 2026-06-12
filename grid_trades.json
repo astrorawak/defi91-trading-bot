@@ -1,7 +1,88 @@
 {
   "grid_config": {
-    "last_updated": "",
-    "pairs": {}
+    "last_updated": "2026-06-12T05:28:07.733559+00:00",
+    "pairs": {
+      "BTC": {
+        "grid_center": 63458.5,
+        "grid_upper": 64263.833333333336,
+        "grid_lower": 62653.166666666664,
+        "grid_interval": 161.06666666666715,
+        "size_per_level": 2e-05,
+        "status": "active"
+      },
+      "ETH": {
+        "grid_center": 1667.55,
+        "grid_upper": 1696.0249999999999,
+        "grid_lower": 1639.075,
+        "grid_interval": 5.694999999999982,
+        "size_per_level": 0.0007,
+        "status": "active"
+      },
+      "SOL": {
+        "grid_center": 66.7375,
+        "grid_upper": 68.01691666666666,
+        "grid_lower": 65.45808333333333,
+        "grid_interval": 0.2558833333333325,
+        "size_per_level": 0.02,
+        "status": "active"
+      },
+      "CRV": {
+        "grid_center": 0.25578,
+        "grid_upper": 0.27137,
+        "grid_lower": 0.24019,
+        "grid_interval": 0.0031180000000000014,
+        "size_per_level": 4.4,
+        "status": "active"
+      },
+      "ENA": {
+        "grid_center": 0.079029,
+        "grid_upper": 0.08201833333333333,
+        "grid_lower": 0.07603966666666667,
+        "grid_interval": 0.000597866666666666,
+        "size_per_level": 14.0,
+        "status": "active"
+      },
+      "TON": {
+        "grid_center": 1.73055,
+        "grid_upper": 1.7800500000000001,
+        "grid_lower": 1.68105,
+        "grid_interval": 0.00990000000000002,
+        "size_per_level": 0.7,
+        "status": "active"
+      },
+      "ADA": {
+        "grid_center": 0.171155,
+        "grid_upper": 0.175255,
+        "grid_lower": 0.167055,
+        "grid_interval": 0.0008199999999999985,
+        "size_per_level": 7.0,
+        "status": "active"
+      },
+      "FARTCOIN": {
+        "grid_center": 0.11656,
+        "grid_upper": 0.11973416666666667,
+        "grid_lower": 0.11338583333333332,
+        "grid_interval": 0.0006348333333333345,
+        "size_per_level": 9.7,
+        "status": "active"
+      },
+      "LIT": {
+        "grid_center": 1.54955,
+        "grid_upper": 1.6318416666666666,
+        "grid_lower": 1.4672583333333333,
+        "grid_interval": 0.016458333333333332,
+        "size_per_level": 1.0,
+        "status": "active"
+      },
+      "VVV": {
+        "grid_center": 15.0165,
+        "grid_upper": 15.774416666666667,
+        "grid_lower": 14.258583333333334,
+        "grid_interval": 0.15158333333333332,
+        "size_per_level": 0.08,
+        "status": "active"
+      }
+    }
   },
   "active_orders": [],
   "completed_trades": [],
