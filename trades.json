@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-12 18:59:02",
+  "last_update": "2026-06-13 00:20:54",
   "trades": [
     {
       "id": 1,
@@ -6265,6 +6265,42 @@
       "pnl": 0.0,
       "cvd_score": "-5",
       "rsi": "61.2"
+    },
+    {
+      "id": 349,
+      "time": "2026-06-13 00:20:54",
+      "coin": "ZEC",
+      "signal": "SHORT",
+      "entry": 418.31,
+      "tp": 408.4,
+      "sl": 423.9,
+      "size": 0.12,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-5",
+      "rsi": "38.5"
+    },
+    {
+      "id": 350,
+      "time": "2026-06-13 00:20:54",
+      "coin": "FARTCOIN",
+      "signal": "LONG",
+      "entry": 0.11863,
+      "tp": 0.1215,
+      "sl": 0.1171,
+      "size": 422.0,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "3",
+      "rsi": "57.6"
     }
   ],
   "summary": {
