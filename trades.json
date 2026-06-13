@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-13 06:08:16",
+  "last_update": "2026-06-13 09:14:14",
   "trades": [
     {
       "id": 1,
@@ -6337,6 +6337,42 @@
       "pnl": 0.0,
       "cvd_score": "-3",
       "rsi": "41.1"
+    },
+    {
+      "id": 353,
+      "time": "2026-06-13 09:14:14",
+      "coin": "ENA",
+      "signal": "SHORT",
+      "entry": 0.077953,
+      "tp": 0.07601,
+      "sl": 0.0789,
+      "size": 641.0,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "44.5"
+    },
+    {
+      "id": 354,
+      "time": "2026-06-13 09:14:14",
+      "coin": "FARTCOIN",
+      "signal": "SHORT",
+      "entry": 0.11923,
+      "tp": 0.1163,
+      "sl": 0.1207,
+      "size": 419.0,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "83.5"
     }
   ],
   "summary": {
