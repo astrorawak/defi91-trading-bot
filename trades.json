@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-13 17:56:49",
+  "last_update": "2026-06-13 21:56:14",
   "trades": [
     {
       "id": 1,
@@ -6463,6 +6463,24 @@
       "pnl": 0.0,
       "cvd_score": "3",
       "rsi": "56.1"
+    },
+    {
+      "id": 360,
+      "time": "2026-06-13 21:56:14",
+      "coin": "CRV",
+      "signal": "LONG",
+      "entry": 0.24229,
+      "tp": 0.2483,
+      "sl": 0.2394,
+      "size": 206.4,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "4",
+      "rsi": "57.6"
     }
   ],
   "summary": {
