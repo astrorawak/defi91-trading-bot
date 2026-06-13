@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-13 13:35:32",
+  "last_update": "2026-06-13 16:57:52",
   "trades": [
     {
       "id": 1,
@@ -6391,6 +6391,24 @@
       "pnl": 0.0,
       "cvd_score": "-3",
       "rsi": "64.6"
+    },
+    {
+      "id": 356,
+      "time": "2026-06-13 16:57:52",
+      "coin": "FARTCOIN",
+      "signal": "SHORT",
+      "entry": 0.11989,
+      "tp": 0.1169,
+      "sl": 0.1213,
+      "size": 417.0,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "76.8"
     }
   ],
   "summary": {
