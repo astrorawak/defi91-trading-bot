@@ -1,18 +1,14 @@
 {
-  "total_pnl": 22.384943999999997,
-  "wins": 151,
-  "losses": 254,
-  "total_trades": 405,
-  "today_trades": 20,
-  "today_pnl": 0.9727110000000001,
-  "win_rate": 37.28395061728395,
-  "avg_profit": 0.05527146666666666,
+  "total_pnl": 21.553669999999997,
+  "wins": 154,
+  "losses": 264,
+  "total_trades": 418,
+  "today_trades": 13,
+  "today_pnl": -0.8312739999999998,
+  "win_rate": 36.84210526315789,
+  "avg_profit": 0.051563803827751185,
   "best_trade": "+$2.739 (SOL)",
   "equity_curve": [
-    {
-      "time": "00:56",
-      "equity": 8.1435
-    },
     {
       "time": "01:34",
       "equity": 8.797
@@ -408,6 +404,10 @@
     {
       "time": "13:35",
       "equity": 23.0859
+    },
+    {
+      "time": "13/06 16:17",
+      "equity": 21.553669999999997
     }
   ],
   "daily_pnl": [
@@ -462,113 +462,13 @@
     {
       "date": "12/06",
       "pnl": 0.9727110000000001
+    },
+    {
+      "date": "13/06",
+      "pnl": -0.8312739999999998
     }
   ],
   "closed_trades": [
-    {
-      "coin": "WLD",
-      "direction": "SHORT",
-      "entry": 0.51049,
-      "exit": 0.51049,
-      "pnl": 1.17786,
-      "time": "10/06 00:18"
-    },
-    {
-      "coin": "WLD",
-      "direction": "SHORT",
-      "entry": 0.50928,
-      "exit": 0.50928,
-      "pnl": -0.68191,
-      "time": "10/06 18:04"
-    },
-    {
-      "coin": "NEAR",
-      "direction": "SHORT",
-      "entry": 2.0414,
-      "exit": 2.0414,
-      "pnl": -0.65582,
-      "time": "10/06 23:05"
-    },
-    {
-      "coin": "NEAR",
-      "direction": "LONG",
-      "entry": 2.1828,
-      "exit": 2.1828,
-      "pnl": -0.6728,
-      "time": "10/06 19:10"
-    },
-    {
-      "coin": "ETH",
-      "direction": "LONG",
-      "entry": 1642.8,
-      "exit": 1642.8,
-      "pnl": -1.27512,
-      "time": "11/06 19:33"
-    },
-    {
-      "coin": "HYPE",
-      "direction": "SHORT",
-      "entry": 53.1,
-      "exit": 53.1,
-      "pnl": -0.59613,
-      "time": "11/06 05:02"
-    },
-    {
-      "coin": "HYPE",
-      "direction": "SHORT",
-      "entry": 54.649,
-      "exit": 54.649,
-      "pnl": -0.63558,
-      "time": "11/06 01:33"
-    },
-    {
-      "coin": "HYPE",
-      "direction": "SHORT",
-      "entry": 55.855,
-      "exit": 55.855,
-      "pnl": -0.64416,
-      "time": "11/06 23:34"
-    },
-    {
-      "coin": "HYPE",
-      "direction": "SHORT",
-      "entry": 55.788,
-      "exit": 55.788,
-      "pnl": -0.610629,
-      "time": "11/06 18:25"
-    },
-    {
-      "coin": "BTC",
-      "direction": "SHORT",
-      "entry": 62798.0,
-      "exit": 62798.0,
-      "pnl": 2.45804,
-      "time": "11/06 11:51"
-    },
-    {
-      "coin": "BTC",
-      "direction": "SHORT",
-      "entry": 61505.0,
-      "exit": 61505.0,
-      "pnl": -1.19784,
-      "time": "11/06 04:11"
-    },
-    {
-      "coin": "BTC",
-      "direction": "LONG",
-      "entry": 62182.0,
-      "exit": 62182.0,
-      "pnl": -1.24206,
-      "time": "11/06 20:40"
-    },
-    {
-      "coin": "SUI",
-      "direction": "SHORT",
-      "entry": 0.72777,
-      "exit": 0.72777,
-      "pnl": -0.676284,
-      "time": "11/06 04:03"
-    },
     {
       "coin": "XRP",
       "direction": "LONG",
@@ -864,15 +764,119 @@
       "exit": 57.195,
       "pnl": 1.2006,
       "time": "12/06 20:47"
+    },
+    {
+      "coin": "FARTCOIN",
+      "direction": "LONG",
+      "entry": 0.11929,
+      "exit": 0.11929,
+      "pnl": -0.02514,
+      "time": "13/06 14:26"
+    },
+    {
+      "coin": "FARTCOIN",
+      "direction": "LONG",
+      "entry": 0.11836,
+      "exit": 0.11836,
+      "pnl": -0.56924,
+      "time": "13/06 08:01"
+    },
+    {
+      "coin": "FARTCOIN",
+      "direction": "SHORT",
+      "entry": 0.11704,
+      "exit": 0.11704,
+      "pnl": -0.359181,
+      "time": "13/06 01:07"
+    },
+    {
+      "coin": "FARTCOIN",
+      "direction": "SHORT",
+      "entry": 0.11704,
+      "exit": 0.11704,
+      "pnl": -0.14946,
+      "time": "13/06 01:07"
+    },
+    {
+      "coin": "FARTCOIN",
+      "direction": "SHORT",
+      "entry": 0.11707,
+      "exit": 0.11707,
+      "pnl": -0.159276,
+      "time": "13/06 01:07"
+    },
+    {
+      "coin": "ENA",
+      "direction": "LONG",
+      "entry": 0.0795,
+      "exit": 0.0795,
+      "pnl": -0.008478,
+      "time": "13/06 13:58"
+    },
+    {
+      "coin": "ENA",
+      "direction": "LONG",
+      "entry": 0.079498,
+      "exit": 0.079498,
+      "pnl": -0.59032,
+      "time": "13/06 13:58"
+    },
+    {
+      "coin": "ENA",
+      "direction": "LONG",
+      "entry": 0.077962,
+      "exit": 0.077962,
+      "pnl": -0.005769,
+      "time": "13/06 13:29"
+    },
+    {
+      "coin": "VVV",
+      "direction": "SHORT",
+      "entry": 14.662,
+      "exit": 14.662,
+      "pnl": 0.378,
+      "time": "13/06 08:45"
+    },
+    {
+      "coin": "ZEC",
+      "direction": "LONG",
+      "entry": 418.36,
+      "exit": 418.36,
+      "pnl": -0.006,
+      "time": "13/06 02:27"
+    },
+    {
+      "coin": "BTC",
+      "direction": "LONG",
+      "entry": 63754.0,
+      "exit": 63754.0,
+      "pnl": 0.02355,
+      "time": "13/06 01:10"
+    },
+    {
+      "coin": "CRV",
+      "direction": "SHORT",
+      "entry": 0.24356,
+      "exit": 0.24356,
+      "pnl": -0.604344,
+      "time": "13/06 17:09"
+    },
+    {
+      "coin": "TON",
+      "direction": "SHORT",
+      "entry": 1.7304,
+      "exit": 1.7304,
+      "pnl": 1.244384,
+      "time": "13/06 16:36"
     }
   ],
   "ai_report": {
-    "content": "Hari ini, Trading Bot Karman mencatat hasil yang cukup variatif dengan total P&L sekitar $0.97 dari 20 transaksi. Sebanyak 9 menang dan 11 kalah menunjukkan sedikit tantangan dalam mencapai profit stabil.\n\nStatistik: Win 45%, Loss 55%, total P&L hari ini sekitar $0.97.\n\nInsight: Koin XRP dan SUI menunjukkan performa positif dengan keuntungan cukup signifikan, sedangkan beberapa posisi seperti ADA dan ENA mengalami kerugian. Secara keseluruhan, performa cukup berimbang dan masih ada peluang untuk meningkatkan hasil.\n\nPosisi terbuka kosong hari ini, tidak ada posisi yang sedang berjalan.\n\nSaran: Fokus pada analisis indikator yang lebih ketat dan pertimbangkan untuk menunggu sinyal entry yang lebih kuat agar risiko kerugian dapat diminimalkan besok. Tetap disiplin dalam mengikuti strategi dan manajemen risiko.",
-    "time": "12 June 2026, 17:14 WIB"
+    "content": "Hari ini, performa trading bot mengalami kerugian sebesar $0.8313 dengan 13 trade yang dilakukan. Dari semua trade, hanya 3 yang profit dan 10 mengalami kerugian. Overall, hasil hari ini kurang memuaskan.\n\nStatistik: Win 3 / Loss 10, total P&L -$0.8313.\n\nInsight: Koin yang paling baik performanya adalah TON dengan keuntungan sekitar $1.24. Sebaliknya, FARTCOIN dan CRV menunjukkan performa buruk dengan kerugian besar. Harga FARTCOIN tidak bergerak saat exit, menyebabkan kerugian karena posisi tidak tertutup sesuai strategi.\n\nPosisi terbuka saat ini nihil, tidak ada posisi yang berjalan saat ini.\n\nSaran untuk besok, perhatikan pengelolaan risiko dan evaluasi sinyal entry agar lebih ketat. Fokus pada koin dengan potensi tren yang jelas dan hindari trading yang tidak memenuhi threshold skor tinggi untuk mengurangi kerugian.",
+    "time": "13 June 2026, 16:17 WIB"
   },
-  "last_report_date": "2026-06-12",
-  "_prev_today_pnl": 0.9727110000000001,
-  "_prev_today_wins": 9,
-  "_prev_today_losses": 11,
-  "_prev_today_trades": 20
+  "last_report_date": "2026-06-13",
+  "_prev_today_pnl": -0.8312739999999998,
+  "_prev_today_wins": 3,
+  "_prev_today_losses": 10,
+  "_prev_today_trades": 13
 }
