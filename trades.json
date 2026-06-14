@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-14 23:01:46",
+  "last_update": "2026-06-15 03:22:44",
   "trades": [
     {
       "id": 1,
@@ -6589,6 +6589,24 @@
       "pnl": 0.0,
       "cvd_score": "-4",
       "rsi": "57.7"
+    },
+    {
+      "id": 367,
+      "time": "2026-06-15 03:22:44",
+      "coin": "TON",
+      "signal": "SHORT",
+      "entry": 1.696,
+      "tp": 1.653,
+      "sl": 1.716,
+      "size": 29.5,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "34.0"
     }
   ],
   "summary": {
