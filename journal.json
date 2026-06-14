@@ -4677,6 +4677,154 @@
       "open_positions": [],
       "journal_content": "**JURNAL TRADING HARIAN – Sabtu, 13 Juni 2026**\n\n---\n\n**1. RINGKASAN HARI INI**  \nHari ini penuh dengan volatilitas dan banyak aksi di pasar, walaupun secara total performa agak berantakan karena banyak loss. Bot trading melakukan beberapa posisi, tapi sebagian besar gagal mencapai target dan justru tereliminasi di SL. Ada peluang di beberapa aset, tapi tekanan pasar terlihat cukup tinggi, jadi harus lebih berhati-hati.\n\n---\n\n**2. ANALISA KENAPA BOT MASUK POSISI**  \n- **ZEC Short di jam 00:20:54**  \n  *Sinyal CVD:* Score -5, menunjukkan volume delta menunjukkan tekanan jual yang cukup kuat.  \n  *Teknikal:* RSI di 38.5, mendekati wilayah oversold, menandakan potensi pembalikan atau pelemahan kenaikan.  \n  *Support/Resistance:* Harga di dekat resistance, tapi CVD menunjukkan adanya imbalance jual, memicu bot masuk short.  \n  *Alasan masuk:* Kombinasi CVD negative dan RSI di bawah 40 membuat bot yakin harga akan turun ke support berikutnya.\n\n- **FARTCOIN Long di jam 00:20:54**  \n  *Sinyal CVD:* Score +3, menunjukkan adanya tekanan beli dari order flow.  \n  *Teknikal:* RSI di 57.6, masih di zona netral, dan harga dekat support minor.  \n  *Support/Resistance:* Support terdekat cukup kuat, dan order book menunjukkan adanya akumulasi beli.  \n  *Alasan masuk:* Karena ada konfirmasi dari order flow dan RSI yang mendukung momentum kenaikan.\n\n- **VVV Long di jam 04:04:27**  \n  *Sinyal CVD:* Score +4, menunjukkan kekuatan beli dari order flow.  \n  *Teknikal:* RSI sangat rendah di 18.8, menunjukkan kondisi oversold ekstrem, kemungkinan pembalikan.  \n  *Support/Resistance:* Harga di dekat support kuat, dan volume delta mengindikasikan akumulasi beli.  \n  *Alasan masuk:* Kombinasi order flow positif dan RSI oversold membuat bot yakin akan rebound.\n\n- **FARTCOIN Short di jam 06:08:16**  \n  *Sinyal CVD:* -3, menunjukkan tekanan jual yang mulai menguat.  \n  *Teknikal:* RSI di 41.1, mendekati batas bawah tapi belum oversold.  \n  *Support/Resistance:* Resistance terdekat menahan harga, dan order book mengindikasikan imbalance jual.  \n  *Alasan masuk:* Kondisi ini cukup mendukung peluang short, apalagi CVD negatif.\n\n- **ENA Short di jam 09:14:14**  \n  *Sinyal CVD:* -4, memperkuat sinyal jual dari order flow.  \n  *Teknikal:* RSI di 44.5, mendekati area jual, dan harga berada di zona resistance minor.  \n  *Support/Resistance:* Resistance yang kuat dan order book menunjukkan dominasi seller.  \n  *Alasan masuk:* Gabungan sinyal teknikal dan order flow memperkuat posisi short.\n\n- **FARTCOIN Short kedua di jam 09:14:14**  \n  *Sinyal CVD:* -4, sama seperti ENA, menunjukkan tekanan jual.  \n  *Teknikal:* RSI sangat tinggi (83.5), overbought, jadi potensi koreksi.  \n  *Support/Resistance:* Harga di resistance, dan order book mengindikasikan imbalance jual.  \n  *Alasan masuk:* RSI overbought + CVD negatif, memunculkan peluang koreksi.\n\n- **ENA Short lagi di jam 13:35:32**  \n  *Sinyal CVD:* -3, menunjukkan kekuatan jual kembali.  \n  *Teknikal:* RSI di 64.6, mulai menurun dari overbought, mendukung posisi short.  \n  *Support/Resistance:* Resistance teruji, dan order book menunjukkan tekanan jual.  \n  *Alasan masuk:* Penggabungan indikator teknikal dan order flow mendukung posisi short.\n\n---\n\n**3. ANALISA KENAPA BOT KELUAR POSISI**  \n- Banyak posisi yang gagal mencapai target, karena pasar bergerak sideways dan ada tekanan beli mendadak, menyebabkan kena SL.  \n- **Contoh:**  \n  - FARTCOIN Short di jam 14:26 keluar karena kerugian hampir 0.0251, pasar berbalik dan tidak mampu mencapai TP.  \n  - ENA Short di jam 13:58 keluar dengan kerugian kecil, karena harga naik kembali melewati SL.  \n  - VVV Long di pagi hari berhasil keluar profit, karena harga rebound dari support dan mencapai TP.  \n  - Beberapa posisi FARTCOIN dan ENA mengalami kerugian karena pasar tidak menentu dan sering berbalik arah.\n\n- Secara umum, banyak posisi yang kena SL karena pasar sedang sideways dan tidak jelas tren utama. Hal ini mengajarkan kita pentingnya manajemen risiko dan tidak terlalu agresif saat pasar tidak trending.\n\n---\n\n**4. PELAJARAN PENTING HARI INI**  \n- Kombinasi order flow (CVD) dan indikator teknikal sangat membantu dalam menentukan entry, tapi pasar yang sideways tetap menantang dan meningkatkan risiko loss.  \n- Pentingnya memperhatikan sinyal overbought/oversold dan balance antara order flow dan RSI agar tidak overtrading.  \n- Keberhasilan ada di saat pasar trending dan kita bisa memanfaatkannya, tapi saat sideways, perlu lebih sabar dan disiplin cut loss.\n\n---\n\n**5. KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \n- Tidak ada berita besar hari ini, tapi pasar tampak sangat sensitif terhadap sentimen global dan ketidakpastian ekonomi.  \n- Pergerakan yang tiba-tiba dan banyak fake-out menandakan pasar sedang mencari arah yang pasti.  \n- Ini mengingatkan kita untuk tetap waspada dan tidak serakah saat pasar belum jelas tren.\n\n---\n\n**6. SKOR PERFORMA HARI INI**  \n**6/10** – Karena banyak posisi loss dan kondisi pasar yang cukup berat, meskipun ada beberapa posisi profit, namun overall performa kurang memuaskan. Ini mengajarkan kita untuk lebih selektif dan disiplin dalam trading, terutama di saat pasar tidak menentu.\n\n---\n\n**Catatan:**  \nHari ini menjadi pengingat bahwa tidak semua hari cocok untuk trading aktif. Penting untuk memantau kondisi pasar dan menyesuaikan strategi sesuai tren dan volume. Semoga besok lebih baik!",
       "generated_at": "16:19 WIB"
+    },
+    {
+      "date": "2026-06-14",
+      "date_display": "Sunday, 14 June 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 57.0698291,
+      "margin_used": 0.0,
+      "unrealized_pnl": 0.0,
+      "total_closed": 10,
+      "wins": 5,
+      "losses": 5,
+      "total_pnl": 1.9883980000000003,
+      "win_rate": 50.0,
+      "entries_today": [
+        {
+          "time": "2026-06-14 11:08:46",
+          "coin": "CRV",
+          "direction": "SHORT",
+          "entry": 0.23448,
+          "tp": 0.2286,
+          "sl": 0.2373,
+          "margin": 5.0,
+          "leverage": 10,
+          "cvd_score": "-4",
+          "rsi": "39.2"
+        },
+        {
+          "time": "2026-06-14 11:08:46",
+          "coin": "VVV",
+          "direction": "SHORT",
+          "entry": 16.524,
+          "tp": 16.12,
+          "sl": 16.73,
+          "margin": 5.0,
+          "leverage": 3,
+          "cvd_score": "-4",
+          "rsi": "45.9"
+        },
+        {
+          "time": "2026-06-14 12:28:05",
+          "coin": "TON",
+          "direction": "LONG",
+          "entry": 1.6908,
+          "tp": 1.733,
+          "sl": 1.67,
+          "margin": 5.0,
+          "leverage": 10,
+          "cvd_score": "5",
+          "rsi": "19.2"
+        },
+        {
+          "time": "2026-06-14 12:28:05",
+          "coin": "VVV",
+          "direction": "LONG",
+          "entry": 15.928,
+          "tp": 16.29,
+          "sl": 15.71,
+          "margin": 5.0,
+          "leverage": 3,
+          "cvd_score": "4",
+          "rsi": "28.3"
+        }
+      ],
+      "closed_today": [
+        {
+          "time": "14:29",
+          "coin": "TON",
+          "direction": "LONG",
+          "exit_price": 1.7331,
+          "pnl": 1.25208,
+          "fee": 0.023084
+        },
+        {
+          "time": "13:11",
+          "coin": "VVV",
+          "direction": "LONG",
+          "exit_price": 16.308,
+          "pnl": 0.342,
+          "fee": 0.006604
+        },
+        {
+          "time": "13:04",
+          "coin": "CRV",
+          "direction": "SHORT",
+          "exit_price": 0.23468,
+          "pnl": -0.04264,
+          "fee": 0.022515
+        },
+        {
+          "time": "12:06",
+          "coin": "VVV",
+          "direction": "SHORT",
+          "exit_price": 16.12,
+          "pnl": 0.3636,
+          "fee": 0.006528
+        },
+        {
+          "time": "22:25",
+          "coin": "CRV",
+          "direction": "LONG",
+          "exit_price": 0.23936,
+          "pnl": -0.604752,
+          "fee": 0.022231
+        },
+        {
+          "time": "19:18",
+          "coin": "FARTCOIN",
+          "direction": "SHORT",
+          "exit_price": 0.12132,
+          "pnl": -0.008866,
+          "fee": 0.000338
+        },
+        {
+          "time": "19:18",
+          "coin": "FARTCOIN",
+          "direction": "SHORT",
+          "exit_price": 0.12132,
+          "pnl": -0.587444,
+          "fee": 0.022427
+        },
+        {
+          "time": "18:55",
+          "coin": "CRV",
+          "direction": "LONG",
+          "exit_price": 0.24013,
+          "pnl": 1.22122,
+          "fee": 0.02307
+        },
+        {
+          "time": "18:15",
+          "coin": "VVV",
+          "direction": "LONG",
+          "exit_price": 17.55,
+          "pnl": 0.3492,
+          "fee": 0.007107
+        },
+        {
+          "time": "18:13",
+          "coin": "LIT",
+          "direction": "SHORT",
+          "exit_price": 1.5862,
+          "pnl": -0.296,
+          "fee": 0.01142
+        }
+      ],
+      "open_positions": [],
+      "journal_content": "**Jurnal Trading Hari Ini – Minggu, 14 Juni 2026**\n\n---\n\n**1. RINGKASAN HARI INI**  \nHari ini pasar cukup beragam, ada beberapa posisi yang berhasil profit dan sebagian juga mengalami kerugian. Secara keseluruhan, bot trading kita cukup seimbang, dengan total profit sekitar $2 dan beberapa posisi yang harus cut loss. Tidak ada posisi terbuka saat ini, jadi kita tunggu peluang berikutnya.\n\n---\n\n**2. ANALISA KENAPA BOT MASUK POSISI**  \n\n- **CRV Short (11:08)**\n  - *CVD/Order Flow:* CVD score -4 menunjukkan adanya volume delta negatif, artinya tekanan jual sedang dominan. Order book imbalance juga mengarah ke penurunan harga.\n  - *Teknikal:* RSI di 39.2 menandakan kondisi oversold, tetapi belum sampai ekstrem. Harga dekat resistance sebelumnya, namun indikator flow menunjukkan peluang turun lebih lanjut.\n  - *Keputusan:* Skor CVD negatif tinggi dan RSI yang mendekati oversold membuat bot merasa peluang short cukup kuat, apalagi ada konfirmasi dari order flow yang menunjukkan tekanan jual.\n\n- **VVV Short (11:08)**\n  - *CVD:* Lagi-lagi CVD score -4, menunjukkan volume jual yang tinggi.\n  - *Teknikal:* RSI di 45.9, cukup di tengah tapi indikator momentum dan volume flow mendukung penurunan.\n  - *Alasan masuk:* Skor CVD negatif dan momentum dari order flow memperkuat sinyal bearish, ditambah posisi di dekat resistance minor.\n\n- **TON Long (12:28)**\n  - *CVD:* CVD score +5, menandakan pressure beli meningkat.\n  - *Teknikal:* RSI sangat rendah di 19.2, menunjukkan kondisi oversold ekstrem, biasanya jadi peluang rebound.\n  - *Alasan:* Skor CVD positif tinggi dan kondisi oversold RSI membuat bot memutuskan ambil posisi long, berharap ada bounce.\n\n- **VVV Long (12:28)**\n  - *CVD:* CVD score 4, mengindikasikan pembelian mulai dominan.\n  - *Teknikal:* RSI juga rendah di 28.3, mendekati oversold, mendukung peluang kenaikan.\n  - *Alasan:* Kombinasi order flow dan RSI yang rendah memberi sinyal peluang rebound.\n\n---\n\n**3. ANALISA KENAPA BOT KELUAR POSISI**  \n\n- **TON Long (12:28)**\n  - *Target tercapai:* Harga mencapai TP di $1.733, jadi bot keluar dengan profit sekitar $1.25.\n  - *Alasan keluar:* Target profit tercapai, kondisi pasar mulai menunjukkan sinyal overbought, sehingga otomatis ambil profit.\n\n- **VVV Long (13:11)**\n  - *Target tercapai:* Harga naik ke $16.308, profit sekitar $0.34.\n  - *Alasan keluar:* Profit sudah cukup, dan momentum mulai melemah, jadi aman take profit.\n\n- **CRV Short (13:04)**\n  - *SL terkena:* Harga sedikit di atas SL di $0.23468, kerugian kecil.\n  - *Alasan keluar:* Harga menembus SL, sinyal bahwa tekanan jual tidak cukup kuat untuk terus turun.\n\n- **CRV Long (22:25)**\n  - *Loss:* Harga melampaui SL di $0.23936, kerugian sekitar $0.60.\n  - *Alasan:* Kondisi pasar berbalik, mungkin ada berita atau sentimen negatif.\n\n- **FARTCOIN Short (19:18)**\n  - *Loss:* Harga melonjak, keluar di $0.12132, kerugian kecil.\n  - *Alasan:* Reversal cepat, menunjukkan pasar tidak mengikuti sinyal.\n\nPosisi lain yang ditutup profit, menandakan bot cukup disiplin dalam ambil profit saat target tercapai.\n\n---\n\n**4. PELAJARAN PENTING HARI INI**  \nHari ini mengingatkan kita bahwa kombinasi volume flow dan indikator teknikal sangat membantu menentukan momentum. Ketika CVD dan order book mendukung, peluang masuk jadi lebih percaya diri. Tapi, pasar juga bisa berbalik dengan cepat, jadi selalu penting mengatur SL dan TP dengan disiplin. Perlu juga diingat, pasar crypto cenderung volatile dan tidak selalu mengikuti pola tertentu, jadi kesiapan cut loss tetap krusial.\n\n---\n\n**5. KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \nHari ini tidak ada berita besar yang secara langsung mempengaruhi pasar, tapi sentimen umum tetap waspada terhadap pergerakan mendadak karena kondisi pasar yang cenderung sideways dengan peluang bounce di level oversold. Ada beberapa trending coin seperti Humanity dan Pudgy Penguins, tapi tidak ada berita utama yang memicu pergerakan besar.\n\n---\n\n**6. SKOR PERFORMA HARI INI**  \n7/10 – Karena ada keseimbangan antara profit dan loss, serta pelajaran berharga tentang kombinasi indikator dan volume flow. Meskipun ada beberapa posisi loss, disiplin tetap terjaga dan hasil total profit cukup memuaskan.\n\n---\n\n**Kesimpulan**: Hari ini menunjukkan pentingnya kombinasi analisa order flow dan indikator teknikal. Dengan disiplin, kita bisa memanfaatkan peluang dan meminimalisir risiko. Mari terus pelajari dan pantau pasar, siap-siap untuk peluang berikutnya!",
+      "generated_at": "16:38 WIB"
     }
   ]
 }
