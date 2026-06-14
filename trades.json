@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-14 09:37:29",
+  "last_update": "2026-06-14 11:08:46",
   "trades": [
     {
       "id": 1,
@@ -6481,6 +6481,42 @@
       "pnl": 0.0,
       "cvd_score": "4",
       "rsi": "57.6"
+    },
+    {
+      "id": 361,
+      "time": "2026-06-14 11:08:46",
+      "coin": "CRV",
+      "signal": "SHORT",
+      "entry": 0.23448,
+      "tp": 0.2286,
+      "sl": 0.2373,
+      "size": 213.2,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "39.2"
+    },
+    {
+      "id": 362,
+      "time": "2026-06-14 11:08:46",
+      "coin": "VVV",
+      "signal": "SHORT",
+      "entry": 16.524,
+      "tp": 16.12,
+      "sl": 16.73,
+      "size": 0.9,
+      "margin": 5.0,
+      "leverage": 3,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "45.9"
     }
   ],
   "summary": {
