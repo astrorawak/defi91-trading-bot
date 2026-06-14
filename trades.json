@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-14 22:05:06",
+  "last_update": "2026-06-14 23:01:46",
   "trades": [
     {
       "id": 1,
@@ -6553,6 +6553,42 @@
       "pnl": 0.0,
       "cvd_score": "4",
       "rsi": "28.3"
+    },
+    {
+      "id": 365,
+      "time": "2026-06-14 23:01:46",
+      "coin": "TON",
+      "signal": "LONG",
+      "entry": 1.7327,
+      "tp": 1.776,
+      "sl": 1.712,
+      "size": 28.9,
+      "margin": 5.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "5",
+      "rsi": "52.9"
+    },
+    {
+      "id": 366,
+      "time": "2026-06-14 23:01:46",
+      "coin": "VVV",
+      "signal": "SHORT",
+      "entry": 16.091,
+      "tp": 15.68,
+      "sl": 16.27,
+      "size": 0.9,
+      "margin": 5.0,
+      "leverage": 3,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "57.7"
     }
   ],
   "summary": {
