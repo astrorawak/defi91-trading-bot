@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-15 21:42:32",
+  "last_update": "2026-06-16 00:48:47",
   "trades": [
     {
       "id": 1,
@@ -6805,6 +6805,60 @@
       "pnl": 0.0,
       "cvd_score": "4",
       "rsi": "68.1"
+    },
+    {
+      "id": 379,
+      "time": "2026-06-16 00:48:47",
+      "coin": "XRP",
+      "signal": "LONG",
+      "entry": 1.2786,
+      "tp": 1.303,
+      "sl": 1.258,
+      "size": 47.0,
+      "margin": 3.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "5",
+      "rsi": "77.3"
+    },
+    {
+      "id": 380,
+      "time": "2026-06-16 00:48:47",
+      "coin": "SOL",
+      "signal": "LONG",
+      "entry": 75.187,
+      "tp": 76.67,
+      "sl": 74.04,
+      "size": 0.8,
+      "margin": 3.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "4",
+      "rsi": "69.6"
+    },
+    {
+      "id": 381,
+      "time": "2026-06-16 00:48:47",
+      "coin": "SUI",
+      "signal": "LONG",
+      "entry": 0.81469,
+      "tp": 0.8305,
+      "sl": 0.802,
+      "size": 36.8,
+      "margin": 3.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "2",
+      "rsi": "42.4"
     }
   ],
   "summary": {
