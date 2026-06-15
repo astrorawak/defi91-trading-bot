@@ -28,16 +28,16 @@ MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 
 # Trading Parameters (AGRESIF - leverage tinggi, filter ketat, profit besar)
 WATCHLIST = [
-    "BTC",   # #1 volume - Raja crypto (Profit konsisten)
-    "ETH",   # #2 volume - King of altcoins (Profit konsisten)
-    "ZEC",   # Volatilitas tinggi, cocok untuk scalping
-    "CRV",   # Volatilitas tinggi, cocok untuk scalping
-    "ENA",   # Volatilitas tinggi, cocok untuk scalping
-    "TON",   # Volatilitas tinggi, cocok untuk scalping
-    "ADA",   # Volatilitas tinggi, cocok untuk scalping
-    "FARTCOIN", # Volatilitas tinggi, cocok untuk scalping
-    "LIT",   # Volatilitas tinggi, cocok untuk scalping
-    "VVV",   # Volatilitas tinggi, cocok untuk scalping
+    "BTC",   # #1 volume - Raja crypto (Net +$7.45, proven profitable)
+    "ETH",   # #2 volume - King of altcoins (Net +$1.74, proven profitable)
+    "XRP",   # DIKEMBALIKAN - Net +$10.45, TERBAIK! (dihapus sebelumnya = kesalahan)
+    "SOL",   # DIKEMBALIKAN - Net +$4.85, proven profitable
+    "SUI",   # DIKEMBALIKAN - Net +$4.42, proven profitable
+    "TON",   # Volatil, potensi bagus (Net -$0.31, hampir breakeven)
+    "VVV",   # Net +$1.20, profitable meski volume kecil
+    "LIT",   # Net +$0.22, positif
+    "ZEC",   # Baru 2 fills, belum cukup data tapi potensi bagus
+    "CRV",   # Net -$1.79, DIAWASI - hapus jika masih loss minggu depan
 ]
 MARGIN_PER_TRADE = 5.00  # $5.00 per trade (target $1/hari)
 TARGET_LEVERAGE = 20  # Target 20x leverage (akan disesuaikan jika koin max < 20x)
@@ -48,14 +48,14 @@ MAX_OPEN_POSITIONS = 5  # Maksimal 5 posisi ($5.00 x 5 = $25 margin, sisa buffer
 
 # Mapping max leverage per koin (berdasarkan API Hyperliquid)
 MAX_LEVERAGE_MAP = {
-    "BTC": 40, "ETH": 25, "ZEC": 10, "CRV": 10,
-    "ENA": 10, "TON": 10, "ADA": 10, "FARTCOIN": 10, "LIT": 5, "VVV": 3
+    "BTC": 40, "ETH": 25, "XRP": 20, "SOL": 20, "SUI": 20,
+    "TON": 10, "VVV": 3, "LIT": 5, "ZEC": 10, "CRV": 10
 }
 
 # Size decimals per coin (dari Hyperliquid metadata)
 SZ_DECIMALS = {
-    "BTC": 5, "ETH": 4, "ZEC": 2, "CRV": 1,
-    "ENA": 0, "TON": 1, "ADA": 0, "FARTCOIN": 0, "LIT": 1, "VVV": 1,
+    "BTC": 5, "ETH": 4, "XRP": 0, "SOL": 2, "SUI": 1,
+    "TON": 1, "VVV": 1, "LIT": 1, "ZEC": 2, "CRV": 1,
 }
 
 # ============================================================
@@ -485,7 +485,7 @@ def execute_trade(exchange, info, coin, direction, current_price):
 # ============================================================
 # SMART EXIT + TRAILING STOP (Opsi B + C)
 # ============================================================
-SMART_EXIT_THRESHOLD = 4  # Skor berlawanan >= 4 = early close (lebih ketat, hindari false signal)
+SMART_EXIT_THRESHOLD = 6  # Skor berlawanan >= 6 = early close (DINAIKKAN dari 4 → 6, data menunjukkan close cepat = 88% loss)
 TRAILING_BREAKEVEN = 0.008  # Profit >= 0.8% → SL geser ke breakeven (leverage tinggi = cepat profit)
 TRAILING_LOCK = 0.015  # Profit >= 1.5% → SL geser ke +1%
 
@@ -820,11 +820,12 @@ def run_bot():
         print("Bot tidak akan mencari sinyal baru sampai ada posisi yang ditutup.")
         return
         
-    # Jika pasar CHOPSAW, skip entry baru
+    # Jika pasar CHOPSAW, hanya izinkan koin high-volume (BTC, ETH, XRP, SOL)
+    CHOPSAW_ALLOWED_COINS = ["BTC", "ETH", "XRP", "SOL"]  # Koin dengan likuiditas tinggi tetap boleh trade
     if global_regime == "CHOPSAW":
-        print(f"\n[3] PASAR CHOPSAW TERDETEKSI - SKIP ENTRY BARU")
-        print("Bot hanya akan mengelola posisi yang sudah terbuka.")
-        return
+        print(f"\n[3] PASAR CHOPSAW TERDETEKSI - Hanya izinkan {CHOPSAW_ALLOWED_COINS}")
+        print("Koin high-volume tetap bisa entry, sisanya skip.")
+        # Tidak return, tapi filter di bawah akan membatasi koin yang boleh entry
     
     # Analyze each coin
     trades_executed = []
@@ -855,7 +856,13 @@ def run_bot():
         
         # Cek regime koin spesifik
         coin_regime = regime_data["coins"].get(coin, {}).get("regime", "UNKNOWN")
-        if coin_regime == "CHOPSAW":
+        
+        # Filter CHOPSAW: koin high-volume boleh trade meski CHOPSAW
+        if global_regime == "CHOPSAW" and coin not in CHOPSAW_ALLOWED_COINS:
+            print(f"  [REGIME] Global CHOPSAW + {coin} bukan high-volume -> SKIP")
+            continue
+        
+        if coin_regime == "CHOPSAW" and coin not in CHOPSAW_ALLOWED_COINS:
             print(f"  [REGIME] Koin sedang CHOPSAW (Konsolidasi ketat) -> SKIP")
             continue
         else:
