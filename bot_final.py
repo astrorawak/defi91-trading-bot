@@ -47,14 +47,14 @@ MAX_OPEN_POSITIONS = 4  # 4 posisi (sesuai margin tersedia $10 perps + buffer)
 
 # Mapping max leverage per koin (berdasarkan API Hyperliquid)
 MAX_LEVERAGE_MAP = {
-    "ETH": 25, "XRP": 20, "SOL": 20, "SUI": 20, "BTC": 40,
-    "BNB": 20, "VVV": 3
+    "ETH": 25, "XRP": 20, "SOL": 20, "SUI": 10, "BTC": 40,
+    "BNB": 10, "VVV": 3
 }
 
 # Size decimals per coin (dari Hyperliquid metadata)
 SZ_DECIMALS = {
     "ETH": 4, "XRP": 0, "SOL": 2, "SUI": 1, "BTC": 5,
-    "BNB": 3, "VVV": 1
+    "BNB": 3, "VVV": 2
 }
 
 # ============================================================

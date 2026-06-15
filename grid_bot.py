@@ -10,13 +10,13 @@ from hyperliquid.utils import constants
 
 # --- CONFIGURATION ---
 # Koin kandidat grid (akan di-filter otomatis berdasarkan budget)
-GRID_CANDIDATES = ["ETH", "SOL", "ADA", "CRV", "ENA", "TON", "FARTCOIN", "LIT", "VVV", "ZEC"]
+GRID_CANDIDATES = ["ETH", "XRP", "SOL", "SUI", "BNB", "VVV"]  # Hanya koin proven profitable
 MAX_GRID_PAIRS = 3  # Maksimal 3 koin aktif grid sekaligus
 GRID_LEVELS = 3  # 3 buy + 3 sell = 6 orders per koin
 GRID_LEVERAGE = 5
 GRID_TOTAL_BUDGET = 20.0  # Budget untuk grid bot (sisakan buffer)
 GRID_RANGE_MULTIPLIER = 1.5  # ATR multiplier untuk range
-MIN_ACCOUNT_BALANCE = 25.0  # Safety buffer - jangan sentuh jika saldo < ini
+MIN_ACCOUNT_BALANCE = 15.0  # Safety buffer - diturunkan untuk recovery mode
 
 # Telegram
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
