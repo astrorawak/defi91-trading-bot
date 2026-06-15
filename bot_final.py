@@ -27,35 +27,34 @@ PRIVATE_KEY = os.getenv("HYPERLIQUID_PRIVATE_KEY", "")
 MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 
 # Trading Parameters (AGRESIF - leverage tinggi, filter ketat, profit besar)
+# === WATCHLIST: Hanya koin PROVEN PROFITABLE (data 873+ fills) ===
 WATCHLIST = [
-    "BTC",   # #1 volume - Raja crypto (Net +$7.45, proven profitable)
-    "ETH",   # #2 volume - King of altcoins (Net +$1.74, proven profitable)
-    "XRP",   # DIKEMBALIKAN - Net +$10.45, TERBAIK! (dihapus sebelumnya = kesalahan)
-    "SOL",   # DIKEMBALIKAN - Net +$4.85, proven profitable
-    "SUI",   # DIKEMBALIKAN - Net +$4.42, proven profitable
-    "TON",   # Volatil, potensi bagus (Net -$0.31, hampir breakeven)
-    "VVV",   # Net +$1.20, profitable meski volume kecil
-    "LIT",   # Net +$0.22, positif
-    "ZEC",   # Baru 2 fills, belum cukup data tapi potensi bagus
-    "CRV",   # Net -$1.79, DIAWASI - hapus jika masih loss minggu depan
+    "ETH",   # Net +$77.51, WR 52% - TERBAIK! High volume, konsisten
+    "XRP",   # Net +$10.40, WR 50% - Sangat konsisten
+    "SOL",   # Net +$4.85, WR 27% - Profit meski WR rendah (big wins)
+    "SUI",   # Net +$4.42, WR 39% - Solid performer
+    "BTC",   # Gross +$184, tapi fees tinggi - tetap masuk karena volume
+    "BNB",   # Net +$0.85, WR 53% - Stabil
+    "VVV",   # Net +$1.20, WR 80% - Kecil tapi sangat akurat
 ]
-MARGIN_PER_TRADE = 5.00  # $5.00 per trade (target $1/hari)
-TARGET_LEVERAGE = 20  # Target 20x leverage (akan disesuaikan jika koin max < 20x)
-TP_PERCENT = 0.025  # 2.5% Take Profit (leverage tinggi = target lebih besar)
-SL_PERCENT = 0.012  # 1.2% Stop Loss (Risk:Reward = 1:2)
-ENTRY_THRESHOLD = 5  # Minimum score 5 untuk entry (lebih ketat agar lebih akurat)
-MAX_OPEN_POSITIONS = 5  # Maksimal 5 posisi ($5.00 x 5 = $25 margin, sisa buffer)
+# === PARAMETER AGRESIF UNTUK RECOVERY ===
+MARGIN_PER_TRADE = 5.00  # $5.00 per trade
+TARGET_LEVERAGE = 20  # 20x leverage (sudah tinggi, tidak perlu naikkan)
+TP_PERCENT = 0.02  # 2.0% Take Profit (lebih cepat ambil profit, jangan serakah)
+SL_PERCENT = 0.015  # 1.5% Stop Loss (R:R = 1:1.3, lebih longgar agar tidak kena SL terus)
+ENTRY_THRESHOLD = 4  # DITURUNKAN dari 5 ke 4 - lebih sering entry (agresif)
+MAX_OPEN_POSITIONS = 4  # 4 posisi (sesuai margin tersedia $10 perps + buffer)
 
 # Mapping max leverage per koin (berdasarkan API Hyperliquid)
 MAX_LEVERAGE_MAP = {
-    "BTC": 40, "ETH": 25, "XRP": 20, "SOL": 20, "SUI": 20,
-    "TON": 10, "VVV": 3, "LIT": 5, "ZEC": 10, "CRV": 10
+    "ETH": 25, "XRP": 20, "SOL": 20, "SUI": 20, "BTC": 40,
+    "BNB": 20, "VVV": 3
 }
 
 # Size decimals per coin (dari Hyperliquid metadata)
 SZ_DECIMALS = {
-    "BTC": 5, "ETH": 4, "XRP": 0, "SOL": 2, "SUI": 1,
-    "TON": 1, "VVV": 1, "LIT": 1, "ZEC": 2, "CRV": 1,
+    "ETH": 4, "XRP": 0, "SOL": 2, "SUI": 1, "BTC": 5,
+    "BNB": 3, "VVV": 1
 }
 
 # ============================================================
@@ -485,7 +484,7 @@ def execute_trade(exchange, info, coin, direction, current_price):
 # ============================================================
 # SMART EXIT + TRAILING STOP (Opsi B + C)
 # ============================================================
-SMART_EXIT_THRESHOLD = 6  # Skor berlawanan >= 6 = early close (DINAIKKAN dari 4 → 6, data menunjukkan close cepat = 88% loss)
+SMART_EXIT_THRESHOLD = 7  # Skor berlawanan >= 7 = early close (AGRESIF: biarkan trade jalan, hanya close jika sinyal SANGAT kuat berlawanan)
 TRAILING_BREAKEVEN = 0.008  # Profit >= 0.8% → SL geser ke breakeven (leverage tinggi = cepat profit)
 TRAILING_LOCK = 0.015  # Profit >= 1.5% → SL geser ke +1%
 
@@ -821,10 +820,10 @@ def run_bot():
         return
         
     # Jika pasar CHOPSAW, hanya izinkan koin high-volume (BTC, ETH, XRP, SOL)
-    CHOPSAW_ALLOWED_COINS = ["BTC", "ETH", "XRP", "SOL"]  # Koin dengan likuiditas tinggi tetap boleh trade
+    CHOPSAW_ALLOWED_COINS = ["ETH", "XRP", "SOL", "SUI", "BTC", "BNB"]  # Semua koin proven profitable boleh trade
     if global_regime == "CHOPSAW":
-        print(f"\n[3] PASAR CHOPSAW TERDETEKSI - Hanya izinkan {CHOPSAW_ALLOWED_COINS}")
-        print("Koin high-volume tetap bisa entry, sisanya skip.")
+        print(f"\n[3] PASAR CHOPSAW - Mode agresif: tetap entry koin proven profitable")
+        print("Hanya VVV yang di-skip saat CHOPSAW (volume rendah).")
         # Tidak return, tapi filter di bawah akan membatasi koin yang boleh entry
     
     # Analyze each coin
