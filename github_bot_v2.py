@@ -38,7 +38,7 @@ WATCHLIST = [
     "VVV",   # Net +$1.20, WR 80% - Kecil tapi sangat akurat
 ]
 # === PARAMETER AGRESIF UNTUK RECOVERY ===
-MARGIN_PER_TRADE = 5.00  # $5.00 per trade
+MARGIN_PER_TRADE = 3.00  # $3.00 per trade (disesuaikan dengan saldo perps $10, agar bisa buka 3 posisi)
 TARGET_LEVERAGE = 20  # 20x leverage (sudah tinggi, tidak perlu naikkan)
 TP_PERCENT = 0.02  # 2.0% Take Profit (lebih cepat ambil profit, jangan serakah)
 SL_PERCENT = 0.015  # 1.5% Stop Loss (R:R = 1:1.3, lebih longgar agar tidak kena SL terus)
