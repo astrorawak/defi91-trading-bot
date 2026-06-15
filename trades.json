@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-16 02:51:03",
+  "last_update": "2026-06-16 04:47:44",
   "trades": [
     {
       "id": 1,
@@ -6877,6 +6877,24 @@
       "pnl": 0.0,
       "cvd_score": "2",
       "rsi": "19.4"
+    },
+    {
+      "id": 383,
+      "time": "2026-06-16 04:47:44",
+      "coin": "BNB",
+      "signal": "SHORT",
+      "entry": 619.47,
+      "tp": 607.1,
+      "sl": 628.8,
+      "size": 0.048,
+      "margin": 3.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "40.0"
     }
   ],
   "summary": {

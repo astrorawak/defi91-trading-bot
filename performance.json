@@ -10,10 +10,6 @@
   "best_trade": "+$2.739 (SOL)",
   "equity_curve": [
     {
-      "time": "16:28",
-      "equity": 36.4104
-    },
-    {
       "time": "17:30",
       "equity": 38.1802
     },
@@ -408,6 +404,10 @@
     {
       "time": "02:51",
       "equity": 24.2204
+    },
+    {
+      "time": "04:47",
+      "equity": 23.9681
     }
   ],
   "daily_pnl": [
