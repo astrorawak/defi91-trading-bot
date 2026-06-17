@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-17 23:32:43",
+  "last_update": "2026-06-18 00:28:31",
   "trades": [
     {
       "id": 1,
@@ -7183,6 +7183,24 @@
       "pnl": 0.0,
       "cvd_score": "3",
       "rsi": "25.6"
+    },
+    {
+      "id": 400,
+      "time": "2026-06-18 00:28:31",
+      "coin": "BTC",
+      "signal": "SHORT",
+      "entry": 65939.0,
+      "tp": 64627.0,
+      "sl": 66935.0,
+      "size": 0.00091,
+      "margin": 3.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-5",
+      "rsi": "67.2"
     }
   ],
   "summary": {
