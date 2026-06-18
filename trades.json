@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-18 06:17:15",
+  "last_update": "2026-06-18 09:37:57",
   "trades": [
     {
       "id": 1,
@@ -7291,6 +7291,24 @@
       "pnl": 0.0,
       "cvd_score": "-5",
       "rsi": "61.4"
+    },
+    {
+      "id": 406,
+      "time": "2026-06-18 09:37:57",
+      "coin": "SOL",
+      "signal": "LONG",
+      "entry": 72.51,
+      "tp": 73.97,
+      "sl": 71.43,
+      "size": 0.83,
+      "margin": 3.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "4",
+      "rsi": "69.4"
     }
   ],
   "summary": {
