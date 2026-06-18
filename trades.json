@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-18 12:52:17",
+  "last_update": "2026-06-18 14:14:24",
   "trades": [
     {
       "id": 1,
@@ -7327,6 +7327,24 @@
       "pnl": 0.0,
       "cvd_score": "3",
       "rsi": "6.7"
+    },
+    {
+      "id": 408,
+      "time": "2026-06-18 14:14:24",
+      "coin": "SUI",
+      "signal": "SHORT",
+      "entry": 0.74702,
+      "tp": 0.732,
+      "sl": 0.7582,
+      "size": 40.2,
+      "margin": 3.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "31.5"
     }
   ],
   "summary": {
