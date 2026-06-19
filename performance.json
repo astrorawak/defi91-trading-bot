@@ -1,18 +1,14 @@
 {
-  "total_pnl": 21.664742,
-  "wins": 174,
-  "losses": 308,
-  "total_trades": 482,
-  "today_trades": 16,
-  "today_pnl": 0.9398230000000001,
-  "win_rate": 36.09958506224066,
-  "avg_profit": 0.044947597510373444,
+  "total_pnl": 18.418498,
+  "wins": 175,
+  "losses": 315,
+  "total_trades": 490,
+  "today_trades": 8,
+  "today_pnl": -3.2462440000000004,
+  "win_rate": 35.714285714285715,
+  "avg_profit": 0.03758877142857143,
   "best_trade": "+$2.739 (SOL)",
   "equity_curve": [
-    {
-      "time": "13:46",
-      "equity": 30.9982
-    },
     {
       "time": "10/06 17:01",
       "equity": 32.278948
@@ -408,6 +404,10 @@
     {
       "time": "14:34",
       "equity": 21.7061
+    },
+    {
+      "time": "19/06 17:27",
+      "equity": 18.418498
     }
   ],
   "daily_pnl": [
@@ -486,73 +486,13 @@
     {
       "date": "18/06",
       "pnl": 0.9398230000000001
+    },
+    {
+      "date": "19/06",
+      "pnl": -3.2462440000000004
     }
   ],
   "closed_trades": [
-    {
-      "coin": "ENA",
-      "direction": "LONG",
-      "entry": 0.085197,
-      "exit": 0.085197,
-      "pnl": -0.008944,
-      "time": "15/06 12:08"
-    },
-    {
-      "coin": "ENA",
-      "direction": "LONG",
-      "entry": 0.08516,
-      "exit": 0.08516,
-      "pnl": -0.634547,
-      "time": "15/06 12:08"
-    },
-    {
-      "coin": "CRV",
-      "direction": "LONG",
-      "entry": 0.24234,
-      "exit": 0.24234,
-      "pnl": -1.535009,
-      "time": "15/06 07:08"
-    },
-    {
-      "coin": "TON",
-      "direction": "LONG",
-      "entry": 1.719,
-      "exit": 1.719,
-      "pnl": -0.6785,
-      "time": "15/06 04:19"
-    },
-    {
-      "coin": "TON",
-      "direction": "SHORT",
-      "entry": 1.7107,
-      "exit": 1.7107,
-      "pnl": -0.2244,
-      "time": "15/06 00:43"
-    },
-    {
-      "coin": "TON",
-      "direction": "SHORT",
-      "entry": 1.7108,
-      "exit": 1.7108,
-      "pnl": -0.40953,
-      "time": "15/06 00:43"
-    },
-    {
-      "coin": "VVV",
-      "direction": "LONG",
-      "entry": 16.278,
-      "exit": 16.278,
-      "pnl": -0.1683,
-      "time": "15/06 23:11"
-    },
-    {
-      "coin": "ETH",
-      "direction": "LONG",
-      "entry": 1804.7,
-      "exit": 1804.7,
-      "pnl": -0.94302,
-      "time": "16/06 15:54"
-    },
     {
       "coin": "ETH",
       "direction": "SHORT",
@@ -888,15 +828,79 @@
       "exit": 1.1826,
       "pnl": -0.98,
       "time": "18/06 02:29"
+    },
+    {
+      "coin": "BNB",
+      "direction": "SHORT",
+      "entry": 578.65,
+      "exit": 578.65,
+      "pnl": -0.491946,
+      "time": "19/06 22:37"
+    },
+    {
+      "coin": "SUI",
+      "direction": "LONG",
+      "entry": 0.72689,
+      "exit": 0.72689,
+      "pnl": -0.43995,
+      "time": "19/06 06:31"
+    },
+    {
+      "coin": "SUI",
+      "direction": "LONG",
+      "entry": 0.73201,
+      "exit": 0.73201,
+      "pnl": 0.603402,
+      "time": "19/06 20:47"
+    },
+    {
+      "coin": "XRP",
+      "direction": "SHORT",
+      "entry": 1.126,
+      "exit": 1.126,
+      "pnl": -0.9152,
+      "time": "19/06 11:53"
+    },
+    {
+      "coin": "SOL",
+      "direction": "SHORT",
+      "entry": 68.728,
+      "exit": 68.728,
+      "pnl": -0.09657,
+      "time": "19/06 10:16"
+    },
+    {
+      "coin": "ETH",
+      "direction": "SHORT",
+      "entry": 1687.2,
+      "exit": 1687.2,
+      "pnl": -0.06745,
+      "time": "19/06 10:15"
+    },
+    {
+      "coin": "ETH",
+      "direction": "SHORT",
+      "entry": 1716.0,
+      "exit": 1716.0,
+      "pnl": -0.91504,
+      "time": "19/06 22:36"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 63327.0,
+      "exit": 63327.0,
+      "pnl": -0.92349,
+      "time": "19/06 22:17"
     }
   ],
   "ai_report": {
-    "content": "Hari ini, performa trading bot Karman cukup fluktuatif dengan total keuntungan sekitar $0.94, meskipun sebagian besar transaksi berakhir rugi. \nStatistiknya, dari 16 trading, 4 profit dan 12 rugi, dengan total P&L harian positif. \nKoin yang paling menguntungkan adalah ETH dan BNB, sementara BTC dan SOL mengalami kerugian cukup signifikan. Posisi terbuka saat ini ada 3, dengan satu posisi long BTC yang sedang rugi besar. \nUntuk besok, disarankan tetap waspada, fokus pada pengelolaan risiko dan perhatikan sinyal entry yang ketat agar hasil lebih stabil.",
-    "time": "18 June 2026, 17:21 WIB"
+    "content": "Hari ini, performa trading bot mengalami kerugian dengan total P&L sekitar -3,25 USD, didominasi oleh banyak posisi loss. Statistik menunjukkan 1 kemenangan dan 7 kerugian dari 8 trade, dengan saldo tersisa sekitar 74,27 USD. \n\nKoin yang performa buruk adalah BTC, XRP, ETH, dan SOL yang semuanya mengalami kerugian besar. Posisi terbuka saat ini ada BNB LONG dan SUI SHORT, masing-masing dengan unrealized P&L minor. \n\nRekomendasi untuk besok, lebih berhati-hati dalam memilih trade karena hari ini menunjukkan banyak posisi yang berpotensi loss. Fokus pada analisis market dan pertimbangkan kondisi pasar saat ini sebelum masuk posisi baru. Tetap disiplin dengan strategi dan manajemen risiko.",
+    "time": "19 June 2026, 17:27 WIB"
   },
-  "last_report_date": "2026-06-18",
-  "_prev_today_pnl": 0.9398230000000001,
-  "_prev_today_wins": 4,
-  "_prev_today_losses": 12,
-  "_prev_today_trades": 16
+  "last_report_date": "2026-06-19",
+  "_prev_today_pnl": -3.2462440000000004,
+  "_prev_today_wins": 1,
+  "_prev_today_losses": 7,
+  "_prev_today_trades": 8
 }
