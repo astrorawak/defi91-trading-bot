@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-23 00:26:35",
+  "last_update": "2026-06-23 06:12:37",
   "trades": [
     {
       "id": 1,
@@ -7849,6 +7849,42 @@
       "pnl": 0.0,
       "cvd_score": "2",
       "rsi": "20.3"
+    },
+    {
+      "id": 437,
+      "time": "2026-06-23 06:12:37",
+      "coin": "XRP",
+      "signal": "SHORT",
+      "entry": 1.1266,
+      "tp": 1.105,
+      "sl": 1.144,
+      "size": 53.0,
+      "margin": 3.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-3",
+      "rsi": "40.8"
+    },
+    {
+      "id": 438,
+      "time": "2026-06-23 06:12:37",
+      "coin": "SUI",
+      "signal": "LONG",
+      "entry": 0.71681,
+      "tp": 0.7314,
+      "sl": 0.7063,
+      "size": 41.8,
+      "margin": 3.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "5",
+      "rsi": "47.1"
     }
   ],
   "summary": {
