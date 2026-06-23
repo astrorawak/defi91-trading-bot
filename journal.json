@@ -6309,6 +6309,203 @@
       ],
       "journal_content": "**JURNAL TRADING HARI INI - Senin, 22 Juni 2026**\n\n---\n\n**1. RINGKASAN HARI INI**  \nHari ini penuh lika-liku di pasar crypto. Kebanyakan posisi yang terbuka berakhir loss, tapi ada juga peluang yang berhasil diambil. Pasar tampak lagi fluktuatif dan agak volatile, mungkin dipicu sentimen pasar yang campur aduk.\n\n---\n\n**2. ANALISA KENAPA BOT MASUK POSISI**\n\n- **XRP Long (06:01)**  \n  *CVD/Order Flow:* Score CVD = 3, menunjukkan adanya volume delta positif yang cukup kuat, menandakan adanya minat beli yang meningkat.  \n  *Teknikal:* RSI sangat oversold di angka 21.7, ini biasanya jadi sinyal bahwa harga sudah terlalu jenuh jual dan potensi rebound cukup tinggi.  \n  *Mengapa masuk:* Bot melihat ada volume beli yang mulai menguat dan RSI yang oversold, ditambah juga ada support di sekitar $1.112 yang cukup kuat, jadi bot membuka posisi long dengan target di $1.151.\n\n- **ETH Short (09:43)**  \n  *CVD:* Score -3, menunjukkan adanya dominasi jual dari order flow.  \n  *Teknikal:* RSI tinggi di 71.4, artinya pasar sedang overbought dan berpotensi koreksi.  \n  *Mengapa masuk:* Bot melihat momentum teknikal dan order flow yang mendukung tekanan jual, juga resistance di sekitar $1742. Jadi bot membuka posisi short.\n\n- **SOL Short (09:43)**  \n  *CVD:* Score -4, menunjukkan tekanan jual yang cukup kuat.  \n  *Teknikal:* RSI di 67.5, mendekati area overbought.  \n  *Mengapa masuk:* Kombinasi order flow dan indikator RSI yang tinggi memberi sinyal potensi koreksi, jadi bot masuk short di sekitar $74.056.\n\n- **SUI Short (09:43)**  \n  *CVD:* Score -5, menandakan dominasi jual yang sangat kuat.  \n  *Teknikal:* RSI di 69.6, juga mendekati overbought.  \n  *Mengapa masuk:* Data order flow dan RSI mendukung skenario penurunan, dan support di dekat $0.6937 menjadi target profit yang realistis.\n\n---\n\n**3. ANALISA KENAPA BOT KELUAR POSISI**\n\n- **ETH Short (18:47)**  \n  *Exit:* $1768.2, mengalami kerugian -0.90.  \n  *Kenapa keluar:* Harga menyentuh resistance dan order flow mulai melemah, serta sinyal teknikal tidak cukup kuat untuk bertahan.  \n  *Kesimpulan:* Keluar saat sinyal berbalik dan tidak sesuai harapan.\n\n- **SUI Short (18:09)**  \n  *Exit:* $0.71934, rugi -0.48.  \n  *Kenapa keluar:* Harga naik melewati support dan momentum mulai melemah, RSI juga berbalik turun dari overbought.\n\n- **XRP Long (08:26)**  \n  *Exit:* $1.1509, profit $1.219.  \n  *Kenapa keluar:* Target TP tercapai dan momentum mulai melemah, RSI turun dari level overbought.\n\n- **ETH Short (07:37)**  \n  *Exit:* $1729.1, kerugian kecil.  \n  *Kenapa keluar:* Hampir menyentuh SL dan sinyal order flow serta RSI menunjukkan peluang berbalik.\n\n- **XRP Long (04:09)**  \n  *Exit:* $1.1233, rugi besar.  \n  *Kenapa keluar:* Harga berbalik dan menyentuh stop loss, pasar mulai terlihat sideways dan tidak cukup momentum.\n\n- **SOL Long (03:49)**  \n  *Exit:* $73.483, rugi kecil.  \n  *Kenapa keluar:* Harga tidak mampu melanjutkan kenaikan, indikator teknikal dan order flow mengindikasikan kekuatan lemah.\n\n---\n\n**4. PELAJARAN PENTING HARI INI**  \nHari ini mengingatkan bahwa sinyal oversold dan overbought bisa menjadi peluang, tapi harus diikuti dengan konfirmasi dari order flow dan support/resistance. Banyak posisi loss terjadi karena pasar tidak cukup kuat untuk berbalik arah. Penting juga disiplin dalam menutup posisi saat sinyal berbalik, jangan terlalu berharap terlalu lama.\n\n---\n\n**5. KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \nBelum ada berita besar yang muncul hari ini, tapi pasar sedang menunjukkan volatilitas tinggi, mungkin dipicu oleh sentimen global dan ketidakpastian ekonomi. Crypto mulai menunjukkan koreksi setelah kenaikan panjang, dan banyak trader tampaknya berhati-hati.\n\n---\n\n**6. SKOR PERFORMA HARI INI**  \n**6/10** — Hari ini cukup banyak posisi yang gagal dan kerugian yang menumpuk. Tapi ini also bagian dari proses belajar, terutama dalam kondisi pasar yang tidak menentu. Penting untuk tetap disiplin dan mengikuti sinyal dari kombinasi order flow dan indikator teknikal.\n\n---\n\n*Itulah hari ini, tetap semangat dan belajar dari setiap pergerakan pasar. Jangan lupa selalu evaluasi dan sesuaikan strategi sesuai kondisi pasar yang dinamis!*",
       "generated_at": "19:08 WIB"
+    },
+    {
+      "date": "2026-06-23",
+      "date_display": "Tuesday, 23 June 2026",
+      "market_regime": "TRENDING",
+      "balance": 72.6399081,
+      "margin_used": 2.97567,
+      "unrealized_pnl": -0.486,
+      "total_closed": 12,
+      "wins": 5,
+      "losses": 7,
+      "total_pnl": -1.5093360000000002,
+      "win_rate": 41.66666666666667,
+      "entries_today": [
+        {
+          "time": "2026-06-23 00:26:35",
+          "coin": "SUI",
+          "direction": "SHORT",
+          "entry": 0.71954,
+          "tp": 0.7058,
+          "sl": 0.731,
+          "margin": 3.0,
+          "leverage": 10,
+          "cvd_score": "-5",
+          "rsi": "14.4"
+        },
+        {
+          "time": "2026-06-23 00:26:35",
+          "coin": "BTC",
+          "direction": "LONG",
+          "entry": 64547.0,
+          "tp": 65845.0,
+          "sl": 63585.0,
+          "margin": 3.0,
+          "leverage": 20,
+          "cvd_score": "2",
+          "rsi": "20.3"
+        },
+        {
+          "time": "2026-06-23 06:12:37",
+          "coin": "XRP",
+          "direction": "SHORT",
+          "entry": 1.1266,
+          "tp": 1.105,
+          "sl": 1.144,
+          "margin": 3.0,
+          "leverage": 20,
+          "cvd_score": "-3",
+          "rsi": "40.8"
+        },
+        {
+          "time": "2026-06-23 06:12:37",
+          "coin": "SUI",
+          "direction": "LONG",
+          "entry": 0.71681,
+          "tp": 0.7314,
+          "sl": 0.7063,
+          "margin": 3.0,
+          "leverage": 10,
+          "cvd_score": "5",
+          "rsi": "47.1"
+        },
+        {
+          "time": "2026-06-23 11:56:18",
+          "coin": "SOL",
+          "direction": "LONG",
+          "entry": 71.402,
+          "tp": 72.81,
+          "sl": 70.31,
+          "margin": 3.0,
+          "leverage": 20,
+          "cvd_score": "4",
+          "rsi": "37.2"
+        },
+        {
+          "time": "2026-06-23 13:30:53",
+          "coin": "XRP",
+          "direction": "LONG",
+          "entry": 1.1111,
+          "tp": 1.132,
+          "sl": 1.093,
+          "margin": 3.0,
+          "leverage": 20,
+          "cvd_score": "5",
+          "rsi": "17.2"
+        }
+      ],
+      "closed_today": [
+        {
+          "time": "13:30",
+          "coin": "XRP",
+          "direction": "SHORT",
+          "exit_price": 1.1109,
+          "pnl": 0.8321,
+          "fee": 0.026494
+        },
+        {
+          "time": "13:18",
+          "coin": "SOL",
+          "direction": "LONG",
+          "exit_price": 70.296,
+          "pnl": -0.92904,
+          "fee": 0.026571
+        },
+        {
+          "time": "12:40",
+          "coin": "SUI",
+          "direction": "LONG",
+          "exit_price": 0.70576,
+          "pnl": -0.46189,
+          "fee": 0.013275
+        },
+        {
+          "time": "12:15",
+          "coin": "BTC",
+          "direction": "LONG",
+          "exit_price": 63561.0,
+          "pnl": -0.91698,
+          "fee": 0.0266
+        },
+        {
+          "time": "11:56",
+          "coin": "BNB",
+          "direction": "SHORT",
+          "exit_price": 587.57,
+          "pnl": 0.604,
+          "fee": 0.01322
+        },
+        {
+          "time": "06:12",
+          "coin": "SUI",
+          "direction": "SHORT",
+          "exit_price": 0.71702,
+          "pnl": 0.105084,
+          "fee": 0.013454
+        },
+        {
+          "time": "04:39",
+          "coin": "ETH",
+          "direction": "SHORT",
+          "exit_price": 1726.7,
+          "pnl": 1.241,
+          "fee": 0.026418
+        },
+        {
+          "time": "23:35",
+          "coin": "SOL",
+          "direction": "SHORT",
+          "exit_price": 72.581,
+          "pnl": 1.19475,
+          "fee": 0.026455
+        },
+        {
+          "time": "22:49",
+          "coin": "XRP",
+          "direction": "LONG",
+          "exit_price": 1.1377,
+          "pnl": -0.9048,
+          "fee": 0.026622
+        },
+        {
+          "time": "19:24",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "exit_price": 64890.0,
+          "pnl": -0.88548,
+          "fee": 0.027448
+        },
+        {
+          "time": "18:47",
+          "coin": "ETH",
+          "direction": "SHORT",
+          "exit_price": 1768.2,
+          "pnl": -0.90472,
+          "fee": 0.027371
+        },
+        {
+          "time": "18:09",
+          "coin": "SUI",
+          "direction": "SHORT",
+          "exit_price": 0.71934,
+          "pnl": -0.48336,
+          "fee": 0.013725
+        }
+      ],
+      "open_positions": [
+        {
+          "coin": "XRP",
+          "direction": "LONG",
+          "size": 54.0,
+          "entry": 1.1111,
+          "unrealized_pnl": -0.486,
+          "leverage": 20
+        }
+      ],
+      "journal_content": "**Jurnal Trading Hari Ini – Selasa, 23 Juni 2026**\n\n**1. Ringkasan Hari Ini**  \nHari ini cukup dinamis, ada beberapa posisi yang berhasil, tapi juga banyak yang kena cut loss. Pasar nampaknya lagi fluktuatif, banyak trader yang bermain short dan long secara bersamaan. Overall, hari ini cukup menguji ketahanan dan strategi bot kita.\n\n**2. Analisa Kenapa Bot Masuk Posisi**  \n- **SUI Short (00:26:35)**  \n  Bot melihat volume delta negatif dan order book imbalance yang cukup kuat (CVD Score: -5), menandakan tekanan jual sedang dominan. RSI di angka 14, menunjukkan kondisi overbought di pasar, sehingga sesuai strategi untuk short. Bot juga memperhatikan resistance di sekitar $0.731, dan dengan support di $0.7058, risiko dan peluang seimbang, tapi tekanan jual lebih kuat.\n\n- **BTC Long (00:26:35)**  \n  Di saat yang sama, CVD Score positif (+2) dan RSI di angka 20.3 menunjukkan adanya akumulasi dan potensi rebound kecil di pasar Bitcoin. Bot melihat adanya imbalance order yang mendukung posisi long, ditambah support di sekitar $63585. Jadi, bot berani masuk long dengan leverage tinggi.\n\n- **XRP Short (06:12:37)**  \n  CVD Score: -3 dan RSI di 40.8 menunjukkan adanya tekanan jual yang mulai menguat, namun belum ekstrem. Bot memanfaatkan momentum ini dengan memperhatikan resistance dan support di sekitar $1.144 dan $1.105, serta melihat ada peluang short jika pola dan order flow mendukung.\n\n- **SUI Long (06:12:37)**  \n  Kondisi berlawanan, CVD Score positif 5 dan RSI di 47.1, menandakan ada akumulasi dan potensi kenaikan. Bot melihat peluang dari order book dan momentum teknikal untuk mengambil posisi long.\n\n- **SOL Long (11:56:18)** dan **XRP Long (13:30:53)**  \n  Kedua posisi ini didukung oleh CVD positif dan RSI yang cukup rendah (37.2 dan 17.2), menunjukkan peluang rebound di support. Bot menganggap ini saat yang tepat untuk masuk, mengantisipasi pergerakan ke atas.\n\n**3. Analisa Kenapa Bot Keluar Posisi**  \n- **XRP Short (13:30:53)**  \n  Target tercapai karena harga turun ke $1.1109, profit sekitar 0.83 USD. Bot mengambil profit sesuai target.\n\n- **SOL Long (11:56:18)**  \n  Sayangnya, pasar berbalik dan harga malah turun ke $70.296, sehingga bot harus cut loss di -0.929 USD. Kondisi ini menunjukkan bahwa momentum tidak cukup kuat untuk bertahan.\n\n- **SUI Long (12:40:00)** dan **BTC Long (12:15:00)**  \n  Keduanya terkena cut loss karena harga bergerak berlawanan dari prediksi, dan menyentuh SL di $0.7063 dan $63561. Bot merasa bahwa tekanan jual mendominasi lagi.\n\n- **XRP Long (22:49:00)** dan **ETH Short (18:47:00)**  \n  Keduanya mengalami kerugian karena pasar berbalik dan menyentuh SL. Ini mengingatkan bahwa pasar crypto sangat volatile dan cepat berubah.\n\n**4. Pelajaran Penting Hari Ini**  \nHari ini mengingatkan bahwa meskipun sinyal order flow dan indikator teknikal sangat membantu, pasar crypto tetap unpredictable. Strategi harus disesuaikan dengan kondisi pasar yang sedang fluktuatif, dan penting untuk disiplin dalam cut loss. Kemenangan tidak selalu datang dari posisi besar, namun dari manajemen risiko yang baik.\n\n**5. Koneksi dengan Berita/Sentimen Pasar**  \nTidak ada berita besar hari ini yang mempengaruhi pasar secara signifikan, tapi tren umum menunjukkan ketidakpastian di pasar crypto. Sentimen tetap mixed, dengan beberapa trader masih optimistic, tapi banyak yang waspada karena volatilitas tinggi.\n\n**6. Skor Performa Hari Ini**  \nSaya kasih nilai 6 dari 10. Ada beberapa posisi yang berhasil, tapi banyak juga yang kena cut loss, menunjukkan bahwa pasar cukup volatile dan perlu lebih hati-hati dalam mengelola risiko. Bot sudah berjalan sesuai strategi, tapi kondisi pasar hari ini menguji ketangguhan sistem.\n\n---\n\nHari ini jadi pengingat, bahwa trading selalu penuh dinamika. Tetap disiplin, belajar dari setiap posisi, dan jangan lupa selalu manajemen risiko ya! Semoga besok pasar lebih bersahabat dan peluangnya makin cerah.",
+      "generated_at": "16:43 WIB"
     }
   ]
 }
