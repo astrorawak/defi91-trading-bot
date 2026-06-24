@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-24 01:01:41",
+  "last_update": "2026-06-24 09:11:54",
   "trades": [
     {
       "id": 1,
@@ -8029,6 +8029,24 @@
       "pnl": 0.0,
       "cvd_score": "4",
       "rsi": "38.5"
+    },
+    {
+      "id": 447,
+      "time": "2026-06-24 09:11:54",
+      "coin": "XRP",
+      "signal": "LONG",
+      "entry": 1.1079,
+      "tp": 1.13,
+      "sl": 1.091,
+      "size": 54.0,
+      "margin": 3.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "4",
+      "rsi": "51.8"
     }
   ],
   "summary": {
