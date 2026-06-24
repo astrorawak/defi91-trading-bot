@@ -1,6 +1,6 @@
 {
   "grid_config": {
-    "last_updated": "2026-06-24T16:37:42.205673+00:00",
+    "last_updated": "2026-06-24T17:59:22.677846+00:00",
     "pairs": {
       "BTC": {
         "grid_center": 63458.5,
@@ -80,7 +80,7 @@
         "grid_lower": 14.258583333333334,
         "grid_interval": 0.15158333333333332,
         "size_per_level": 0.08,
-        "status": "active"
+        "status": "inactive"
       }
     }
   },
