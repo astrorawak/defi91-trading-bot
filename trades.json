@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-25 23:40:01",
+  "last_update": "2026-06-26 01:13:20",
   "trades": [
     {
       "id": 1,
@@ -8497,6 +8497,42 @@
       "pnl": 0.0,
       "cvd_score": "-5",
       "rsi": "42.0"
+    },
+    {
+      "id": 473,
+      "time": "2026-06-26 01:13:20",
+      "coin": "ETH",
+      "signal": "SHORT",
+      "entry": 1565.9,
+      "tp": 1535.2,
+      "sl": 1590.0,
+      "size": 0.0383,
+      "margin": 3.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-3",
+      "rsi": "49.9"
+    },
+    {
+      "id": 474,
+      "time": "2026-06-26 01:13:20",
+      "coin": "XRP",
+      "signal": "SHORT",
+      "entry": 1.0381,
+      "tp": 1.018,
+      "sl": 1.054,
+      "size": 58.0,
+      "margin": 3.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-3",
+      "rsi": "54.3"
     }
   ],
   "summary": {
