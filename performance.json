@@ -1,18 +1,14 @@
 {
-  "total_pnl": 10.623677999999998,
-  "wins": 196,
-  "losses": 349,
-  "total_trades": 545,
-  "today_trades": 20,
-  "today_pnl": -4.342595,
-  "win_rate": 35.96330275229358,
-  "avg_profit": 0.0194929871559633,
+  "total_pnl": 11.341199999999999,
+  "wins": 206,
+  "losses": 357,
+  "total_trades": 563,
+  "today_trades": 18,
+  "today_pnl": 0.7175220000000002,
+  "win_rate": 36.58969804618118,
+  "avg_profit": 0.020144227353463585,
   "best_trade": "+$2.739 (SOL)",
   "equity_curve": [
-    {
-      "time": "17/06 17:57",
-      "equity": 20.724919
-    },
     {
       "time": "18:52",
       "equity": 21.6735
@@ -408,6 +404,10 @@
     {
       "time": "13:32",
       "equity": 9.5974
+    },
+    {
+      "time": "26/06 16:27",
+      "equity": 11.341199999999999
     }
   ],
   "daily_pnl": [
@@ -514,153 +514,13 @@
     {
       "date": "25/06",
       "pnl": -4.342595
+    },
+    {
+      "date": "26/06",
+      "pnl": 0.7175220000000002
     }
   ],
   "closed_trades": [
-    {
-      "coin": "SUI",
-      "direction": "LONG",
-      "entry": 0.70004,
-      "exit": 0.70004,
-      "pnl": 0.657411,
-      "time": "21/06 21:10"
-    },
-    {
-      "coin": "SOL",
-      "direction": "SHORT",
-      "entry": 72.674,
-      "exit": 72.674,
-      "pnl": 1.1886,
-      "time": "21/06 05:12"
-    },
-    {
-      "coin": "SOL",
-      "direction": "LONG",
-      "entry": 72.416,
-      "exit": 72.416,
-      "pnl": -0.90132,
-      "time": "21/06 22:19"
-    },
-    {
-      "coin": "BTC",
-      "direction": "SHORT",
-      "entry": 63641.0,
-      "exit": 63641.0,
-      "pnl": -0.0188,
-      "time": "21/06 17:56"
-    },
-    {
-      "coin": "ETH",
-      "direction": "LONG",
-      "entry": 1768.2,
-      "exit": 1768.2,
-      "pnl": -0.90472,
-      "time": "22/06 18:47"
-    },
-    {
-      "coin": "ETH",
-      "direction": "LONG",
-      "entry": 1729.1,
-      "exit": 1729.1,
-      "pnl": -0.02672,
-      "time": "22/06 07:37"
-    },
-    {
-      "coin": "ETH",
-      "direction": "LONG",
-      "entry": 1729.1,
-      "exit": 1729.1,
-      "pnl": -0.0288,
-      "time": "22/06 07:37"
-    },
-    {
-      "coin": "SUI",
-      "direction": "LONG",
-      "entry": 0.71934,
-      "exit": 0.71934,
-      "pnl": -0.48336,
-      "time": "22/06 18:09"
-    },
-    {
-      "coin": "SOL",
-      "direction": "SHORT",
-      "entry": 73.483,
-      "exit": 73.483,
-      "pnl": -0.0123,
-      "time": "22/06 03:49"
-    },
-    {
-      "coin": "XRP",
-      "direction": "SHORT",
-      "entry": 1.1509,
-      "exit": 1.1509,
-      "pnl": 1.219,
-      "time": "22/06 08:26"
-    },
-    {
-      "coin": "XRP",
-      "direction": "SHORT",
-      "entry": 1.1233,
-      "exit": 1.1233,
-      "pnl": -1.144,
-      "time": "22/06 04:09"
-    },
-    {
-      "coin": "XRP",
-      "direction": "LONG",
-      "entry": 1.1109,
-      "exit": 1.1109,
-      "pnl": 0.8321,
-      "time": "23/06 13:30"
-    },
-    {
-      "coin": "XRP",
-      "direction": "SHORT",
-      "entry": 1.1377,
-      "exit": 1.1377,
-      "pnl": -0.9048,
-      "time": "23/06 22:49"
-    },
-    {
-      "coin": "SOL",
-      "direction": "SHORT",
-      "entry": 70.296,
-      "exit": 70.296,
-      "pnl": -0.92904,
-      "time": "23/06 13:18"
-    },
-    {
-      "coin": "SOL",
-      "direction": "LONG",
-      "entry": 72.581,
-      "exit": 72.581,
-      "pnl": 1.19475,
-      "time": "23/06 23:35"
-    },
-    {
-      "coin": "SUI",
-      "direction": "SHORT",
-      "entry": 0.70576,
-      "exit": 0.70576,
-      "pnl": -0.46189,
-      "time": "23/06 12:40"
-    },
-    {
-      "coin": "SUI",
-      "direction": "LONG",
-      "entry": 0.71702,
-      "exit": 0.71702,
-      "pnl": 0.105084,
-      "time": "23/06 06:12"
-    },
-    {
-      "coin": "SUI",
-      "direction": "LONG",
-      "entry": 0.71934,
-      "exit": 0.71934,
-      "pnl": -0.48336,
-      "time": "23/06 18:09"
-    },
     {
       "coin": "BTC",
       "direction": "SHORT",
@@ -916,15 +776,159 @@
       "exit": 67.299,
       "pnl": -0.97416,
       "time": "25/06 22:47"
+    },
+    {
+      "coin": "BNB",
+      "direction": "LONG",
+      "entry": 568.01,
+      "exit": 568.01,
+      "pnl": -0.45576,
+      "time": "26/06 14:27"
+    },
+    {
+      "coin": "BNB",
+      "direction": "LONG",
+      "entry": 561.52,
+      "exit": 561.52,
+      "pnl": -0.44712,
+      "time": "26/06 06:20"
+    },
+    {
+      "coin": "BNB",
+      "direction": "SHORT",
+      "entry": 559.65,
+      "exit": 559.65,
+      "pnl": -0.44679,
+      "time": "26/06 20:42"
+    },
+    {
+      "coin": "ETH",
+      "direction": "LONG",
+      "entry": 1571.5,
+      "exit": 1571.5,
+      "pnl": -0.90404,
+      "time": "26/06 13:44"
+    },
+    {
+      "coin": "ETH",
+      "direction": "LONG",
+      "entry": 1534.0,
+      "exit": 1534.0,
+      "pnl": 1.22177,
+      "time": "26/06 09:13"
+    },
+    {
+      "coin": "ETH",
+      "direction": "LONG",
+      "entry": 1614.1,
+      "exit": 1614.1,
+      "pnl": 1.21212,
+      "time": "26/06 20:38"
+    },
+    {
+      "coin": "XRP",
+      "direction": "LONG",
+      "entry": 1.0427,
+      "exit": 1.0427,
+      "pnl": -0.9106,
+      "time": "26/06 13:39"
+    },
+    {
+      "coin": "XRP",
+      "direction": "LONG",
+      "entry": 1.0178,
+      "exit": 1.0178,
+      "pnl": 0.3654,
+      "time": "26/06 09:13"
+    },
+    {
+      "coin": "XRP",
+      "direction": "LONG",
+      "entry": 1.0176,
+      "exit": 1.0176,
+      "pnl": 0.82,
+      "time": "26/06 09:13"
+    },
+    {
+      "coin": "XRP",
+      "direction": "SHORT",
+      "entry": 1.0642,
+      "exit": 1.0642,
+      "pnl": -0.8904,
+      "time": "26/06 20:40"
+    },
+    {
+      "coin": "XRP",
+      "direction": "LONG",
+      "entry": 1.0806,
+      "exit": 1.0806,
+      "pnl": 0.137172,
+      "time": "26/06 17:16"
+    },
+    {
+      "coin": "XRP",
+      "direction": "LONG",
+      "entry": 1.0806,
+      "exit": 1.0806,
+      "pnl": 0.1323,
+      "time": "26/06 17:16"
+    },
+    {
+      "coin": "SOL",
+      "direction": "LONG",
+      "entry": 69.291,
+      "exit": 69.291,
+      "pnl": -1.1616,
+      "time": "26/06 13:22"
+    },
+    {
+      "coin": "SOL",
+      "direction": "SHORT",
+      "entry": 67.369,
+      "exit": 67.369,
+      "pnl": 1.22304,
+      "time": "26/06 06:17"
+    },
+    {
+      "coin": "SUI",
+      "direction": "SHORT",
+      "entry": 0.67897,
+      "exit": 0.67897,
+      "pnl": 0.638165,
+      "time": "26/06 10:56"
+    },
+    {
+      "coin": "SUI",
+      "direction": "SHORT",
+      "entry": 0.68847,
+      "exit": 0.68847,
+      "pnl": 0.59808,
+      "time": "26/06 00:15"
+    },
+    {
+      "coin": "SUI",
+      "direction": "SHORT",
+      "entry": 0.68,
+      "exit": 0.68,
+      "pnl": -0.491722,
+      "time": "26/06 20:45"
+    },
+    {
+      "coin": "SUI",
+      "direction": "LONG",
+      "entry": 0.69133,
+      "exit": 0.69133,
+      "pnl": 0.077507,
+      "time": "26/06 18:13"
     }
   ],
   "ai_report": {
-    "content": "Hari ini performa trading bot mengalami kerugian sebesar $4.34, dengan hasil 7 kemenangan dan 13 kekalahan dari 20 trading.\n\nStatistik menunjukkan win rate sekitar 35%, dengan total P&L hari ini negatif. Koin yang paling menguntungkan adalah XRP dan SUI, sementara ETH dan BTC mengalami kerugian cukup besar.\n\nPosisi terbuka saat ini ada tiga, semuanya short pada ETH, SUI, dan XRP, dengan unrealized P&L total sekitar -0.03. Perlu pengawasan ketat karena posisi masih dalam kerugian dan pasar cukup volatile.\n\nSaran untuk besok, fokus pada pengelolaan posisi dan jangan terlalu agresif. Perhatikan sinyal entry yang ketat agar risiko kerugian tidak membesar. Tetap disiplin dan evaluasi strategi secara rutin.",
-    "time": "25 June 2026, 16:22 WIB"
+    "content": "Hari ini, bot trading Karman menghasilkan total P&L sebesar $0.7175 dengan 10 kemenangan dari 18 transaksi. Performa cukup stabil meski ada beberapa kerugian kecil di beberapa koin.\n\nStatistik: Win 10/Loss 8, Total P&L: $0.7175.\n\nInsight: ETH menunjukkan performa terbaik dengan tiga posisi LONG dan dua posisi SHORT, sebagian besar profit. Sementara itu, BNB dan XRP mengalami kerugian di beberapa transaksi, menunjukkan volatilitas yang cukup tinggi.\n\nPosisi terbuka saat ini tidak ada, sehingga risiko terkelola dengan baik.\n\nSaran untuk besok, tetap fokus pada sinyal yang ketat dan disiplin dalam manajemen risiko. Perhatikan volatilitas koin utama seperti ETH dan XRP, serta jangan terlalu cepat bereaksi terhadap fluktuasi kecil. Selalu perhatikan indikator dan threshold entry yang ketat agar hasil trading tetap optimal.",
+    "time": "26 June 2026, 16:27 WIB"
   },
-  "last_report_date": "2026-06-25",
-  "_prev_today_pnl": -4.342595,
-  "_prev_today_wins": 7,
-  "_prev_today_losses": 13,
-  "_prev_today_trades": 20
+  "last_report_date": "2026-06-26",
+  "_prev_today_pnl": 0.7175220000000002,
+  "_prev_today_wins": 10,
+  "_prev_today_losses": 8,
+  "_prev_today_trades": 18
 }
