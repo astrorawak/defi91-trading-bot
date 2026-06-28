@@ -1,18 +1,14 @@
 {
-  "total_pnl": 11.341199999999999,
+  "total_pnl": 10.3532,
   "wins": 206,
-  "losses": 357,
-  "total_trades": 563,
-  "today_trades": 18,
-  "today_pnl": 0.7175220000000002,
-  "win_rate": 36.58969804618118,
-  "avg_profit": 0.020144227353463585,
+  "losses": 358,
+  "total_trades": 564,
+  "today_trades": 1,
+  "today_pnl": -0.988,
+  "win_rate": 36.52482269503546,
+  "avg_profit": 0.018356737588652482,
   "best_trade": "+$2.739 (SOL)",
   "equity_curve": [
-    {
-      "time": "19/06 17:27",
-      "equity": 18.418498
-    },
     {
       "time": "18:26",
       "equity": 18.4433
@@ -408,6 +404,10 @@
     {
       "time": "13:40",
       "equity": 23.4721
+    },
+    {
+      "time": "28/06 15:52",
+      "equity": 10.3532
     }
   ],
   "daily_pnl": [
@@ -518,17 +518,13 @@
     {
       "date": "26/06",
       "pnl": 0.7175220000000002
+    },
+    {
+      "date": "28/06",
+      "pnl": -0.988
     }
   ],
   "closed_trades": [
-    {
-      "coin": "BTC",
-      "direction": "SHORT",
-      "entry": 63561.0,
-      "exit": 63561.0,
-      "pnl": -0.91698,
-      "time": "23/06 12:15"
-    },
     {
       "coin": "BTC",
       "direction": "LONG",
@@ -920,15 +916,23 @@
       "exit": 0.69133,
       "pnl": 0.077507,
       "time": "26/06 18:13"
+    },
+    {
+      "coin": "ETH",
+      "direction": "LONG",
+      "entry": 1602.9,
+      "exit": 1602.9,
+      "pnl": -0.988,
+      "time": "28/06 22:10"
     }
   ],
   "ai_report": {
-    "content": "Hari ini, bot trading Karman menghasilkan total P&L sebesar $0.7175 dengan 10 kemenangan dari 18 transaksi. Performa cukup stabil meski ada beberapa kerugian kecil di beberapa koin.\n\nStatistik: Win 10/Loss 8, Total P&L: $0.7175.\n\nInsight: ETH menunjukkan performa terbaik dengan tiga posisi LONG dan dua posisi SHORT, sebagian besar profit. Sementara itu, BNB dan XRP mengalami kerugian di beberapa transaksi, menunjukkan volatilitas yang cukup tinggi.\n\nPosisi terbuka saat ini tidak ada, sehingga risiko terkelola dengan baik.\n\nSaran untuk besok, tetap fokus pada sinyal yang ketat dan disiplin dalam manajemen risiko. Perhatikan volatilitas koin utama seperti ETH dan XRP, serta jangan terlalu cepat bereaksi terhadap fluktuasi kecil. Selalu perhatikan indikator dan threshold entry yang ketat agar hasil trading tetap optimal.",
-    "time": "26 June 2026, 16:27 WIB"
+    "content": "Laporan Performa Harian (28 Juni 2026):\n\nHari ini, performa trading bot mengalami kerugian sebesar sekitar $0.99 setelah satu posisi tertutup. Posisi terbuka saat ini sedang mengalami kerugian unrealized sekitar $1.12.\n\nStatistik: 0 kemenangan dan 1 kerugian hari ini, total P&L negatif sebesar $0.99.\n\nInsight: Koin ETH dan BTC menunjukkan kerugian terbesar, sementara BNB sedikit menguntungkan. Posisi ETH dan BTC saat ini masih dalam tren negatif, sedangkan BNB memberikan sedikit keuntungan.\n\nStatus posisi terbuka: Ada 4 posisi terbuka, dua di antaranya short BTC dan ETH yang mengalami kerugian, satu posisi short BNB yang menguntungkan, dan satu posisi long XRP yang sedikit merugi.\n\nSaran: Pertimbangkan untuk mengurangi risiko dan memperhatikan sinyal pasar sebelum membuka posisi baru. Fokus pada manajemen posisi dan jangan ragu menutup posisi yang sudah menunjukkan kerugian besar. Besok, perhatikan pergerakan koin utama dengan lebih ketat.",
+    "time": "28 June 2026, 15:52 WIB"
   },
-  "last_report_date": "2026-06-26",
-  "_prev_today_pnl": 0.7175220000000002,
-  "_prev_today_wins": 10,
-  "_prev_today_losses": 8,
-  "_prev_today_trades": 18
+  "last_report_date": "2026-06-28",
+  "_prev_today_pnl": -0.988,
+  "_prev_today_wins": 0,
+  "_prev_today_losses": 1,
+  "_prev_today_trades": 1
 }
