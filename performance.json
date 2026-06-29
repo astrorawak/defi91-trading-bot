@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "03:21",
-      "equity": 19.0857
-    },
-    {
       "time": "05:58",
       "equity": 18.1378
     },
@@ -408,6 +404,10 @@
     {
       "time": "01:11",
       "equity": 31.0254
+    },
+    {
+      "time": "03:52",
+      "equity": 31.1584
     }
   ],
   "daily_pnl": [
