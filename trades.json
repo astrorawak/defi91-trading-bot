@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-06-30 01:11:11",
+  "last_update": "2026-06-30 09:13:58",
   "trades": [
     {
       "id": 1,
@@ -9109,6 +9109,42 @@
       "pnl": 0.0,
       "cvd_score": "5",
       "rsi": "69.1"
+    },
+    {
+      "id": 507,
+      "time": "2026-06-30 09:13:58",
+      "coin": "ETH",
+      "signal": "LONG",
+      "entry": 1587.6,
+      "tp": 1619.3,
+      "sl": 1563.7,
+      "size": 0.0378,
+      "margin": 3.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "4",
+      "rsi": "24.9"
+    },
+    {
+      "id": 508,
+      "time": "2026-06-30 09:13:58",
+      "coin": "BNB",
+      "signal": "LONG",
+      "entry": 554.8,
+      "tp": 565.9,
+      "sl": 546.4,
+      "size": 0.054,
+      "margin": 3.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "4",
+      "rsi": "25.8"
     }
   ],
   "summary": {
