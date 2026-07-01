@@ -1,6 +1,6 @@
 {
   "mode": "LIVE",
-  "last_update": "2026-07-01 17:44:07",
+  "last_update": "2026-07-01 18:37:48",
   "trades": [
     {
       "id": 1,
@@ -9199,6 +9199,60 @@
       "pnl": 0.0,
       "cvd_score": "-3",
       "rsi": "41.0"
+    },
+    {
+      "id": 512,
+      "time": "2026-07-01 18:37:48",
+      "coin": "SOL",
+      "signal": "LONG",
+      "entry": 74.966,
+      "tp": 76.44,
+      "sl": 73.82,
+      "size": 0.8,
+      "margin": 3.0,
+      "leverage": 20,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "5",
+      "rsi": "52.4"
+    },
+    {
+      "id": 513,
+      "time": "2026-07-01 18:37:48",
+      "coin": "SUI",
+      "signal": "LONG",
+      "entry": 0.70015,
+      "tp": 0.7139,
+      "sl": 0.6894,
+      "size": 42.9,
+      "margin": 3.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "2",
+      "rsi": "56.8"
+    },
+    {
+      "id": 514,
+      "time": "2026-07-01 18:37:48",
+      "coin": "BNB",
+      "signal": "SHORT",
+      "entry": 543.1,
+      "tp": 532.3,
+      "sl": 551.3,
+      "size": 0.055,
+      "margin": 3.0,
+      "leverage": 10,
+      "tp_set": false,
+      "sl_set": false,
+      "status": "OPEN",
+      "pnl": 0.0,
+      "cvd_score": "-4",
+      "rsi": "42.5"
     }
   ],
   "summary": {
