@@ -28,7 +28,8 @@ MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 
 # Trading Parameters (AGRESIF - leverage tinggi, filter ketat, profit besar)
 # === WATCHLIST: Hanya koin PROVEN PROFITABLE (data 873+ fills) ===
-WATCHLIST = [
+WATCHLIST = [] # BOT OFF
+# OLD_WATCHLIST = [
     "ETH",   # Net +$77.51, WR 52% - TERBAIK! High volume, konsisten
     "XRP",   # Net +$10.40, WR 50% - Sangat konsisten
     "SOL",   # Net +$4.85, WR 27% - Profit meski WR rendah (big wins)
