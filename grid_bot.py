@@ -10,7 +10,8 @@ from hyperliquid.utils import constants
 
 # --- CONFIGURATION ---
 # Koin kandidat grid (akan di-filter otomatis berdasarkan budget)
-GRID_CANDIDATES = ["ETH", "XRP", "SOL", "SUI", "BNB", "VVV"]  # Hanya koin proven profitable
+GRID_CANDIDATES = [] # BOT OFF
+# OLD_GRID_CANDIDATES = ["ETH", "XRP", "SOL", "SUI", "BNB", "VVV"]  # Hanya koin proven profitable
 MAX_GRID_PAIRS = 3  # Maksimal 3 koin aktif grid sekaligus
 GRID_LEVELS = 3  # 3 buy + 3 sell = 6 orders per koin
 GRID_LEVERAGE = 5

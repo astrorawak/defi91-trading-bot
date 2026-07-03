@@ -1,18 +1,14 @@
 {
-  "total_pnl": 34.379538000000004,
-  "wins": 228,
-  "losses": 371,
-  "total_trades": 599,
-  "today_trades": 5,
-  "today_pnl": 2.1678469999999996,
-  "win_rate": 38.06343906510851,
-  "avg_profit": 0.05739488814691152,
+  "total_pnl": 33.140675,
+  "wins": 231,
+  "losses": 377,
+  "total_trades": 608,
+  "today_trades": 9,
+  "today_pnl": -1.238863,
+  "win_rate": 37.993421052631575,
+  "avg_profit": 0.054507689144736846,
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
-    {
-      "time": "01:01",
-      "equity": 16.8354
-    },
     {
       "time": "04:07",
       "equity": 16.996
@@ -408,13 +404,13 @@
     {
       "time": "00:53",
       "equity": 34.5008
+    },
+    {
+      "time": "03/07 16:18",
+      "equity": 33.140675
     }
   ],
   "daily_pnl": [
-    {
-      "date": "02/06",
-      "pnl": -5.189785
-    },
     {
       "date": "03/06",
       "pnl": 15.756894999999998
@@ -530,81 +526,13 @@
     {
       "date": "02/07",
       "pnl": 2.1678469999999996
+    },
+    {
+      "date": "03/07",
+      "pnl": -1.238863
     }
   ],
   "closed_trades": [
-    {
-      "coin": "ETH",
-      "direction": "LONG",
-      "entry": 1534.0,
-      "exit": 1534.0,
-      "pnl": 1.22177,
-      "time": "26/06 09:13"
-    },
-    {
-      "coin": "ETH",
-      "direction": "LONG",
-      "entry": 1614.1,
-      "exit": 1614.1,
-      "pnl": 1.21212,
-      "time": "26/06 20:38"
-    },
-    {
-      "coin": "XRP",
-      "direction": "LONG",
-      "entry": 1.0427,
-      "exit": 1.0427,
-      "pnl": -0.9106,
-      "time": "26/06 13:39"
-    },
-    {
-      "coin": "XRP",
-      "direction": "LONG",
-      "entry": 1.0178,
-      "exit": 1.0178,
-      "pnl": 0.3654,
-      "time": "26/06 09:13"
-    },
-    {
-      "coin": "XRP",
-      "direction": "LONG",
-      "entry": 1.0176,
-      "exit": 1.0176,
-      "pnl": 0.82,
-      "time": "26/06 09:13"
-    },
-    {
-      "coin": "XRP",
-      "direction": "SHORT",
-      "entry": 1.0642,
-      "exit": 1.0642,
-      "pnl": -0.8904,
-      "time": "26/06 20:40"
-    },
-    {
-      "coin": "XRP",
-      "direction": "LONG",
-      "entry": 1.0806,
-      "exit": 1.0806,
-      "pnl": 0.137172,
-      "time": "26/06 17:16"
-    },
-    {
-      "coin": "XRP",
-      "direction": "LONG",
-      "entry": 1.0806,
-      "exit": 1.0806,
-      "pnl": 0.1323,
-      "time": "26/06 17:16"
-    },
-    {
-      "coin": "SOL",
-      "direction": "LONG",
-      "entry": 69.291,
-      "exit": 69.291,
-      "pnl": -1.1616,
-      "time": "26/06 13:22"
-    },
     {
       "coin": "SOL",
       "direction": "SHORT",
@@ -932,15 +860,87 @@
       "exit": 551.32,
       "pnl": -0.4521,
       "time": "02/07 21:15"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 61756.0,
+      "exit": 61756.0,
+      "pnl": 0.24892,
+      "time": "03/07 01:59"
+    },
+    {
+      "coin": "BTC",
+      "direction": "LONG",
+      "entry": 62088.0,
+      "exit": 62088.0,
+      "pnl": -0.94178,
+      "time": "03/07 21:01"
+    },
+    {
+      "coin": "XRP",
+      "direction": "SHORT",
+      "entry": 1.0888,
+      "exit": 1.0888,
+      "pnl": 0.044,
+      "time": "03/07 01:59"
+    },
+    {
+      "coin": "SUI",
+      "direction": "LONG",
+      "entry": 0.73928,
+      "exit": 0.73928,
+      "pnl": -0.110704,
+      "time": "03/07 01:59"
+    },
+    {
+      "coin": "SUI",
+      "direction": "LONG",
+      "entry": 0.73248,
+      "exit": 0.73248,
+      "pnl": -0.004499,
+      "time": "03/07 16:30"
+    },
+    {
+      "coin": "ETH",
+      "direction": "LONG",
+      "entry": 1702.4,
+      "exit": 1702.4,
+      "pnl": -0.29736,
+      "time": "03/07 01:59"
+    },
+    {
+      "coin": "ETH",
+      "direction": "LONG",
+      "entry": 1671.5,
+      "exit": 1671.5,
+      "pnl": -0.9344,
+      "time": "03/07 20:13"
+    },
+    {
+      "coin": "BNB",
+      "direction": "LONG",
+      "entry": 560.77,
+      "exit": 560.77,
+      "pnl": -0.43038,
+      "time": "03/07 18:28"
+    },
+    {
+      "coin": "SOL",
+      "direction": "SHORT",
+      "entry": 79.099,
+      "exit": 79.099,
+      "pnl": 1.18734,
+      "time": "03/07 16:31"
     }
   ],
   "ai_report": {
-    "content": "Laporan harian 02 Juli 2026: Trading bot berhasil mengantarkan profit sebesar $2.17 hari ini dengan 3 kemenangan dari 5 trading.\n\nStatistik: Win 60% (3 dari 5), Loss 40% (2 dari 5). P&L hari ini positif sekitar $2.17, dengan saldo saat ini sekitar $62.86.\n\nInsight: Performa terbaik berasal dari posisi SHORT SUI dan SOL yang memberi keuntungan cukup stabil. Sebaliknya, posisi LONG BNB mengalami kerugian meskipun posisi terbuka masih ada. ETH juga mengalami kerugian kecil.\n\nStatus posisi terbuka: Saat ini ada tiga posisi yang masih berjalan \u2013 SOL LONG dan BNB serta SUI SHORT, dengan unrealized P&L total sekitar $0.85. Perlu pengawasan untuk memastikan tidak terjadi kerugian besar.\n\nSaran untuk besok: Fokus pada pengelolaan posisi dan perhatikan sinyal masuk yang ketat. Usahakan untuk mengurangi risiko di posisi yang sedang berjalan dan manfaatkan momentum yang stabil. Selalu patuhi level stop-loss dan take profit.",
-    "time": "02 July 2026, 15:56 WIB"
+    "content": "Hari ini, performa trading bot mengalami kerugian sebesar $1.2389 dengan saldo tersisa sekitar $46.70. Dari 9 transaksi, hanya 3 yang menang dan 6 yang kalah. \n\nStatistiknya, total kemenangan 3 dan kekalahan 6, dengan P&L hari ini negatif. Koin yang paling menguntungkan adalah SOL dengan profit +1.19, sementara ETH dan BNB mengalami kerugian cukup besar. Posisi terbuka saat ini adalah SHORT BTC dengan unrealized loss sekitar $3.18.\n\nUntuk besok, disarankan memperhatikan kondisi pasar dan menunggu sinyal yang lebih kuat agar risiko kerugian tidak bertambah. Fokus pada pengelolaan risiko dan perbaikan strategi entry agar performa bisa lebih stabil.",
+    "time": "03 July 2026, 16:18 WIB"
   },
-  "last_report_date": "2026-07-02",
-  "_prev_today_pnl": 2.1678469999999996,
+  "last_report_date": "2026-07-03",
+  "_prev_today_pnl": -1.238863,
   "_prev_today_wins": 3,
-  "_prev_today_losses": 2,
-  "_prev_today_trades": 5
+  "_prev_today_losses": 6,
+  "_prev_today_trades": 9
 }
