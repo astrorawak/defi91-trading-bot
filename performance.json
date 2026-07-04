@@ -1,18 +1,14 @@
 {
-  "total_pnl": 33.140675,
+  "total_pnl": 19.619055000000003,
   "wins": 231,
-  "losses": 377,
-  "total_trades": 608,
-  "today_trades": 9,
-  "today_pnl": -1.238863,
-  "win_rate": 37.993421052631575,
-  "avg_profit": 0.054507689144736846,
+  "losses": 378,
+  "total_trades": 609,
+  "today_trades": 1,
+  "today_pnl": -13.52162,
+  "win_rate": 37.93103448275862,
+  "avg_profit": 0.03221519704433498,
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
-    {
-      "time": "04:07",
-      "equity": 16.996
-    },
     {
       "time": "06:00",
       "equity": 16.7699
@@ -408,13 +404,13 @@
     {
       "time": "03/07 16:18",
       "equity": 33.140675
+    },
+    {
+      "time": "04/07 15:37",
+      "equity": 19.619055000000003
     }
   ],
   "daily_pnl": [
-    {
-      "date": "03/06",
-      "pnl": 15.756894999999998
-    },
     {
       "date": "04/06",
       "pnl": 7.228948999999999
@@ -530,17 +526,13 @@
     {
       "date": "03/07",
       "pnl": -1.238863
+    },
+    {
+      "date": "04/07",
+      "pnl": -13.52162
     }
   ],
   "closed_trades": [
-    {
-      "coin": "SOL",
-      "direction": "SHORT",
-      "entry": 67.369,
-      "exit": 67.369,
-      "pnl": 1.22304,
-      "time": "26/06 06:17"
-    },
     {
       "coin": "SUI",
       "direction": "SHORT",
@@ -932,15 +924,23 @@
       "exit": 79.099,
       "pnl": 1.18734,
       "time": "03/07 16:31"
+    },
+    {
+      "coin": "BTC",
+      "direction": "LONG",
+      "entry": 62000.0,
+      "exit": 62000.0,
+      "pnl": -13.52162,
+      "time": "04/07 17:44"
     }
   ],
   "ai_report": {
-    "content": "Hari ini, performa trading bot mengalami kerugian sebesar $1.2389 dengan saldo tersisa sekitar $46.70. Dari 9 transaksi, hanya 3 yang menang dan 6 yang kalah. \n\nStatistiknya, total kemenangan 3 dan kekalahan 6, dengan P&L hari ini negatif. Koin yang paling menguntungkan adalah SOL dengan profit +1.19, sementara ETH dan BNB mengalami kerugian cukup besar. Posisi terbuka saat ini adalah SHORT BTC dengan unrealized loss sekitar $3.18.\n\nUntuk besok, disarankan memperhatikan kondisi pasar dan menunggu sinyal yang lebih kuat agar risiko kerugian tidak bertambah. Fokus pada pengelolaan risiko dan perbaikan strategi entry agar performa bisa lebih stabil.",
-    "time": "03 July 2026, 16:18 WIB"
+    "content": "Laporan Performa Harian - 04 Juli 2026\n\nHari ini, bot mengalami kerugian sebesar sekitar $13.52 setelah satu trade yang ditutup loss. Tidak ada posisi terbuka saat ini dan saldo tetap di sekitar $35.47.\n\nStatistik: 0 win, 1 loss, total P&L hari ini -$13.52.\n\nInsight: Trade hari ini dilakukan pada BTC dengan hasil negatif. Tidak ada koin lain yang menunjukkan performa baik, sehingga performa hari ini cukup buruk secara keseluruhan.\n\nStatus posisi: Tidak ada posisi terbuka saat ini, sehingga tidak ada risiko posisi terbuka saat ini.\n\nSaran: Perhatikan sinyal entry dan manajemen risiko agar tidak terlalu banyak kerugian beruntun. Evaluasi kondisi pasar dan tunggu peluang yang lebih baik untuk besok. Tetap disiplin dan jangan ragu untuk menunggu sinyal yang lebih kuat.",
+    "time": "04 July 2026, 15:37 WIB"
   },
-  "last_report_date": "2026-07-03",
-  "_prev_today_pnl": -1.238863,
-  "_prev_today_wins": 3,
-  "_prev_today_losses": 6,
-  "_prev_today_trades": 9
+  "last_report_date": "2026-07-04",
+  "_prev_today_pnl": -13.52162,
+  "_prev_today_wins": 0,
+  "_prev_today_losses": 1,
+  "_prev_today_trades": 1
 }
