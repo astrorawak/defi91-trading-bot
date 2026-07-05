@@ -1,18 +1,14 @@
 {
-  "total_pnl": 19.619055000000003,
+  "total_pnl": -2.782524999999996,
   "wins": 231,
-  "losses": 378,
-  "total_trades": 609,
-  "today_trades": 1,
-  "today_pnl": -13.52162,
-  "win_rate": 37.93103448275862,
-  "avg_profit": 0.03221519704433498,
+  "losses": 380,
+  "total_trades": 611,
+  "today_trades": 2,
+  "today_pnl": -22.40158,
+  "win_rate": 37.80687397708674,
+  "avg_profit": -0.004554050736497539,
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
-    {
-      "time": "06:00",
-      "equity": 16.7699
-    },
     {
       "time": "09:11",
       "equity": 17.7045
@@ -408,13 +404,13 @@
     {
       "time": "04/07 15:37",
       "equity": 19.619055000000003
+    },
+    {
+      "time": "05/07 15:52",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "04/06",
-      "pnl": 7.228948999999999
-    },
     {
       "date": "05/06",
       "pnl": 4.766427
@@ -530,25 +526,13 @@
     {
       "date": "04/07",
       "pnl": -13.52162
+    },
+    {
+      "date": "05/07",
+      "pnl": -22.40158
     }
   ],
   "closed_trades": [
-    {
-      "coin": "SUI",
-      "direction": "SHORT",
-      "entry": 0.67897,
-      "exit": 0.67897,
-      "pnl": 0.638165,
-      "time": "26/06 10:56"
-    },
-    {
-      "coin": "SUI",
-      "direction": "SHORT",
-      "entry": 0.68847,
-      "exit": 0.68847,
-      "pnl": 0.59808,
-      "time": "26/06 00:15"
-    },
     {
       "coin": "SUI",
       "direction": "SHORT",
@@ -932,15 +916,31 @@
       "exit": 62000.0,
       "pnl": -13.52162,
       "time": "04/07 17:44"
+    },
+    {
+      "coin": "XPL",
+      "direction": "SHORT",
+      "entry": 0.10582,
+      "exit": 0.10582,
+      "pnl": -8.70492,
+      "time": "05/07 07:52"
+    },
+    {
+      "coin": "XPL",
+      "direction": "SHORT",
+      "entry": 0.10981,
+      "exit": 0.10981,
+      "pnl": -13.69666,
+      "time": "05/07 01:24"
     }
   ],
   "ai_report": {
-    "content": "Laporan Performa Harian - 04 Juli 2026\n\nHari ini, bot mengalami kerugian sebesar sekitar $13.52 setelah satu trade yang ditutup loss. Tidak ada posisi terbuka saat ini dan saldo tetap di sekitar $35.47.\n\nStatistik: 0 win, 1 loss, total P&L hari ini -$13.52.\n\nInsight: Trade hari ini dilakukan pada BTC dengan hasil negatif. Tidak ada koin lain yang menunjukkan performa baik, sehingga performa hari ini cukup buruk secara keseluruhan.\n\nStatus posisi: Tidak ada posisi terbuka saat ini, sehingga tidak ada risiko posisi terbuka saat ini.\n\nSaran: Perhatikan sinyal entry dan manajemen risiko agar tidak terlalu banyak kerugian beruntun. Evaluasi kondisi pasar dan tunggu peluang yang lebih baik untuk besok. Tetap disiplin dan jangan ragu untuk menunggu sinyal yang lebih kuat.",
-    "time": "04 July 2026, 15:37 WIB"
+    "content": "Laporan Performa Harian - 05 Juli 2026\n\nHari ini, performa trading bot mengalami kerugian total sekitar $22.40 setelah 2 posisi tertutup. Tidak ada posisi terbuka saat ini. Dari 2 trade yang ditutup, keduanya mengalami kerugian, dengan kerugian terbesar pada posisi short XPL.\n\nStatistik: 0 kemenangan dan 2 kerugian, total P&L hari ini -$22.40.\n\nInsight: Koin XPL menunjukkan performa buruk hari ini dengan kedua posisi short berakhir rugi besar. Tidak ada posisi lain yang terbuka, sehingga risiko saat ini minim, namun hasilnya kurang memuaskan.\n\nStatus posisi: Tidak ada posisi terbuka saat ini, aman dari risiko baru.\n\nSaran: Perhatikan kondisi pasar dan pertimbangkan penyesuaian strategi agar lebih ketat dalam memilih peluang trading besok, terutama untuk menghindari kerugian berulang.",
+    "time": "05 July 2026, 15:52 WIB"
   },
-  "last_report_date": "2026-07-04",
-  "_prev_today_pnl": -13.52162,
+  "last_report_date": "2026-07-05",
+  "_prev_today_pnl": -22.40158,
   "_prev_today_wins": 0,
-  "_prev_today_losses": 1,
-  "_prev_today_trades": 1
+  "_prev_today_losses": 2,
+  "_prev_today_trades": 2
 }
