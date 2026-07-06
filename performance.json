@@ -3,16 +3,12 @@
   "wins": 231,
   "losses": 380,
   "total_trades": 611,
-  "today_trades": 2,
-  "today_pnl": -22.40158,
+  "today_trades": 0,
+  "today_pnl": 0.0,
   "win_rate": 37.80687397708674,
   "avg_profit": -0.004554050736497539,
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
-    {
-      "time": "09:11",
-      "equity": 17.7045
-    },
     {
       "time": "11:59",
       "equity": 17.015
@@ -408,13 +404,13 @@
     {
       "time": "05/07 15:52",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "06/07 17:22",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "05/06",
-      "pnl": 4.766427
-    },
     {
       "date": "06/06",
       "pnl": 18.141255000000005
@@ -530,6 +526,10 @@
     {
       "date": "05/07",
       "pnl": -22.40158
+    },
+    {
+      "date": "06/07",
+      "pnl": 0.0
     }
   ],
   "closed_trades": [
@@ -935,12 +935,12 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Performa Harian - 05 Juli 2026\n\nHari ini, performa trading bot mengalami kerugian total sekitar $22.40 setelah 2 posisi tertutup. Tidak ada posisi terbuka saat ini. Dari 2 trade yang ditutup, keduanya mengalami kerugian, dengan kerugian terbesar pada posisi short XPL.\n\nStatistik: 0 kemenangan dan 2 kerugian, total P&L hari ini -$22.40.\n\nInsight: Koin XPL menunjukkan performa buruk hari ini dengan kedua posisi short berakhir rugi besar. Tidak ada posisi lain yang terbuka, sehingga risiko saat ini minim, namun hasilnya kurang memuaskan.\n\nStatus posisi: Tidak ada posisi terbuka saat ini, aman dari risiko baru.\n\nSaran: Perhatikan kondisi pasar dan pertimbangkan penyesuaian strategi agar lebih ketat dalam memilih peluang trading besok, terutama untuk menghindari kerugian berulang.",
-    "time": "05 July 2026, 15:52 WIB"
+    "content": "Laporan Harian Trading Bot (06 Juli 2026)\n\nHari ini, performa trading bot menunjukkan tidak ada posisi terbuka dan belum ada transaksi yang dilakukan. Saldo tetap stabil di $12.52 tanpa profit atau loss.\n\nStatistik: Tidak ada trading hari ini, sehingga Win/Loss = 0/0 dan P&L = $0.\n\nInsight: Tidak ada data trading, jadi belum ada koin yang menunjukkan performa baik atau buruk hari ini.\n\nStatus Posisi: Saat ini tidak ada posisi terbuka, bot tetap dalam mode siaga.\n\nSaran: Untuk besok, perhatikan kondisi pasar dan pastikan skor entry memenuhi threshold ketat agar peluang trading lebih terkontrol dan aman. Tetap disiplin sesuai strategi yang telah ditetapkan.",
+    "time": "06 July 2026, 17:22 WIB"
   },
-  "last_report_date": "2026-07-05",
-  "_prev_today_pnl": -22.40158,
+  "last_report_date": "2026-07-06",
+  "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
-  "_prev_today_losses": 2,
-  "_prev_today_trades": 2
+  "_prev_today_losses": 0,
+  "_prev_today_trades": 0
 }
