@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "11:59",
-      "equity": 17.015
-    },
-    {
       "time": "13:27",
       "equity": 17.7986
     },
@@ -408,13 +404,13 @@
     {
       "time": "06/07 17:22",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "07/07 16:41",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "06/06",
-      "pnl": 18.141255000000005
-    },
     {
       "date": "07/06",
       "pnl": 3.7189350000000005
@@ -529,6 +525,10 @@
     },
     {
       "date": "06/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "07/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian Trading Bot (06 Juli 2026)\n\nHari ini, performa trading bot menunjukkan tidak ada posisi terbuka dan belum ada transaksi yang dilakukan. Saldo tetap stabil di $12.52 tanpa profit atau loss.\n\nStatistik: Tidak ada trading hari ini, sehingga Win/Loss = 0/0 dan P&L = $0.\n\nInsight: Tidak ada data trading, jadi belum ada koin yang menunjukkan performa baik atau buruk hari ini.\n\nStatus Posisi: Saat ini tidak ada posisi terbuka, bot tetap dalam mode siaga.\n\nSaran: Untuk besok, perhatikan kondisi pasar dan pastikan skor entry memenuhi threshold ketat agar peluang trading lebih terkontrol dan aman. Tetap disiplin sesuai strategi yang telah ditetapkan.",
-    "time": "06 July 2026, 17:22 WIB"
+    "content": "Laporan Harian 07 Juli 2026:\n\nHari ini, tidak ada aktivitas trading karena saldo masih kosong dan tidak ada posisi terbuka. Tidak ada trade yang dilakukan maupun hasil yang tercatat.\n\nStatistik: Win: 0, Loss: 0, P&L: $0.0000.\n\nInsight: Karena tidak ada trading hari ini, belum ada koin yang menunjukkan performa baik maupun buruk. Perlu menunggu peluang yang sesuai dengan strategi.\n\nStatus Posisi: Saat ini tidak ada posisi terbuka dan saldo masih kosong.\n\nSaran: Besok tetap monitor pasar dan kesiapan robot, tunggu sinyal entry yang sesuai dengan threshold dan strategi untuk mulai beraksi. Pastikan saldo cukup dan analisis pasar berlangsung aktif.",
+    "time": "07 July 2026, 16:41 WIB"
   },
-  "last_report_date": "2026-07-06",
+  "last_report_date": "2026-07-07",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
