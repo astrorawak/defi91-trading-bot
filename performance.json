@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "24/06 16:30",
-      "equity": 14.966273
-    },
-    {
       "time": "17:24",
       "equity": 15.1985
     },
@@ -408,13 +404,13 @@
     {
       "time": "08/07 15:28",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "09/07 16:39",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "08/06",
-      "pnl": -9.728191
-    },
     {
       "date": "09/06",
       "pnl": -0.9912370000000001
@@ -529,6 +525,10 @@
     },
     {
       "date": "08/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "09/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian - 08 Juli 2026\n\nHari ini, tidak ada aktivitas trading karena saldo masih kosong dan tidak ada posisi terbuka. Strategi bot belum melakukan eksekusi trading hari ini.  \n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000.  \n\nKarena belum ada trading, tidak ada koin yang menunjukkan performa baik atau buruk.  \n\nPosisi saat ini kosong, tidak ada posisi terbuka maupun tertutup hari ini.  \n\nSaran untuk besok, pastikan kondisi pasar memenuhi threshold entry dan saldo sudah tersedia agar bot dapat mulai beraksi sesuai strategi. Perhatikan juga faktor volatilitas dan sinyal dari indikator RSI/MACD serta Order Flow untuk peluang trading yang optimal.",
-    "time": "08 July 2026, 15:28 WIB"
+    "content": "Laporan Performa Harian - 09 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga tidak ada posisi terbuka maupun profit/loss yang tercatat. Strategi bot tetap dalam kondisi standby menunggu sinyal yang memenuhi threshold.\n\nStatistik: Tidak ada trading hari ini, Win/Loss: 0/0, P&L: Rp0.\n\nInsight: Tidak ada data performa koin tertentu karena tidak ada posisi yang diambil hari ini. Performa akan lebih terlihat saat kondisi pasar mendukung sinyal trading.\n\nStatus posisi: Saat ini, tidak ada posisi terbuka maupun tertutup, kondisi pasar cenderung diam.\n\nSaran: Besok monitor kondisi pasar dan sinyal dari indikator RSI/MACD serta aliran order flow untuk peluang trading. Pastikan threshold terpenuhi sebelum eksekusi untuk hasil yang optimal.",
+    "time": "09 July 2026, 16:39 WIB"
   },
-  "last_report_date": "2026-07-08",
+  "last_report_date": "2026-07-09",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
