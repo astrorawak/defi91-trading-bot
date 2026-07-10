@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "17:24",
-      "equity": 15.1985
-    },
-    {
       "time": "18:22",
       "equity": 14.7004
     },
@@ -408,13 +404,13 @@
     {
       "time": "09/07 16:39",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "10/07 16:35",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "09/06",
-      "pnl": -0.9912370000000001
-    },
     {
       "date": "10/06",
       "pnl": 1.023534999999999
@@ -529,6 +525,10 @@
     },
     {
       "date": "09/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "10/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Performa Harian - 09 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga tidak ada posisi terbuka maupun profit/loss yang tercatat. Strategi bot tetap dalam kondisi standby menunggu sinyal yang memenuhi threshold.\n\nStatistik: Tidak ada trading hari ini, Win/Loss: 0/0, P&L: Rp0.\n\nInsight: Tidak ada data performa koin tertentu karena tidak ada posisi yang diambil hari ini. Performa akan lebih terlihat saat kondisi pasar mendukung sinyal trading.\n\nStatus posisi: Saat ini, tidak ada posisi terbuka maupun tertutup, kondisi pasar cenderung diam.\n\nSaran: Besok monitor kondisi pasar dan sinyal dari indikator RSI/MACD serta aliran order flow untuk peluang trading. Pastikan threshold terpenuhi sebelum eksekusi untuk hasil yang optimal.",
-    "time": "09 July 2026, 16:39 WIB"
+    "content": "Laporan Harian 10 Juli 2026:\n\nHari ini, tidak ada aktivitas trading yang dilakukan karena saldo masih kosong dan tidak ada posisi terbuka. Bot belum menjalankan trading pada hari ini.\n\nStatistik: Tidak ada trade yang berhasil maupun gagal hari ini, sehingga belum ada P&L yang tercatat.\n\nInsight: Dengan tidak adanya trading hari ini, belum dapat disimpulkan kinerja koin tertentu. Performa akan lebih terlihat saat ada aktivitas.\n\nStatus posisi: Saat ini, tidak ada posisi terbuka dan saldo tetap kosong.\n\nSaran: Untuk besok, pastikan saldo cukup dan perhatikan sinyal dari indikator agar peluang trading lebih optimal. Tetap disiplin sesuai strategi dan jangan ragu untuk menunggu peluang yang tepat.",
+    "time": "10 July 2026, 16:35 WIB"
   },
-  "last_report_date": "2026-07-09",
+  "last_report_date": "2026-07-10",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
