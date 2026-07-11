@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "18:22",
-      "equity": 14.7004
-    },
-    {
       "time": "22:29",
       "equity": 14.5028
     },
@@ -408,13 +404,13 @@
     {
       "time": "10/07 16:35",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "11/07 14:56",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "10/06",
-      "pnl": 1.023534999999999
-    },
     {
       "date": "11/06",
       "pnl": -10.866715000000003
@@ -529,6 +525,10 @@
     },
     {
       "date": "10/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "11/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian 10 Juli 2026:\n\nHari ini, tidak ada aktivitas trading yang dilakukan karena saldo masih kosong dan tidak ada posisi terbuka. Bot belum menjalankan trading pada hari ini.\n\nStatistik: Tidak ada trade yang berhasil maupun gagal hari ini, sehingga belum ada P&L yang tercatat.\n\nInsight: Dengan tidak adanya trading hari ini, belum dapat disimpulkan kinerja koin tertentu. Performa akan lebih terlihat saat ada aktivitas.\n\nStatus posisi: Saat ini, tidak ada posisi terbuka dan saldo tetap kosong.\n\nSaran: Untuk besok, pastikan saldo cukup dan perhatikan sinyal dari indikator agar peluang trading lebih optimal. Tetap disiplin sesuai strategi dan jangan ragu untuk menunggu peluang yang tepat.",
-    "time": "10 July 2026, 16:35 WIB"
+    "content": "Laporan Harian 11 Juli 2026: Hari ini tidak ada aktivitas trading karena saldo masih kosong. Tidak ada posisi terbuka maupun trade yang tertutup, sehingga belum ada hasil keuntungan maupun kerugian.\n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000.\n\nInsight: Tidak ada data trading hari ini, jadi belum dapat menilai performa koin mana yang terbaik atau terburuk.\n\nStatus Posisi: Saat ini tidak ada posisi terbuka, sehingga tidak ada risiko atau peluang saat ini.\n\nSaran untuk besok: Pastikan saldo cukup dan perhatikan sinyal trading yang muncul sesuai strategi. Fokus pada kondisi pasar yang sesuai agar peluang profit bisa dimaksimalkan.",
+    "time": "11 July 2026, 14:56 WIB"
   },
-  "last_report_date": "2026-07-10",
+  "last_report_date": "2026-07-11",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
