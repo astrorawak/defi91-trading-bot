@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "22:29",
-      "equity": 14.5028
-    },
-    {
       "time": "23:37",
       "equity": 14.254
     },
@@ -408,13 +404,13 @@
     {
       "time": "11/07 14:56",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "12/07 15:17",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "11/06",
-      "pnl": -10.866715000000003
-    },
     {
       "date": "12/06",
       "pnl": 0.9727110000000001
@@ -529,6 +525,10 @@
     },
     {
       "date": "11/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "12/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian 11 Juli 2026: Hari ini tidak ada aktivitas trading karena saldo masih kosong. Tidak ada posisi terbuka maupun trade yang tertutup, sehingga belum ada hasil keuntungan maupun kerugian.\n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000.\n\nInsight: Tidak ada data trading hari ini, jadi belum dapat menilai performa koin mana yang terbaik atau terburuk.\n\nStatus Posisi: Saat ini tidak ada posisi terbuka, sehingga tidak ada risiko atau peluang saat ini.\n\nSaran untuk besok: Pastikan saldo cukup dan perhatikan sinyal trading yang muncul sesuai strategi. Fokus pada kondisi pasar yang sesuai agar peluang profit bisa dimaksimalkan.",
-    "time": "11 July 2026, 14:56 WIB"
+    "content": "Laporan Harian Trading Bot - 12 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan P&L tetap kosong. Tidak ada posisi terbuka maupun trade yang ditutup hari ini.\n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000.\n\nInsight: Karena tidak ada trading hari ini, belum ada koin yang menunjukkan performa baik maupun buruk.\n\nStatus: Saat ini, tidak ada posisi terbuka dan tidak ada risiko yang sedang berjalan.\n\nSaran: Terus pantau kondisi pasar dan pastikan semua indikator memenuhi threshold untuk trading besok agar peluang profit lebih maksimal. Jangan lupa untuk melakukan evaluasi strategi secara berkala.",
+    "time": "12 July 2026, 15:17 WIB"
   },
-  "last_report_date": "2026-07-11",
+  "last_report_date": "2026-07-12",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
