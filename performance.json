@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "23:37",
-      "equity": 14.254
-    },
-    {
       "time": "00:59",
       "equity": 15.0298
     },
@@ -408,13 +404,13 @@
     {
       "time": "12/07 15:17",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "13/07 16:27",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "12/06",
-      "pnl": 0.9727110000000001
-    },
     {
       "date": "13/06",
       "pnl": -0.8312739999999998
@@ -529,6 +525,10 @@
     },
     {
       "date": "12/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "13/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian Trading Bot - 12 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan P&L tetap kosong. Tidak ada posisi terbuka maupun trade yang ditutup hari ini.\n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000.\n\nInsight: Karena tidak ada trading hari ini, belum ada koin yang menunjukkan performa baik maupun buruk.\n\nStatus: Saat ini, tidak ada posisi terbuka dan tidak ada risiko yang sedang berjalan.\n\nSaran: Terus pantau kondisi pasar dan pastikan semua indikator memenuhi threshold untuk trading besok agar peluang profit lebih maksimal. Jangan lupa untuk melakukan evaluasi strategi secara berkala.",
-    "time": "12 July 2026, 15:17 WIB"
+    "content": "1. Hari ini tidak ada aktivitas trading, saldo tetap kosong dan tidak ada posisi terbuka.\n2. Statistik: Tidak ada trade yang dilakukan hari ini, sehingga Win/Loss dan P&L tetap nihil.\n3. Insight: Tidak ada data performa koin karena tidak ada trading. Namun, strategi tetap siap digunakan bila kondisi memungkinkan.\n4. Status posisi: Saat ini belum ada posisi terbuka, portofolio kosong.\n5. Saran: Pantau kondisi pasar dan tingkatkan analisis entry sesuai strategi untuk peluang besok. Pastikan kondisi pasar sesuai sebelum mulai trading kembali.",
+    "time": "13 July 2026, 16:27 WIB"
   },
-  "last_report_date": "2026-07-12",
+  "last_report_date": "2026-07-13",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,

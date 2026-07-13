@@ -1,214 +1,6 @@
 {
   "journals": [
     {
-      "date": "2026-06-13",
-      "date_display": "Saturday, 13 June 2026",
-      "market_regime": "NEUTRAL",
-      "balance": 55.3697961,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 13,
-      "wins": 3,
-      "losses": 10,
-      "total_pnl": -0.8312739999999998,
-      "win_rate": 23.076923076923077,
-      "entries_today": [
-        {
-          "time": "2026-06-13 00:20:54",
-          "coin": "ZEC",
-          "direction": "SHORT",
-          "entry": 418.31,
-          "tp": 408.4,
-          "sl": 423.9,
-          "margin": 5.0,
-          "leverage": 10,
-          "cvd_score": "-5",
-          "rsi": "38.5"
-        },
-        {
-          "time": "2026-06-13 00:20:54",
-          "coin": "FARTCOIN",
-          "direction": "LONG",
-          "entry": 0.11863,
-          "tp": 0.1215,
-          "sl": 0.1171,
-          "margin": 5.0,
-          "leverage": 10,
-          "cvd_score": "3",
-          "rsi": "57.6"
-        },
-        {
-          "time": "2026-06-13 04:04:27",
-          "coin": "VVV",
-          "direction": "LONG",
-          "entry": 14.284,
-          "tp": 14.65,
-          "sl": 14.12,
-          "margin": 5.0,
-          "leverage": 3,
-          "cvd_score": "4",
-          "rsi": "18.8"
-        },
-        {
-          "time": "2026-06-13 06:08:16",
-          "coin": "FARTCOIN",
-          "direction": "SHORT",
-          "entry": 0.11703,
-          "tp": 0.114,
-          "sl": 0.1183,
-          "margin": 5.0,
-          "leverage": 10,
-          "cvd_score": "-3",
-          "rsi": "41.1"
-        },
-        {
-          "time": "2026-06-13 09:14:14",
-          "coin": "ENA",
-          "direction": "SHORT",
-          "entry": 0.077953,
-          "tp": 0.07601,
-          "sl": 0.0789,
-          "margin": 5.0,
-          "leverage": 10,
-          "cvd_score": "-4",
-          "rsi": "44.5"
-        },
-        {
-          "time": "2026-06-13 09:14:14",
-          "coin": "FARTCOIN",
-          "direction": "SHORT",
-          "entry": 0.11923,
-          "tp": 0.1163,
-          "sl": 0.1207,
-          "margin": 5.0,
-          "leverage": 10,
-          "cvd_score": "-4",
-          "rsi": "83.5"
-        },
-        {
-          "time": "2026-06-13 13:35:32",
-          "coin": "ENA",
-          "direction": "SHORT",
-          "entry": 0.078558,
-          "tp": 0.07656,
-          "sl": 0.07946,
-          "margin": 5.0,
-          "leverage": 10,
-          "cvd_score": "-3",
-          "rsi": "64.6"
-        }
-      ],
-      "closed_today": [
-        {
-          "time": "14:26",
-          "coin": "FARTCOIN",
-          "direction": "SHORT",
-          "exit_price": 0.11929,
-          "pnl": -0.02514,
-          "fee": 0.022492
-        },
-        {
-          "time": "13:58",
-          "coin": "ENA",
-          "direction": "SHORT",
-          "exit_price": 0.0795,
-          "pnl": -0.008478,
-          "fee": 0.000321
-        },
-        {
-          "time": "13:58",
-          "coin": "ENA",
-          "direction": "SHORT",
-          "exit_price": 0.079498,
-          "pnl": -0.59032,
-          "fee": 0.022466
-        },
-        {
-          "time": "13:29",
-          "coin": "ENA",
-          "direction": "SHORT",
-          "exit_price": 0.077962,
-          "pnl": -0.005769,
-          "fee": 0.022488
-        },
-        {
-          "time": "08:45",
-          "coin": "VVV",
-          "direction": "LONG",
-          "exit_price": 14.662,
-          "pnl": 0.378,
-          "fee": 0.006597
-        },
-        {
-          "time": "08:01",
-          "coin": "FARTCOIN",
-          "direction": "SHORT",
-          "exit_price": 0.11836,
-          "pnl": -0.56924,
-          "fee": 0.022796
-        },
-        {
-          "time": "02:27",
-          "coin": "ZEC",
-          "direction": "SHORT",
-          "exit_price": 418.36,
-          "pnl": -0.006,
-          "fee": 0.022591
-        },
-        {
-          "time": "01:10",
-          "coin": "BTC",
-          "direction": "SHORT",
-          "exit_price": 63754.0,
-          "pnl": 0.02355,
-          "fee": 0.045042
-        },
-        {
-          "time": "01:07",
-          "coin": "FARTCOIN",
-          "direction": "LONG",
-          "exit_price": 0.11704,
-          "pnl": -0.359181,
-          "fee": 0.011897
-        },
-        {
-          "time": "01:07",
-          "coin": "FARTCOIN",
-          "direction": "LONG",
-          "exit_price": 0.11704,
-          "pnl": -0.14946,
-          "fee": 0.00495
-        },
-        {
-          "time": "01:07",
-          "coin": "FARTCOIN",
-          "direction": "LONG",
-          "exit_price": 0.11707,
-          "pnl": -0.159276,
-          "fee": 0.005378
-        },
-        {
-          "time": "17:09",
-          "coin": "CRV",
-          "direction": "LONG",
-          "exit_price": 0.24356,
-          "pnl": -0.604344,
-          "fee": 0.022227
-        },
-        {
-          "time": "16:36",
-          "coin": "TON",
-          "direction": "LONG",
-          "exit_price": 1.7304,
-          "pnl": 1.244384,
-          "fee": 0.023048
-        }
-      ],
-      "open_positions": [],
-      "journal_content": "**JURNAL TRADING HARIAN – Sabtu, 13 Juni 2026**\n\n---\n\n**1. RINGKASAN HARI INI**  \nHari ini penuh dengan volatilitas dan banyak aksi di pasar, walaupun secara total performa agak berantakan karena banyak loss. Bot trading melakukan beberapa posisi, tapi sebagian besar gagal mencapai target dan justru tereliminasi di SL. Ada peluang di beberapa aset, tapi tekanan pasar terlihat cukup tinggi, jadi harus lebih berhati-hati.\n\n---\n\n**2. ANALISA KENAPA BOT MASUK POSISI**  \n- **ZEC Short di jam 00:20:54**  \n  *Sinyal CVD:* Score -5, menunjukkan volume delta menunjukkan tekanan jual yang cukup kuat.  \n  *Teknikal:* RSI di 38.5, mendekati wilayah oversold, menandakan potensi pembalikan atau pelemahan kenaikan.  \n  *Support/Resistance:* Harga di dekat resistance, tapi CVD menunjukkan adanya imbalance jual, memicu bot masuk short.  \n  *Alasan masuk:* Kombinasi CVD negative dan RSI di bawah 40 membuat bot yakin harga akan turun ke support berikutnya.\n\n- **FARTCOIN Long di jam 00:20:54**  \n  *Sinyal CVD:* Score +3, menunjukkan adanya tekanan beli dari order flow.  \n  *Teknikal:* RSI di 57.6, masih di zona netral, dan harga dekat support minor.  \n  *Support/Resistance:* Support terdekat cukup kuat, dan order book menunjukkan adanya akumulasi beli.  \n  *Alasan masuk:* Karena ada konfirmasi dari order flow dan RSI yang mendukung momentum kenaikan.\n\n- **VVV Long di jam 04:04:27**  \n  *Sinyal CVD:* Score +4, menunjukkan kekuatan beli dari order flow.  \n  *Teknikal:* RSI sangat rendah di 18.8, menunjukkan kondisi oversold ekstrem, kemungkinan pembalikan.  \n  *Support/Resistance:* Harga di dekat support kuat, dan volume delta mengindikasikan akumulasi beli.  \n  *Alasan masuk:* Kombinasi order flow positif dan RSI oversold membuat bot yakin akan rebound.\n\n- **FARTCOIN Short di jam 06:08:16**  \n  *Sinyal CVD:* -3, menunjukkan tekanan jual yang mulai menguat.  \n  *Teknikal:* RSI di 41.1, mendekati batas bawah tapi belum oversold.  \n  *Support/Resistance:* Resistance terdekat menahan harga, dan order book mengindikasikan imbalance jual.  \n  *Alasan masuk:* Kondisi ini cukup mendukung peluang short, apalagi CVD negatif.\n\n- **ENA Short di jam 09:14:14**  \n  *Sinyal CVD:* -4, memperkuat sinyal jual dari order flow.  \n  *Teknikal:* RSI di 44.5, mendekati area jual, dan harga berada di zona resistance minor.  \n  *Support/Resistance:* Resistance yang kuat dan order book menunjukkan dominasi seller.  \n  *Alasan masuk:* Gabungan sinyal teknikal dan order flow memperkuat posisi short.\n\n- **FARTCOIN Short kedua di jam 09:14:14**  \n  *Sinyal CVD:* -4, sama seperti ENA, menunjukkan tekanan jual.  \n  *Teknikal:* RSI sangat tinggi (83.5), overbought, jadi potensi koreksi.  \n  *Support/Resistance:* Harga di resistance, dan order book mengindikasikan imbalance jual.  \n  *Alasan masuk:* RSI overbought + CVD negatif, memunculkan peluang koreksi.\n\n- **ENA Short lagi di jam 13:35:32**  \n  *Sinyal CVD:* -3, menunjukkan kekuatan jual kembali.  \n  *Teknikal:* RSI di 64.6, mulai menurun dari overbought, mendukung posisi short.  \n  *Support/Resistance:* Resistance teruji, dan order book menunjukkan tekanan jual.  \n  *Alasan masuk:* Penggabungan indikator teknikal dan order flow mendukung posisi short.\n\n---\n\n**3. ANALISA KENAPA BOT KELUAR POSISI**  \n- Banyak posisi yang gagal mencapai target, karena pasar bergerak sideways dan ada tekanan beli mendadak, menyebabkan kena SL.  \n- **Contoh:**  \n  - FARTCOIN Short di jam 14:26 keluar karena kerugian hampir 0.0251, pasar berbalik dan tidak mampu mencapai TP.  \n  - ENA Short di jam 13:58 keluar dengan kerugian kecil, karena harga naik kembali melewati SL.  \n  - VVV Long di pagi hari berhasil keluar profit, karena harga rebound dari support dan mencapai TP.  \n  - Beberapa posisi FARTCOIN dan ENA mengalami kerugian karena pasar tidak menentu dan sering berbalik arah.\n\n- Secara umum, banyak posisi yang kena SL karena pasar sedang sideways dan tidak jelas tren utama. Hal ini mengajarkan kita pentingnya manajemen risiko dan tidak terlalu agresif saat pasar tidak trending.\n\n---\n\n**4. PELAJARAN PENTING HARI INI**  \n- Kombinasi order flow (CVD) dan indikator teknikal sangat membantu dalam menentukan entry, tapi pasar yang sideways tetap menantang dan meningkatkan risiko loss.  \n- Pentingnya memperhatikan sinyal overbought/oversold dan balance antara order flow dan RSI agar tidak overtrading.  \n- Keberhasilan ada di saat pasar trending dan kita bisa memanfaatkannya, tapi saat sideways, perlu lebih sabar dan disiplin cut loss.\n\n---\n\n**5. KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \n- Tidak ada berita besar hari ini, tapi pasar tampak sangat sensitif terhadap sentimen global dan ketidakpastian ekonomi.  \n- Pergerakan yang tiba-tiba dan banyak fake-out menandakan pasar sedang mencari arah yang pasti.  \n- Ini mengingatkan kita untuk tetap waspada dan tidak serakah saat pasar belum jelas tren.\n\n---\n\n**6. SKOR PERFORMA HARI INI**  \n**6/10** – Karena banyak posisi loss dan kondisi pasar yang cukup berat, meskipun ada beberapa posisi profit, namun overall performa kurang memuaskan. Ini mengajarkan kita untuk lebih selektif dan disiplin dalam trading, terutama di saat pasar tidak menentu.\n\n---\n\n**Catatan:**  \nHari ini menjadi pengingat bahwa tidak semua hari cocok untuk trading aktif. Penting untuk memantau kondisi pasar dan menyesuaikan strategi sesuai tren dan volume. Semoga besok lebih baik!",
-      "generated_at": "16:19 WIB"
-    },
-    {
       "date": "2026-06-14",
       "date_display": "Sunday, 14 June 2026",
       "market_regime": "CHOPSAW",
@@ -3951,6 +3743,24 @@
       "open_positions": [],
       "journal_content": "**Jurnal Trading Hari Ini – Minggu, 12 Juli 2026**\n\n---\n\n### 1. Ringkasan Hari Ini\nHari ini suasana pasar cukup tenang, nggak ada posisi baru yang dibuka maupun ditutup. Pasar cenderung sideways, dan bot trading tetap stand by menunggu peluang yang benar-benar solid. Meskipun nggak ada aktivitas, ini jadi pengingat bahwa kadang momen terbaik adalah saat menunggu.\n\n---\n\n### 2. Analisa Kenapa Bot Masuk Posisi\nHari ini nggak ada trade baru, jadi nggak ada analisa posisi masuk. Tapi, secara umum, strategi gabungan bot ini sangat bergantung pada dua hal utama: volume delta dan indikator teknikal.\n\n- **Sinyal CVD (Order Flow)**: Bot biasanya masuk kalau volume delta menunjukkan adanya tekanan beli atau jual yang kuat, serta imbalance di order book yang mengindikasikan potensi pergerakan harga.\n- **Sinyal Teknikal (RSI + MACD + Support/Resistance)**: Bot juga mengonfirmasi dari indikator RSI dan MACD. Kalau RSI menunjukkan kondisi oversold/overbought dan MACD mulai cross, serta harga mendekati support atau resistance penting, peluang masuk jadi lebih tinggi.\n\nKarena hari ini nggak ada posisi, itu artinya kondisi pasar mungkin sedang sideways, tanpa sinyal yang cukup kuat dari kedua strategi tersebut.\n\n---\n\n### 3. Analisa Kenapa Bot Keluar Posisi\nKarena nggak ada posisi yang dibuka maupun ditutup hari ini, nggak ada analisa terkait exit. Tapi, secara umum, bot biasanya keluar saat:\n\n- Target profit tercapai\n- Stop loss kena dan posisi ditutup otomatis\n- Ada perubahan sinyal dari order flow yang menunjukkan potensi berbalik arah\n\nKalau ada posisi yang terbuka, bot akan menunggu sinyal konfirmasi dari kedua indikator tersebut agar risiko bisa diminimalisir.\n\n---\n\n### 4. Pelajaran Penting Hari Ini\nHari ini mengingatkan kita bahwa menunggu saat pasar sideways dan tidak memaksakan masuk adalah strategi yang bijak. Kadang, nggak semua hari harus trading aktif. Pentingnya disiplin dan sabar sangat kunci, terutama saat indikator menunjukkan pasar sedang tidak trending.\n\nSelain itu, kombinasi order flow dan analisa teknikal membantu menegaskan keputusan, jadi nggak hanya mengandalkan satu indikator saja.\n\n---\n\n### 5. Koneksi dengan Berita/Sentimen Pasar\nTidak ada berita besar yang muncul hari ini, sehingga pasar cenderung tenang. Sentimen pasar secara umum sedang wait & see, menunggu katalis dari berita ekonomi global atau pengumuman penting. Pasar crypto hari ini lebih banyak dipengaruhi oleh faktor teknikal dan order flow ketimbang sentimen berita.\n\n---\n\n### 6. Skor Performa Hari Ini: 6/10\nKarena hari ini nggak ada aktivitas trading, saya berikan skor sedang. Ini mengingatkan kita bahwa kadang langkah terbaik adalah tidak memaksakan masuk pasar yang nggak kondusif. Pengalaman hari ini memperkuat pentingnya disiplin dan sabar dalam trading.\n\n---\n\n**Kesimpulan:** Hari ini mengajarkan kita bahwa tidak semua hari harus aktif trading. Menunggu peluang yang benar-benar sesuai strategi adalah langkah cerdas. Dengan tetap konsisten dan disiplin, kita menjaga risiko tetap terkendali dan siap mengambil peluang saat kondisi pasar mendukung.",
       "generated_at": "15:20 WIB"
+    },
+    {
+      "date": "2026-07-13",
+      "date_display": "Monday, 13 July 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 1e-07,
+      "margin_used": 0.0,
+      "unrealized_pnl": 0.0,
+      "total_closed": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_pnl": 0.0,
+      "win_rate": 0,
+      "entries_today": [],
+      "closed_today": [],
+      "open_positions": [],
+      "journal_content": "**Jurnal Trading Hari Ini – Senin, 13 Juli 2026**  \n\n**1. Ringkasan Hari Ini**  \nHari ini suasana pasar cukup tenang, nggak ada posisi yang dibuka atau ditutup. Pasar cenderung sideways, nggak banyak momentum besar, jadi bot lebih fokus menunggu sinyal yang valid. Overall, hari ini lebih ke konsolidasi aja buat si bot.\n\n**2. Analisa Kenapa Bot Masuk Posisi**  \nKalau dilihat dari data hari ini, nggak ada posisi baru yang diambil, tapi misalnya kalau ada, kemungkinan karena kombinasi sinyal dari order flow dan indikator teknikal.  \n\nMisalnya, saat bot pernah 'menciduk' posisi, biasanya CVD menunjukkan volume delta positif yang besar, artinya ada tekanan beli dari order flow. Disamping itu, RSI mungkin menunjukkan kondisi oversold atau overbought, misalnya RSI di angka 30-35 yang mengindikasikan potensi rebound, atau di atas 70 yang menandakan overbought.  \n\nDi saat bersamaan, MACD mungkin lagi menunjukkan crossing positif atau negatif, memperkuat sinyal momentum. Support dan resistance yang dihitung dari level harga juga jadi acuan, jika harga mendekati support dan indikator menunjukkan sinyal bullish, bot akan lebih yakin masuk.  \n\nJadi, skor tinggi buat masuk biasanya karena ketiga aspek ini align: volume delta mendukung (kondisi order book yang menunjukkan minat besar di sisi tertentu), indikator teknikal memberi konfirmasi, dan harga berada di dekat level penting.\n\n**3. Analisa Kenapa Bot Keluar Posisi**  \nKarena hari ini nggak ada posisi, aku nggak bisa bahas trade keluar hari ini. Tapi kalau ada, biasanya keluar karena:\n\n- Target profit tercapai (TP)  \n- Harga menyentuh stop loss (SL) jika pasar berbalik arah  \n- Atau, muncul sinyal pembalikan dari order flow atau indikator teknikal yang memberi tahu bahwa tren mulai melemah (smart exit)\n\nContohnya, kalau posisi sebelumnya profit tapi RSI menunjukkan kondisi overbought dan MACD mulai cross down, bot bisa otomatis keluar agar mengamankan profit.\n\n**4. Pelajaran Penting Hari Ini**  \nHari ini mengingatkan kita bahwa nggak semua hari harus aktif trading. Pasar yang sideways bikin risiko lebih tinggi, jadi lebih baik menunggu konfirmasi sinyal yang kuat. Penting juga memadukan analisa order flow dan teknikal agar ada kepercayaan terhadap keputusan trading.  \n\nKesabaran dan disiplin tetap kunci, apalagi saat kondisi pasar nggak menentu. Jangan tergoda masuk cuma karena sinyal sesaat kalau tidak ada konfirmasi yang meyakinkan.  \n\n**5. Koneksi dengan Berita/Sentimen Pasar**  \nHari ini nggak ada berita besar yang keluar, jadi sentimen pasar cenderung netral. Trader lebih banyak menunggu data ekonomi atau pengumuman penting. Pasar juga kelihatan agak sideways, menandakan ketidakpastian di kalangan trader.  \n\n**6. Skor Performa Hari Ini: 6/10**  \nKarena hari ini nggak ada trading yang dilakukan, jadi nggak bisa nilai performa secara langsung. Tapi secara keseluruhan, ini pelajaran penting bahwa menunggu momen yang tepat sama pentingnya dengan melakukan trading aktif.  \n\n**Kesimpulan**  \nHari ini mengajarkan kita tentang pentingnya kesabaran dan kehati-hatian, terutama saat pasar sedang sideways. Kombinasi analisa order flow dan indikator teknikal tetap jadi senjata utama, dan kita harus siap menunggu sinyal yang benar-benar kuat sebelum masuk. Semoga besok pasar lebih menarik dan memberi peluang yang lebih baik!",
+      "generated_at": "16:30 WIB"
     }
   ]
 }
