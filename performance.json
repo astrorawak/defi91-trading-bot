@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "00:59",
-      "equity": 15.0298
-    },
-    {
       "time": "03:51",
       "equity": 14.9788
     },
@@ -408,13 +404,13 @@
     {
       "time": "13/07 16:27",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "14/07 15:05",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "13/06",
-      "pnl": -0.8312739999999998
-    },
     {
       "date": "14/06",
       "pnl": 1.9883980000000003
@@ -529,6 +525,10 @@
     },
     {
       "date": "13/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "14/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "1. Hari ini tidak ada aktivitas trading, saldo tetap kosong dan tidak ada posisi terbuka.\n2. Statistik: Tidak ada trade yang dilakukan hari ini, sehingga Win/Loss dan P&L tetap nihil.\n3. Insight: Tidak ada data performa koin karena tidak ada trading. Namun, strategi tetap siap digunakan bila kondisi memungkinkan.\n4. Status posisi: Saat ini belum ada posisi terbuka, portofolio kosong.\n5. Saran: Pantau kondisi pasar dan tingkatkan analisis entry sesuai strategi untuk peluang besok. Pastikan kondisi pasar sesuai sebelum mulai trading kembali.",
-    "time": "13 July 2026, 16:27 WIB"
+    "content": "Laporan Performa Harian - 14 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap kosong. Tidak ada profit atau kerugian yang tercatat.\n\nStatistik: Win: 0, Loss: 0, P&L: $0.0000.\n\nInsight: Karena tidak ada trading hari ini, tidak ada koin yang menunjukkan performa baik atau buruk.\n\nStatus posisi: Saat ini tidak ada posisi terbuka, sehingga tidak ada risiko terbuka yang perlu diperhatikan.\n\nSaran untuk besok: Pantau kondisi pasar dan siapkan strategi sesuai dengan sinyal yang muncul. Pastikan threshold entry terpenuhi agar trading tetap ketat dan terukur.",
+    "time": "14 July 2026, 15:05 WIB"
   },
-  "last_report_date": "2026-07-13",
+  "last_report_date": "2026-07-14",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
