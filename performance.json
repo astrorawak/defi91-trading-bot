@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "05:59",
-      "equity": 14.9936
-    },
-    {
       "time": "09:11",
       "equity": 14.8909
     },
@@ -408,13 +404,13 @@
     {
       "time": "15/07 15:10",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "16/07 15:13",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "15/06",
-      "pnl": 1.163660000000002
-    },
     {
       "date": "16/06",
       "pnl": -2.7289319999999995
@@ -529,6 +525,10 @@
     },
     {
       "date": "15/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "16/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "1. Hari ini, tidak ada aktivitas trading dilakukan sehingga saldo dan posisi tetap kosong.  \n2. Statistik: Tidak ada trade yang berhasil maupun rugi hari ini, P&L tetap nol.  \n3. Insight: Belum ada data performa dari koin mana yang baik atau buruk karena tidak ada trading hari ini.  \n4. Saat ini, tidak ada posisi terbuka dan tidak ada risiko yang sedang berjalan.  \n5. Saran: Tunggu sinyal yang sesuai dan pastikan skor entry mencapai threshold ketat sebelum melakukan trading di hari berikutnya. Fokus pada analisis pasar agar peluang lebih optimal.",
-    "time": "15 July 2026, 15:10 WIB"
+    "content": "Laporan Harian Trading Bot - 16 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan performa tetap nol. Tidak ada posisi terbuka maupun trade yang ditutup hari ini. \n\nStatistik: Win: 0, Loss: 0, P&L: $0.0000. Tidak ada pengambilan keuntungan maupun kerugian yang tercatat.\n\nInsight: Karena tidak ada trading hari ini, tidak ada koin yang menunjukkan performa baik atau buruk. Monitoring tetap diperlukan untuk peluang esok hari.\n\nStatus posisi: Saat ini tidak ada posisi terbuka, bot tetap dalam posisi siaga.\n\nSaran: Pantau kondisi pasar dan indikator besok untuk peluang masuk posisi sesuai strategi. Pastikan threshold entry terpenuhi sebelum melakukan trading.",
+    "time": "16 July 2026, 15:13 WIB"
   },
-  "last_report_date": "2026-07-15",
+  "last_report_date": "2026-07-16",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
