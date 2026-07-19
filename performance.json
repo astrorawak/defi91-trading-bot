@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "13:30",
-      "equity": 14.3026
-    },
-    {
       "time": "25/06 16:22",
       "equity": 10.623677999999998
     },
@@ -408,13 +404,13 @@
     {
       "time": "18/07 14:49",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "19/07 15:18",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "18/06",
-      "pnl": 0.9398230000000001
-    },
     {
       "date": "19/06",
       "pnl": -3.2462440000000004
@@ -529,6 +525,10 @@
     },
     {
       "date": "18/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "19/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian - 18 Juli 2026\n\nHari ini, tidak ada aktivitas trading dilakukan sehingga saldo dan performa tetap stagnan. Tidak terdapat posisi terbuka maupun hasil trade yang tercatat. \n\nStatistik: Win: 0 | Loss: 0, P&L hari ini: $0.0000. \n\nInsight: Karena tidak ada trading hari ini, tidak ada koin yang menunjukkan performa baik atau buruk. Performa tetap netral. \n\nStatus posisi: Tidak ada posisi terbuka saat ini. \n\nSaran: Untuk besok, perhatikan sinyal entry dengan skor >= 3 dan persiapkan strategi jika ada peluang. Pastikan manajemen risiko tetap disiplin dan sesuai target.",
-    "time": "18 July 2026, 14:49 WIB"
+    "content": "1. Hari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap nol.  \n2. Statistik: Tidak ada transaksi, Win/Loss: 0/0, P&L hari ini: Rp 0.  \n3. Karena tidak ada trading, tidak ada koin yang menunjukkan performa baik atau buruk hari ini.  \n4. Saat ini, tidak ada posisi terbuka dan semua dana masih standby.  \n5. Untuk besok, pastikan kondisi pasar memenuhi skor entry threshold dan perhatikan strategi manajemen risiko agar peluang trading meningkat.",
+    "time": "19 July 2026, 15:18 WIB"
   },
-  "last_report_date": "2026-07-18",
+  "last_report_date": "2026-07-19",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
