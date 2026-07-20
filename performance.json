@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "25/06 16:22",
-      "equity": 10.623677999999998
-    },
-    {
       "time": "17:17",
       "equity": 10.4963
     },
@@ -408,13 +404,13 @@
     {
       "time": "19/07 15:18",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "20/07 15:58",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "19/06",
-      "pnl": -3.2462440000000004
-    },
     {
       "date": "20/06",
       "pnl": 0.24444
@@ -529,6 +525,10 @@
     },
     {
       "date": "19/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "20/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "1. Hari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap nol.  \n2. Statistik: Tidak ada transaksi, Win/Loss: 0/0, P&L hari ini: Rp 0.  \n3. Karena tidak ada trading, tidak ada koin yang menunjukkan performa baik atau buruk hari ini.  \n4. Saat ini, tidak ada posisi terbuka dan semua dana masih standby.  \n5. Untuk besok, pastikan kondisi pasar memenuhi skor entry threshold dan perhatikan strategi manajemen risiko agar peluang trading meningkat.",
-    "time": "19 July 2026, 15:18 WIB"
+    "content": "Laporan Performa Harian - 20 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan, sehingga saldo dan posisi tetap kosong. Tidak ada trade yang dibuka maupun ditutup hari ini. Secara statistik, belum ada kemenangan maupun kerugian yang tercatat. \n\nDari segi performa, tidak ada data profit maupun loss, sehingga belum dapat dianalisis koin mana yang tampil baik atau buruk. Perlu pengamatan lebih lanjut untuk hari berikutnya. \n\nStatus posisi saat ini kosong, tidak ada posisi terbuka atau potensi risiko. \n\nSaran untuk besok, fokuskan pada pemantauan sinyal dan pastikan skor entry memenuhi ambang ketat agar risiko terkendali. Pantau pergerakan pasar secara seksama dan lakukan trading sesuai strategi yang sudah ditetapkan.",
+    "time": "20 July 2026, 15:58 WIB"
   },
-  "last_report_date": "2026-07-19",
+  "last_report_date": "2026-07-20",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
