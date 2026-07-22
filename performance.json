@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "18:14",
-      "equity": 10.2895
-    },
-    {
       "time": "22:37",
       "equity": 10.621
     },
@@ -408,13 +404,13 @@
     {
       "time": "21/07 15:28",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "22/07 15:29",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "21/06",
-      "pnl": 0.925891
-    },
     {
       "date": "22/06",
       "pnl": -1.3808999999999998
@@ -529,6 +525,10 @@
     },
     {
       "date": "21/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "22/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian - 21 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang terjadi dengan saldo dan posisi kosong. Tidak ada keuntungan maupun kerugian yang direalisasikan hari ini. \n\nStatistik menunjukkan tidak ada trade yang dilakukan, sehingga belum ada kemenangan maupun kerugian. Secara umum, belum ada performa yang bisa dievaluasi hari ini.\n\nDari data hari ini, tidak ada koin yang menunjukkan performa baik maupun buruk karena tidak ada trading yang dilakukan. Seluruh koin tetap dalam posisi standby.\n\nPosisi terbuka saat ini nihil, sehingga tidak ada risiko yang perlu diwaspadai saat ini.\n\nSaran untuk besok, tetap monitor kondisi pasar dan tingkatkan analisis berbasis strategi CVD dan RSI/MACD agar peluang trading bisa dimaksimalkan saat sinyal muncul. Pastikan kesiapan untuk aktifkan kembali trading saat peluang yang sesuai terdeteksi.",
-    "time": "21 July 2026, 15:28 WIB"
+    "content": "Laporan Harian Trading Bot (22 Juli 2026)\n\nHari ini, tidak ada aktivitas trading karena saldo masih kosong. Bot belum melakukan transaksi maupun menutup posisi hari ini.  \n\nStatistik: Win: 0 | Loss: 0, P&L hari ini: $0.0000. Tidak ada posisi terbuka maupun trade yang dilakukan hari ini.\n\nInsight: Karena tidak ada perdagangan hari ini, belum ada koin yang menunjukkan performa baik maupun buruk. \n\nStatus posisi: Saat ini, tidak ada posisi terbuka dan saldo masih nol, menandakan belum ada aktivitas trading aktif.\n\nSaran: Untuk besok, pastikan saldo cukup dan kondisi pasar mendukung agar bot bisa berfungsi sesuai strategi. Perhatikan juga level risiko dan sesuaikan parameter jika diperlukan agar trading lebih optimal.",
+    "time": "22 July 2026, 15:29 WIB"
   },
-  "last_report_date": "2026-07-21",
+  "last_report_date": "2026-07-22",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
