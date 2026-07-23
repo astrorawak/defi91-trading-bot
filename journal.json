@@ -1,203 +1,6 @@
 {
   "journals": [
     {
-      "date": "2026-06-23",
-      "date_display": "Tuesday, 23 June 2026",
-      "market_regime": "TRENDING",
-      "balance": 72.6399081,
-      "margin_used": 2.97567,
-      "unrealized_pnl": -0.486,
-      "total_closed": 12,
-      "wins": 5,
-      "losses": 7,
-      "total_pnl": -1.5093360000000002,
-      "win_rate": 41.66666666666667,
-      "entries_today": [
-        {
-          "time": "2026-06-23 00:26:35",
-          "coin": "SUI",
-          "direction": "SHORT",
-          "entry": 0.71954,
-          "tp": 0.7058,
-          "sl": 0.731,
-          "margin": 3.0,
-          "leverage": 10,
-          "cvd_score": "-5",
-          "rsi": "14.4"
-        },
-        {
-          "time": "2026-06-23 00:26:35",
-          "coin": "BTC",
-          "direction": "LONG",
-          "entry": 64547.0,
-          "tp": 65845.0,
-          "sl": 63585.0,
-          "margin": 3.0,
-          "leverage": 20,
-          "cvd_score": "2",
-          "rsi": "20.3"
-        },
-        {
-          "time": "2026-06-23 06:12:37",
-          "coin": "XRP",
-          "direction": "SHORT",
-          "entry": 1.1266,
-          "tp": 1.105,
-          "sl": 1.144,
-          "margin": 3.0,
-          "leverage": 20,
-          "cvd_score": "-3",
-          "rsi": "40.8"
-        },
-        {
-          "time": "2026-06-23 06:12:37",
-          "coin": "SUI",
-          "direction": "LONG",
-          "entry": 0.71681,
-          "tp": 0.7314,
-          "sl": 0.7063,
-          "margin": 3.0,
-          "leverage": 10,
-          "cvd_score": "5",
-          "rsi": "47.1"
-        },
-        {
-          "time": "2026-06-23 11:56:18",
-          "coin": "SOL",
-          "direction": "LONG",
-          "entry": 71.402,
-          "tp": 72.81,
-          "sl": 70.31,
-          "margin": 3.0,
-          "leverage": 20,
-          "cvd_score": "4",
-          "rsi": "37.2"
-        },
-        {
-          "time": "2026-06-23 13:30:53",
-          "coin": "XRP",
-          "direction": "LONG",
-          "entry": 1.1111,
-          "tp": 1.132,
-          "sl": 1.093,
-          "margin": 3.0,
-          "leverage": 20,
-          "cvd_score": "5",
-          "rsi": "17.2"
-        }
-      ],
-      "closed_today": [
-        {
-          "time": "13:30",
-          "coin": "XRP",
-          "direction": "SHORT",
-          "exit_price": 1.1109,
-          "pnl": 0.8321,
-          "fee": 0.026494
-        },
-        {
-          "time": "13:18",
-          "coin": "SOL",
-          "direction": "LONG",
-          "exit_price": 70.296,
-          "pnl": -0.92904,
-          "fee": 0.026571
-        },
-        {
-          "time": "12:40",
-          "coin": "SUI",
-          "direction": "LONG",
-          "exit_price": 0.70576,
-          "pnl": -0.46189,
-          "fee": 0.013275
-        },
-        {
-          "time": "12:15",
-          "coin": "BTC",
-          "direction": "LONG",
-          "exit_price": 63561.0,
-          "pnl": -0.91698,
-          "fee": 0.0266
-        },
-        {
-          "time": "11:56",
-          "coin": "BNB",
-          "direction": "SHORT",
-          "exit_price": 587.57,
-          "pnl": 0.604,
-          "fee": 0.01322
-        },
-        {
-          "time": "06:12",
-          "coin": "SUI",
-          "direction": "SHORT",
-          "exit_price": 0.71702,
-          "pnl": 0.105084,
-          "fee": 0.013454
-        },
-        {
-          "time": "04:39",
-          "coin": "ETH",
-          "direction": "SHORT",
-          "exit_price": 1726.7,
-          "pnl": 1.241,
-          "fee": 0.026418
-        },
-        {
-          "time": "23:35",
-          "coin": "SOL",
-          "direction": "SHORT",
-          "exit_price": 72.581,
-          "pnl": 1.19475,
-          "fee": 0.026455
-        },
-        {
-          "time": "22:49",
-          "coin": "XRP",
-          "direction": "LONG",
-          "exit_price": 1.1377,
-          "pnl": -0.9048,
-          "fee": 0.026622
-        },
-        {
-          "time": "19:24",
-          "coin": "BTC",
-          "direction": "SHORT",
-          "exit_price": 64890.0,
-          "pnl": -0.88548,
-          "fee": 0.027448
-        },
-        {
-          "time": "18:47",
-          "coin": "ETH",
-          "direction": "SHORT",
-          "exit_price": 1768.2,
-          "pnl": -0.90472,
-          "fee": 0.027371
-        },
-        {
-          "time": "18:09",
-          "coin": "SUI",
-          "direction": "SHORT",
-          "exit_price": 0.71934,
-          "pnl": -0.48336,
-          "fee": 0.013725
-        }
-      ],
-      "open_positions": [
-        {
-          "coin": "XRP",
-          "direction": "LONG",
-          "size": 54.0,
-          "entry": 1.1111,
-          "unrealized_pnl": -0.486,
-          "leverage": 20
-        }
-      ],
-      "journal_content": "**Jurnal Trading Hari Ini – Selasa, 23 Juni 2026**\n\n**1. Ringkasan Hari Ini**  \nHari ini cukup dinamis, ada beberapa posisi yang berhasil, tapi juga banyak yang kena cut loss. Pasar nampaknya lagi fluktuatif, banyak trader yang bermain short dan long secara bersamaan. Overall, hari ini cukup menguji ketahanan dan strategi bot kita.\n\n**2. Analisa Kenapa Bot Masuk Posisi**  \n- **SUI Short (00:26:35)**  \n  Bot melihat volume delta negatif dan order book imbalance yang cukup kuat (CVD Score: -5), menandakan tekanan jual sedang dominan. RSI di angka 14, menunjukkan kondisi overbought di pasar, sehingga sesuai strategi untuk short. Bot juga memperhatikan resistance di sekitar $0.731, dan dengan support di $0.7058, risiko dan peluang seimbang, tapi tekanan jual lebih kuat.\n\n- **BTC Long (00:26:35)**  \n  Di saat yang sama, CVD Score positif (+2) dan RSI di angka 20.3 menunjukkan adanya akumulasi dan potensi rebound kecil di pasar Bitcoin. Bot melihat adanya imbalance order yang mendukung posisi long, ditambah support di sekitar $63585. Jadi, bot berani masuk long dengan leverage tinggi.\n\n- **XRP Short (06:12:37)**  \n  CVD Score: -3 dan RSI di 40.8 menunjukkan adanya tekanan jual yang mulai menguat, namun belum ekstrem. Bot memanfaatkan momentum ini dengan memperhatikan resistance dan support di sekitar $1.144 dan $1.105, serta melihat ada peluang short jika pola dan order flow mendukung.\n\n- **SUI Long (06:12:37)**  \n  Kondisi berlawanan, CVD Score positif 5 dan RSI di 47.1, menandakan ada akumulasi dan potensi kenaikan. Bot melihat peluang dari order book dan momentum teknikal untuk mengambil posisi long.\n\n- **SOL Long (11:56:18)** dan **XRP Long (13:30:53)**  \n  Kedua posisi ini didukung oleh CVD positif dan RSI yang cukup rendah (37.2 dan 17.2), menunjukkan peluang rebound di support. Bot menganggap ini saat yang tepat untuk masuk, mengantisipasi pergerakan ke atas.\n\n**3. Analisa Kenapa Bot Keluar Posisi**  \n- **XRP Short (13:30:53)**  \n  Target tercapai karena harga turun ke $1.1109, profit sekitar 0.83 USD. Bot mengambil profit sesuai target.\n\n- **SOL Long (11:56:18)**  \n  Sayangnya, pasar berbalik dan harga malah turun ke $70.296, sehingga bot harus cut loss di -0.929 USD. Kondisi ini menunjukkan bahwa momentum tidak cukup kuat untuk bertahan.\n\n- **SUI Long (12:40:00)** dan **BTC Long (12:15:00)**  \n  Keduanya terkena cut loss karena harga bergerak berlawanan dari prediksi, dan menyentuh SL di $0.7063 dan $63561. Bot merasa bahwa tekanan jual mendominasi lagi.\n\n- **XRP Long (22:49:00)** dan **ETH Short (18:47:00)**  \n  Keduanya mengalami kerugian karena pasar berbalik dan menyentuh SL. Ini mengingatkan bahwa pasar crypto sangat volatile dan cepat berubah.\n\n**4. Pelajaran Penting Hari Ini**  \nHari ini mengingatkan bahwa meskipun sinyal order flow dan indikator teknikal sangat membantu, pasar crypto tetap unpredictable. Strategi harus disesuaikan dengan kondisi pasar yang sedang fluktuatif, dan penting untuk disiplin dalam cut loss. Kemenangan tidak selalu datang dari posisi besar, namun dari manajemen risiko yang baik.\n\n**5. Koneksi dengan Berita/Sentimen Pasar**  \nTidak ada berita besar hari ini yang mempengaruhi pasar secara signifikan, tapi tren umum menunjukkan ketidakpastian di pasar crypto. Sentimen tetap mixed, dengan beberapa trader masih optimistic, tapi banyak yang waspada karena volatilitas tinggi.\n\n**6. Skor Performa Hari Ini**  \nSaya kasih nilai 6 dari 10. Ada beberapa posisi yang berhasil, tapi banyak juga yang kena cut loss, menunjukkan bahwa pasar cukup volatile dan perlu lebih hati-hati dalam mengelola risiko. Bot sudah berjalan sesuai strategi, tapi kondisi pasar hari ini menguji ketangguhan sistem.\n\n---\n\nHari ini jadi pengingat, bahwa trading selalu penuh dinamika. Tetap disiplin, belajar dari setiap posisi, dan jangan lupa selalu manajemen risiko ya! Semoga besok pasar lebih bersahabat dan peluangnya makin cerah.",
-      "generated_at": "16:43 WIB"
-    },
-    {
       "date": "2026-06-24",
       "date_display": "Wednesday, 24 June 2026",
       "market_regime": "CHOPSAW",
@@ -2291,6 +2094,24 @@
       "open_positions": [],
       "journal_content": "**Jurnal Trading Hari Ini – Rabu, 22 Juli 2026**\n\n---\n\n### 1. **RINGKASAN HARI INI**  \nHari ini suasana pasar cukup tenang, nggak ada posisi yang dibuka maupun ditutup. Bot tetap stay di posisi standby, menunggu sinyal yang cocok. Secara umum, pasar nggak menunjukkan pergerakan signifikan, jadi trading hari ini lebih ke arah observasi aja.\n\n---\n\n### 2. **ANALISA KENAPA BOT MASUK POSISI**  \nKarena hari ini nggak ada posisi yang dibuka, kita bisa lihat dari sudut pandang strategi gabungan yang dipakai bot. Biasanya, bot mengikuti dua pendekatan utama:\n\n- **Almarhum Doddy Ali Wijaya (CVD/Order Flow):**  \n  Bot memantau volume delta dan order book imbalance. Kalau terjadi peningkatan volume delta positif dan order book menunjukkan ketidakseimbangan ke arah beli, ini jadi sinyal bahwa minat beli sedang meningkat. Contohnya, hari ini nggak ada pergerakan besar, jadi nggak ada sinyal CVD yang signifikan.\n\n- **KJo Academy (RSI + MACD + Support/Resistance):**  \n  Rata-rata RSI hari ini berada di kisaran netral sekitar 45-55, menunjukkan pasar sedang sideways tanpa momentum kuat. MACD juga nggak menunjukkan crossover atau divergence yang berarti, sementara harga tetap berada di area support/resistance yang stabil. Jadi, kondisi pasar cenderung datar, tidak memberikan sinyal masuk yang kuat.\n\nSecara keseluruhan, bot menilai keadaan pasar belum cukup compelling untuk masuk posisi karena indikator teknikal dan order flow tidak menunjukkan adanya peluang yang menjanjikan saat ini.\n\n---\n\n### 3. **ANALISA KENAPA BOT KELUAR POSISI**  \nKarena hari ini nggak ada trade yang dibuka, otomatis nggak ada juga yang ditutup. Tapi kalau misalnya ada posisi yang sedang berjalan, biasanya:\n\n- **Target profit (TP) tercapai:** Jika harga menyentuh level support/resistance yang ditargetkan dan indikator menunjukkan momentum berbalik, bot akan menutup posisi otomatis.\n\n- **Stop loss (SL):** Kalau pasar bergerak berlawanan dari posisi dan mencapai batas SL yang sudah ditentukan.\n\n- **Smart exit:** Jika indikator teknikal mulai menunjukkan ketidakpastian atau momentum berbalik, bot akan keluar untuk mengamankan profit kecil atau mengurangi kerugian.\n\nTidak ada dari semua ini terjadi hari ini karena pasar cenderung sideways.\n\n---\n\n### 4. **PELAJARAN PENTING HARI INI**  \nDari hari ini, kita belajar bahwa sabar itu kunci. Tidak semua hari cocok buat trading, apalagi saat pasar sedang sideways dan volume rendah. Penting banget untuk menunggu sinyal yang benar-benar kuat, baik dari order flow maupun analisa teknikal.  \nSelain itu, selalu pantau kondisi pasar secara menyeluruh, jangan terburu-buru masuk kalau sinyal belum muncul. Kesabaran bisa menyelamatkan dari kerugian yang tidak perlu.\n\n---\n\n### 5. **KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \nHari ini nggak ada berita besar yang keluar dari pasar kripto, sehingga pergerakan cenderung datar dan tidak ada sentimen kuat. Sentimen pasar secara umum cukup netral, tidak ada kabar yang memicu pergerakan drastis. Ini mendukung kondisi sideways dan memperkuat keputusan untuk tidak melakukan trading hari ini.\n\n---\n\n### 6. **SKOR PERFORMA HARI INI** (1-10)  \n**Rating: 6/10**  \nKarena pasar sedang datar dan tidak ada sinyal yang muncul, performa bot hari ini netral. Tidak ada keuntungan maupun kerugian karena posisi tidak diambil. Tapi ini juga bagus sebagai pengingat bahwa tidak semua hari cocok untuk trading, dan menjaga disiplin adalah bagian dari strategi.\n\n---\n\n**Kesimpulan**: Hari ini mengajarkan kita pentingnya bersabar dan menunggu momentum yang tepat. Pasar bisa tenang, tapi bukan berarti kita harus paksa masuk. Tetap disiplin dan terus pantau kondisi pasar secara menyeluruh.\n\n---\n\nSemoga insight hari ini bermanfaat, dan sampai jumpa di jurnal berikutnya!",
       "generated_at": "15:31 WIB"
+    },
+    {
+      "date": "2026-07-23",
+      "date_display": "Thursday, 23 July 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 1e-07,
+      "margin_used": 0.0,
+      "unrealized_pnl": 0.0,
+      "total_closed": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_pnl": 0.0,
+      "win_rate": 0,
+      "entries_today": [],
+      "closed_today": [],
+      "open_positions": [],
+      "journal_content": "**Jurnal Trading Harian – Kamis, 23 Juli 2026**\n\n---\n\n### 1. **RINGKASAN HARI INI**  \nHari ini pasar cenderung sepi, tidak ada posisi yang dibuka atau ditutup. Bot tidak melakukan eksekusi trading sama sekali, mungkin karena kondisi pasar yang agak sideways dan tidak menunjukkan sinyal yang kuat. Meski begitu, ini jadi pengingat bahwa kadang waktu terbaik memang menunggu momentum yang tepat.\n\n---\n\n### 2. **ANALISA KENAPA BOT MASUK POSISI**  \nKarena hari ini tidak ada trade yang dibuka, kita tidak perlu bahas sinyal entry. Tapi, kalau melihat kondisi pasar secara umum, kemungkinan bot sedang menunggu konfirmasi dari indikator kombinasi yang digunakan.  \n- **Sinyal CVD (Almarhum Doddy Ali Wijaya):** Tidak ada posisi terbuka, jadi tidak ada sinyal volume delta atau order book imbalance yang menonjol hari ini. Biasanya, jika ada sinyal CVD, bot akan mengamati volume besar yang mengindikasikan kekuatan tren tertentu.  \n- **Sinyal Teknikal (KJo Academy):** Pasar cenderung sideways, RSI kemungkinan berada di area netral (sekitar 45-55), MACD tidak menunjukkan crossover kuat, dan harga berada di dekat support/resistance yang berdekatan.  \n- **Kesimpulan:** Bot menunggu sinyal yang lebih jelas, karena indikator gabungan menunjukkan kondisi pasar yang belum siap untuk bergerak signifikan.\n\n---\n\n### 3. **ANALISA KENAPA BOT KELUAR POSISI**  \nKarena tidak ada posisi yang terbuka, tidak ada yang ditutup hari ini. Tapi, jika kita melihat kondisi pasar secara umum, biasanya posisi akan ditutup jika target profit tercapai, stop loss tersentuh, atau terjadi pembalikan sinyal dari indikator.  \n- **Target Tercapai / SL:** Tidak berlaku hari ini karena tidak ada transaksi.  \n- **Smart Exit:** Biasanya, jika pasar mulai menunjukkan sinyal berbalik dari support/resistance utama, bot bisa menutup posisi secara otomatis. Tapi hari ini, pasar cenderung datar.\n\n---\n\n### 4. **PELAJARAN PENTING HARI INI**  \nKalau dipikir-pikir, hari tanpa trading juga memberi pelajaran penting. Kadang, yang paling bijak adalah tidak memaksa masuk pasar saat indikator belum menunjukkan sinyal yang kuat. Kondisi sideways dan volume yang rendah mengingatkan kita bahwa tidak semua hari harus diisi dengan trade. Kesabaran dan disiplin tetap kunci.  \nSelain itu, integrasi CVD dan analisa teknikal bisa membantu menghindari entry yang sembrono, apalagi di tengah pasar yang tidak jelas arahnya.\n\n---\n\n### 5. **KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \nHari ini tidak ada berita besar yang mempengaruhi pasar secara signifikan. Sentimen pasar cenderung netral, dengan sebagian besar trader menunggu pengumuman penting di minggu depan. Kondisi ini biasanya menyebabkan pergerakan sideways dan volume yang rendah, cocok untuk strategi menunggu momentum.\n\n---\n\n### 6. **SKOR PERFORMA HARI INI**  \n**Rating: 6/10**  \nAlasannya, hari ini tidak ada trade karena kondisi pasar yang belum menunjukkan sinyal yang cukup kuat. Ini menunjukkan kedisiplinan dalam menunggu peluang yang tepat, meski juga penting untuk tetap waspada jika pasar tiba-tiba bergerak. Keterpaduan antara indikator volume dan teknikal tetap membantu menjaga kesiapsiagaan.\n\n---\n\n**Penutup:**  \nHari ini mengingatkan kita bahwa tidak semua hari harus diisi dengan trading. Kesabaran, observasi, dan disiplin tetap jadi modal utama. Semoga besok pasar memberikan peluang yang lebih jelas. Terus belajar dan pantau kondisi pasar agar strategi gabungan kita semakin tajam!",
+      "generated_at": "15:33 WIB"
     }
   ]
 }
