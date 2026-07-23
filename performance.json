@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "22:37",
-      "equity": 10.621
-    },
-    {
       "time": "23:40",
       "equity": 10.8779
     },
@@ -408,13 +404,13 @@
     {
       "time": "22/07 15:29",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "23/07 15:30",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "22/06",
-      "pnl": -1.3808999999999998
-    },
     {
       "date": "23/06",
       "pnl": -1.5093359999999996
@@ -529,6 +525,10 @@
     },
     {
       "date": "22/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "23/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian Trading Bot (22 Juli 2026)\n\nHari ini, tidak ada aktivitas trading karena saldo masih kosong. Bot belum melakukan transaksi maupun menutup posisi hari ini.  \n\nStatistik: Win: 0 | Loss: 0, P&L hari ini: $0.0000. Tidak ada posisi terbuka maupun trade yang dilakukan hari ini.\n\nInsight: Karena tidak ada perdagangan hari ini, belum ada koin yang menunjukkan performa baik maupun buruk. \n\nStatus posisi: Saat ini, tidak ada posisi terbuka dan saldo masih nol, menandakan belum ada aktivitas trading aktif.\n\nSaran: Untuk besok, pastikan saldo cukup dan kondisi pasar mendukung agar bot bisa berfungsi sesuai strategi. Perhatikan juga level risiko dan sesuaikan parameter jika diperlukan agar trading lebih optimal.",
-    "time": "22 July 2026, 15:29 WIB"
+    "content": "Laporan Harian Trading Bot - 23 Juli 2026\n\nHari ini, bot tidak melakukan trading dan tidak ada posisi terbuka ataupun keuntungan/rugi yang tercatat. Sehingga, performa hari ini masih kosong.\n\nStatistik: Tidak ada perdagangan yang dilakukan hari ini, sehingga Win/Loss dan P&L tetap 0.\n\nInsight: Tidak ada data trading, jadi belum bisa menilai performa koin mana yang baik atau buruk hari ini.\n\nStatus Posisi: Saat ini, tidak ada posisi terbuka maupun aktivitas trading yang berjalan.\n\nSaran: Besok, perhatikan sinyal entry dengan skor >= 3 dan tetap disiplin mengikuti strategi. Pastikan juga monitoring pasar agar peluang trading bisa dimanfaatkan dengan optimal.",
+    "time": "23 July 2026, 15:30 WIB"
   },
-  "last_report_date": "2026-07-22",
+  "last_report_date": "2026-07-23",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
