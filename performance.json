@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "01:13",
-      "equity": 10.5045
-    },
-    {
       "time": "04:01",
       "equity": 11.3167
     },
@@ -408,13 +404,13 @@
     {
       "time": "24/07 15:27",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "25/07 15:06",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "24/06",
-      "pnl": -1.73232
-    },
     {
       "date": "25/06",
       "pnl": -4.342595
@@ -529,6 +525,10 @@
     },
     {
       "date": "24/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "25/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "1. Hari ini tidak ada aktivitas trading karena saldo masih kosong dan tidak ada posisi terbuka.  \n2. Statistik: Win: 0, Loss: 0, P&L hari ini: $0.  \n3. Tidak ada data performa koin karena tidak ada trading yang dilakukan hari ini.  \n4. Tidak ada posisi terbuka saat ini.  \n5. Untuk besok, pastikan kondisi pasar sesuai dan skor entry mencapai threshold agar peluang trading meningkat. Tetap disiplin dan perhatikan manajemen risiko.",
-    "time": "24 July 2026, 15:27 WIB"
+    "content": "Laporan Harian 25 Juli 2026:\n\nHari ini, tidak ada aktivitas trading karena saldo masih kosong dan tidak ada posisi terbuka. Tidak terdapat trade yang dilakukan, sehingga performa harian tetap netral. \n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000. Tidak ada keuntungan maupun kerugian yang tercatat hari ini.\n\nInsight: Tidak ada data performa koin tertentu karena belum ada trading yang dilakukan. Namun, strategi tetap siap untuk digunakan jika kondisi pasar sesuai.\n\nStatus posisi: Saat ini tidak ada posisi terbuka, jadi risiko masih terkendali dan belum ada exposure.\n\nSaran: Pantau kondisi pasar dan siapkan strategi, agar bisa segera memanfaatkan peluang ketika sinyal memenuhi threshold. Pastikan juga saldo cukup untuk aktivitas trading berikutnya.",
+    "time": "25 July 2026, 15:06 WIB"
   },
-  "last_report_date": "2026-07-24",
+  "last_report_date": "2026-07-25",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
