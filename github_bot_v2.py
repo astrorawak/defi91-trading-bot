@@ -585,6 +585,16 @@ def execute_trade(exchange, coin, direction, current_price):
             print("  Entry tidak terisi - membatalkan TP/SL sisa.")
             _cancel_orders_for_coin(exchange, coin)
 
+        # Verifikasi bahwa SL benar-benar ada di exchange.
+        # Riwayat trades.json menunjukkan 514 trade berturut-turut dengan
+        # sl_set=False - artinya bot tidak pernah tahu apakah stop loss-nya
+        # terpasang, dan tetap lanjut seolah-olah aman. Posisi tanpa SL di
+        # leverage tinggi adalah cara tercepat kehilangan seluruh akun.
+        if order_filled:
+            sl_set = _ensure_stop_loss(
+                exchange, coin, size, is_buy, sl_price, entry_price
+            )
+
         return {
             "success": order_filled, "entry_price": entry_price,
             "tp_set": tp_set, "sl_set": sl_set,
@@ -595,6 +605,67 @@ def execute_trade(exchange, coin, direction, current_price):
     except Exception as e:
         print(f"  Gagal eksekusi: {e}")
         return {"success": False, "error": str(e)}
+
+
+def _ensure_stop_loss(exchange, coin, size, entry_is_buy, sl_price, entry_price):
+    """
+    Pastikan stop loss benar-benar terpasang setelah entry terisi.
+
+    Tiga tingkat pertahanan:
+      1. Cek ke exchange apakah ada trigger order stop untuk coin ini
+      2. Kalau tidak ada, pasang SL susulan
+      3. Kalau pemasangan susulan pun gagal, TUTUP POSISI SEKARANG JUGA
+
+    Tingkat ketiga terdengar ekstrem, tapi memegang posisi leverage tinggi
+    tanpa stop loss jauh lebih berbahaya daripada keluar rugi tipis.
+    """
+    time.sleep(1.0)  # beri waktu exchange mendaftarkan trigger order
+
+    try:
+        fe_orders = _post_info({"type": "frontendOpenOrders", "user": config.MAIN_WALLET})
+        for order in fe_orders:
+            if (order.get("coin") == coin
+                    and order.get("orderType") == "Stop Market"
+                    and order.get("reduceOnly", False)):
+                print(f"  SL terverifikasi di exchange @ ${order.get('triggerPx')}")
+                return True
+    except (requests.RequestException, ValueError) as e:
+        print(f"  Tidak bisa memverifikasi SL: {e}")
+
+    print(f"  PERINGATAN: SL tidak ditemukan di exchange - memasang susulan...")
+    try:
+        result = exchange.order(
+            coin, not entry_is_buy, size, sl_price,
+            {"trigger": {"triggerPx": sl_price, "isMarket": True, "tpsl": "sl"}},
+            reduce_only=True,
+        )
+        statuses = result.get("response", {}).get("data", {}).get("statuses", [])
+        if statuses and "resting" in statuses[0]:
+            print(f"  SL susulan terpasang @ ${sl_price}")
+            return True
+        print(f"  SL susulan ditolak: {statuses}")
+    except Exception as e:
+        print(f"  SL susulan gagal: {e}")
+
+    # Pertahanan terakhir - keluar dari posisi yang tidak terlindungi.
+    print(f"  DARURAT: {coin} terbuka tanpa SL. Menutup posisi sekarang.")
+    try:
+        close_px = format_price(
+            entry_price * (1 - config.EXIT_SLIPPAGE) if entry_is_buy
+            else entry_price * (1 + config.EXIT_SLIPPAGE)
+        )
+        exchange.bulk_orders([{
+            "coin": coin, "is_buy": not entry_is_buy, "sz": size,
+            "limit_px": close_px, "order_type": {"limit": {"tif": "Ioc"}},
+            "reduce_only": True,
+        }])
+        _cancel_orders_for_coin(exchange, coin)
+        print(f"  Posisi {coin} ditutup darurat.")
+    except Exception as e:
+        print(f"  KRITIS: gagal menutup {coin} yang tanpa SL: {e}")
+        print(f"  >>> PERIKSA MANUAL DI HYPERLIQUID SEKARANG <<<")
+
+    return False
 
 
 def _cancel_orders_for_coin(exchange, coin):
