@@ -1,17 +1,18 @@
 import os
-import json
 import requests
 from datetime import datetime, timezone, timedelta
 
-# Konfigurasi Telegram
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8944256953:AAF_gZniabFlHri_cStHseMmr2YdliPSAWQ")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "1604558816")
+# Konfigurasi Telegram - HARUS dari environment variable.
+# Token sebelumnya di-hardcode di file ini dan sudah ikut ter-commit ke repo
+# publik, jadi token lama wajib dicabut lewat @BotFather.
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
+
+WIB = timezone(timedelta(hours=7))
 
 def get_wib_time():
     """Get current time in WIB (UTC+7)"""
-    utc_now = datetime.now(timezone.utc)
-    wib_now = utc_now + timedelta(hours=7)
-    return wib_now
+    return datetime.now(WIB)
 
 def send_telegram_message(text):
     """Send message to Telegram"""

@@ -4,8 +4,10 @@ import requests
 from datetime import datetime, timezone, timedelta
 
 # Konfigurasi Telegram
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "8944256953:AAF_gZniabFlHri_cStHseMmr2YdliPSAWQ")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "1604558816")
+# Kredensial WAJIB dari environment variable. Token lama sempat di-hardcode
+# di file ini dan ikut ter-commit ke repo, jadi harus dicabut via @BotFather.
+TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "").strip()
+TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "").strip()
 MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 
 def get_wib_time():

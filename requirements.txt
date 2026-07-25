@@ -1,0 +1,7 @@
+# Dependensi DeFi91 Trading Bot.
+# Versi di-pin supaya update pihak ketiga tidak diam-diam mengubah perilaku
+# bot yang sedang memegang uang sungguhan.
+requests==2.32.3
+numpy==2.1.3
+eth-account==0.13.4
+hyperliquid-python-sdk==0.9.0

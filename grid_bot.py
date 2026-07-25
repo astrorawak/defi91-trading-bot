@@ -1,3 +1,13 @@
+"""
+DeFi91 Grid Trading Bot.
+
+Aktif saat pasar SIDEWAYS/CHOPSAW - kebalikan dari scalping bot yang bekerja
+saat pasar TRENDING. Keduanya berbagi satu akun Hyperliquid.
+
+Konfigurasi sekarang diambil dari config.py (environment variable), bukan
+konstanta di dalam file ini.
+"""
+
 import json
 import time
 import os
@@ -8,20 +18,20 @@ from hyperliquid.info import Info
 from hyperliquid.exchange import Exchange
 from hyperliquid.utils import constants
 
-# --- CONFIGURATION ---
-# Koin kandidat grid (akan di-filter otomatis berdasarkan budget)
-GRID_CANDIDATES = [] # BOT OFF
-# OLD_GRID_CANDIDATES = ["ETH", "XRP", "SOL", "SUI", "BNB", "VVV"]  # Hanya koin proven profitable
-MAX_GRID_PAIRS = 3  # Maksimal 3 koin aktif grid sekaligus
-GRID_LEVELS = 3  # 3 buy + 3 sell = 6 orders per koin
-GRID_LEVERAGE = 5
-GRID_TOTAL_BUDGET = 20.0  # Budget untuk grid bot (sisakan buffer)
-GRID_RANGE_MULTIPLIER = 1.5  # ATR multiplier untuk range
-MIN_ACCOUNT_BALANCE = 15.0  # Safety buffer - diturunkan untuk recovery mode
+import config
+
+# --- CONFIGURATION (dari config.py / environment) ---
+GRID_CANDIDATES = config.GRID_CANDIDATES
+MAX_GRID_PAIRS = config.MAX_GRID_PAIRS
+GRID_LEVELS = config.GRID_LEVELS
+GRID_LEVERAGE = config.GRID_LEVERAGE
+GRID_TOTAL_BUDGET = config.GRID_TOTAL_BUDGET
+GRID_RANGE_MULTIPLIER = config.GRID_RANGE_MULTIPLIER
+MIN_ACCOUNT_BALANCE = config.MIN_ACCOUNT_BALANCE
 
 # Telegram
-TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-TELEGRAM_CHAT_ID = os.getenv("TELEGRAM_CHAT_ID", "")
+TELEGRAM_BOT_TOKEN = config.TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID = config.TELEGRAM_CHAT_ID
 
 def send_grid_telegram(msg):
     """Send grid bot notification to Telegram"""
@@ -35,14 +45,18 @@ def send_grid_telegram(msg):
         pass
 
 # --- INITIALIZATION ---
-PRIVATE_KEY = os.getenv("HYPERLIQUID_PRIVATE_KEY", "")
+# Kill switch dicek sebelum apa pun tersambung ke exchange.
+if not config.GRID_ENABLED:
+    print("Grid bot NONAKTIF (GRID_ENABLED=false). Keluar tanpa order.")
+    raise SystemExit(0)
+
+PRIVATE_KEY = config.PRIVATE_KEY
 if not PRIVATE_KEY:
     print("ERROR: HYPERLIQUID_PRIVATE_KEY not set!")
-    exit(1)
+    raise SystemExit(1)
 
 account = Account.from_key(PRIVATE_KEY)
-# Use hardcoded main wallet address (same as scalping bot)
-MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
+MAIN_WALLET = config.MAIN_WALLET
 print(f"Using wallet: {MAIN_WALLET}")
 
 info = Info(constants.MAINNET_API_URL, skip_ws=True)
@@ -81,6 +95,9 @@ def load_grid_data():
     return {
         "grid_config": {"last_updated": "", "pairs": {}},
         "active_orders": [],
+        # Persediaan lot beli yang belum terjual, per pair. Dipakai supaya
+        # profit hanya dibukukan saat lot yang nyata benar-benar terjual.
+        "inventory": {},
         "completed_trades": [],
         "summary": {
             "total_profit_usd": 0.0,
@@ -316,64 +333,92 @@ def format_price(price, sz_decimals):
     else:
         return f"{price:.1f}"
 
-def manage_grid(coin, grid_config, active_orders, current_price, meta_info):
-    """Check if any grid orders were filled and place opposite orders"""
+def manage_grid(coin, grid_config, active_orders, current_price, meta_info, inventory=None):
+    """
+    Cek order grid yang sudah terisi, lalu pasang order lawannya.
+
+    PERBAIKAN PENTING - pencatatan profit.
+    Versi lama membukukan profit setiap kali order SELL terisi, dengan rumus
+    (harga_jual - harga_jual + interval) * size. Padahal order grid dipasang
+    dengan reduce_only=False di kedua sisi: kalau posisi sedang flat lalu
+    harga naik menembus level sell, order itu MEMBUKA short baru, bukan
+    menutup long. Jadi bot mencatat "profit" untuk trade yang belum selesai,
+    dan summary.total_profit_usd terus naik meski akun sebenarnya rugi.
+
+    Sekarang profit hanya dibukukan kalau ada BUY yang benar-benar terisi
+    lebih dulu di level itu (dilacak lewat dict `inventory` per pair).
+    """
     sz_decimals = meta_info.get("szDecimals", 0)
-    
+    inventory = inventory if inventory is not None else {}
+    lot_stack = inventory.setdefault(coin, [])
+
     try:
         fe_payload = {"type": "frontendOpenOrders", "user": MAIN_WALLET}
-        fe_resp = requests.post("https://api.hyperliquid.xyz/info", json=fe_payload, timeout=10)
+        fe_resp = requests.post("https://api.hyperliquid.xyz/info", json=fe_payload, timeout=15)
         api_open_orders = fe_resp.json()
     except Exception as e:
         print(f"Error getting open orders for {coin}: {e}")
         return active_orders, []
-        
+
     api_order_ids = [str(o.get("oid")) for o in api_open_orders if o.get("coin") == coin]
-    
+
     new_active_orders = []
     completed_trades = []
     orders_to_place = []
-    
+
     for order in active_orders:
         if order["pair"] != coin:
             new_active_orders.append(order)
             continue
-            
+
         order_id = str(order["order_id"])
-        
+
         if order_id not in api_order_ids:
             # Order was filled!
             print(f"  Order {order_id} for {coin} ({order['side']} @ {order['price']}) was filled!")
-            
+
             interval = grid_config["grid_interval"]
             size = order["size"]
-            
+
             if order["side"] == "buy":
                 new_price = order["price"] + interval
                 new_side = False  # sell
-                profit = 0
+                # Catat lot yang baru dibeli - inilah persediaan yang nanti
+                # boleh dihitung sebagai profit saat terjual.
+                lot_stack.append({"price": order["price"], "size": size})
             else:
                 new_price = order["price"] - interval
                 new_side = True  # buy
-                profit = (order["price"] - new_price) * size
-                
-                completed_trades.append({
-                    "pair": coin,
-                    "buy_price": new_price,
-                    "sell_price": order["price"],
-                    "size": size,
-                    "profit_usd": profit,
-                    "completed_at": datetime.now(timezone.utc).isoformat()
-                })
-                print(f"    -> Profit locked: ${profit:.4f}")
-                send_grid_telegram(
-                    f"\U0001f578\ufe0f <b>Grid Bot - Trade Completed!</b>\n"
-                    f"Pair: <b>{coin}</b>\n"
-                    f"Buy: ${new_price:.4f} -> Sell: ${order['price']:.4f}\n"
-                    f"Size: {size}\n"
-                    f"Profit: <b>+${profit:.4f}</b>"
-                )
-                
+
+                # Hanya bukukan profit kalau ada lot beli yang benar-benar ada.
+                lot = None
+                for i, candidate in enumerate(lot_stack):
+                    if candidate["price"] < order["price"]:
+                        lot = lot_stack.pop(i)
+                        break
+
+                if lot is None:
+                    print(f"    -> Sell terisi tanpa lot beli sebelumnya. "
+                          f"Ini MEMBUKA short, bukan menutup profit. Tidak dibukukan.")
+                else:
+                    profit = (order["price"] - lot["price"]) * min(size, lot["size"])
+                    completed_trades.append({
+                        "pair": coin,
+                        "buy_price": lot["price"],
+                        "sell_price": order["price"],
+                        "size": min(size, lot["size"]),
+                        "profit_usd": profit,
+                        "completed_at": datetime.now(timezone.utc).isoformat()
+                    })
+                    print(f"    -> Profit locked: ${profit:.4f}")
+                    send_grid_telegram(
+                        f"\U0001f578\ufe0f <b>Grid Bot - Trade Completed!</b>\n"
+                        f"Pair: <b>{coin}</b>\n"
+                        f"Buy: ${lot['price']:.4f} -> Sell: ${order['price']:.4f}\n"
+                        f"Size: {min(size, lot['size'])}\n"
+                        f"Profit: <b>+${profit:.4f}</b>"
+                    )
+
             orders_to_place.append({
                 "coin": coin,
                 "is_buy": new_side,
@@ -512,9 +557,12 @@ def main():
                     grid_data["grid_config"]["pairs"][coin]["status"] = "inactive"
             else:
                 # Manage existing grid - check for filled orders
-                new_active, completed = manage_grid(coin, coin_config, grid_data["active_orders"], current_price, meta_info)
+                new_active, completed = manage_grid(
+                    coin, coin_config, grid_data["active_orders"], current_price,
+                    meta_info, grid_data.setdefault("inventory", {})
+                )
                 grid_data["active_orders"] = new_active
-                
+
                 if completed:
                     grid_data["completed_trades"].extend(completed)
                     for trade in completed:
@@ -529,7 +577,10 @@ def main():
                 current_price = float(all_mids[coin])
                 meta_info = meta_dict[coin]
                 coin_config = grid_data["grid_config"]["pairs"][coin]
-                new_active, completed = manage_grid(coin, coin_config, grid_data["active_orders"], current_price, meta_info)
+                new_active, completed = manage_grid(
+                    coin, coin_config, grid_data["active_orders"], current_price,
+                    meta_info, grid_data.setdefault("inventory", {})
+                )
                 grid_data["active_orders"] = new_active
                 if completed:
                     grid_data["completed_trades"].extend(completed)
