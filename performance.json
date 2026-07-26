@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "04:01",
-      "equity": 11.3167
-    },
-    {
       "time": "06:08",
       "equity": 11.1099
     },
@@ -408,13 +404,13 @@
     {
       "time": "25/07 15:06",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "26/07 15:26",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "25/06",
-      "pnl": -4.342595
-    },
     {
       "date": "26/06",
       "pnl": 0.7175220000000002
@@ -529,6 +525,10 @@
     },
     {
       "date": "25/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "26/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian 25 Juli 2026:\n\nHari ini, tidak ada aktivitas trading karena saldo masih kosong dan tidak ada posisi terbuka. Tidak terdapat trade yang dilakukan, sehingga performa harian tetap netral. \n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000. Tidak ada keuntungan maupun kerugian yang tercatat hari ini.\n\nInsight: Tidak ada data performa koin tertentu karena belum ada trading yang dilakukan. Namun, strategi tetap siap untuk digunakan jika kondisi pasar sesuai.\n\nStatus posisi: Saat ini tidak ada posisi terbuka, jadi risiko masih terkendali dan belum ada exposure.\n\nSaran: Pantau kondisi pasar dan siapkan strategi, agar bisa segera memanfaatkan peluang ketika sinyal memenuhi threshold. Pastikan juga saldo cukup untuk aktivitas trading berikutnya.",
-    "time": "25 July 2026, 15:06 WIB"
+    "content": "Laporan Harian - 26 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap kosong. Tidak terdapat profit maupun kerugian hari ini.\n\nStatistik: Win: 0, Loss: 0, P&L: $0.0000.\n\nInsight: Karena tidak ada trading hari ini, belum ada data performa koin tertentu. Sebaiknya besok fokus pada peluang yang memenuhi skor entry tinggi untuk memaksimalkan peluang profit.\n\nStatus posisi: Saat ini belum ada posisi terbuka, siap menunggu sinyal yang valid.\n\nSaran: Perhatikan pasar dan tunggu sinyal yang sesuai dengan kriteria ketat agar trading tetap terkendali dan aman. Jangan ragu untuk tetap disiplin sesuai strategi.",
+    "time": "26 July 2026, 15:26 WIB"
   },
-  "last_report_date": "2026-07-25",
+  "last_report_date": "2026-07-26",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
