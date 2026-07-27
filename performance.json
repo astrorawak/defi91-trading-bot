@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "06:08",
-      "equity": 11.1099
-    },
-    {
       "time": "09:13",
       "equity": 12.803
     },
@@ -408,13 +404,13 @@
     {
       "time": "26/07 15:26",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "27/07 16:52",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "26/06",
-      "pnl": 0.7175220000000002
-    },
     {
       "date": "28/06",
       "pnl": -0.988
@@ -529,6 +525,10 @@
     },
     {
       "date": "26/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "27/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian - 26 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap kosong. Tidak terdapat profit maupun kerugian hari ini.\n\nStatistik: Win: 0, Loss: 0, P&L: $0.0000.\n\nInsight: Karena tidak ada trading hari ini, belum ada data performa koin tertentu. Sebaiknya besok fokus pada peluang yang memenuhi skor entry tinggi untuk memaksimalkan peluang profit.\n\nStatus posisi: Saat ini belum ada posisi terbuka, siap menunggu sinyal yang valid.\n\nSaran: Perhatikan pasar dan tunggu sinyal yang sesuai dengan kriteria ketat agar trading tetap terkendali dan aman. Jangan ragu untuk tetap disiplin sesuai strategi.",
-    "time": "26 July 2026, 15:26 WIB"
+    "content": "Laporan Harian Trading Bot - 27 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap nol. Tidak ada trade yang berhasil maupun rugi, sehingga belum ada performa yang tercatat. Saat ini, tidak ada posisi terbuka maupun margin yang digunakan. \n\nSecara statistik, tidak ada kemenangan maupun kerugian hari ini, dan P&L tetap nihil. Karena tidak ada trading, tidak ada koin yang menunjukkan performa baik atau buruk. \n\nUntuk besok, disarankan untuk memantau kondisi pasar dan memastikan skor entry mencapai threshold ketat sebelum melakukan trading. Jika peluang muncul, lakukan analisis yang cermat agar risiko tetap terkendali.",
+    "time": "27 July 2026, 16:52 WIB"
   },
-  "last_report_date": "2026-07-26",
+  "last_report_date": "2026-07-27",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
