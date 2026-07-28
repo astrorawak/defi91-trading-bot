@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "09:13",
-      "equity": 12.803
-    },
-    {
       "time": "12:05",
       "equity": 10.6048
     },
@@ -408,13 +404,13 @@
     {
       "time": "27/07 16:52",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "28/07 15:34",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "28/06",
-      "pnl": -0.988
-    },
     {
       "date": "29/06",
       "pnl": 20.479948000000004
@@ -529,6 +525,10 @@
     },
     {
       "date": "27/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "28/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian Trading Bot - 27 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap nol. Tidak ada trade yang berhasil maupun rugi, sehingga belum ada performa yang tercatat. Saat ini, tidak ada posisi terbuka maupun margin yang digunakan. \n\nSecara statistik, tidak ada kemenangan maupun kerugian hari ini, dan P&L tetap nihil. Karena tidak ada trading, tidak ada koin yang menunjukkan performa baik atau buruk. \n\nUntuk besok, disarankan untuk memantau kondisi pasar dan memastikan skor entry mencapai threshold ketat sebelum melakukan trading. Jika peluang muncul, lakukan analisis yang cermat agar risiko tetap terkendali.",
-    "time": "27 July 2026, 16:52 WIB"
+    "content": "Laporan Harian Trading Bot - 28 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap kosong. Tidak ada profit atau kerugian yang tercatat.\n\nStatistik hari ini: Win: 0, Loss: 0, P&L: $0.00.\n\nKarena tidak ada trade yang terbuka atau tertutup hari ini, tidak ada koin tertentu yang menunjukkan performa baik atau buruk. Semua koin tetap dalam kondisi stand-by.\n\nSaat ini, tidak ada posisi terbuka, sehingga tidak ada risiko yang sedang berjalan.\n\nSaran untuk besok, tetap pantau skor entry dan kondisi pasar agar dapat segera memanfaatkan peluang trading saat kondisi memenuhi kriteria. Pastikan juga saldo cukup untuk menjalankan strategi secara optimal.",
+    "time": "28 July 2026, 15:34 WIB"
   },
-  "last_report_date": "2026-07-27",
+  "last_report_date": "2026-07-28",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
