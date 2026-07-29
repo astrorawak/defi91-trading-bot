@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "12:05",
-      "equity": 10.6048
-    },
-    {
       "time": "13:32",
       "equity": 9.5974
     },
@@ -408,13 +404,13 @@
     {
       "time": "28/07 15:34",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "29/07 15:40",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "29/06",
-      "pnl": 20.479948000000004
-    },
     {
       "date": "30/06",
       "pnl": 1.5299870000000002
@@ -529,6 +525,10 @@
     },
     {
       "date": "28/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "29/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian Trading Bot - 28 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap kosong. Tidak ada profit atau kerugian yang tercatat.\n\nStatistik hari ini: Win: 0, Loss: 0, P&L: $0.00.\n\nKarena tidak ada trade yang terbuka atau tertutup hari ini, tidak ada koin tertentu yang menunjukkan performa baik atau buruk. Semua koin tetap dalam kondisi stand-by.\n\nSaat ini, tidak ada posisi terbuka, sehingga tidak ada risiko yang sedang berjalan.\n\nSaran untuk besok, tetap pantau skor entry dan kondisi pasar agar dapat segera memanfaatkan peluang trading saat kondisi memenuhi kriteria. Pastikan juga saldo cukup untuk menjalankan strategi secara optimal.",
-    "time": "28 July 2026, 15:34 WIB"
+    "content": "Laporan Harian 29 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan, sehingga saldo dan posisi tetap nol. Tidak ada profit atau kerugian yang tercatat.\n\nStatistik: Win: 0, Loss: 0, P&L: $0.0000.\n\nInsight: Tidak ada data trading hari ini, sehingga belum dapat menentukan koin mana yang berkinerja baik atau buruk.\n\nStatus Posisi: Saat ini tidak ada posisi terbuka, semua posisi sudah ditutup hari ini.\n\nSaran: Besok, perhatikan peluang dengan skor entry >= 3 dan tetap disiplin mengikuti strategi. Jangan ragu untuk memanfaatkan peluang yang sesuai untuk meningkatkan performa.",
+    "time": "29 July 2026, 15:40 WIB"
   },
-  "last_report_date": "2026-07-28",
+  "last_report_date": "2026-07-29",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
