@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "26/06 16:27",
-      "equity": 11.341199999999999
-    },
-    {
       "time": "17:24",
       "equity": 11.3345
     },
@@ -408,13 +404,13 @@
     {
       "time": "30/07 15:26",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "31/07 15:49",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "01/07",
-      "pnl": -0.15144400000000002
-    },
     {
       "date": "02/07",
       "pnl": 2.1678469999999996
@@ -529,6 +525,10 @@
     },
     {
       "date": "30/07",
+      "pnl": 0.0
+    },
+    {
+      "date": "31/07",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "1. Hari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap nol.  \n2. Statistik: Tidak ada trading, Win/Loss: 0/0, P&L: $0.  \n3. Tidak ada koin yang menunjukkan performa karena belum ada trading.  \n4. Saat ini tidak ada posisi terbuka, sehingga tidak ada risiko yang sedang berjalan.  \n5. Besok, fokus pada analisis pasar dan peluang trading sesuai strategi, serta pastikan skor entry memenuhi syarat untuk meningkatkan peluang profit.",
-    "time": "30 July 2026, 15:26 WIB"
+    "content": "Laporan Harian Trading Bot - 31 Juli 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan karena saldo masih nol dan tidak ada posisi terbuka. Bot belum melakukan trading maupun menutup posisi hari ini. Statistik menunjukkan tidak ada hasil positif maupun negatif, sehingga performa hari ini kosong. \n\nDari segi performa, belum ada trading yang dilakukan sehingga belum ada koin yang menunjukkan performa baik atau buruk. Kondisi ini menandakan bot masih dalam mode siaga dan siap untuk aktif saat ada sinyal yang sesuai.\n\nPosisi terbuka saat ini nihil, sehingga tidak ada risiko terbuka maupun potensi keuntungan yang sedang berjalan.\n\nSaran untuk besok, pastikan saldo cukup dan perhatikan sinyal pasar agar bot dapat mulai aktif melakukan trading sesuai strategi. Jangan lupa lakukan pengecekan secara rutin agar peluang profit dapat dimaksimalkan.",
+    "time": "31 July 2026, 15:49 WIB"
   },
-  "last_report_date": "2026-07-30",
+  "last_report_date": "2026-07-31",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
