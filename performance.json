@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "22:20",
-      "equity": 17.7643
-    },
-    {
       "time": "23:31",
       "equity": 22.3247
     },
@@ -408,13 +404,13 @@
     {
       "time": "02/08 15:23",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "03/08 16:44",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "04/07",
-      "pnl": -13.52162
-    },
     {
       "date": "05/07",
       "pnl": -22.40158
@@ -529,6 +525,10 @@
     },
     {
       "date": "02/08",
+      "pnl": 0.0
+    },
+    {
+      "date": "03/08",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Performa Harian - 02 Agustus 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap nol. Tidak ada profit atau kerugian yang terjadi hari ini. \n\nStatistik: Tidak ada trade yang berhasil maupun gagal, P&L hari ini tetap $0. \n\nInsight: Karena tidak ada trade yang dilakukan, belum ada data performa koin tertentu. Jika besok ingin aktif, fokus pada koin dengan peluang tinggi sesuai strategi.\n\nPosisi terbuka saat ini kosong, tidak ada posisi yang perlu dimonitor. \n\nSaran: Tunggu sinyal yang sesuai dengan kriteria ketat untuk membuka posisi di hari berikutnya. Pastikan analisis tetap disiplin dan hindari trading impulsif.",
-    "time": "02 August 2026, 15:23 WIB"
+    "content": "Laporan Performa Harian - 03 Agustus 2026\n\nHari ini belum ada aktivitas trading yang dilakukan, sehingga saldo dan posisi tetap kosong. Tidak ada posisi terbuka maupun hasil trading yang tercatat. Secara statistik, belum ada kemenangan maupun kerugian, dan P&L tetap nol. Karena belum ada trading, belum ada koin yang menunjukkan performa baik atau buruk. Status posisi saat ini kosong, tidak ada posisi terbuka maupun tertutup hari ini. Untuk besok, disarankan menunggu sinyal yang lebih kuat sesuai strategi threshold dan indikator, serta melakukan analisis pasar terlebih dahulu sebelum melakukan trading.",
+    "time": "03 August 2026, 16:44 WIB"
   },
-  "last_report_date": "2026-08-02",
+  "last_report_date": "2026-08-03",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
