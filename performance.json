@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "05:59",
-      "equity": 11.0448
-    },
-    {
       "time": "09:08",
       "equity": 11.4083
     },
@@ -408,13 +404,13 @@
     {
       "time": "06/08 15:35",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "07/08 14:15",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "08/07",
-      "pnl": 0.0
-    },
     {
       "date": "09/07",
       "pnl": 0.0
@@ -529,6 +525,10 @@
     },
     {
       "date": "06/08",
+      "pnl": 0.0
+    },
+    {
+      "date": "07/08",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "1. Hari ini belum ada aktivitas trading, saldo dan posisi tetap kosong.  \n2. Statistik: Win: 0, Loss: 0, P&L: $0.00.  \n3. Tidak ada data trading hari ini, sehingga belum bisa menilai performa koin tertentu.  \n4. Saat ini tidak ada posisi terbuka, kondisi tetap netral.  \n5. Untuk besok, disarankan menunggu sinyal yang valid sesuai strategi, dan pastikan kondisi pasar mendukung sebelum melakukan trading.",
-    "time": "06 August 2026, 15:35 WIB"
+    "content": "1. Hari ini tidak ada aktivitas trading, saldo dan posisi tetap kosong.  \n2. Statistik: Win: 0, Loss: 0, P&L: $0.0000.  \n3. Tidak ada kinerja yang bisa dievaluasi karena tidak ada trading hari ini.  \n4. Tidak ada posisi terbuka saat ini.  \n5. Besok, tetap pantau sinyal dan pastikan kondisi pasar sesuai strategi sebelum melakukan trading. Jangan lupa perhatikan risiko dan disiplin dalam pengelolaan posisi.",
+    "time": "07 August 2026, 14:15 WIB"
   },
-  "last_report_date": "2026-08-06",
+  "last_report_date": "2026-08-07",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
