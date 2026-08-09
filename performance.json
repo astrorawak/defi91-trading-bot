@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "11:48",
-      "equity": 11.2233
-    },
-    {
       "time": "13:05",
       "equity": 11.0885
     },
@@ -408,13 +404,13 @@
     {
       "time": "08/08 13:52",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "09/08 13:56",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "10/07",
-      "pnl": 0.0
-    },
     {
       "date": "11/07",
       "pnl": 0.0
@@ -529,6 +525,10 @@
     },
     {
       "date": "08/08",
+      "pnl": 0.0
+    },
+    {
+      "date": "09/08",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian 08 Agustus 2026:\n\nHari ini, tidak ada aktivitas trading karena saldo dan posisi masih kosong. Tidak ada trade yang dibuka maupun ditutup hari ini. Secara keseluruhan, performa masih belum aktifkan karena belum ada eksekusi.\n\nStatistik: Tidak ada kemenangan maupun kerugian, dengan P&L total sebesar $0.\n\nInsight: Karena tidak ada trading hari ini, tidak ada koin yang menunjukkan performa baik maupun buruk. Semua koin tetap menunggu sinyal yang sesuai.\n\nStatus Posisi: Tidak ada posisi terbuka saat ini.\n\nSaran untuk besok, pastikan kondisi pasar memenuhi kriteria trading dan perhatikan sinyal dari indikator agar peluang trading dapat dimaksimalkan. Tetap disiplin dengan strategi dan manajemen risiko yang sudah ditetapkan.",
-    "time": "08 August 2026, 13:52 WIB"
+    "content": "Laporan Performa Harian - 09 Agustus 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap kosong. Tidak ada trade yang berhasil maupun rugi hari ini. Performa bot tetap netral karena belum ada posisi terbuka maupun tertutup.\n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000\n\nInsight: Tidak ada pergerakan di pasar hari ini, sehingga tidak ada koin yang menunjukkan performa baik atau buruk. Semua koin tetap tidak aktif di posisi.\n\nStatus Posisi: Saat ini, tidak ada posisi terbuka dan tidak ada trading yang berlangsung.\n\nSaran untuk besok: Pantau kondisi pasar dan tingkatkan sinyal entry sesuai strategi, siap untuk eksekusi saat kondisi memenuhi threshold. Tetap disiplin dan siap melakukan trading saat peluang muncul.",
+    "time": "09 August 2026, 13:56 WIB"
   },
-  "last_report_date": "2026-08-08",
+  "last_report_date": "2026-08-09",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
