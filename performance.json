@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "13:05",
-      "equity": 11.0885
-    },
-    {
       "time": "16:30",
       "equity": 11.2278
     },
@@ -408,13 +404,13 @@
     {
       "time": "09/08 13:56",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "10/08 14:40",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "11/07",
-      "pnl": 0.0
-    },
     {
       "date": "12/07",
       "pnl": 0.0
@@ -529,6 +525,10 @@
     },
     {
       "date": "09/08",
+      "pnl": 0.0
+    },
+    {
+      "date": "10/08",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Performa Harian - 09 Agustus 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap kosong. Tidak ada trade yang berhasil maupun rugi hari ini. Performa bot tetap netral karena belum ada posisi terbuka maupun tertutup.\n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000\n\nInsight: Tidak ada pergerakan di pasar hari ini, sehingga tidak ada koin yang menunjukkan performa baik atau buruk. Semua koin tetap tidak aktif di posisi.\n\nStatus Posisi: Saat ini, tidak ada posisi terbuka dan tidak ada trading yang berlangsung.\n\nSaran untuk besok: Pantau kondisi pasar dan tingkatkan sinyal entry sesuai strategi, siap untuk eksekusi saat kondisi memenuhi threshold. Tetap disiplin dan siap melakukan trading saat peluang muncul.",
-    "time": "09 August 2026, 13:56 WIB"
+    "content": "Laporan Harian 10 Agustus 2026:\n\nHari ini, tidak ada aktivitas trading yang terjadi, sehingga saldo dan performa tetap nihil. Bot tidak membuka posisi maupun menutup trade hari ini.\n\nStatistik: Win: 0, Loss: 0, P&L: $0.00.\n\nInsight: Karena tidak ada trading hari ini, tidak ada koin yang menunjukkan performa baik atau buruk.\n\nStatus posisi: Saat ini, tidak ada posisi terbuka maupun tertutup.\n\nSaran untuk besok: Tetap pantau kondisi pasar dan pastikan sinyal memenuhi threshold ketat sebelum melakukan trading. Fokus pada manajemen risiko dan disiplin strategi.",
+    "time": "10 August 2026, 14:40 WIB"
   },
-  "last_report_date": "2026-08-09",
+  "last_report_date": "2026-08-10",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
