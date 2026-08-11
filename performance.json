@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "16:30",
-      "equity": 11.2278
-    },
-    {
       "time": "17:31",
       "equity": 9.8334
     },
@@ -408,13 +404,13 @@
     {
       "time": "10/08 14:40",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "11/08 14:07",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "12/07",
-      "pnl": 0.0
-    },
     {
       "date": "13/07",
       "pnl": 0.0
@@ -529,6 +525,10 @@
     },
     {
       "date": "10/08",
+      "pnl": 0.0
+    },
+    {
+      "date": "11/08",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian 10 Agustus 2026:\n\nHari ini, tidak ada aktivitas trading yang terjadi, sehingga saldo dan performa tetap nihil. Bot tidak membuka posisi maupun menutup trade hari ini.\n\nStatistik: Win: 0, Loss: 0, P&L: $0.00.\n\nInsight: Karena tidak ada trading hari ini, tidak ada koin yang menunjukkan performa baik atau buruk.\n\nStatus posisi: Saat ini, tidak ada posisi terbuka maupun tertutup.\n\nSaran untuk besok: Tetap pantau kondisi pasar dan pastikan sinyal memenuhi threshold ketat sebelum melakukan trading. Fokus pada manajemen risiko dan disiplin strategi.",
-    "time": "10 August 2026, 14:40 WIB"
+    "content": "Laporan Harian Trading Bot - 11 Agustus 2026\n\nHari ini, trading bot tidak melakukan transaksi karena tidak ada posisi terbuka atau penutupan. Tidak ada profit maupun kerugian yang terjadi. \n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000\n\nInsight: Tidak ada data transaksi hari ini, sehingga belum bisa menilai performa koin tertentu. Namun, strategi tetap siap untuk peluang berikutnya.\n\nStatus posisi: Saat ini tidak ada posisi terbuka, bot dalam kondisi siaga untuk peluang berikutnya.\n\nSaran: Pantau terus pasar dan pastikan kondisi pasar tetap sesuai dengan kriteria entry. Siapkan strategi dan bersabar menunggu sinyal yang valid.",
+    "time": "11 August 2026, 14:07 WIB"
   },
-  "last_report_date": "2026-08-10",
+  "last_report_date": "2026-08-11",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
