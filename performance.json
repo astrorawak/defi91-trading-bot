@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "17:31",
-      "equity": 9.8334
-    },
-    {
       "time": "21:22",
       "equity": 3.7409
     },
@@ -408,13 +404,13 @@
     {
       "time": "11/08 14:07",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "12/08 14:24",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "13/07",
-      "pnl": 0.0
-    },
     {
       "date": "14/07",
       "pnl": 0.0
@@ -529,6 +525,10 @@
     },
     {
       "date": "11/08",
+      "pnl": 0.0
+    },
+    {
+      "date": "12/08",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian Trading Bot - 11 Agustus 2026\n\nHari ini, trading bot tidak melakukan transaksi karena tidak ada posisi terbuka atau penutupan. Tidak ada profit maupun kerugian yang terjadi. \n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000\n\nInsight: Tidak ada data transaksi hari ini, sehingga belum bisa menilai performa koin tertentu. Namun, strategi tetap siap untuk peluang berikutnya.\n\nStatus posisi: Saat ini tidak ada posisi terbuka, bot dalam kondisi siaga untuk peluang berikutnya.\n\nSaran: Pantau terus pasar dan pastikan kondisi pasar tetap sesuai dengan kriteria entry. Siapkan strategi dan bersabar menunggu sinyal yang valid.",
-    "time": "11 August 2026, 14:07 WIB"
+    "content": "Laporan Harian - 12 Agustus 2026\n\nHari ini, tidak ada aktivitas trading yang terjadi, sehingga saldo dan performa tetap kosong. Tidak ada posisi terbuka maupun trade yang ditutup hari ini, sehingga belum terdapat keuntungan atau kerugian yang tercatat.\n\nStatistik: Win: 0, Loss: 0, P&L: $0.0000\n\nInsight: Karena tidak ada trading hari ini, belum ada koin yang menunjukkan performa baik maupun buruk. Pantau terus sinyal dan kondisi pasar agar dapat memanfaatkan peluang di hari berikutnya.\n\nStatus Posisi: Saat ini, belum ada posisi terbuka maupun trading aktif.\n\nSaran: Besok fokus pada analisis kondisi pasar dan sinyal entry sesuai strategi, serta pastikan kondisi margin dan risiko terkendali untuk memaksimalkan peluang trading.",
+    "time": "12 August 2026, 14:24 WIB"
   },
-  "last_report_date": "2026-08-11",
+  "last_report_date": "2026-08-12",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
