@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "21:22",
-      "equity": 3.7409
-    },
-    {
       "time": "22:46",
       "equity": 0.7183
     },
@@ -408,13 +404,13 @@
     {
       "time": "12/08 14:24",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "13/08 14:26",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "14/07",
-      "pnl": 0.0
-    },
     {
       "date": "15/07",
       "pnl": 0.0
@@ -529,6 +525,10 @@
     },
     {
       "date": "12/08",
+      "pnl": 0.0
+    },
+    {
+      "date": "13/08",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian - 12 Agustus 2026\n\nHari ini, tidak ada aktivitas trading yang terjadi, sehingga saldo dan performa tetap kosong. Tidak ada posisi terbuka maupun trade yang ditutup hari ini, sehingga belum terdapat keuntungan atau kerugian yang tercatat.\n\nStatistik: Win: 0, Loss: 0, P&L: $0.0000\n\nInsight: Karena tidak ada trading hari ini, belum ada koin yang menunjukkan performa baik maupun buruk. Pantau terus sinyal dan kondisi pasar agar dapat memanfaatkan peluang di hari berikutnya.\n\nStatus Posisi: Saat ini, belum ada posisi terbuka maupun trading aktif.\n\nSaran: Besok fokus pada analisis kondisi pasar dan sinyal entry sesuai strategi, serta pastikan kondisi margin dan risiko terkendali untuk memaksimalkan peluang trading.",
-    "time": "12 August 2026, 14:24 WIB"
+    "content": "Hari ini, tidak ada aktivitas trading yang dilakukan oleh bot sehingga tidak terdapat posisi terbuka maupun hasil trading.  \nStatistik hari ini: Win: 0, Loss: 0, P&L: $0.00.  \nKarena belum ada trading, belum bisa mengidentifikasi koin yang berkinerja baik maupun buruk.  \nSaat ini, tidak ada posisi terbuka dan saldo tetap kosong.  \nSaran untuk besok, perhatikan sinyal dengan lebih ketat dan siapkan strategi yang siap diaktifkan ketika kondisi pasar sesuai, agar dapat memanfaatkan peluang dengan optimal.",
+    "time": "13 August 2026, 14:26 WIB"
   },
-  "last_report_date": "2026-08-12",
+  "last_report_date": "2026-08-13",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
