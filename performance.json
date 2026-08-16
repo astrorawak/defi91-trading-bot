@@ -10,10 +10,6 @@
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
     {
-      "time": "03:14",
-      "equity": 14.7811
-    },
-    {
       "time": "05:55",
       "equity": 16.6512
     },
@@ -408,13 +404,13 @@
     {
       "time": "15/08 13:37",
       "equity": -2.782524999999996
+    },
+    {
+      "time": "16/08 13:38",
+      "equity": -2.782524999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "17/07",
-      "pnl": 0.0
-    },
     {
       "date": "18/07",
       "pnl": 0.0
@@ -529,6 +525,10 @@
     },
     {
       "date": "15/08",
+      "pnl": 0.0
+    },
+    {
+      "date": "16/08",
       "pnl": 0.0
     }
   ],
@@ -935,10 +935,10 @@
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian Trading Bot - 15 Agustus 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo tetap nol. Tidak ada posisi terbuka maupun trade yang ditutup hari ini. Secara statistik, belum ada kemenangan maupun kerugian yang tercatat. Tidak ada P&L yang terjadi hari ini.\n\nDari data hari ini, tidak ada koin yang menunjukkan performa baik maupun buruk karena tidak ada trading aktif. Bot tetap dalam posisi standby hingga ada sinyal yang memenuhi kriteria.\n\nPosisi saat ini kosong, tidak ada posisi terbuka maupun risiko yang berjalan. \n\nSaran untuk besok, perhatikan sinyal dengan cermat dan pastikan pasar menunjukkan peluang sebelum melakukan trading. Tetap disiplin sesuai strategi dan jangan ragu menunggu kondisi yang optimal.",
-    "time": "15 August 2026, 13:37 WIB"
+    "content": "Laporan Harian 16 Agustus 2026:\n\nHari ini, tidak ada trading yang dilakukan sehingga saldo dan posisi tetap nihil. Strategi bot tetap siaga menunggu sinyal yang sesuai.\n\nStatistik: Tidak ada trade hari ini, sehingga Win/Loss dan P&L tetap nol.\n\nInsight: Tidak ada pergerakan yang terjadi, jadi tidak ada koin yang menunjukkan performa baik maupun buruk.\n\nStatus Posisi: Tidak ada posisi terbuka saat ini.\n\nSaran: Besok, fokus pada kondisi pasar dan pastikan sinyal memenuhi threshold agar trading bisa dilakukan dengan lebih efektif. Tetap disiplin dan waspada terhadap peluang yang muncul.",
+    "time": "16 August 2026, 13:38 WIB"
   },
-  "last_report_date": "2026-08-15",
+  "last_report_date": "2026-08-16",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
