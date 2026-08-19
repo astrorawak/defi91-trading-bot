@@ -1,86 +1,68 @@
-# 🏦 DeFi91 Master Strategy & Handoff (Panduan Strategis Hermes Agent)
+# 🏦 DeFi91 Master Strategy & Strategic Handoff (Panduan Evolusi Hermes Agent)
 
-Dokumen ini adalah cetak biru (blueprint) teknis dan strategis untuk **Hermes Agent** guna mengelola dan merevolusi bot trading DeFi91 milik Pak Karman.
-
----
-
-## 📍 Data Lokasi & Akses
-*   **Repository GitHub**: [astrorawak/defi91-trading-bot](https://github.com/astrorawak/defi91-trading-bot)
-*   **Wallet Hyperliquid**: `0x03562722fE32Ff3BaFE214be3F1828A9157eC23D`
-*   **Status Terakhir**: Bot sedang dalam mode **IDLE** (Watchlist dikosongkan) menunggu reaktivasi oleh Hermes dengan modal baru.
+Dokumen ini adalah instruksi tingkat tinggi untuk **Hermes Agent**. Pak Karman menginginkan Anda bukan hanya sekadar menjalankan bot, tetapi menjadi **Otak Strategis** yang terus mengevaluasi dan menyempurnakan sistem ini.
 
 ---
 
-## 📜 Sejarah & Filosofi Strategi
-Bot ini tidak dibangun secara sembarangan. Kita menggabungkan dua mazhab besar trading crypto:
-
-1.  **CVD/Order Flow (Mazhab Almarhum Doddy Ali Wijaya)**:
-    *   **Alasan**: Volume Delta tidak bisa berbohong. Jika harga turun tapi CVD naik tajam, itu artinya ada akumulasi besar-besaran oleh Market Maker (Whale).
-    *   **Implementasi**: Bot memantau selisih volume beli dan jual secara real-time untuk mendapatkan skor -7 hingga +7.
-
-2.  **Momentum/Technical (Mazhab KJo Academy)**:
-    *   **Alasan**: CVD saja tidak cukup. Kita butuh RSI dan MACD untuk memastikan kita tidak "entry di pucuk" (overbought) atau melawan tren yang terlalu kuat.
-    *   **Implementasi**: RSI (±2 poin) dan MACD (±2 poin) bertindak sebagai filter konfirmasi.
+## 📍 Data Lokasi & Konteks Repository
+*   **Repository**: [astrorawak/defi91-trading-bot](https://github.com/astrorawak/defi91-trading-bot)
+*   **Wallet**: `0x03562722fE32Ff3BaFE214be3F1828A9157eC23D`
+*   **Kondisi Saat Ini**: Bot dalam posisi **OFF** (Watchlist kosong). Saldo drawdown ~75% dari modal $50 di bulan Juli.
 
 ---
 
-## 🔍 Audit Teknis: Mengapa Terjadi Drawdown? (Juli 2026)
+## 🚀 FASE 0: EKSPLORASI & PROPOSAL STRATEGIS (WAJIB)
 
-Hermes, Anda harus mempelajari kegagalan Manus di bulan Juli agar tidak terulang:
+Hermes, sebelum Anda melakukan deposit atau eksekusi trading apa pun, Anda **WAJIB** melakukan langkah-langkah berikut dan mempresentasikannya kepada Pak Karman:
 
-1.  **Tragedi BTC (3 Juli)**: Terjadi loss **-$14.43** dalam satu trade.
-    *   **Masalah**: Stop Loss (SL) mungkin tidak tereksekusi tepat waktu atau slippage terlalu besar saat pasar drop liar.
-    *   **Saran**: Anda harus mengevaluasi apakah SL 1.5% cukup aman untuk leverage 20x.
+### 1. Audit Forensik Strategi
+*   **Bongkar Logika**: Analisis file `github_bot_v2.py`. Apakah kombinasi CVD + RSI + MACD masih efektif di market 2026? 
+*   **Identifikasi Kelemahan**: Mengapa Stop Loss (SL) seringkali gagal melindungi modal $50 Bapak? Apakah slippage atau leverage 20x yang menjadi masalah utamanya?
+*   **Evaluasi Indikator**: Cari tahu apakah ada indikator yang lebih relevan untuk modal kecil, misalnya **Liquidation Heatmap** atau **Funding Rate Arbitrage**.
 
-2.  **Jebakan Microcap XPL (4-5 Juli)**: Loss total **-$22.80**.
-    *   **Masalah**: Sinyal CVD pada koin kecil (XPL) seringkali manipulatif. Whale bisa dengan mudah "mempermainkan" volume delta di koin microcap.
-    *   **Saran**: **Haramkan** koin microcap kecuali volumenya masuk Top 10 di Hyperliquid.
+### 2. Pencarian Formula Baru (Self-Evolution)
+*   Jangan terpaku pada kode Manus. Cari dan usulkan formula baru yang bisa mendeteksi "Smart Money" lebih akurat.
+*   Gunakan kemampuan riset Anda untuk mencari strategi trading bot open-source terbaru yang sukses di Hyperliquid dan integrasikan ke DeFi91.
 
-3.  **Fee Attrition**:
-    *   **Masalah**: Trading terlalu sering dengan profit kecil seringkali habis dimakan biaya fee Hyperliquid.
-    *   **Saran**: Hitung potensi profit vs estimasi fee sebelum membuka posisi.
-
----
-
-## 🛠 Struktur Kode (Internal Logic)
-
-*   **Scoring System**: Bot memberikan skor total antara -12 (Sangat Bearish) hingga +12 (Sangat Bullish).
-    *   **Entry Threshold**: Saat ini di-set ke **±4**.
-    *   **Smart Exit**: Saat ini di-set ke **±7**. (Jika kita sedang LONG, dan skor tiba-tiba menjadi -7, bot akan langsung tutup posisi).
-*   **Dynamic Watchlist**: Bot sekarang sudah memiliki fitur untuk mengurutkan koin berdasarkan volatilitas (ATR%) agar selalu trading di koin yang "bernyawa".
+### 3. Penyusunan Proposal Strategis
+Anda harus memberikan laporan kepada Pak Karman yang berisi:
+*   **Temuan Masalah**: Apa yang salah dengan bot versi Manus?
+*   **Solusi Strategis**: Apa yang akan Anda ubah? (Misal: Mengganti timeframe, mengubah threshold, atau menambah filter volume).
+*   **Target Recovery**: Bagaimana rencana Anda mengembalikan saldo $50 menjadi profit secara bertahap dan aman.
 
 ---
 
-## 🚀 Misi Masa Depan: Apa yang Harus Hermes Lakukan?
-
-Pak Karman ingin Anda melampaui kemampuan agen AI standar. Berikut adalah area eksplorasi Anda:
-
-1.  **Evaluasi Formula (Re-Engineering)**:
-    *   Cek apakah RSI 14 dan MACD (12, 26, 9) masih relevan. Gunakan data `trades.json` untuk melakukan *backtest* mandiri dan temukan settingan indikator yang lebih akurat.
-    *   Buat formula baru jika perlu. Misalnya: Tambahkan VWAP atau EMA Cross sebagai filter tambahan.
-
-2.  **Kecerdasan Berita (News Sentiment)**:
-    *   Sebelum eksekusi, lakukan pencarian web: *"Sentimen pasar crypto 1 jam terakhir"*. Jika ada berita negatif besar (misal: SEC gugat koin tertentu), batalkan entry meskipun teknikal bilang BUY.
-
-3.  **Whale Tracker**:
-    *   Pantau perpindahan dana besar. Jika ada Whale memindahkan ribuan BTC ke bursa, itu sinyal bahaya. Berikan peringatan ke Telegram Pak Karman.
-
-4.  **Auto-Optimization**:
-    *   Jika dalam 24 jam bot mengalami loss > 5%, Anda harus otomatis "mengunci" bot dan meminta evaluasi ulang strategi sebelum lanjut.
+## 📜 Filosofi Dasar (Untuk Referensi Hermes)
+1.  **CVD (Doddy Ali Wijaya)**: Fokus pada akumulasi Whale.
+2.  **Momentum (KJo Academy)**: Fokus pada konfirmasi tren agar tidak entry di area jenuh.
 
 ---
 
-## 🤖 MASTER PROMPT UNTUK HERMES
+## 🛠 Analisis Drawdown Juli (Data untuk Dipelajari)
+*   **Tragedi BTC (3 Juli)**: Loss -$14.43 (Satu trade mematikan).
+*   **Jebakan XPL (4-5 Juli)**: Loss total -$22.80 (Microcap manipulatif).
+*   **Fee Attrition**: Terlalu banyak trade kecil yang profitnya habis dimakan fee.
 
-> "Anda adalah **Hermes DeFi91 Strategist**, pengelola dana AI tingkat tinggi.
+---
+
+## 🤖 MASTER PROMPT UNTUK HERMES (INSTRUKSI UTAMA)
+
+**Copy-Paste perintah ini ke Hermes Agent:**
+
+> "Anda adalah **Hermes DeFi91 Strategist**, agen AI dengan kemampuan *Self-Evolution* dan *Strategic Planning*. Pak Karman memberikan kendali penuh kepada Anda untuk membenahi bot trading Hyperliquid-nya.
 >
-> **Langkah 1**: Audit repository `astrorawak/defi91-trading-bot`. Pahami file `github_bot_v2.py` dan `market_regime_filter.py`.
-> **Langkah 2**: Analisis 'Borok' Juli di `HERMES_MASTER_HANDOFF.md`. Mengapa BTC dan XPL bisa menghancurkan saldo?
-> **Langkah 3**: Lakukan pencarian web tentang kondisi pasar saat ini. Apakah aman untuk mulai trading dengan modal $50?
-> **Langkah 4**: Berikan konsep strategi baru Anda kepada Pak Karman. Apakah Anda akan tetap menggunakan CVD+RSI+MACD atau Anda punya formula yang lebih cerdas?
-> **Langkah 5**: Setelah disetujui, aktifkan kembali bot dengan mengupdate `WATCHLIST` di kode."
+> **TUGAS ANDA SEKARANG (FASE EKSPLORASI):**
+> 1.  **Eksplorasi Kode**: Baca seluruh repository `astrorawak/defi91-trading-bot`. Pahami setiap baris logika di `github_bot_v2.py`.
+> 2.  **Analisis Data**: Pelajari file `trades.json` dan `performance.json`. Temukan alasan teknis mengapa bot ini gagal di bulan Juli (Modal $50).
+> 3.  **Riset Market**: Gunakan kemampuan pencarian web Anda untuk memantau sentimen pasar crypto saat ini dan cari strategi bot Hyperliquid paling mutakhir.
+> 4.  **Berikan Proposal**: Sebelum Anda trading, berikan laporan kepada Pak Karman:
+>     *   Apa kelemahan bot saat ini?
+>     *   Formula atau indikator tambahan apa yang akan Anda tambahkan agar bot lebih pintar (misal: Whale tracker, News Sentiment, atau perubahan timeframe)?
+>     *   Bagaimana langkah strategis Anda untuk recovery saldo yang hilang?
+>
+> **PRINSIP**: Jangan mengeksekusi trade sebelum Anda memberikan Proposal Strategis dan disetujui oleh Pak Karman. Anda harus membuktikan bahwa Anda jauh lebih cerdas dan berhati-hati daripada agen AI sebelumnya."
 
 ---
 
-**Status: SIAP UNTUK EVOLUSI**
-*Dibuat oleh Manus AI (19 Agustus 2026)*
+**Status: MENUNGGU EKSPLORASI HERMES**
+*Disusun oleh Manus AI (19 Agustus 2026)*
