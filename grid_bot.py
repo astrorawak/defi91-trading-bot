@@ -37,6 +37,11 @@ def send_grid_telegram(msg):
         pass
 
 # --- INITIALIZATION ---
+# SAFETY CIRCUIT BREAKER: jangan memuat key, membaca order, atau menaruh order.
+if not GRID_CANDIDATES:
+    print("SAFETY CIRCUIT BREAKER ACTIVE: grid bot tidak melakukan tindakan apa pun.")
+    exit(0)
+
 PRIVATE_KEY = os.getenv("HYPERLIQUID_PRIVATE_KEY", "")
 if not PRIVATE_KEY:
     print("ERROR: HYPERLIQUID_PRIVATE_KEY not set!")

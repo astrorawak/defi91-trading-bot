@@ -714,6 +714,12 @@ def run_bot():
     print(f"Time: {get_wib_time().strftime('%Y-%m-%d %H:%M:%S')} WIB")
     print(f"Strategy: Almarhum Doddy Ali Wijaya + KJo Academy")
     print("=" * 60)
+
+    # SAFETY CIRCUIT BREAKER: jangan mengakses, mengubah, atau menutup posisi.
+    # Hanya Hermes setelah persetujuan tertulis Pak Karman yang boleh mengaktifkan ulang.
+    if not WATCHLIST:
+        print("SAFETY CIRCUIT BREAKER ACTIVE: scalping bot tidak melakukan tindakan apa pun.")
+        return
     
     # Initialize
     if not PRIVATE_KEY:
@@ -1048,5 +1054,9 @@ def update_performance_mini():
 # ENTRY POINT
 # ============================================================
 if __name__ == "__main__":
-    run_bot()
-    update_performance_mini()
+    # Circuit breaker juga mencegah pembaruan data/kueri posisi selama handoff.
+    if not WATCHLIST:
+        print("SAFETY CIRCUIT BREAKER ACTIVE: tidak ada aksi, kueri posisi, atau pembaruan data.")
+    else:
+        run_bot()
+        update_performance_mini()
