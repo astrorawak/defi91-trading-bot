@@ -7,7 +7,8 @@ Dokumen ini adalah instruksi tingkat tinggi untuk **Hermes Agent**. Pak Karman m
 ## 📍 Data Lokasi & Konteks Repository
 *   **Repository**: [astrorawak/defi91-trading-bot](https://github.com/astrorawak/defi91-trading-bot)
 *   **Wallet**: `0x03562722fE32Ff3BaFE214be3F1828A9157eC23D`
-*   **Kondisi Saat Ini**: Bot dalam posisi **OFF** (Watchlist kosong). Saldo drawdown ~75% dari modal $50 di bulan Juli.
+*   **Kondisi Saat Ini**: Bot dalam posisi **OFF** (Watchlist kosong).
+*   **Status Saldo**: **KOSONG ($0)**. Pak Karman sengaja mengosongkan saldo untuk keamanan total selama fase transisi ini.
 
 ---
 
@@ -28,7 +29,8 @@ Hermes, sebelum Anda melakukan deposit atau eksekusi trading apa pun, Anda **WAJ
 Anda harus memberikan laporan kepada Pak Karman yang berisi:
 *   **Temuan Masalah**: Apa yang salah dengan bot versi Manus?
 *   **Solusi Strategis**: Apa yang akan Anda ubah? (Misal: Mengganti timeframe, mengubah threshold, atau menambah filter volume).
-*   **Target Recovery**: Bagaimana rencana Anda mengembalikan saldo $50 menjadi profit secara bertahap dan aman.
+*   **Target Recovery**: Bagaimana rencana Anda mengembalikan saldo awal (setelah deposit) menjadi profit secara bertahap.
+*   **SYARAT DEPOSIT**: Pak Karman hanya akan mengisi saldo (deposit) **SETELAH** Anda mempresentasikan konsep strategi baru Anda dan beliau menyetujuinya. Jangan mencoba mengeksekusi apa pun sebelum saldo tersedia dan strategi disetujui.
 
 ---
 
@@ -54,11 +56,12 @@ Anda harus memberikan laporan kepada Pak Karman yang berisi:
 > **TUGAS ANDA SEKARANG (FASE EKSPLORASI):**
 > 1.  **Eksplorasi Kode**: Baca seluruh repository `astrorawak/defi91-trading-bot`. Pahami setiap baris logika di `github_bot_v2.py`.
 > 2.  **Analisis Data**: Pelajari file `trades.json` dan `performance.json`. Temukan alasan teknis mengapa bot ini gagal di bulan Juli (Modal $50).
-> 3.  **Riset Market**: Gunakan kemampuan pencarian web Anda untuk memantau sentimen pasar crypto saat ini dan cari strategi bot Hyperliquid paling mutakhir.
+> 3.  **Riset Market**: Gunakan kemampuan pencarian web Anda untuk memantau sentimen pasar crypto saat ini. Siapkan rencana pengelolaan modal $50-100 yang aman.
 > 4.  **Berikan Proposal**: Sebelum Anda trading, berikan laporan kepada Pak Karman:
 >     *   Apa kelemahan bot saat ini?
 >     *   Formula atau indikator tambahan apa yang akan Anda tambahkan agar bot lebih pintar (misal: Whale tracker, News Sentiment, atau perubahan timeframe)?
 >     *   Bagaimana langkah strategis Anda untuk recovery saldo yang hilang?
+>     *   **PENTING: Saldo saat ini $0. Pak Karman akan melakukan deposit HANYA setelah beliau menyetujui proposal konsep Anda.**
 >
 > **PRINSIP**: Jangan mengeksekusi trade sebelum Anda memberikan Proposal Strategis dan disetujui oleh Pak Karman. Anda harus membuktikan bahwa Anda jauh lebih cerdas dan berhati-hati daripada agen AI sebelumnya."
 
