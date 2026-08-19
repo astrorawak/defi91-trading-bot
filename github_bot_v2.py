@@ -17,7 +17,7 @@ from eth_account import Account
 from hyperliquid.info import Info
 from hyperliquid.exchange import Exchange
 from hyperliquid.utils import constants
-from market_regime_filter import detect_market_regime_global
+from market_regime_filter import detect_market_regime_global, detect_market_regime
 from telegram_signals import send_trade_signal, send_close_signal
 
 # ============================================================
@@ -28,8 +28,7 @@ MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 
 # Trading Parameters (AGRESIF - leverage tinggi, filter ketat, profit besar)
 # === WATCHLIST: Hanya koin PROVEN PROFITABLE (data 873+ fills) ===
-WATCHLIST = [] # BOT OFF
-# OLD_WATCHLIST = [
+WATCHLIST = [
     "ETH",   # Net +$77.51, WR 52% - TERBAIK! High volume, konsisten
     "XRP",   # Net +$10.40, WR 50% - Sangat konsisten
     "SOL",   # Net +$4.85, WR 27% - Profit meski WR rendah (big wins)
@@ -762,9 +761,11 @@ def run_bot():
     
     # Check if enough balance
     if available < MARGIN_PER_TRADE:
-        print(f"\n⚠️ Insufficient balance (${available:.2f} < ${MARGIN_PER_TRADE})")
-        print("Waiting for positions to close...")
-        save_trades_json([], "NO_TRADE", "Insufficient balance")
+        msg = f"⚠️ Insufficient balance (${available:.2f} < ${MARGIN_PER_TRADE}). Bot idle."
+        print(f"\n{msg}")
+        if available < 1.0: # Jika saldo benar-benar kritis, beri peringatan lebih keras
+            print("Saldo hampir 0. Bot tidak akan melakukan trading.")
+        save_trades_json([], "NO_TRADE", msg)
         return
     
     # Get all mid prices
@@ -830,7 +831,24 @@ def run_bot():
     # Analyze each coin
     trades_executed = []
     
+    # 2. DYNAMIC WATCHLIST SELECTION (Pilih koin paling aktif/volatile)
+    print("\n--- Dynamic Watchlist Selection ---")
+    active_watchlist = []
     for coin in WATCHLIST:
+        try:
+            # Ambil data volatilitas (ATR) untuk koin ini
+            reg_data = detect_market_regime(coin)
+            atr_val = reg_data.get("atr_percent", 0)
+            active_watchlist.append((coin, atr_val))
+        except:
+            active_watchlist.append((coin, 0))
+    
+    # Sortir berdasarkan ATR (volatilitas) tertinggi
+    active_watchlist.sort(key=lambda x: x[1], reverse=True)
+    selected_coins = [x[0] for x in active_watchlist] 
+    print(f"Watchlist sorted by volatility: {selected_coins}")
+    
+    for coin in selected_coins:
         if coin in open_coins:
             print(f"\n--- {coin}: SKIP (already has open position) ---")
             continue
