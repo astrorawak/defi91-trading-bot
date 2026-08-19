@@ -28,15 +28,11 @@ MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 
 # Trading Parameters (AGRESIF - leverage tinggi, filter ketat, profit besar)
 # === WATCHLIST: Hanya koin PROVEN PROFITABLE (data 873+ fills) ===
-WATCHLIST = [
-    "ETH",   # Net +$77.51, WR 52% - TERBAIK! High volume, konsisten
-    "XRP",   # Net +$10.40, WR 50% - Sangat konsisten
-    "SOL",   # Net +$4.85, WR 27% - Profit meski WR rendah (big wins)
-    "SUI",   # Net +$4.42, WR 39% - Solid performer
-    "BTC",   # Gross +$184, tapi fees tinggi - tetap masuk karena volume
-    "BNB",   # Net +$0.85, WR 53% - Stabil
-    "VVV",   # Net +$1.20, WR 80% - Kecil tapi sangat akurat
-]
+# SAFETY CIRCUIT BREAKER — 19 Aug 2026
+# Jangan aktifkan sebelum proposal Hermes disetujui tertulis oleh Pak Karman.
+WATCHLIST = []
+# Kandidat yang pernah diuji; hanya referensi untuk audit Hermes:
+# ["ETH", "XRP", "SOL", "SUI", "BTC", "BNB", "VVV"]
 # === PARAMETER AGRESIF UNTUK RECOVERY ===
 MARGIN_PER_TRADE = 3.00  # $3.00 per trade (disesuaikan dengan saldo perps $10, agar bisa buka 3 posisi)
 TARGET_LEVERAGE = 20  # 20x leverage (sudah tinggi, tidak perlu naikkan)
