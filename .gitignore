@@ -1,1 +1,5 @@
 __pycache__/
+v3_daily_state.json
+.venv/
+__pycache__/
+*.pyc
