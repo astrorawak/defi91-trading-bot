@@ -3,3 +3,4 @@ v3_daily_state.json
 .venv/
 __pycache__/
 *.pyc
+.defi91_momentum_state.json
