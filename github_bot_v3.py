@@ -73,8 +73,10 @@ TP_ATR_MULT = 2.5            # TP = 2.5x ATR  -> potensial R:R ~ 1:1.67
 TRAILING_ATR_MULT = 1.0      # trail start setelah profit >= 1.0x ATR
 
 # === ENTRY GATE ===
-ENTRY_THRESHOLD = int(os.getenv("HYPERLIQUID_ENTRY_THRESHOLD", "6"))  # skor; bisa dioverride via env utk tuning/pratinjau
+ENTRY_THRESHOLD = int(os.getenv("HYPERLIQUID_ENTRY_THRESHOLD", "5"))  # skor; bisa dioverride via env utk tuning/pratinjau
 ADX_MIN_TREND = 25           # hanya entry bila ADX >= 25 (regime TRENDING + arah)
+HIGH_ADX_MIN   = 70          # bila ADX >= ini, tren kuat -> ikut arah tren (bukan lawan overbought)
+HIGH_ADX_BIAS  = 4           # bobot tambahan ke skor searah tren kuat (ivar "ikut momentum")
 ANALYSIS_TF = "1h"           # timeframe analisis (arah konfirmasi)
 DIRECTION_TF = "4h"          # timeframe arah tren
 
@@ -391,6 +393,31 @@ def analyze_technical(coin):
     details["technical_score"] = score
     return score, details
 
+def ema_calc(values, period):
+    """EMA sederhana (seed = SMA awal)."""
+    if not values:
+        return []
+    k = 2 / (period + 1)
+    ema = [values[0]]
+    for v in values[1:]:
+        ema.append(v * k + ema[-1] * (1 - k))
+    return ema
+
+def trend_direction(coin, tf="4h"):
+    """Arah tren makro dari perbandingan EMA cepat (20) vs lambat (50).
+    Return +1 (uptrend) / -1 (downtrend) / 0 (sideways).
+    Dipakai utk bias "ikuti momentum" saat ADX ekstrem."""
+    closes, _, _, _ = get_candles(coin, tf, 100)
+    if len(closes) < 55:
+        return 0
+    ema_fast = ema_calc(closes, 20)[-1]
+    ema_slow = ema_calc(closes, 50)[-1]
+    if ema_fast > ema_slow * 1.002:
+        return 1
+    if ema_fast < ema_slow * 0.998:
+        return -1
+    return 0
+
 # ============================================================
 # KILL SWITCH (circuit breaker harian)
 # ============================================================
@@ -622,6 +649,17 @@ def main():
         onchain, od = analyze_onchain(coin)
         tech, td = analyze_technical(coin)
         total = onchain + tech
+
+        # === BIAS IKUT TREN saat ADX ekstrem (ikuti momentum, bukan lawan overbought) ===
+        bias = 0
+        if adx >= HIGH_ADX_MIN:
+            d = trend_direction(coin, DIRECTION_TF)
+            if d != 0:
+                bias = d * HIGH_ADX_BIAS
+                total += bias
+                print(f"  🔥 ADX {adx:.0f} ekstrem & tren {'NAIK' if d>0 else 'TURUN'} "
+                      f"-> bias skor {bias:+d} -> total {total:+d}")
+
         print(f"  onchain={onchain} | tech={tech} | total={total} (threshold {ENTRY_THRESHOLD})")
 
         if abs(total) < ENTRY_THRESHOLD:
