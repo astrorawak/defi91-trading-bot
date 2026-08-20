@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeFi91 Bot V3 — Konsep Cara Kerja</title>
+<style>
+  :root{
+    --bg:#0d1117;--card:#161b22;--card2:#1c2333;--line:#2d3748;
+    --txt:#e6edf3;--mut:#8b949e;--acc:#58a6ff;--grn:#3fb950;--red:#f85149;--yel:#d29922;--pur:#a371f7;--cy:#39c5cf;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:'Segoe UI',Roboto,system-ui,sans-serif;line-height:1.5;padding:28px}
+  .wrap{max-width:980px;margin:0 auto}
+  h1{font-size:26px;margin-bottom:4px}
+  .sub{color:var(--mut);font-size:14px;margin-bottom:26px}
+  h2{font-size:17px;margin:30px 0 12px;color:var(--acc);border-left:4px solid var(--acc);padding-left:10px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:16px}
+  .badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11px;font-weight:600}
+  .b-grn{background:#123;color:var(--grn);border:1px solid var(--grn)}
+  .b-red{background:#311;color:var(--red);border:1px solid var(--red)}
+  .b-yel{background:#322;color:var(--yel);border:1px solid var(--yel)}
+  .b-bl{background:#112;color:var(--acc);border:1px solid var(--acc)}
+  .b-pur{background:#211a33;color:var(--pur);border:1px solid var(--pur)}
+  .b-cy{background:#0e2628;color:var(--cy);border:1px solid var(--cy)}
+  .muted{color:var(--mut);font-size:13px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  @media(max-width:700px){.grid2,.grid3{grid-template-columns:1fr}}
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+  th,td{text-align:left;padding:7px 9px;border-bottom:1px solid var(--line)}
+  th{color:var(--mut);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.4px}
+  .pos{color:var(--grn);font-weight:600}
+  .neg{color:var(--red);font-weight:600}
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px}
+  .step{flex:1;min-width:130px;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:12px}
+  .step .n{font-size:11px;color:var(--mut);font-weight:700;letter-spacing:1px}
+  .step .t{font-size:14px;font-weight:600;margin:4px 0 6px}
+  .step .d{font-size:12px;color:var(--mut)}
+  .arrow{align-self:center;color:var(--mut);font-size:18px;padding:0 2px}
+  @media(max-width:700px){.arrow{display:none}}
+  .score-row{display:flex;justify-content:space-between;align-items:center;padding:8px 6px;border-bottom:1px dashed var(--line);font-size:13px}
+  .bar{height:8px;border-radius:5px;background:#222;overflow:hidden;position:relative}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--yel),var(--grn))}
+  .tag{color:var(--acc);font-family:Consolas,monospace;font-size:12px;background:#0d151f;padding:2px 6px;border-radius:4px}
+  .pipeline{background:#0a0e16;border:1px dashed var(--line);border-radius:9px;padding:14px;font-family:Consolas,monospace;font-size:12px;color:#9ecbff;white-space:pre;overflow-x:auto}
+  ul.tight{margin-left:18px}
+  ul.tight li{margin-bottom:6px;font-size:13px}
+  .eval{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:center}
+  .hl{color:var(--yel);font-weight:600}
+  footer{margin-top:30px;color:var(--mut);font-size:12px;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>🪙 DeFi91 Trading Bot <span style="color:var(--acc)">V3</span></h1>
+  <div class="sub">Konsep cara kerja — revisi strategis Hermes untuk modal kecil • Hyperliquid Perpetual Futures • Bahasa manusia yang mudah dipahami</div>
+
+  <div class="card" style="border-color:var(--acc)">
+    <div style="display:flex;gap:14px;align-items:center;flex-wrap:wrap">
+      <div style="font-size:34px">🎯</div>
+      <div>
+        <div style="font-weight:700;font-size:16px">Idenya dalam satu kalimat:</div>
+        <div style="margin-top:4px;font-size:14px">Setiap <b>30 menit</b>, bot membaca pasar, menilai <b>siapa yang mendominasi</b> (pembeli atau penjual) lewat skor berbobot, lalu <b>hanya ikut</b> ketika sinyal <b>kuat & jelas</b> — sambil memastikan satu kerugian <b>tidak pernah</b> menghancurkan akun.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>1. Alur kerja bot (berputar tiap 30 menit)</h2>
+  <div class="flow">
+    <div class="step"><div class="n">STEP 1</div><div class="t">Baca pasar</div><div class="d">Candle 1H BTC/ETH/BNB, order book, funding, saldo & posisi Anda</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">STEP 2</div><div class="t">Filter tren</div><div class="d">Lewatkan dulu kalau pasar "chop" (ADX &lt; 25). <span class="hl">Diam lebih baik</span></div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">STEP 3</div><div class="t">Skor sinyal</div><div class="d">Bobot onchain + teknikal digabung menjadi angka (-9 sampai +9)</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">STEP 4</div><div class="t">Keputusan</div><div class="d">LONG jika skor ≥ 6, SHORT jika ≤ -6. Kurang = skip</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">STEP 5</div><div class="t">Eksekusi</div><div class="d">Pasang 3 order: entry (5×) + TP & SL berbasis ATR</div></div>
+    <div class="arrow">→</div>
+    <div class="step"><div class="n">STEP 6</div><div class="t">Kelola & Lindungi</div><div class="d">Posisi berlawanan ditarik awal • kill-switch 4% harian</div></div>
+  </div>
+
+  <h2>2. "Baca pasar" memakai info apa?</h2>
+  <div class="grid2">
+    <div class="card">
+      <span class="badge b-yel">ONCHAIN / ORDER FLOW</span> <span class="badge b-pur" style="margin-left:4px">bobot −4 s/d +4</span>
+      <p class="muted" style="margin:8px 0 10px">Melacak tekanan uang nyata yang bergerak.</p>
+      <table>
+        <tr><th>Sinyal</th><th>Arti</th><th>Skor</th></tr>
+        <tr><td>Whale akumulasi / distribusi</td><td>A/D line harga vs volume</td><td class="pos">+3 / <span class="neg">−3</span></td></tr>
+        <tr><td>Order book berat bid/ask</td><td>Banyak yang mau beli / jual</td><td class="pos">+2 / <span class="neg">−2</span></td></tr>
+        <tr><td>Funding ekstrem</td><td>Ramai di satu sisi → kontrarian</td><td class="pos">+1 / <span class="neg">−1</span></td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <span class="badge b-bl">TEKNIKAL</span> <span class="badge b-pur" style="margin-left:4px">bobot −5 s/d +5</span>
+      <p class="muted" style="margin:8px 0 10px">Momentum harga & posisi dalam rentang.</p>
+      <table>
+        <tr><th>Sinyal</th><th>Arti</th><th>Skor</th></tr>
+        <tr><td>RSI Wilder</td><td>Kejenuhan beli/jual</td><td class="pos">+2 / <span class="neg">−2</span></td></tr>
+        <tr><td>MACD EMA sejati</td><td>Momentum arah</td><td class="pos">+2 / <span class="neg">−2</span></td></tr>
+        <tr><td>Posisi harga vs S/R</td><td>Dekat support / resistance</td><td class="pos">+1 / <span class="neg">−1</span></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h2>3. Keputusan = skor terkompilasi</h2>
+  <div class="card">
+    <div style="margin-bottom:6px;font-size:13px">Skala skor gabungan: <b>−9 → +9</b></div>
+    <div class="bar"><i style="width:50%"></i></div>
+    <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-top:4px">
+      <span>−9 <span class="neg">SHORT</span></span><span>0 netral (diam)</span><span>+9 <span class="pos">LONG</span></span>
+    </div>
+    <div style="margin-top:14px;font-size:13px">
+      <span class="tag">|skor| ≥ 6</span> → entry jauh<br>
+      <span class="tag">|skor| &lt; 6</span> → <span class="hl">lewati, tunggu</span> (tidak memaksa trade)
+    </div>
+  </div>
+
+  <h2>4. Kalau entry — ukuran & proteksinya (risk management)</h2>
+  <div class="grid3">
+    <div class="card"><div class="t" style="font-weight:600">💰 Risiko kecil</div><div class="muted">$2 margin per posisi (≤4% dari akun $50) • leverage dibatasi <b>5×</b> (sebelumnya 20×)</div></div>
+    <div class="card"><div class="t" style="font-weight:600">🛑 Maks 2 posisi</div><div class="muted">Tidak pernah oversaturate akun kecil (sebelumnya 4 posisi + 18 koin)</div></div>
+    <div class="card"><div class="t" style="font-weight:600">🧹 Hanya 3 koin</div><div class="muted">BTC, ETH, BNB saja — likuid, bukan microcap bangkrut</div></div>
+  </div>
+  <div class="card">
+    <b>Stop-Loss & Target Berbasis <span style="color:var(--cy)">ATR</span> (Volatilitas):</b>
+    <p class="muted" style="margin-top:6px">Jarak "naik/turun" stop bersifat relatif: kalau koin sedang liar, SL/TP ikut lebar; kalau tenang, makin rapat. Bukan angka persen mati.</p>
+    <div style="margin-top:10px;display:flex;justify-content:center;font-family:Consolas,monospace;font-size:13px">
+      <span class="neg">SL = entry − 1.5×ATR</span>
+      <span style="color:var(--mut)">&nbsp;&nbsp;| Posisi |&nbsp;&nbsp;</span>
+      <span class="pos">TP = entry + 2.5×ATR</span>
+    </div>
+    <div class="muted" style="text-align:center;margin-top:6px">Risiko:Reward ideal ≈ <b>1 : 1.67</b> → menang sekali &gt; kalah sekali</div>
+  </div>
+
+  <h2>5. Proteksi darurat (agar satu hari buruk tidak menghabisi akun)</h2>
+  <div class="grid2">
+    <div class="card" style="border-color:var(--red)">
+      <span class="badge b-red">⛔ KILL-SWITCH</span>
+      <p class="muted" style="margin-top:8px">Kalau <b>rugi hari ini ≥ 4%</b> dari ekuitas → bot <b>berhenti trading</b> sampai keesokan hari. Mencegah "balas dendam" yang sering bikin bangkrut.</p>
+    </div>
+    <div class="card" style="border-color:var(--acc)">
+      <span class="badge b-bl">⚡ EARLY CLOSE</span>
+      <p class="muted" style="margin-top:8px">Kalau posisi masih hidup tapi sinyal <b>berbalik kuat</b> melawan posisi (skor ≥ 7 berlawanan) → ditutup lebih awal, tidak menunggu SL.</p>
+    </div>
+  </div>
+
+  <h2>6. Kenapa didesain begini? (pelajaran dari kegagalan V2)</h2>
+  <div class="card">
+    <table>
+      <tr><th>Kesalahan V2</th><th>Akibat nyata</th><th>Perbaikan V3</th></tr>
+      <tr><td>CVD palsu (10 trade)</td><td>Sinyal whipsaw tersesat</td><td>A/D divergensi dari candle asli</td></tr>
+      <tr><td>Leverage 20×</td><td>SL mudah likuidasi</td><td>5×, SL/TP ATR</td></tr>
+      <tr><td>Overtrade: 525 entri, 18 koin</td><td>~$27k notional, mikrocap bangkrut</td><td>Maks 2 posisi, 3 koin saja</td></tr>
+      <tr><td>Timeframe 15 menit</td><td>Noise, keputusan terburu</td><td>Analisis 1H + konfirmasi arah 4H</td></tr>
+      <tr><td>Tidak ada batas rugi</td><td>Kerugian menumpuk</td><td>Kill-switch 4% harian</td></tr>
+    </table>
+    <p class="muted" style="margin-top:12px">Filosofi inti: <b>"edge sejati modal kecil = disiplin & proteksi, bukan leverage ekstrem."</b></p>
+  </div>
+
+  <h2>7. Ilustrasi alur keputusan (LONG sebagai contoh)</h2>
+  <div class="pipeline">┌─ FILTER TREN ─────────────────────────────┐
+│  ADX ≥ 25 & regime TRENDING?  →  tidak → DIAM *(pasar chop)*
+│  ya ↓
+├─ SKOR SINYAL ────────────────────────────┤
+│  A/D whale akumulasi            +3
+│  Order book bid berat            +2
+│  RSI < 40 (lean buy)             +1
+│  MACD positif + hist              +2
+│  Harga mendekati support          +1
+│                                   ──
+│  TOTAL skor                      +9   →  ≥6 ✔
+├─ EKSEKUSI ────────────────────────────────┤
+│  LONG 5× | $2 margin | TP & SL dipasang   ✔
+└──────────────────────────────────────────┘</div>
+  <p class="muted" style="margin-top:10px">➡️ Jumlah skor & komponen bisa berubah tiap run. Ini hanya contoh.</p>
+
+  <footer>DeFi91 Bot V3 • jalan otomatis tiap 30 menit via Hermes cron • laporan hanya saat ada aksi / risiko</footer>
+</div>
+</body>
+</html>

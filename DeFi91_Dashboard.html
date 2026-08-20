@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeFi91 · Dashboard Live</title>
+<style>
+  :root{
+    --bg:#0b0e14; --panel:#12161f; --panel2:#1a2130; --line:#232c3e;
+    --txt:#e6ecf5; --mut:#8b96a8; --green:#22c55e; --red:#ef4444;
+    --amber:#f59e0b; --blue:#3b82f6; --violet:#8b5cf6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font-family:ui-sans-serif,system-ui,"Segoe UI",Roboto,Arial,sans-serif;font-size:14px;line-height:1.5;padding:16px}
+  .wrap{max-width:1200px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+  .logo{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--violet));display:grid;place-items:center;font-weight:800;font-size:15px;color:#fff;box-shadow:0 4px 18px rgba(59,130,246,.35)}
+  .logo span{font-size:18px}
+  h1{font-size:19px;font-weight:700}
+  .sub{color:var(--mut);font-size:12px;margin-top:2px;word-break:break-all}
+  .right{margin-left:auto;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .status{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--mut)}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--mut)}
+  .dot.live{background:var(--green);box-shadow:0 0 10px var(--green);animation:pulse 1.6s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  button{cursor:pointer;border:1px solid var(--line);background:var(--panel2);color:var(--txt);
+    padding:8px 14px;border-radius:9px;font-size:13px;font-weight:600;transition:.15s}
+  button:hover{background:#232c3e}
+  button.primary{background:var(--blue);border-color:transparent}
+  button.primary:hover{background:#2f74e0}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px}
+  .card .lbl{color:var(--mut);font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+  .card .val{font-size:26px;font-weight:800;margin-top:6px;font-variant-numeric:tabular-nums}
+  .card .val.sm{font-size:20px}
+  .card .delta{font-size:12px;margin-top:4px}
+  .up{color:var(--green)} .down{color:var(--red)} .mut{color:var(--mut)}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;margin-bottom:16px;overflow:hidden}
+  .panel h2{font-size:14px;font-weight:700;padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:8px}
+  .tabs{display:flex;gap:6px;padding:10px 18px;border-bottom:1px solid var(--line)}
+  .tab{cursor:pointer;padding:6px 14px;border-radius:8px;font-size:12px;font-weight:600;color:var(--mut);border:1px solid transparent}
+  .tab.active{background:var(--panel2);color:var(--txt);border-color:var(--line)}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th{color:var(--mut);text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.05em;padding:10px 18px;border-bottom:1px solid var(--line)}
+  td{padding:10px 18px;border-bottom:1px solid var(--panel2);font-variant-numeric:tabular-nums}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:rgba(59,130,246,.05)}
+  .pill{display:inline-block;padding:2px 9px;border-radius:6px;font-size:11px;font-weight:700}
+  .pill.long{background:rgba(34,197,94,.15);color:var(--green)}
+  .pill.short{background:rgba(239,68,68,.15);color:var(--red)}
+  .empty{color:var(--mut);text-align:center;padding:22px;font-style:italic}
+  .bycoin{display:flex;flex-direction:column}
+  .bar{height:8px;border-radius:4px;background:var(--panel2);margin-top:6px;overflow:hidden}
+  .bar i{display:block;height:100%;border-radius:4px}
+  .hint{color:var(--mut);font-size:11px;text-align:center;margin-top:12px;padding-bottom:10px}
+  .row2{display:flex;flex-direction:column}
+  .big .val.neg{color:var(--red)}
+  @media(max-width:640px){ td{padding:8px 10px} th{padding:8px 10px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo"><span>₽</span></div>
+    <div>
+      <h1>DeFi91 · Dashboard Live</h1>
+      <div class="sub" id="wallet">memuat…</div>
+    </div>
+    <div class="right">
+      <div class="status"><span class="dot" id="dot"></span><span id="statustext">menghubungi exchange…</span></div>
+      <button class="primary" onclick="loadAll(true)">↻ Segarkan</button>
+    </div>
+  </header>
+
+  <div class="cards">
+    <div class="card"><div class="lbl">Saldo Akun</div><div class="val" id="equity">–</div><div class="mut" id="equity_sub">ekuitas pasar</div></div>
+    <div class="card"><div class="lbl">Margin Terpakai</div><div class="val sm" id="margin">–</div><div class="mut" id="ntl">–</div></div>
+    <div class="card"><div class="lbl">Posisi Terbuka</div><div class="val sm" id="opens">–</div><div class="mut" id="opens_sub">slot aktif</div></div>
+    <div class="card"><div class="lbl">PnL Harian</div><div class="val" id="pnl_day">–</div><div class="delta" id="pnl_day_d"></div></div>
+    <div class="card"><div class="lbl">PnL 7 Hari</div><div class="val" id="pnl_week">–</div><div class="mut" id="pnl_week_d"></div></div>
+    <div class="card"><div class="lbl">PnL 30 Hari</div><div class="val" id="pnl_month">–</div><div class="mut" id="pnl_month_d"></div></div>
+  </div>
+
+  <div class="panel">
+    <h2>⚡ Posisi Terbuka</h2>
+    <table><thead><tr>
+      <th>Koin</th><th>Sisi</th><th>Size</th><th>Entry</th><th>Harga</th><th>uPnL</th><th>uPnL %</th><th>Jarak Likuidasi</th>
+    </tr></thead><tbody id="posbody"><tr><td colspan="8" class="empty">memuat…</td></tr></tbody></table>
+  </div>
+
+  <div class="panel">
+    <h2>📈 Rekap PnL per Koin</h2>
+    <div class="tabs" id="rtabs">
+      <span class="tab active" data-p="1d">Harian</span>
+      <span class="tab" data-p="7d">Mingguan</span>
+      <span class="tab" data-p="30d">Bulanan</span>
+    </div>
+    <table><thead><tr>
+      <th>Koin</th><th>Trade Selesai</th><th>Win</th><th>Loss</th><th>Win Rate</th><th>PnL Bersih</th>
+    </tr></thead><tbody id="cointbody"><tr><td colspan="6" class="empty">memuat…</td></tr></tbody></table>
+    <div class="hint">PnL bersih = hasil tutup posisi − biaya fee. Periode mengikuti tab di atas.</div>
+  </div>
+
+  <div class="panel">
+    <h2>📜 Riwayat Trade yang Telah Ditutup</h2>
+    <table><thead><tr>
+      <th>Waktu (WIB)</th><th>Koin</th><th>Aksi</th><th>Harga</th><th>Size</th><th>Fee</th><th>PnL</th>
+    </tr></thead><tbody id="histbody"><tr><td colspan="7" class="empty">memuat…</td></tr></tbody></table>
+    <div class="hint">Menampilkan hingga beberapa ratus transaksi terakhir dari exchange (real, langsung dari API).</div>
+  </div>
+</div>
+
+<script>
+const WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D";
+const URL = "https://api.hyperliquid.xyz/info";
+const STORE = "df91_wallet";
+let FILLS = [];
+
+document.getElementById('wallet').textContent = "Wallet: " + WALLET;
+
+function post(p){
+  return fetch(URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(p)})
+    .then(r=>r.json());
+}
+function setLive(on){
+  document.getElementById('dot').className = "dot" + (on?" live":"");
+  document.getElementById('statustext').textContent = on? "live · terkini":"gagal ambil data";
+}
+function fmtPnl(x){
+  const v = Number(x||0);
+  return (v>=0?"+":"−")+"$"+Math.abs(v).toFixed(2);
+}
+function pnlCls(x){ return Number(x||0)>=0?"up":"down"; }
+function fmtBig(x){ return Number(x).toLocaleString("en-US",{maximumFractionDigits:2}); }
+function fmtPct(x){ return (Number(x||0)).toFixed(2)+"%"; }
+function fmtDt(ms){
+  if(!ms) return "–";
+  const d = new Date(Number(ms)+7*3600*1000); // WIB
+  return d.toISOString().slice(0,16).replace("T"," ");
+}
+
+// === REKAP per koin dari fills (pasangan open/close) ===
+function coinStats(msStartMs, msEndMs){
+  const map = {};
+  const opens = {};
+  for(const f of FILLS){
+    const t = Number(f.time);
+    if(msStartMs && t < msStartMs) continue;
+    if(msEndMs && t > msEndMs) continue;
+    if(t < new Date("2026-08-19T00:00:00Z").getTime()) continue; // hanya era v3
+    const coin = f.coin; const dir = f.dir||""; const pnl = Number(f.closedPnl||0); const fee = Number(f.fee||0);
+    if(!map[coin]) map[coin]={n:0,win:0,loss:0,net:0};
+    // Hitung "trade selesai" dari aksi close (besar pnl !=0) atau punggung harga
+    if(dir.includes("Close") || pnl!==0){
+      const net = pnl - fee;
+      map[coin].n++; map[coin].net += net;
+      if(net>0) map[coin].win++; else if(net<0) map[coin].loss++;
+    }
+  }
+  return Object.entries(map).map(([coin,s])=>({coin,...s})).sort((a,b)=>b.net-a.net);
+}
+function rangeStart(period){
+  const now=Date.now();
+  const d = period==="1d"?1: period==="7d"?7:30;
+  return now - d*86400*1000;
+}
+
+function render(){
+  const st = window.__ST__;
+  if(st){
+    const eq = Number(st.marginSummary.accountValue);
+    const mm = Number(st.marginSummary.totalMarginUsed);
+    const ntl = Number(st.marginSummary.totalNtlPos);
+    document.getElementById('equity').textContent = "$"+fmtBig(eq);
+    let eqCls = "val"; if(Number(window.__EQ0||eq)<eq) eqCls="val up"; else if(Number(window.__EQ0||eq)>eq) eqCls="val down";
+    // sederhana: label perubahan tak tersedia offline, cukup nilai
+    document.getElementById('margin').textContent = "$"+fmtBig(mm);
+    document.getElementById('ntl').textContent = "notional $"+fmtBig(ntl);
+
+    const poss = (st.assetPositions||[]).filter(b=>Number(b.position.szi)!==0);
+    document.getElementById('opens').textContent = poss.length;
+    document.getElementById('opens_sub').textContent = "dari maks 3 slot";
+    renderPositions(poss);
+  }
+  // Rekap default 7d
+  renderCoin("7d");
+  renderHistory();
+}
+
+function renderPositions(poss){
+  const tb = document.getElementById('posbody');
+  if(!poss.length){ tb.innerHTML = '<tr><td colspan="8" class="empty">tidak ada posisi terbuka</td></tr>'; return; }
+  // ambil harga via metaAndAssetCtxs yang sudah disimpan
+  const mids = window.__MIDS__||{};
+  tb.innerHTML = poss.map(b=>{
+    const p = b.position; const sz = Number(p.szi); const side = sz>0?"LONG":"SHORT";
+    const entry = Number(p.entryPx); const up = Number(p.unrealizedPnl);
+    const mark = mids[p.coin]||entry;
+    const stPct = mark? (mark-entry)/entry*100 : 0;
+    const liq = Number(p.liquidationPx||0);
+    const liqDist = (liq&&mark)? Math.abs(mark-liq)/mark*100 : null;
+    let liqHtml='<span class="mut">–</span>';
+    if(liqDist!=null){ liqHtml = liqDist<12? `<span class="down">${liqDist.toFixed(1)}%</span>` : `${liqDist.toFixed(1)}%`; }
+    return `<tr>
+      <td><b>${p.coin}</b></td>
+      <td><span class="pill ${side==="LONG"?"long":"short"}">${side}</span></td>
+      <td>${fmtBig(sz)}</td>
+      <td>$${fmtBig(entry)}</td>
+      <td>$${fmtBig(mark)}</td>
+      <td class="${pnlCls(up)}">${fmtPnl(up)}</td>
+      <td class="${pnlCls(stPct)}">${fmtPct(stPct)}</td>
+      <td>${liqHtml}</td></tr>`;
+  }).join("");
+}
+
+function renderCoin(period){
+  document.querySelectorAll('#rtabs .tab').forEach(t=>t.classList.toggle('active',t.dataset.p===period));
+  const s = rangeStart(period);
+  const rows = coinStats(s, Date.now());
+  const tb = document.getElementById('cointbody');
+  if(!rows.length){ tb.innerHTML = `<tr><td colspan="6" class="empty">belum ada trade selesai pada periode ini</td></tr>`; return; }
+  const totNet = rows.reduce((a,b)=>a+b.net,0);
+  const totN = rows.reduce((a,b)=>a+b.n,0);
+  const totW = rows.reduce((a,b)=>a+b.win,0);
+  const totL = rows.reduce((a,b)=>a+b.loss,0);
+  let html = rows.map(r=>{
+    const wr = r.n? (r.win/r.n*100):0;
+    return `<tr>
+      <td><b>${r.coin}</b></td><td>${r.n}</td><td class="up">${r.win}</td><td class="down">${r.loss}</td>
+      <td>${wr.toFixed(0)}%</td>
+      <td class="${pnlCls(r.net)}"><b>${fmtPnl(r.net)}</b></td></tr>`;
+  }).join("");
+  html += `<tr style="border-top:2px solid var(--line);font-weight:800">
+    <td>TOTAL</td><td>${totN}</td><td class="up">${totW}</td><td class="down">${totL}</td>
+    <td>${totN?(totW/totN*100).toFixed(0):0}%</td>
+    <td class="${pnlCls(totNet)}">${fmtPnl(totNet)}</td></tr>`;
+  tb.innerHTML = html;
+}
+
+function renderHistory(){
+  const tb = document.getElementById('histbody');
+  const closes = FILLS.filter(f=> (f.dir||"").includes("Close") || Number(f.closedPnl||0)!==0)
+    .sort((a,b)=>Number(b.time)-Number(a.time)).slice(0,120);
+  if(!closes.length){ tb.innerHTML = '<tr><td colspan="7" class="empty">belum ada trade yang ditutup pada era v3</td></tr>'; return; }
+  tb.innerHTML = closes.map(f=>{
+    const dir = f.dir||"Close"; const pnl=Number(f.closedPnl||0); const fee=Number(f.fee||0); const net=pnl-fee;
+    let sideTxt = dir;
+    if(dir.includes("Close")) sideTxt = "Tutup";
+    else if(dir.includes("Open")) sideTxt = "Buka";
+    return `<tr>
+      <td>${fmtDt(f.time)}</td><td><b>${f.coin}</b></td>
+      <td>${sideTxt}</td><td>$${fmtBig(f.px)}</td><td>${fmtBig(f.sz)}</td>
+      <td>$${fee.toFixed(4)}</td>
+      <td class="${pnlCls(net)}"><b>${fmtPnl(net)}</b> <span class="mut">(fee −$${fee.toFixed(3)})</span></td></tr>`;
+  }).join("");
+}
+
+async function loadAll(manual){
+  setLive(false);
+  try{
+    const [st, ma] = await Promise.all([
+      post({type:"clearinghouseState",user:WALLET}),
+      post({type:"metaAndAssetCtxs"})
+    ]);
+    const meta = ma[0]; const ctxs = ma[1];
+    const mids = {};
+    for(let i=0;i<meta.universe.length;i++) mids[meta.universe[i].name]=Number(ctxs[i].markPx);
+    window.__MIDS__ = mids;
+    window.__ST__ = st;
+    // simpan ekuitas awal utk referensi (baseline sesi)
+    if(!window.__EQ0__) window.__EQ0__ = Number(st.marginSummary.accountValue);
+    // fills
+    const end = Date.now();
+    const start = end - 32*86400*1000;
+    FILLS = await post({type:"userFills",user:WALLET,startTime:start,endTime:end});
+    // PnL cards
+    renderCards();
+    render();
+    setLive(true);
+  }catch(e){
+    console.error(e);
+    setLive(false);
+    document.getElementById('statustext').textContent = "gagal: "+ (e&&e.message?e.message:e);
+  }
+}
+function renderCards(){
+  const ms = Date.now();
+  const r1=coinStats(ms-86400*1000,ms);
+  const r7=coinStats(ms-7*86400*1000,ms);
+  const r30=coinStats(ms-30*86400*1000,ms);
+  const sum=a=>a.reduce((x,b)=>x+b.net,0);
+  const d=sum(r1),w=sum(r7),m=sum(r30);
+  const set=(id,v,el)=>document.getElementById(id).textContent=v;
+  set('pnl_day',fmtPnl(d)); document.getElementById('pnl_day').className="val "+pnlCls(d);
+  set('pnl_day_d', `${r1.reduce((a,b)=>a+b.n,0)} trade selesai hari ini`);
+  set('pnl_week',fmtPnl(w)); document.getElementById('pnl_week').className="val "+pnlCls(w);
+  document.getElementById('pnl_week_d').textContent = `${r7.reduce((a,b)=>a+b.n,0)} trade (7 hari)`;
+  set('pnl_month',fmtPnl(m)); document.getElementById('pnl_month').className="val "+pnlCls(m);
+  document.getElementById('pnl_month_d').textContent = `${r30.reduce((a,b)=>a+b.n,0)} trade (30 hari)`;
+}
+// tab switching is dead-simple
+document.querySelectorAll('#rtabs .tab').forEach(t=>{
+  t.addEventListener('click',()=>renderCoin(t.dataset.p));
+});
+loadAll(false);
+setInterval(()=>loadAll(false), 30000); // auto-refresh tiap 30s
+</script>
+</body>
+</html>

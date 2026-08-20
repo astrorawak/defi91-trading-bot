@@ -1,18 +1,14 @@
 {
-  "total_pnl": -2.782524999999996,
-  "wins": 231,
-  "losses": 380,
-  "total_trades": 611,
-  "today_trades": 0,
-  "today_pnl": 0.0,
-  "win_rate": 37.80687397708674,
-  "avg_profit": -0.004554050736497539,
+  "total_pnl": -4.004056999999996,
+  "wins": 232,
+  "losses": 382,
+  "total_trades": 614,
+  "today_trades": 3,
+  "today_pnl": -1.221532,
+  "win_rate": 37.785016286644954,
+  "avg_profit": -0.006521265472312697,
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
-    {
-      "time": "13:40",
-      "equity": 23.4721
-    },
     {
       "time": "28/06 15:52",
       "equity": 10.3532
@@ -408,13 +404,13 @@
     {
       "time": "14:41",
       "equity": -2.7811
+    },
+    {
+      "time": "20/08 13:43",
+      "equity": -4.004056999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "21/07",
-      "pnl": 0.0
-    },
     {
       "date": "22/07",
       "pnl": 0.0
@@ -530,33 +526,13 @@
     {
       "date": "19/08",
       "pnl": 0.0
+    },
+    {
+      "date": "20/08",
+      "pnl": -1.221532
     }
   ],
   "closed_trades": [
-    {
-      "coin": "SUI",
-      "direction": "SHORT",
-      "entry": 0.68,
-      "exit": 0.68,
-      "pnl": -0.491722,
-      "time": "26/06 20:45"
-    },
-    {
-      "coin": "SUI",
-      "direction": "LONG",
-      "entry": 0.69133,
-      "exit": 0.69133,
-      "pnl": 0.077507,
-      "time": "26/06 18:13"
-    },
-    {
-      "coin": "ETH",
-      "direction": "LONG",
-      "entry": 1602.9,
-      "exit": 1602.9,
-      "pnl": -0.988,
-      "time": "28/06 22:10"
-    },
     {
       "coin": "SUI",
       "direction": "SHORT",
@@ -932,15 +908,39 @@
       "exit": 0.10981,
       "pnl": -13.69666,
       "time": "05/07 01:24"
+    },
+    {
+      "coin": "SUI",
+      "direction": "SHORT",
+      "entry": 0.67019,
+      "exit": 0.67019,
+      "pnl": 0.609638,
+      "time": "20/08 21:56"
+    },
+    {
+      "coin": "BTC",
+      "direction": "LONG",
+      "entry": 65337.0,
+      "exit": 65337.0,
+      "pnl": -0.90117,
+      "time": "20/08 21:09"
+    },
+    {
+      "coin": "XRP",
+      "direction": "LONG",
+      "entry": 1.0211,
+      "exit": 1.0211,
+      "pnl": -0.93,
+      "time": "20/08 20:27"
     }
   ],
   "ai_report": {
-    "content": "1. Hari ini tidak ada aktivitas trading, saldo dan posisi tetap sama tanpa keuntungan atau kerugian.\n2. Statistik: Win: 0, Loss: 0, P&L: $0.00\n3. Tidak ada koin yang menunjukkan performa karena tidak ada trading hari ini.\n4. Saat ini tidak ada posisi terbuka, semua posisi tertutup.\n5. Disarankan untuk memantau sinyal dengan ketat besok, dan siap melakukan trading jika kondisi pasar memenuhi kriteria entry. Tetap disiplin dan perhatikan risiko.",
-    "time": "19 August 2026, 13:41 WIB"
+    "content": "Laporan Trading Harian - 20 Agustus 2026\n\nHari ini, performa bot menunjukkan hasil negatif dengan total P&L sebesar -1.22 dolar, didukung oleh 2 kerugian dan 1 kemenangan. Secara keseluruhan, performa kurang memuaskan.\n\nStatistik hari ini: 1 kemenangan dan 2 kerugian, total P&L -1.22 dolar.\n\nKoin yang perform baik adalah SUI, yang berhasil menghasilkan P&L positif sebesar 0.61 dolar. Sebaliknya, koin BTC dan XRP mengalami kerugian cukup besar, masing-masing sekitar 0.90 dolar dan 0.93 dolar.\n\nPosisi terbuka saat ini ada 3: AVAX, BNB, dan DOGE. Ketiganya masih dalam posisi Long, dengan beberapa unrealized P&L negatif, terutama DOGE yang mengalami kerugian -0.15 dolar.\n\nUntuk besok, disarankan untuk lebih selektif dalam memilih peluang dan mempertimbangkan pengelolaan risiko agar tidak terlalu terbebani kerugian berkelanjutan. Fokus pada koin yang menunjukkan sinyal positif dan perhatikan posisi terbuka agar tidak over-leverage.",
+    "time": "20 August 2026, 13:43 WIB"
   },
-  "last_report_date": "2026-08-19",
-  "_prev_today_pnl": 0.0,
-  "_prev_today_wins": 0,
-  "_prev_today_losses": 0,
-  "_prev_today_trades": 0
+  "last_report_date": "2026-08-20",
+  "_prev_today_pnl": -1.221532,
+  "_prev_today_wins": 1,
+  "_prev_today_losses": 2,
+  "_prev_today_trades": 3
 }

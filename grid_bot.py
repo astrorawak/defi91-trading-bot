@@ -10,7 +10,10 @@ from hyperliquid.utils import constants
 
 # --- CONFIGURATION ---
 # Koin kandidat grid (akan di-filter otomatis berdasarkan budget)
-GRID_CANDIDATES = ["ETH", "XRP", "SOL", "SUI", "BNB", "VVV"]  # Hanya koin proven profitable
+# SAFETY CIRCUIT BREAKER — 19 Aug 2026
+# Jangan aktifkan sebelum proposal Hermes disetujui tertulis oleh Pak Karman.
+GRID_CANDIDATES = []
+# Kandidat historis (referensi audit): ["ETH", "XRP", "SOL", "SUI", "BNB", "VVV"]
 MAX_GRID_PAIRS = 3  # Maksimal 3 koin aktif grid sekaligus
 GRID_LEVELS = 3  # 3 buy + 3 sell = 6 orders per koin
 GRID_LEVERAGE = 5
@@ -34,6 +37,11 @@ def send_grid_telegram(msg):
         pass
 
 # --- INITIALIZATION ---
+# SAFETY CIRCUIT BREAKER: jangan memuat key, membaca order, atau menaruh order.
+if not GRID_CANDIDATES:
+    print("SAFETY CIRCUIT BREAKER ACTIVE: grid bot tidak melakukan tindakan apa pun.")
+    exit(0)
+
 PRIVATE_KEY = os.getenv("HYPERLIQUID_PRIVATE_KEY", "")
 if not PRIVATE_KEY:
     print("ERROR: HYPERLIQUID_PRIVATE_KEY not set!")
