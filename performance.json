@@ -1,18 +1,14 @@
 {
-  "total_pnl": -4.004056999999996,
-  "wins": 232,
-  "losses": 382,
-  "total_trades": 614,
-  "today_trades": 3,
-  "today_pnl": -1.221532,
-  "win_rate": 37.785016286644954,
-  "avg_profit": -0.006521265472312697,
+  "total_pnl": -3.6473109999999958,
+  "wins": 238,
+  "losses": 389,
+  "total_trades": 627,
+  "today_trades": 13,
+  "today_pnl": 0.356746,
+  "win_rate": 37.9585326953748,
+  "avg_profit": -0.005817082934609244,
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
-    {
-      "time": "28/06 15:52",
-      "equity": 10.3532
-    },
     {
       "time": "17:05",
       "equity": 15.9333
@@ -408,13 +404,13 @@
     {
       "time": "20/08 13:43",
       "equity": -4.004056999999996
+    },
+    {
+      "time": "21/08 13:45",
+      "equity": -3.6473109999999958
     }
   ],
   "daily_pnl": [
-    {
-      "date": "22/07",
-      "pnl": 0.0
-    },
     {
       "date": "23/07",
       "pnl": 0.0
@@ -530,113 +526,13 @@
     {
       "date": "20/08",
       "pnl": -1.221532
+    },
+    {
+      "date": "21/08",
+      "pnl": 0.356746
     }
   ],
   "closed_trades": [
-    {
-      "coin": "SUI",
-      "direction": "SHORT",
-      "entry": 0.6953,
-      "exit": 0.6953,
-      "pnl": 0.59708,
-      "time": "29/06 13:19"
-    },
-    {
-      "coin": "XRP",
-      "direction": "LONG",
-      "entry": 1.0472,
-      "exit": 1.0472,
-      "pnl": -0.001,
-      "time": "29/06 06:31"
-    },
-    {
-      "coin": "XRP",
-      "direction": "LONG",
-      "entry": 1.0472,
-      "exit": 1.0472,
-      "pnl": -0.0047,
-      "time": "29/06 06:31"
-    },
-    {
-      "coin": "XRP",
-      "direction": "SHORT",
-      "entry": 1.0395,
-      "exit": 1.0395,
-      "pnl": -0.9348,
-      "time": "29/06 02:47"
-    },
-    {
-      "coin": "ETH",
-      "direction": "LONG",
-      "entry": 1571.8,
-      "exit": 1571.8,
-      "pnl": 0.00764,
-      "time": "29/06 06:31"
-    },
-    {
-      "coin": "BTC",
-      "direction": "LONG",
-      "entry": 59750.0,
-      "exit": 59750.0,
-      "pnl": 13.104984,
-      "time": "29/06 06:38"
-    },
-    {
-      "coin": "BTC",
-      "direction": "LONG",
-      "entry": 59750.0,
-      "exit": 59750.0,
-      "pnl": 4.750854,
-      "time": "29/06 06:38"
-    },
-    {
-      "coin": "SOL",
-      "direction": "SHORT",
-      "entry": 71.26,
-      "exit": 71.26,
-      "pnl": 0.02578,
-      "time": "29/06 06:32"
-    },
-    {
-      "coin": "SOL",
-      "direction": "SHORT",
-      "entry": 71.264,
-      "exit": 71.264,
-      "pnl": 1.08612,
-      "time": "29/06 06:32"
-    },
-    {
-      "coin": "SOL",
-      "direction": "LONG",
-      "entry": 70.071,
-      "exit": 70.071,
-      "pnl": 0.01499,
-      "time": "29/06 05:53"
-    },
-    {
-      "coin": "SOL",
-      "direction": "LONG",
-      "entry": 70.071,
-      "exit": 70.071,
-      "pnl": 0.8994,
-      "time": "29/06 05:53"
-    },
-    {
-      "coin": "SOL",
-      "direction": "LONG",
-      "entry": 70.071,
-      "exit": 70.071,
-      "pnl": 0.34477,
-      "time": "29/06 05:53"
-    },
-    {
-      "coin": "BNB",
-      "direction": "LONG",
-      "entry": 551.32,
-      "exit": 551.32,
-      "pnl": 0.58883,
-      "time": "29/06 23:43"
-    },
     {
       "coin": "SUI",
       "direction": "LONG",
@@ -932,15 +828,119 @@
       "exit": 1.0211,
       "pnl": -0.93,
       "time": "20/08 20:27"
+    },
+    {
+      "coin": "DOGE",
+      "direction": "SHORT",
+      "entry": 0.078735,
+      "exit": 0.078735,
+      "pnl": 0.005798,
+      "time": "21/08 22:03"
+    },
+    {
+      "coin": "DOGE",
+      "direction": "SHORT",
+      "entry": 0.078735,
+      "exit": 0.078735,
+      "pnl": 0.382668,
+      "time": "21/08 22:03"
+    },
+    {
+      "coin": "DOGE",
+      "direction": "SHORT",
+      "entry": 0.077033,
+      "exit": 0.077033,
+      "pnl": 0.15561,
+      "time": "21/08 16:23"
+    },
+    {
+      "coin": "LTC",
+      "direction": "LONG",
+      "entry": 48.619,
+      "exit": 48.619,
+      "pnl": -0.160713,
+      "time": "21/08 11:43"
+    },
+    {
+      "coin": "LTC",
+      "direction": "LONG",
+      "entry": 48.444,
+      "exit": 48.444,
+      "pnl": -0.123963,
+      "time": "21/08 23:54"
+    },
+    {
+      "coin": "LTC",
+      "direction": "LONG",
+      "entry": 48.347,
+      "exit": 48.347,
+      "pnl": -0.103593,
+      "time": "21/08 23:52"
+    },
+    {
+      "coin": "LTC",
+      "direction": "LONG",
+      "entry": 48.337,
+      "exit": 48.337,
+      "pnl": -0.101493,
+      "time": "21/08 23:50"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 74681.0,
+      "exit": 74681.0,
+      "pnl": 0.2709,
+      "time": "21/08 08:18"
+    },
+    {
+      "coin": "AVAX",
+      "direction": "LONG",
+      "entry": 7.241,
+      "exit": 7.241,
+      "pnl": -0.226869,
+      "time": "21/08 23:54"
+    },
+    {
+      "coin": "AVAX",
+      "direction": "LONG",
+      "entry": 7.1836,
+      "exit": 7.1836,
+      "pnl": -0.14697,
+      "time": "21/08 23:41"
+    },
+    {
+      "coin": "AVAX",
+      "direction": "SHORT",
+      "entry": 7.0705,
+      "exit": 7.0705,
+      "pnl": 0.387051,
+      "time": "21/08 22:13"
+    },
+    {
+      "coin": "ETH",
+      "direction": "LONG",
+      "entry": 2333.1,
+      "exit": 2333.1,
+      "pnl": -0.21736,
+      "time": "21/08 22:52"
+    },
+    {
+      "coin": "BNB",
+      "direction": "SHORT",
+      "entry": 640.77,
+      "exit": 640.77,
+      "pnl": 0.23568,
+      "time": "21/08 15:14"
     }
   ],
   "ai_report": {
-    "content": "Laporan Trading Harian - 20 Agustus 2026\n\nHari ini, performa bot menunjukkan hasil negatif dengan total P&L sebesar -1.22 dolar, didukung oleh 2 kerugian dan 1 kemenangan. Secara keseluruhan, performa kurang memuaskan.\n\nStatistik hari ini: 1 kemenangan dan 2 kerugian, total P&L -1.22 dolar.\n\nKoin yang perform baik adalah SUI, yang berhasil menghasilkan P&L positif sebesar 0.61 dolar. Sebaliknya, koin BTC dan XRP mengalami kerugian cukup besar, masing-masing sekitar 0.90 dolar dan 0.93 dolar.\n\nPosisi terbuka saat ini ada 3: AVAX, BNB, dan DOGE. Ketiganya masih dalam posisi Long, dengan beberapa unrealized P&L negatif, terutama DOGE yang mengalami kerugian -0.15 dolar.\n\nUntuk besok, disarankan untuk lebih selektif dalam memilih peluang dan mempertimbangkan pengelolaan risiko agar tidak terlalu terbebani kerugian berkelanjutan. Fokus pada koin yang menunjukkan sinyal positif dan perhatikan posisi terbuka agar tidak over-leverage.",
-    "time": "20 August 2026, 13:43 WIB"
+    "content": "Hari ini, bot trading Karman mengalami hasil yang relatif stabil dengan total P&L positif sebesar 0.3567 USD. Meski ada posisi terbuka yang belum tertutup, performa harian cukup seimbang dengan 6 kemenangan dan 7 kekalahan.\n\nStatistik menunjukkan rasio kemenangan 46%, dengan hasil P&L bersih positif. Koin yang menunjukkan performa baik adalah BTC dan BNB, dengan laba yang cukup stabil. Sebaliknya, performa buruk terjadi pada LTC dan beberapa posisi AVAX yang mengalami kerugian.\n\nPosisi terbuka saat ini meliputi ETH, DOGE, dan ADA, dengan unrealized loss sekitar -0.248 USD. Perlu pengawasan ketat pada posisi ini untuk menghindari kerugian lebih besar.\n\nSaran untuk besok, fokus pada pengelolaan risiko dan perhatikan posisi yang sedang berjalan. Manfaatkan sinyal entry yang ketat dan pertimbangkan untuk menutup posisi yang menunjukkan potensi kerugian berkelanjutan.",
+    "time": "21 August 2026, 13:45 WIB"
   },
-  "last_report_date": "2026-08-20",
-  "_prev_today_pnl": -1.221532,
-  "_prev_today_wins": 1,
-  "_prev_today_losses": 2,
-  "_prev_today_trades": 3
+  "last_report_date": "2026-08-21",
+  "_prev_today_pnl": 0.356746,
+  "_prev_today_wins": 6,
+  "_prev_today_losses": 7,
+  "_prev_today_trades": 13
 }
