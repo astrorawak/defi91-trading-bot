@@ -6,8 +6,9 @@ SENYAP bila pasar normal -> hanya MENGELUARKAN stdout (jadi dikirim) saat ada si
 Alert per-koin: volume spike >5x 24-jam  DAN  momentum arah konsisten  DAN  flow naik.
 Sinyal = header $$$ => artinya bot/trader patut perhatian (cek koin), bukan order otomatis.
 """
-import json, time, math
+import json, time, math, sys
 from datetime import datetime
+sys.path.insert(0, "/data/workspace/defi91-trading-bot")
 from market_regime_filter import get_candles, calculate_adx
 
 WATCHLIST = ["BTC","ETH","BNB","SOL","XRP","DOGE","ADA","LINK","AVAX","LTC"]
