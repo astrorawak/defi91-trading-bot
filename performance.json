@@ -1,18 +1,14 @@
 {
-  "total_pnl": -5.324321999999996,
-  "wins": 242,
-  "losses": 401,
-  "total_trades": 643,
-  "today_trades": 2,
-  "today_pnl": -0.178401,
-  "win_rate": 37.636080870917574,
-  "avg_profit": -0.008280438569206837,
+  "total_pnl": -5.361644999999996,
+  "wins": 243,
+  "losses": 403,
+  "total_trades": 646,
+  "today_trades": 3,
+  "today_pnl": -0.037322999999999995,
+  "win_rate": 37.61609907120743,
+  "avg_profit": -0.008299760061919499,
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
-    {
-      "time": "21:43",
-      "equity": 18.9222
-    },
     {
       "time": "22:46",
       "equity": 23.0986
@@ -408,13 +404,13 @@
     {
       "time": "23/08 13:40",
       "equity": -5.324321999999996
+    },
+    {
+      "time": "24/08 13:57",
+      "equity": -5.361644999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "25/07",
-      "pnl": 0.0
-    },
     {
       "date": "26/07",
       "pnl": 0.0
@@ -530,33 +526,13 @@
     {
       "date": "23/08",
       "pnl": -0.178401
+    },
+    {
+      "date": "24/08",
+      "pnl": -0.037322999999999995
     }
   ],
   "closed_trades": [
-    {
-      "coin": "ETH",
-      "direction": "SHORT",
-      "entry": 1563.3,
-      "exit": 1563.3,
-      "pnl": -0.91854,
-      "time": "01/07 19:26"
-    },
-    {
-      "coin": "ETH",
-      "direction": "SHORT",
-      "entry": 1617.7,
-      "exit": 1617.7,
-      "pnl": -0.00371,
-      "time": "02/07 13:50"
-    },
-    {
-      "coin": "SUI",
-      "direction": "SHORT",
-      "entry": 0.73082,
-      "exit": 0.73082,
-      "pnl": 0.587857,
-      "time": "02/07 10:56"
-    },
     {
       "coin": "SUI",
       "direction": "SHORT",
@@ -932,15 +908,39 @@
       "exit": 77352.0,
       "pnl": 0.021099,
       "time": "23/08 00:07"
+    },
+    {
+      "coin": "BTC",
+      "direction": "LONG",
+      "entry": 77751.0,
+      "exit": 77751.0,
+      "pnl": -0.030771,
+      "time": "24/08 05:04"
+    },
+    {
+      "coin": "BTC",
+      "direction": "LONG",
+      "entry": 77669.0,
+      "exit": 77669.0,
+      "pnl": -0.020111,
+      "time": "24/08 04:42"
+    },
+    {
+      "coin": "BTC",
+      "direction": "LONG",
+      "entry": 77410.0,
+      "exit": 77410.0,
+      "pnl": 0.013559,
+      "time": "24/08 03:25"
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian 23 Agustus 2026:\n\nHari ini performa trading cukup seimbang dengan satu posisi terbuka dan dua trading yang sudah ditutup. Total P&L hari ini sedikit minus sebesar -$0.1784, meskipun ada posisi unrealized P&L positif sebesar $0.6450 dari posisi BTC.\n\nStatistik menunjukkan 1 kemenangan dan 1 kekalahan, dengan hasil bersih sedikit negatif. Trading ETH mengalami kerugian (-$0.1995), sementara posisi BTC saat ini memberikan keuntungan unrealized sebesar $0.6450.\n\nKoin yang paling menunjukkan performa baik hari ini adalah BTC, meskipun posisi masih terbuka dan berpotensi menguntungkan. ETH mengalami kerugian pada trading hari ini.\n\nPosisi terbuka saat ini adalah short BTC dengan margin sekitar $7.93, dan profit unrealized cukup menjanjikan. Perlu perhatian karena pasar masih volatile.\n\nSaran untuk besok, fokus pada pengelolaan risiko dan perhatikan sinyal entry yang lebih ketat. Jangan ragu untuk mengamankan profit saat posisi sudah menguntungkan dan hindari overtrading.",
-    "time": "23 August 2026, 13:40 WIB"
+    "content": "Laporan Performa Harian 24 Agustus 2026\n\nHari ini, performa trading sedikit mengalami kerugian dengan total P&L sebesar -0.0373 USD. Posisi terbuka masih ada dua, yaitu SHORT BTC dan LONG DOGE, dengan unrealized loss masing-masing sekitar -0.0014 USD dan -0.2628 USD.\n\nStatistik menunjukkan 1 kemenangan dan 2 kerugian dari 3 trade hari ini. Secara keseluruhan, hasilnya masih kecil dan cukup fluktuatif.\n\nDari koin yang diperdagangkan, BTC menunjukkan performa yang relatif stabil meskipun ada posisi short dan beberapa kerugian kecil. Doge mengalami kerugian unrealized cukup signifikan, kemungkinan karena pergerakan yang tidak sesuai prediksi.\n\nPosisi terbuka saat ini perlu pengawasan, terutama posisi long Doge yang unrealized loss cukup besar. Perlu perhatian pada manajemen risiko dan menunggu peluang yang lebih pasti besok.\n\nSaran untuk besok, fokus pada sinyal yang lebih ketat dan perhatikan pergerakan pasar secara cermat sebelum masuk posisi baru. Jangan ragu untuk menyesuaikan batas risiko agar kerugian tidak membesar.",
+    "time": "24 August 2026, 13:57 WIB"
   },
-  "last_report_date": "2026-08-23",
-  "_prev_today_pnl": -0.178401,
+  "last_report_date": "2026-08-24",
+  "_prev_today_pnl": -0.037322999999999995,
   "_prev_today_wins": 1,
-  "_prev_today_losses": 1,
-  "_prev_today_trades": 2
+  "_prev_today_losses": 2,
+  "_prev_today_trades": 3
 }
