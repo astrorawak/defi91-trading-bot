@@ -1,18 +1,14 @@
 {
-  "total_pnl": -5.361644999999996,
-  "wins": 243,
-  "losses": 403,
-  "total_trades": 646,
+  "total_pnl": -5.558215999999995,
+  "wins": 244,
+  "losses": 405,
+  "total_trades": 649,
   "today_trades": 3,
-  "today_pnl": -0.037322999999999995,
-  "win_rate": 37.61609907120743,
-  "avg_profit": -0.008299760061919499,
+  "today_pnl": -0.196571,
+  "win_rate": 37.59630200308167,
+  "avg_profit": -0.008564277349768869,
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
-    {
-      "time": "22:46",
-      "equity": 23.0986
-    },
     {
       "time": "00:17",
       "equity": 31.1271
@@ -408,13 +404,13 @@
     {
       "time": "24/08 13:57",
       "equity": -5.361644999999996
+    },
+    {
+      "time": "25/08 13:46",
+      "equity": -5.558215999999995
     }
   ],
   "daily_pnl": [
-    {
-      "date": "26/07",
-      "pnl": 0.0
-    },
     {
       "date": "27/07",
       "pnl": 0.0
@@ -530,33 +526,13 @@
     {
       "date": "24/08",
       "pnl": -0.037322999999999995
+    },
+    {
+      "date": "25/08",
+      "pnl": -0.196571
     }
   ],
   "closed_trades": [
-    {
-      "coin": "SUI",
-      "direction": "SHORT",
-      "entry": 0.71415,
-      "exit": 0.71415,
-      "pnl": 0.6006,
-      "time": "02/07 21:14"
-    },
-    {
-      "coin": "SOL",
-      "direction": "SHORT",
-      "entry": 76.76,
-      "exit": 76.76,
-      "pnl": 1.4352,
-      "time": "02/07 21:16"
-    },
-    {
-      "coin": "BNB",
-      "direction": "LONG",
-      "entry": 551.32,
-      "exit": 551.32,
-      "pnl": -0.4521,
-      "time": "02/07 21:15"
-    },
     {
       "coin": "BTC",
       "direction": "SHORT",
@@ -932,14 +908,38 @@
       "exit": 77410.0,
       "pnl": 0.013559,
       "time": "24/08 03:25"
+    },
+    {
+      "coin": "ADA",
+      "direction": "LONG",
+      "entry": 0.22862,
+      "exit": 0.22862,
+      "pnl": -0.2763,
+      "time": "25/08 09:28"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 81029.0,
+      "exit": 81029.0,
+      "pnl": 0.27287,
+      "time": "25/08 09:20"
+    },
+    {
+      "coin": "BTC",
+      "direction": "LONG",
+      "entry": 79000.0,
+      "exit": 79000.0,
+      "pnl": -0.193141,
+      "time": "25/08 19:47"
     }
   ],
   "ai_report": {
-    "content": "Laporan Performa Harian 24 Agustus 2026\n\nHari ini, performa trading sedikit mengalami kerugian dengan total P&L sebesar -0.0373 USD. Posisi terbuka masih ada dua, yaitu SHORT BTC dan LONG DOGE, dengan unrealized loss masing-masing sekitar -0.0014 USD dan -0.2628 USD.\n\nStatistik menunjukkan 1 kemenangan dan 2 kerugian dari 3 trade hari ini. Secara keseluruhan, hasilnya masih kecil dan cukup fluktuatif.\n\nDari koin yang diperdagangkan, BTC menunjukkan performa yang relatif stabil meskipun ada posisi short dan beberapa kerugian kecil. Doge mengalami kerugian unrealized cukup signifikan, kemungkinan karena pergerakan yang tidak sesuai prediksi.\n\nPosisi terbuka saat ini perlu pengawasan, terutama posisi long Doge yang unrealized loss cukup besar. Perlu perhatian pada manajemen risiko dan menunggu peluang yang lebih pasti besok.\n\nSaran untuk besok, fokus pada sinyal yang lebih ketat dan perhatikan pergerakan pasar secara cermat sebelum masuk posisi baru. Jangan ragu untuk menyesuaikan batas risiko agar kerugian tidak membesar.",
-    "time": "24 August 2026, 13:57 WIB"
+    "content": "Laporan Harian 25 Agustus 2026:\n\nHari ini, performa trading cukup fluktuatif dengan hasil minus sekitar $0.20. Terdapat 1 kemenangan dan 2 kerugian dari 3 posisi yang ditutup. Secara keseluruhan, saldo saat ini sekitar $15.80 dengan unrealized P&L negatif sebesar $0.0175.\n\nKoin yang memberikan hasil terbaik adalah BTC, meskipun posisi terbuka saat ini mengalami kerugian kecil. Sebaliknya, posisi short AVAX dan BNB menunjukkan profit unrealized, sementara posisi long DOGE sedang mengalami kerugian cukup besar.\n\nPosisi terbuka saat ini meliputi AVAX dan BNB yang menguntungkan, serta DOGE yang berada dalam posisi rugi. Perlu pengawasan ketat karena volatilitas bisa mempengaruhi hasil.\n\nSaran untuk besok, fokus pada pengelolaan risiko dan perhatikan sinyal entry yang ketat sesuai strategi. Jangan terlalu agresif, dan pertimbangkan untuk mengurangi posisi saat pasar tidak menunjukkan tren yang jelas.",
+    "time": "25 August 2026, 13:46 WIB"
   },
-  "last_report_date": "2026-08-24",
-  "_prev_today_pnl": -0.037322999999999995,
+  "last_report_date": "2026-08-25",
+  "_prev_today_pnl": -0.196571,
   "_prev_today_wins": 1,
   "_prev_today_losses": 2,
   "_prev_today_trades": 3
