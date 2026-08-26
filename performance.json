@@ -1,18 +1,14 @@
 {
-  "total_pnl": -5.558215999999995,
-  "wins": 244,
-  "losses": 405,
-  "total_trades": 649,
+  "total_pnl": -5.214395999999995,
+  "wins": 246,
+  "losses": 406,
+  "total_trades": 652,
   "today_trades": 3,
-  "today_pnl": -0.196571,
-  "win_rate": 37.59630200308167,
-  "avg_profit": -0.008564277349768869,
+  "today_pnl": 0.34382,
+  "win_rate": 37.73006134969325,
+  "avg_profit": -0.007997539877300607,
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
-    {
-      "time": "00:17",
-      "equity": 31.1271
-    },
     {
       "time": "03:18",
       "equity": 31.3993
@@ -408,13 +404,13 @@
     {
       "time": "25/08 13:46",
       "equity": -5.558215999999995
+    },
+    {
+      "time": "26/08 13:49",
+      "equity": -5.214395999999995
     }
   ],
   "daily_pnl": [
-    {
-      "date": "27/07",
-      "pnl": 0.0
-    },
     {
       "date": "28/07",
       "pnl": 0.0
@@ -530,33 +526,13 @@
     {
       "date": "25/08",
       "pnl": -0.196571
+    },
+    {
+      "date": "26/08",
+      "pnl": 0.34382
     }
   ],
   "closed_trades": [
-    {
-      "coin": "BTC",
-      "direction": "SHORT",
-      "entry": 61756.0,
-      "exit": 61756.0,
-      "pnl": 0.24892,
-      "time": "03/07 01:59"
-    },
-    {
-      "coin": "BTC",
-      "direction": "LONG",
-      "entry": 62088.0,
-      "exit": 62088.0,
-      "pnl": -0.94178,
-      "time": "03/07 21:01"
-    },
-    {
-      "coin": "XRP",
-      "direction": "SHORT",
-      "entry": 1.0888,
-      "exit": 1.0888,
-      "pnl": 0.044,
-      "time": "03/07 01:59"
-    },
     {
       "coin": "SUI",
       "direction": "LONG",
@@ -932,15 +908,39 @@
       "exit": 79000.0,
       "pnl": -0.193141,
       "time": "25/08 19:47"
+    },
+    {
+      "coin": "AVAX",
+      "direction": "LONG",
+      "entry": 7.4838,
+      "exit": 7.4838,
+      "pnl": 0.28834,
+      "time": "26/08 14:51"
+    },
+    {
+      "coin": "LTC",
+      "direction": "SHORT",
+      "entry": 49.851,
+      "exit": 49.851,
+      "pnl": -0.18,
+      "time": "26/08 04:07"
+    },
+    {
+      "coin": "BNB",
+      "direction": "LONG",
+      "entry": 701.56,
+      "exit": 701.56,
+      "pnl": 0.23548,
+      "time": "26/08 16:50"
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian 25 Agustus 2026:\n\nHari ini, performa trading cukup fluktuatif dengan hasil minus sekitar $0.20. Terdapat 1 kemenangan dan 2 kerugian dari 3 posisi yang ditutup. Secara keseluruhan, saldo saat ini sekitar $15.80 dengan unrealized P&L negatif sebesar $0.0175.\n\nKoin yang memberikan hasil terbaik adalah BTC, meskipun posisi terbuka saat ini mengalami kerugian kecil. Sebaliknya, posisi short AVAX dan BNB menunjukkan profit unrealized, sementara posisi long DOGE sedang mengalami kerugian cukup besar.\n\nPosisi terbuka saat ini meliputi AVAX dan BNB yang menguntungkan, serta DOGE yang berada dalam posisi rugi. Perlu pengawasan ketat karena volatilitas bisa mempengaruhi hasil.\n\nSaran untuk besok, fokus pada pengelolaan risiko dan perhatikan sinyal entry yang ketat sesuai strategi. Jangan terlalu agresif, dan pertimbangkan untuk mengurangi posisi saat pasar tidak menunjukkan tren yang jelas.",
-    "time": "25 August 2026, 13:46 WIB"
+    "content": "Hari ini, performa trading bot Karman menunjukkan hasil yang cukup stabil dengan total keuntungan kecil. Dari 3 posisi yang ditutup, 2 profit dan 1 loss, menghasilkan P&L hari ini sebesar $0.34. \n\nStatistiknya, bot menang 2 kali dan kalah 1 kali, dengan saldo akhir sekitar $13.43 dan unrealized loss sebesar -$2.68 dari posisi terbuka. Posisi terbuka saat ini ada di AVAX, DOGE, dan ADA, dengan DOGE mengalami unrealized loss cukup besar.\n\nKoin yang performa terbaik hari ini adalah AVAX dan BNB yang menghasilkan profit, sementara DOGE masih menunjukkan kerugian besar. Posisi terbuka di DOGE perlu dipantau ketat karena unrealized loss cukup signifikan.\n\nSaran untuk besok, fokuskan pengawasan pada posisi DOGE dan pertimbangkan untuk mengurangi risiko jika kerugian semakin besar. Tetap disiplin dengan target profit dan stop loss yang sudah ditetapkan.",
+    "time": "26 August 2026, 13:49 WIB"
   },
-  "last_report_date": "2026-08-25",
-  "_prev_today_pnl": -0.196571,
-  "_prev_today_wins": 1,
-  "_prev_today_losses": 2,
+  "last_report_date": "2026-08-26",
+  "_prev_today_pnl": 0.34382,
+  "_prev_today_wins": 2,
+  "_prev_today_losses": 1,
   "_prev_today_trades": 3
 }
