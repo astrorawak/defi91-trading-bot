@@ -1,18 +1,14 @@
 {
-  "total_pnl": -5.214395999999995,
-  "wins": 246,
-  "losses": 406,
-  "total_trades": 652,
-  "today_trades": 3,
-  "today_pnl": 0.34382,
-  "win_rate": 37.73006134969325,
-  "avg_profit": -0.007997539877300607,
+  "total_pnl": -5.196275999999996,
+  "wins": 248,
+  "losses": 408,
+  "total_trades": 656,
+  "today_trades": 4,
+  "today_pnl": 0.018119999999999983,
+  "win_rate": 37.80487804878049,
+  "avg_profit": -0.007921152439024384,
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
-    {
-      "time": "03:18",
-      "equity": 31.3993
-    },
     {
       "time": "05:55",
       "equity": 52.5388
@@ -408,13 +404,13 @@
     {
       "time": "26/08 13:49",
       "equity": -5.214395999999995
+    },
+    {
+      "time": "28/08 00:22",
+      "equity": -5.196275999999996
     }
   ],
   "daily_pnl": [
-    {
-      "date": "28/07",
-      "pnl": 0.0
-    },
     {
       "date": "29/07",
       "pnl": 0.0
@@ -530,41 +526,13 @@
     {
       "date": "26/08",
       "pnl": 0.34382
+    },
+    {
+      "date": "28/08",
+      "pnl": 0.018119999999999983
     }
   ],
   "closed_trades": [
-    {
-      "coin": "SUI",
-      "direction": "LONG",
-      "entry": 0.73928,
-      "exit": 0.73928,
-      "pnl": -0.110704,
-      "time": "03/07 01:59"
-    },
-    {
-      "coin": "SUI",
-      "direction": "LONG",
-      "entry": 0.73248,
-      "exit": 0.73248,
-      "pnl": -0.004499,
-      "time": "03/07 16:30"
-    },
-    {
-      "coin": "ETH",
-      "direction": "LONG",
-      "entry": 1702.4,
-      "exit": 1702.4,
-      "pnl": -0.29736,
-      "time": "03/07 01:59"
-    },
-    {
-      "coin": "ETH",
-      "direction": "LONG",
-      "entry": 1671.5,
-      "exit": 1671.5,
-      "pnl": -0.9344,
-      "time": "03/07 20:13"
-    },
     {
       "coin": "BNB",
       "direction": "LONG",
@@ -932,15 +900,47 @@
       "exit": 701.56,
       "pnl": 0.23548,
       "time": "26/08 16:50"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 80575.0,
+      "exit": 80575.0,
+      "pnl": 0.09576,
+      "time": "28/08 22:13"
+    },
+    {
+      "coin": "BTC",
+      "direction": "LONG",
+      "entry": 79378.0,
+      "exit": 79378.0,
+      "pnl": 0.01068,
+      "time": "28/08 19:08"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 79734.0,
+      "exit": 79734.0,
+      "pnl": -0.021,
+      "time": "28/08 18:23"
+    },
+    {
+      "coin": "BTC",
+      "direction": "LONG",
+      "entry": 80353.0,
+      "exit": 80353.0,
+      "pnl": -0.06732,
+      "time": "28/08 16:26"
     }
   ],
   "ai_report": {
-    "content": "Hari ini, performa trading bot Karman menunjukkan hasil yang cukup stabil dengan total keuntungan kecil. Dari 3 posisi yang ditutup, 2 profit dan 1 loss, menghasilkan P&L hari ini sebesar $0.34. \n\nStatistiknya, bot menang 2 kali dan kalah 1 kali, dengan saldo akhir sekitar $13.43 dan unrealized loss sebesar -$2.68 dari posisi terbuka. Posisi terbuka saat ini ada di AVAX, DOGE, dan ADA, dengan DOGE mengalami unrealized loss cukup besar.\n\nKoin yang performa terbaik hari ini adalah AVAX dan BNB yang menghasilkan profit, sementara DOGE masih menunjukkan kerugian besar. Posisi terbuka di DOGE perlu dipantau ketat karena unrealized loss cukup signifikan.\n\nSaran untuk besok, fokuskan pengawasan pada posisi DOGE dan pertimbangkan untuk mengurangi risiko jika kerugian semakin besar. Tetap disiplin dengan target profit dan stop loss yang sudah ditetapkan.",
-    "time": "26 August 2026, 13:49 WIB"
+    "content": "Laporan Harian 28 Agustus 2026: Performa hari ini cukup stabil dengan total P&L kecil (+0.0181 USD). Meski ada posisi terbuka yang merugi, hasil trading secara keseluruhan cukup seimbang.\n\nStatistik: 2 kemenangan dan 2 kerugian, total P&L hari ini sedikit positif. Posisi terbuka saat ini adalah AVAX SHORT dan DOGE LONG, keduanya masih mengalami kerugian unrealized.\n\nInsight: Performa BTC cukup baik dengan dua posisi yang stabil, sementara posisi DOGE dan AVAX masih perlu perhatian karena unrealized loss. Pergerakan market hari ini cukup flat, sehingga risiko turun naik cenderung rendah.\n\nPosisi terbuka saat ini menunjukkan perlu pengawasan ketat karena kedua posisi masih merugi. Untuk besok, disarankan lebih selektif dalam membuka posisi dan mengawasi indikator pasar secara ketat agar risiko kerugian bisa diminimalisir.",
+    "time": "28 August 2026, 00:22 WIB"
   },
-  "last_report_date": "2026-08-26",
-  "_prev_today_pnl": 0.34382,
+  "last_report_date": "2026-08-28",
+  "_prev_today_pnl": 0.018119999999999983,
   "_prev_today_wins": 2,
-  "_prev_today_losses": 1,
-  "_prev_today_trades": 3
+  "_prev_today_losses": 2,
+  "_prev_today_trades": 4
 }
