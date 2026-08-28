@@ -1,18 +1,14 @@
 {
-  "total_pnl": -5.196275999999996,
-  "wins": 248,
-  "losses": 408,
-  "total_trades": 656,
-  "today_trades": 4,
-  "today_pnl": 0.018119999999999983,
-  "win_rate": 37.80487804878049,
-  "avg_profit": -0.007921152439024384,
+  "total_pnl": -7.4743479999999956,
+  "wins": 249,
+  "losses": 415,
+  "total_trades": 664,
+  "today_trades": 8,
+  "today_pnl": -2.278072,
+  "win_rate": 37.5,
+  "avg_profit": -0.011256548192771077,
   "best_trade": "+$13.105 (BTC)",
   "equity_curve": [
-    {
-      "time": "05:55",
-      "equity": 52.5388
-    },
     {
       "time": "09:30",
       "equity": 10.3469
@@ -408,13 +404,13 @@
     {
       "time": "28/08 00:22",
       "equity": -5.196275999999996
+    },
+    {
+      "time": "29/08 01:15",
+      "equity": -7.4743479999999956
     }
   ],
   "daily_pnl": [
-    {
-      "date": "29/07",
-      "pnl": 0.0
-    },
     {
       "date": "30/07",
       "pnl": 0.0
@@ -530,73 +526,13 @@
     {
       "date": "28/08",
       "pnl": 0.018119999999999983
+    },
+    {
+      "date": "29/08",
+      "pnl": -2.278072
     }
   ],
   "closed_trades": [
-    {
-      "coin": "BNB",
-      "direction": "LONG",
-      "entry": 560.77,
-      "exit": 560.77,
-      "pnl": -0.43038,
-      "time": "03/07 18:28"
-    },
-    {
-      "coin": "SOL",
-      "direction": "SHORT",
-      "entry": 79.099,
-      "exit": 79.099,
-      "pnl": 1.18734,
-      "time": "03/07 16:31"
-    },
-    {
-      "coin": "BTC",
-      "direction": "LONG",
-      "entry": 62000.0,
-      "exit": 62000.0,
-      "pnl": -13.52162,
-      "time": "04/07 17:44"
-    },
-    {
-      "coin": "XPL",
-      "direction": "SHORT",
-      "entry": 0.10582,
-      "exit": 0.10582,
-      "pnl": -8.70492,
-      "time": "05/07 07:52"
-    },
-    {
-      "coin": "XPL",
-      "direction": "SHORT",
-      "entry": 0.10981,
-      "exit": 0.10981,
-      "pnl": -13.69666,
-      "time": "05/07 01:24"
-    },
-    {
-      "coin": "SUI",
-      "direction": "SHORT",
-      "entry": 0.67019,
-      "exit": 0.67019,
-      "pnl": 0.609638,
-      "time": "20/08 21:56"
-    },
-    {
-      "coin": "BTC",
-      "direction": "LONG",
-      "entry": 65337.0,
-      "exit": 65337.0,
-      "pnl": -0.90117,
-      "time": "20/08 21:09"
-    },
-    {
-      "coin": "XRP",
-      "direction": "LONG",
-      "entry": 1.0211,
-      "exit": 1.0211,
-      "pnl": -0.93,
-      "time": "20/08 20:27"
-    },
     {
       "coin": "DOGE",
       "direction": "SHORT",
@@ -932,15 +868,79 @@
       "exit": 80353.0,
       "pnl": -0.06732,
       "time": "28/08 16:26"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77058.0,
+      "exit": 77058.0,
+      "pnl": -0.07358,
+      "time": "29/08 23:24"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78008.0,
+      "exit": 78008.0,
+      "pnl": -0.09893,
+      "time": "29/08 23:03"
+    },
+    {
+      "coin": "LTC",
+      "direction": "SHORT",
+      "entry": 48.008,
+      "exit": 48.008,
+      "pnl": -0.14301,
+      "time": "29/08 23:25"
+    },
+    {
+      "coin": "DOGE",
+      "direction": "SHORT",
+      "entry": 0.085491,
+      "exit": 0.085491,
+      "pnl": -0.17687,
+      "time": "29/08 23:01"
+    },
+    {
+      "coin": "DOGE",
+      "direction": "SHORT",
+      "entry": 0.087205,
+      "exit": 0.087205,
+      "pnl": -1.40895,
+      "time": "29/08 18:14"
+    },
+    {
+      "coin": "DOGE",
+      "direction": "SHORT",
+      "entry": 0.087205,
+      "exit": 0.087205,
+      "pnl": -0.38502,
+      "time": "29/08 18:14"
+    },
+    {
+      "coin": "ADA",
+      "direction": "SHORT",
+      "entry": 0.2045,
+      "exit": 0.2045,
+      "pnl": -0.19488,
+      "time": "29/08 21:06"
+    },
+    {
+      "coin": "AVAX",
+      "direction": "LONG",
+      "entry": 7.3443,
+      "exit": 7.3443,
+      "pnl": 0.203168,
+      "time": "29/08 17:04"
     }
   ],
   "ai_report": {
-    "content": "Laporan Harian 28 Agustus 2026: Performa hari ini cukup stabil dengan total P&L kecil (+0.0181 USD). Meski ada posisi terbuka yang merugi, hasil trading secara keseluruhan cukup seimbang.\n\nStatistik: 2 kemenangan dan 2 kerugian, total P&L hari ini sedikit positif. Posisi terbuka saat ini adalah AVAX SHORT dan DOGE LONG, keduanya masih mengalami kerugian unrealized.\n\nInsight: Performa BTC cukup baik dengan dua posisi yang stabil, sementara posisi DOGE dan AVAX masih perlu perhatian karena unrealized loss. Pergerakan market hari ini cukup flat, sehingga risiko turun naik cenderung rendah.\n\nPosisi terbuka saat ini menunjukkan perlu pengawasan ketat karena kedua posisi masih merugi. Untuk besok, disarankan lebih selektif dalam membuka posisi dan mengawasi indikator pasar secara ketat agar risiko kerugian bisa diminimalisir.",
-    "time": "28 August 2026, 00:22 WIB"
+    "content": "Laporan Performa Trading Hari Ini (29 Agustus 2026):\n\nHari ini, bot mengalami kerugian total sekitar $2.28 dengan hanya 1 kemenangan dari 8 trading yang dilakukan. Performanya cukup buruk dengan banyak trade loss.\n\nStatistik menunjukkan 1 win dan 7 loss, dengan total P&L negatif cukup besar. Koin yang paling menunjukkan kerugian adalah Doge dan BTC, sementara AVAX sedikit memberi hasil positif.\n\nPosisi terbuka saat ini ada di BTC dan LTC, dengan unrealized loss sekitar $0.13 di BTC dan profit kecil di LTC.\n\nUntuk besok, disarankan memperhatikan manajemen risiko dan tidak terlalu kejar posisi besar. Fokus pada koin yang menunjukkan sinyal kuat dan hindari posisi over-leverage agar kerugian tidak semakin membesar.",
+    "time": "29 August 2026, 01:15 WIB"
   },
-  "last_report_date": "2026-08-28",
-  "_prev_today_pnl": 0.018119999999999983,
-  "_prev_today_wins": 2,
-  "_prev_today_losses": 2,
-  "_prev_today_trades": 4
+  "last_report_date": "2026-08-29",
+  "_prev_today_pnl": -2.278072,
+  "_prev_today_wins": 1,
+  "_prev_today_losses": 7,
+  "_prev_today_trades": 8
 }
