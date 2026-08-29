@@ -1,17 +1,17 @@
 {
-  "total_pnl": -5.087051,
-  "wins": 18,
+  "total_pnl": -5.077176,
+  "wins": 19,
   "losses": 38,
-  "total_trades": 56,
-  "today_trades": 0,
-  "today_pnl": 0.0,
-  "win_rate": 32.1429,
-  "avg_profit": -0.09084,
+  "total_trades": 57,
+  "today_trades": 1,
+  "today_pnl": 0.009875,
+  "win_rate": 33.3333,
+  "avg_profit": -0.089073,
   "best_trade": "+$0.6096 (SUI)",
   "equity_curve": [
     {
-      "time": "11:16",
-      "equity": 58.1098
+      "time": "17:17",
+      "equity": 58.3316
     }
   ],
   "daily_pnl": [
@@ -54,9 +54,21 @@
     {
       "date": "2026-08-28",
       "pnl": -2.4119
+    },
+    {
+      "date": "2026-08-29",
+      "pnl": 0.0099
     }
   ],
   "closed_trades": [
+    {
+      "time": 1787997123739,
+      "coin": "LTC",
+      "side": "Close Long",
+      "px": "48.843",
+      "pnl": 0.0145,
+      "fee": 0.0046
+    },
     {
       "time": 1787934316090,
       "coin": "LTC",
@@ -506,37 +518,29 @@
       "fee": 0.0276
     }
   ],
-  "account_value": 58.11,
+  "account_value": 58.33,
   "positions": [
     {
       "coin": "BTC",
       "side": "LONG",
       "sz": 0.00365,
       "entry": "77600.2",
-      "uPnl": -0.1689,
-      "liq": "62564.4948153286"
+      "uPnl": 0.1122,
+      "liq": "62438.1844286457"
     },
     {
       "coin": "AVAX",
       "side": "LONG",
       "sz": 0.08,
       "entry": "7.3019",
-      "uPnl": -0.0021,
-      "liq": null
-    },
-    {
-      "coin": "LTC",
-      "side": "LONG",
-      "sz": 0.21,
-      "entry": "48.774",
-      "uPnl": 0.0475,
+      "uPnl": -0.0031,
       "liq": null
     }
   ],
-  "margin_used_pct": 101.2,
+  "margin_used_pct": 97.4,
   "ai_report": {
-    "content": "Hari ini, bot trading Karman mengalami hasil yang relatif stabil dengan total P&L positif sebesar 0.3567 USD. Meski ada posisi terbuka yang belum tertutup, performa harian cukup seimbang dengan 6 kemenangan dan 7 kekalahan.\n\nStatistik menunjukkan rasio kemenangan 46%, dengan hasil P&L bersih positif. Koin yang menunjukkan performa baik adalah BTC dan BNB, dengan laba yang cukup stabil. Sebaliknya, performa buruk terjadi pada LTC dan beberapa posisi AVAX yang mengalami kerugian.\n\nPosisi terbuka saat ini meliputi ETH, DOGE, dan ADA, dengan unrealized loss sekitar -0.248 USD. Perlu pengawasan ketat pada posisi ini untuk menghindari kerugian lebih besar.\n\nSaran untuk besok, fokus pada pengelolaan risiko dan perhatikan posisi yang sedang berjalan. Manfaatkan sinyal entry yang ketat dan pertimbangkan untuk menutup posisi yang menunjukkan potensi kerugian berkelanjutan.",
-    "time": "21 August 2026, 13:45 WIB"
+    "content": "Laporan Performa Trading Hari Ini (29 Agustus 2026):\n\nHari ini, bot mengalami kerugian total sekitar $2.28 dengan hanya 1 kemenangan dari 8 trading yang dilakukan. Performanya cukup buruk dengan banyak trade loss.\n\nStatistik menunjukkan 1 win dan 7 loss, dengan total P&L negatif cukup besar. Koin yang paling menunjukkan kerugian adalah Doge dan BTC, sementara AVAX sedikit memberi hasil positif.\n\nPosisi terbuka saat ini ada di BTC dan LTC, dengan unrealized loss sekitar $0.13 di BTC dan profit kecil di LTC.\n\nUntuk besok, disarankan memperhatikan manajemen risiko dan tidak terlalu kejar posisi besar. Fokus pada koin yang menunjukkan sinyal kuat dan hindari posisi over-leverage agar kerugian tidak semakin membesar.",
+    "time": "29 August 2026, 01:15 WIB"
   },
-  "last_refresh": "2026-08-29T04:16:20.818295+00:00"
+  "last_refresh": "2026-08-29T10:17:32.131202+00:00"
 }
