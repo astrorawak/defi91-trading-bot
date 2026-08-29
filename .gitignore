@@ -4,3 +4,4 @@ v3_daily_state.json
 __pycache__/
 *.pyc
 .defi91_momentum_state.json
+.defi91_trader.lock
