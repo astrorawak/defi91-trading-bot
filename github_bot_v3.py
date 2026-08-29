@@ -602,16 +602,23 @@ def ensure_protective_sl(exchange, info, wallet, coin, szi, mid):
                 "order_type": {"trigger": {"triggerPx": sl_price, "isMarket": True, "tpsl": "sl"}},
                 "reduce_only": True}
     try:
-        resp = exchange.bulk_orders([sl_order], grouping="normalTpsl") or []
-        ok = all(isinstance(r, dict) and r.get("status") != "rejected" for r in resp) or not isinstance(resp, list)
-        if ok:
-            print(f"  🛡 AUTO-SL dipasang {coin} @ {sl_price} (size {free_alloc:.4g}, jarak {abs(sl_price-mid)/mid*100:.1f}%)")
-            return True
-        print(f"  ⚠ AUTO-SL ditolak {coin}: {resp}")
-        return False
+        resp = exchange.bulk_orders([sl_order], grouping="normalTpsl")
     except Exception as e:
         print(f"  ❌ AUTO-SL gagal {coin}: {e}")
         return False
+    # FIX: resp adalah dict JSON mentah dari API ({"status":..,"response":{"data":{"statuses":[...]}}}),
+    # BUKAN list. Cek lama `all(... for r in resp)` pada dict meng-iterasi KEY string-nya (selalu gagal
+    # predikat -> all()=False) lalu fallback `or not isinstance(resp, list)` selalu True utk dict -> ok
+    # SELALU True apa pun hasil order (klaim "AUTO-SL dipasang" walau sebenarnya ditolak exchange).
+    statuses = []
+    if isinstance(resp, dict) and resp.get("status") == "ok":
+        statuses = resp.get("response", {}).get("data", {}).get("statuses", [])
+    ok = bool(statuses) and all(isinstance(s, dict) and "error" not in s for s in statuses)
+    if ok:
+        print(f"  🛡 AUTO-SL dipasang {coin} @ {sl_price} (size {free_alloc:.4g}, jarak {abs(sl_price-mid)/mid*100:.1f}%)")
+        return True
+    print(f"  ⚠ AUTO-SL ditolak {coin}: {resp}")
+    return False
 
 # Perisai likuidasi: force-reduce bila posisi sudah terlalu dekat dengan likuidasi
 # (buffer X% di atas/bawah harga likuidasi). Murni protektif utk posisi penuh-ladder.
@@ -645,14 +652,22 @@ def _trail_update_sl(exchange, info, coin, is_long, size, new_sl_price):
     if not tighter:
         return
     try:
-        exchange.modify_order(
+        resp = exchange.modify_order(
             oid, coin, is_buy=(not is_long), sz=size, limit_px=new_sl_price,
             order_type={"trigger": {"triggerPx": new_sl_price, "isMarket": True, "tpsl": "sl"}},
             reduce_only=True,
         )
-        print(f"  📈 Trailing SL {coin}: {cur_sl} -> {new_sl_price}")
     except Exception as e:
         print(f"  ⚠ trailing {coin}: gagal update SL: {e}")
+        return
+    # HTTP 200 tak menjamin sukses - API bisa balas {"status":"ok",...} dgn error per-order
+    # tersemat di dalamnya tanpa exception. Cek badan respons sebelum klaim berhasil (fail-safe:
+    # bila ditolak, SL lama yg masih resting di exchange TETAP berlaku - tidak disentuh).
+    rejected = not (isinstance(resp, dict) and resp.get("status") == "ok")
+    if rejected:
+        print(f"  ⚠ trailing {coin}: SL modify ditolak exchange: {resp}")
+        return
+    print(f"  📈 Trailing SL {coin}: {cur_sl} -> {new_sl_price}")
 
 def manage_open_positions(exchange, info, all_mids):
     print(f"\n{'='*60}\nSMART POSITION MANAGEMENT\n{'='*60}")
@@ -711,27 +726,12 @@ def manage_open_positions(exchange, info, all_mids):
                     _trail_update_sl(exchange, info, coin, long, abs(szi), new_sl)
         except Exception as e:
             print(f"  ⚠ trailing {coin}: {e}")
-        # PERISAI likuidasi: jangan biarkan posisi penuh-ladder terbawa sampai likuidasi
-        try:
-            liq = float(p.get("liquidationPx") or 0)
-        except Exception:
-            liq = 0
-        if liq > 0:
-            mid_f = float(mid)
-            if long:
-                dist_pct = (mid_f - liq) / liq * 100
-                too_close = mid_f <= liq
-            else:
-                dist_pct = (liq - mid_f) / mid_f * 100
-                too_close = mid_f >= liq
-            if too_close or dist_pct <= LIQ_SAFETY_PCT:
-                print(f"  🕶 HARD-CLOSE {coin}: harga {dist_pct:.1f}% dari likuidasi "
-                      f"(buffer {LIQ_SAFETY_PCT:.0f}%) -> reduce exposure")
-                try:
-                    exchange.market_close(coin)
-                except Exception as e:
-                    print(f"  hard-close err: {e}")
-                continue
+        # (FIX: dulu ada blok PERISAI LIKUIDASI kedua di sini yang mengulang cek
+        # liquidationPx dengan rumus dist_pct berbeda dari blok di atas (pembagi liq
+        # utk long vs pembagi mid) - duplikat & berpotensi tidak konsisten ambangnya.
+        # Perisai likuidasi sudah ditegakkan tuntas di awal loop ini (baris ~691-701)
+        # sebelum sinyal/trailing dihitung, jadi blok kedua dihapus - bukan dikurangi
+        # proteksinya, hanya konsolidasi ke satu sumber kebenaran.)
 
 # ============================================================
 # MAIN
@@ -767,21 +767,34 @@ def main():
 
     info = None
     exchange = None
-    if PRIVATE_KEY:
+    # FIX KRITIS: syarat lama `if PRIVATE_KEY:` (tanpa cek DRY_RUN) berarti begitu
+    # HYPERLIQUID_PRIVATE_KEY ADA di env, bot SELALU membuat Exchange bertanda-tangan
+    # nyata & siap eksekusi order sungguhan - HYPERLIQUID_DRY_RUN=1 TIDAK berpengaruh
+    # sama sekali selama key tersedia. Di host produksi (key selalu ada di env cron),
+    # ini membuat DRY_RUN sepenuhnya palsu/tidak aman utk "uji pratinjau" (kontradiksi
+    # aturan keamanan #2 di CLAUDE.md). Sekarang DRY_RUN jadi saklar utama: bila aktif,
+    # SELALU hanya baca publik (Info tanpa Exchange) apa pun status private key.
+    if PRIVATE_KEY and not DRY_RUN:
         info = Info(constants.MAINNET_API_URL, skip_ws=True)
         exchange = Exchange(parse_private_key(PRIVATE_KEY), constants.MAINNET_API_URL)
-    elif DRY_RUN:
+    else:
         info = Info(constants.MAINNET_API_URL, skip_ws=True)  # hanya baca publik
         print("🔬 DRY RUN: hanya menghitung & menampilkan sinyal. TIDAK ada order nyata.")
 
     # KILL SWITCH (hanya berarti bila ada akun/posisi nyata)
+    # PENTING: halted HANYA menghentikan ENTRY BARU (aksi berisiko). Manajemen posisi
+    # terbuka (perisai likuidasi, trailing SL, protective SL) TETAP berjalan di bawah -
+    # justru pada hari rugi >=4% itulah proteksi terhadap posisi terbuka paling dibutuhkan.
+    # (FIX: sebelumnya `return` di sini menghentikan seluruh main(), termasuk
+    # manage_open_positions() -> perisai likuidasi mati total selama halted.)
     account_value = 0.0
+    halted = False
     if exchange is not None:
         halted, account_value, msg = check_kill_switch(info)
         print(f"Saldo/nilai akun: ${account_value:.2f} | Kill-switch: {msg}")
         if halted:
-            print("⛔ DAILY LOSS LIMIT -> bot berhenti hari ini.")
-            return
+            print("⛔ DAILY LOSS LIMIT -> entry baru dihentikan hari ini "
+                  "(posisi terbuka tetap dikelola & dilindungi di bawah).")
     else:
         print(f"Saldo/nilai akun: (dry-run, tanpa key - {MAIN_WALLET}) | Kill-switch: nonaktif")
 
@@ -804,14 +817,16 @@ def main():
     # Desain: scale-in DIBOLEHKAN sampai margin tiap koin mencapai MAX_COIN_MARGIN_PCT
     # (tidak anti-pyramiding penuh) — cap mencegah satu simbol menguras akun, tapi
     # posisi yang sudah terbuka tetap dibiarkan bekerja (TP-ladder / smart-exit).
-    open_positions = 0
+    open_coins = set()   # simbol dengan posisi aktif (FIX: dulu counter int yg naik per
+                          # trade sukses, jadi scale-in ke koin yg sama ikut menaikkan
+                          # hitungan -> MAX_OPEN_POSITIONS "batasi SIMBOL" jadi salah hitung)
     acct_value = 0.0
     coin_margin = {}
     if info is not None:
         try:
             ust = info.user_state(MAIN_WALLET)
-            open_positions = len([p for p in ust.get("assetPositions", [])
-                                  if float(p.get("position", {}).get("szi", 0)) != 0])
+            open_coins = {p.get("position", {}).get("coin") for p in ust.get("assetPositions", [])
+                         if float(p.get("position", {}).get("szi", 0)) != 0}
             sm = ust.get("marginSummary", {})
             acct_value = float(sm.get("accountValue", 0) or 0)
             for ap in ust.get("assetPositions", []):
@@ -821,9 +836,11 @@ def main():
         except Exception:
             pass
 
-    # Entry process
-    for coin in WATCHLIST:
-        if open_positions >= MAX_OPEN_POSITIONS:
+    # Entry process (dilewati saat kill-switch aktif; posisi tetap dikelola di bawah)
+    if halted:
+        print("⛔ Kill-switch aktif: lewati seluruh entry baru siklus ini.")
+    for coin in ([] if halted else WATCHLIST):
+        if len(open_coins) >= MAX_OPEN_POSITIONS:
             print(f"⚠ Telah mencapai MAX_OPEN_POSITIONS ({MAX_OPEN_POSITIONS}). Skip entry baru.")
             break
 
@@ -918,7 +935,7 @@ def main():
             continue
         result = execute_trade(exchange, info, coin, direction, current_price, atr)
         if result.get("success"):
-            open_positions += 1
+            open_coins.add(coin)
 
     # Smart management setelah memproses (hanya bila ada akun nyata)
     if exchange is not None and info is not None:

@@ -43,12 +43,23 @@ def main():
     eval_coins = set(["BTC","ETH","BNB","SOL","XRP","DOGE","ADA","LINK","AVAX","LTC"])
 
     per_coin = {}
-    pkey = os.environ.get("HYPERLIQUID_PRIVATE_KEY","")
-    if pkey:
-        try:
-            fills = post({"type":"userFills","user":WALLET,"startTime":v3_start_ms,"endTime":now})
-        except Exception as e:
-            fills = []
+    # FIX: dulu fetch userFills digerbang `if pkey:` - padahal endpoint "userFills" ini
+    # adalah info publik (dikunci oleh param "user"=alamat wallet, BUKAN signature), sama
+    # seperti clearinghouseState/openOrders di bawah yg juga dipanggil tanpa private key.
+    # Akibatnya: kalau HYPERLIQUID_PRIVATE_KEY kosong di env cron eval (mis. konfigurasi
+    # cron eval dipisah dari cron trading), per_coin selalu kosong -> recommend=[] ->
+    # masuk cabang "kinerja pulih" & override (koin yg sedang ditangguhkan krn rugi)
+    # DIHAPUS begitu saja, padahal bukan karena kinerja membaik. Sekarang: fetch selalu
+    # dicoba; fills_ok menandai berhasil/tidaknya agar keputusan watchlist di bawah tidak
+    # salah menganggap "pulih" saat sebenarnya cuma gagal ambil data.
+    fills_ok = False
+    fills = []
+    try:
+        fills = post({"type":"userFills","user":WALLET,"startTime":v3_start_ms,"endTime":now})
+        fills_ok = True
+    except Exception as e:
+        print(f"[EVAL] gagal ambil userFills: {e}")
+    if fills_ok:
         for f in fills:
             c = f.get("coin")
             if c not in eval_coins:        # abaikan koin luar watchlist / microcap lama
@@ -148,7 +159,12 @@ def main():
         if c in CORE: continue
         if d["trades"]>=3 and d["net"]<0:
             recommend.append({"coin":c,"net":round(d["net"],2),"trades":d["trades"]})
-    if recommend:
+    if not fills_ok:
+        # FIX: jangan putuskan apa pun soal watchlist kalau data fills gagal diambil -
+        # override/suspend yang sudah ada (kalau ada) dipertahankan apa adanya, BUKAN
+        # dianggap "pulih" (lihat catatan FIX di atas dekat fetch userFills).
+        print("🔎 EVAL(v3): lewati keputusan watchlist (gagal ambil userFills) - override lama dipertahankan.")
+    elif recommend:
         rec_all = sorted(recommend, key=lambda x: x["net"])
         coins = [r["coin"] for r in rec_all]
         detail = ", ".join(f"{r['coin']} ${r['net']}" for r in rec_all)

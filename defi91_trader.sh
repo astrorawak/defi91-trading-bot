@@ -3,6 +3,14 @@
 # stdout kosong => cron no_agent diam (TIDAK spam). stdout terisi => pesan dikirim.
 # Menulis heartbeat (jejak) tiap jalan => defi91_health.py tahu mesin masih hidup.
 cd /data/workspace/defi91-trading-bot || exit 1
+# Kunci-jalan: cegah dua invokasi tumpang tindih (mis. bila kedua salinan live
+# trader.sh di /data/scripts & /data/.hermes/scripts terjadwal cron bersamaan -
+# keduanya cd ke repo yang sama & jalankan skrip+state yang sama). Non-blocking:
+# kalau siklus sebelumnya masih jalan, lewati diam-diam (bukan error) drpd
+# menumpuk order/perhitungan ganda pada akun nyata yang sama.
+LOCKFILE="/data/workspace/defi91-trading-bot/.defi91_trader.lock"
+exec 9>"$LOCKFILE"
+flock -n 9 || exit 0
 HEARTBEAT="$HOME/.defi91_heartbeat.json"
 python3 - "$HEARTBEAT" <<'PY'
 import json,sys,os
