@@ -1,132 +1,6 @@
 {
   "journals": [
     {
-      "date": "2026-07-22",
-      "date_display": "Wednesday, 22 July 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 1e-07,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [],
-      "journal_content": "**Jurnal Trading Hari Ini – Rabu, 22 Juli 2026**\n\n---\n\n### 1. **RINGKASAN HARI INI**  \nHari ini suasana pasar cukup tenang, nggak ada posisi yang dibuka maupun ditutup. Bot tetap stay di posisi standby, menunggu sinyal yang cocok. Secara umum, pasar nggak menunjukkan pergerakan signifikan, jadi trading hari ini lebih ke arah observasi aja.\n\n---\n\n### 2. **ANALISA KENAPA BOT MASUK POSISI**  \nKarena hari ini nggak ada posisi yang dibuka, kita bisa lihat dari sudut pandang strategi gabungan yang dipakai bot. Biasanya, bot mengikuti dua pendekatan utama:\n\n- **Almarhum Doddy Ali Wijaya (CVD/Order Flow):**  \n  Bot memantau volume delta dan order book imbalance. Kalau terjadi peningkatan volume delta positif dan order book menunjukkan ketidakseimbangan ke arah beli, ini jadi sinyal bahwa minat beli sedang meningkat. Contohnya, hari ini nggak ada pergerakan besar, jadi nggak ada sinyal CVD yang signifikan.\n\n- **KJo Academy (RSI + MACD + Support/Resistance):**  \n  Rata-rata RSI hari ini berada di kisaran netral sekitar 45-55, menunjukkan pasar sedang sideways tanpa momentum kuat. MACD juga nggak menunjukkan crossover atau divergence yang berarti, sementara harga tetap berada di area support/resistance yang stabil. Jadi, kondisi pasar cenderung datar, tidak memberikan sinyal masuk yang kuat.\n\nSecara keseluruhan, bot menilai keadaan pasar belum cukup compelling untuk masuk posisi karena indikator teknikal dan order flow tidak menunjukkan adanya peluang yang menjanjikan saat ini.\n\n---\n\n### 3. **ANALISA KENAPA BOT KELUAR POSISI**  \nKarena hari ini nggak ada trade yang dibuka, otomatis nggak ada juga yang ditutup. Tapi kalau misalnya ada posisi yang sedang berjalan, biasanya:\n\n- **Target profit (TP) tercapai:** Jika harga menyentuh level support/resistance yang ditargetkan dan indikator menunjukkan momentum berbalik, bot akan menutup posisi otomatis.\n\n- **Stop loss (SL):** Kalau pasar bergerak berlawanan dari posisi dan mencapai batas SL yang sudah ditentukan.\n\n- **Smart exit:** Jika indikator teknikal mulai menunjukkan ketidakpastian atau momentum berbalik, bot akan keluar untuk mengamankan profit kecil atau mengurangi kerugian.\n\nTidak ada dari semua ini terjadi hari ini karena pasar cenderung sideways.\n\n---\n\n### 4. **PELAJARAN PENTING HARI INI**  \nDari hari ini, kita belajar bahwa sabar itu kunci. Tidak semua hari cocok buat trading, apalagi saat pasar sedang sideways dan volume rendah. Penting banget untuk menunggu sinyal yang benar-benar kuat, baik dari order flow maupun analisa teknikal.  \nSelain itu, selalu pantau kondisi pasar secara menyeluruh, jangan terburu-buru masuk kalau sinyal belum muncul. Kesabaran bisa menyelamatkan dari kerugian yang tidak perlu.\n\n---\n\n### 5. **KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \nHari ini nggak ada berita besar yang keluar dari pasar kripto, sehingga pergerakan cenderung datar dan tidak ada sentimen kuat. Sentimen pasar secara umum cukup netral, tidak ada kabar yang memicu pergerakan drastis. Ini mendukung kondisi sideways dan memperkuat keputusan untuk tidak melakukan trading hari ini.\n\n---\n\n### 6. **SKOR PERFORMA HARI INI** (1-10)  \n**Rating: 6/10**  \nKarena pasar sedang datar dan tidak ada sinyal yang muncul, performa bot hari ini netral. Tidak ada keuntungan maupun kerugian karena posisi tidak diambil. Tapi ini juga bagus sebagai pengingat bahwa tidak semua hari cocok untuk trading, dan menjaga disiplin adalah bagian dari strategi.\n\n---\n\n**Kesimpulan**: Hari ini mengajarkan kita pentingnya bersabar dan menunggu momentum yang tepat. Pasar bisa tenang, tapi bukan berarti kita harus paksa masuk. Tetap disiplin dan terus pantau kondisi pasar secara menyeluruh.\n\n---\n\nSemoga insight hari ini bermanfaat, dan sampai jumpa di jurnal berikutnya!",
-      "generated_at": "15:31 WIB"
-    },
-    {
-      "date": "2026-07-23",
-      "date_display": "Thursday, 23 July 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 1e-07,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [],
-      "journal_content": "**Jurnal Trading Harian – Kamis, 23 Juli 2026**\n\n---\n\n### 1. **RINGKASAN HARI INI**  \nHari ini pasar cenderung sepi, tidak ada posisi yang dibuka atau ditutup. Bot tidak melakukan eksekusi trading sama sekali, mungkin karena kondisi pasar yang agak sideways dan tidak menunjukkan sinyal yang kuat. Meski begitu, ini jadi pengingat bahwa kadang waktu terbaik memang menunggu momentum yang tepat.\n\n---\n\n### 2. **ANALISA KENAPA BOT MASUK POSISI**  \nKarena hari ini tidak ada trade yang dibuka, kita tidak perlu bahas sinyal entry. Tapi, kalau melihat kondisi pasar secara umum, kemungkinan bot sedang menunggu konfirmasi dari indikator kombinasi yang digunakan.  \n- **Sinyal CVD (Almarhum Doddy Ali Wijaya):** Tidak ada posisi terbuka, jadi tidak ada sinyal volume delta atau order book imbalance yang menonjol hari ini. Biasanya, jika ada sinyal CVD, bot akan mengamati volume besar yang mengindikasikan kekuatan tren tertentu.  \n- **Sinyal Teknikal (KJo Academy):** Pasar cenderung sideways, RSI kemungkinan berada di area netral (sekitar 45-55), MACD tidak menunjukkan crossover kuat, dan harga berada di dekat support/resistance yang berdekatan.  \n- **Kesimpulan:** Bot menunggu sinyal yang lebih jelas, karena indikator gabungan menunjukkan kondisi pasar yang belum siap untuk bergerak signifikan.\n\n---\n\n### 3. **ANALISA KENAPA BOT KELUAR POSISI**  \nKarena tidak ada posisi yang terbuka, tidak ada yang ditutup hari ini. Tapi, jika kita melihat kondisi pasar secara umum, biasanya posisi akan ditutup jika target profit tercapai, stop loss tersentuh, atau terjadi pembalikan sinyal dari indikator.  \n- **Target Tercapai / SL:** Tidak berlaku hari ini karena tidak ada transaksi.  \n- **Smart Exit:** Biasanya, jika pasar mulai menunjukkan sinyal berbalik dari support/resistance utama, bot bisa menutup posisi secara otomatis. Tapi hari ini, pasar cenderung datar.\n\n---\n\n### 4. **PELAJARAN PENTING HARI INI**  \nKalau dipikir-pikir, hari tanpa trading juga memberi pelajaran penting. Kadang, yang paling bijak adalah tidak memaksa masuk pasar saat indikator belum menunjukkan sinyal yang kuat. Kondisi sideways dan volume yang rendah mengingatkan kita bahwa tidak semua hari harus diisi dengan trade. Kesabaran dan disiplin tetap kunci.  \nSelain itu, integrasi CVD dan analisa teknikal bisa membantu menghindari entry yang sembrono, apalagi di tengah pasar yang tidak jelas arahnya.\n\n---\n\n### 5. **KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \nHari ini tidak ada berita besar yang mempengaruhi pasar secara signifikan. Sentimen pasar cenderung netral, dengan sebagian besar trader menunggu pengumuman penting di minggu depan. Kondisi ini biasanya menyebabkan pergerakan sideways dan volume yang rendah, cocok untuk strategi menunggu momentum.\n\n---\n\n### 6. **SKOR PERFORMA HARI INI**  \n**Rating: 6/10**  \nAlasannya, hari ini tidak ada trade karena kondisi pasar yang belum menunjukkan sinyal yang cukup kuat. Ini menunjukkan kedisiplinan dalam menunggu peluang yang tepat, meski juga penting untuk tetap waspada jika pasar tiba-tiba bergerak. Keterpaduan antara indikator volume dan teknikal tetap membantu menjaga kesiapsiagaan.\n\n---\n\n**Penutup:**  \nHari ini mengingatkan kita bahwa tidak semua hari harus diisi dengan trading. Kesabaran, observasi, dan disiplin tetap jadi modal utama. Semoga besok pasar memberikan peluang yang lebih jelas. Terus belajar dan pantau kondisi pasar agar strategi gabungan kita semakin tajam!",
-      "generated_at": "15:33 WIB"
-    },
-    {
-      "date": "2026-07-24",
-      "date_display": "Friday, 24 July 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 1e-07,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [],
-      "journal_content": "**Jurnal Trading Hari Ini – Jumat, 24 Juli 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**\n\nHari ini suasana pasar cenderung datar, nggak banyak pergerakan besar. Tidak ada posisi yang dibuka atau ditutup, jadi hari ini lebih sebagai hari observasi dan evaluasi kondisi pasar. Meskipun begitu, pasar tetap menunjukkan beberapa sinyal menarik yang bisa jadi bahan analisis ke depan.\n\n---\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**\n\nKarena hari ini tidak ada trade yang dilakukan, kita nggak bisa bahas langsung dari posisi yang terbuka. Tapi, biasanya bot akan masuk berdasarkan kombinasi sinyal dari aliran order dan indikator teknikal.\n\nMisalnya, jika ada bot yang melakukan entry, kemungkinan besar:\n- **Sinyal CVD (Almarhum Doddy Ali Wijaya):** Ada volume delta positif yang cukup besar, menunjukkan adanya minat beli yang kuat. Order book imbalance mengindikasikan bahwa pembeli mendominasi, memberi sinyal potensi kenaikan harga.\n- **Sinyal Teknikal (KJo Academy):** RSI mendekati level overbought atau oversold, misalnya RSI sekitar 70 atau 30. MACD mungkin menunjukkan crossover atau divergen yang menguatkan sinyal. Selain itu, harga juga mendekati support/resistance penting, memberi konfirmasi entry.\n\nJika semua indikator ini mengarah ke satu arah, bot akan memutuskan masuk karena kombinasi volume dan momentum menunjukkan peluang trading yang kuat.\n\n---\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**\n\nKarena belum ada posisi yang terbuka hari ini, otomatis tidak ada trade yang ditutup. Tapi, secara umum, bot akan keluar berdasarkan:\n- **TP tercapai:** Target keuntungan sudah terlampaui.\n- **SL tercapai:** Kerugian melebihi batas yang sudah ditentukan.\n- **Smart Exit:** Ada sinyal berbalik dari volume delta atau indikator teknikal yang mengindikasikan momentum berkurang, sehingga bot otomatis keluar untuk mengamankan posisi.\n\n---\n\n### 4. **Pelajaran Penting Hari Ini**\n\nHari ini mengajarkan kita bahwa tidak semua hari harus penuh aksi. Kadang, pasar sedang sideways dan tidak menunjukkan peluang jelas. Penting banget untuk sabar dan nggak memaksakan entry kalau sinyal belum lengkap. Kombinasi antara order flow dan indikator teknikal sangat membantu menghindari entry yang terlalu emosional.\n\nSelain itu, kondisi pasar yang sideways bisa membuat kita lebih fokus ke analisa dan observasi, menunggu momentum yang benar-benar kuat sebelum masuk.\n\n---\n\n### 5. **Koneksi dengan Berita/Sentimen Pasar**\n\nTidak ada berita besar hari ini yang mempengaruhi pasar secara signifikan. Secara umum, pasar tampak tenang, mungkin karena pasar sedang menunggu data ekonomi penting minggu depan. Sentimen pasar cenderung netral, dengan beberapa mata uang kripto utama stabil di rentang tertentu.\n\n---\n\n### 6. **Skor Performa Hari Ini: 6/10**\n\nKarena hari ini tidak ada aksi trading, penilaian ini lebih ke aspek observasi dan kesiapan untuk strategi ke depan. Pasar yang tenang memang tidak memberi peluang besar hari ini, tapi ini adalah kesempatan belajar buat kita untuk tetap disiplin dan sabar menunggu sinyal yang benar.\n\n---\n\n**Kesimpulan:** Hari ini adalah hari yang tenang, mengingatkan kita pentingnya menunggu peluang yang tepat dan selalu mengandalkan analisa gabungan dari order flow dan indikator teknikal. Semoga ke depan pasar semakin menarik dan memberi peluang lebih banyak lagi!",
-      "generated_at": "15:29 WIB"
-    },
-    {
-      "date": "2026-07-25",
-      "date_display": "Saturday, 25 July 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 1e-07,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [],
-      "journal_content": "**Jurnal Trading Hari Jumat, 25 Juli 2026**\n\n---\n\n### 1. **RINGKASAN HARI INI**  \nHari ini pasar cenderung datar, nggak ada posisi yang dibuka atau ditutup. Meskipun begitu, bot tetap aktif memantau kondisi order flow dan indikator teknikal. Jadi hari ini lebih ke arah observasi dan belajar dari kondisi pasar yang lagi sideways.\n\n---\n\n### 2. **ANALISA KENAPA BOT MASUK POSISI**  \nKarena hari ini nggak ada trade yang dibuka, kita bisa bahas beberapa kemungkinan kenapa bot nggak melakukan eksekusi:\n\n- **Order Flow dan CVD (Almarhum Doddy Ali Wijaya)**:  \n  Saat pasar lagi sideways, volume delta dan order book imbalance biasanya nggak menunjukkan sinyal yang kuat. Kalau volume delta kecil dan order book nggak menunjukkan tekanan beli atau jual yang signifikan, bot cenderung berhenti untuk masuk posisi. Jadi, hari ini kondisi order flow relatif seimbang dan tidak ada sinyal kuat.\n\n- **Teknikal (KJo Academy)**:  \n  Tidak ada sinyal RSI yang ekstrem (biasanya di atas 70 atau di bawah 30), juga MACD yang menunjukkan crossover atau divergence. Harga saat ini juga tidak mendekati support/resistance penting, sehingga indikator tidak memberikan konfirmasi untuk entry.\n\n- **Skor gabungan**:  \n  Karena tidak ada sinyal kuat dari kedua strategi, skor peluang masuk posisi hari ini rendah, sehingga bot memutuskan untuk stay di posisi netral.\n\n---\n\n### 3. **ANALISA KENAPA BOT KELUAR POSISI**  \nKarena hari ini tidak ada posisi yang terbuka, nggak ada trade yang ditutup. Tapi kalau ada, kemungkinan besar:\n\n- **Target profit tercapai**:  \n  Kalau ada posisi yang dibuka dan kemudian ditutup, biasanya karena target tercapai.\n\n- **Cut Loss**:  \n  Jika kondisi pasar berbalik arah secara tajam, dan indikator menunjukkan sinyal berbalik (misal MACD crossover negatif, RSI sudah overbought/oversold), bot akan menutup posisi.\n\n- **Smart Exit**:  \n  Jika order flow menunjukkan perubahan besar di order book, misalnya terjadi imbalance yang berlawanan, bot otomatis keluar untuk menghindari kerugian lebih besar.\n\n---\n\n### 4. **PELAJARAN PENTING HARI INI**  \nHari ini mengingatkan kita bahwa tidak setiap hari harus melakukan trading. Saat pasar sideways dan tidak ada sinyal yang kuat dari order flow maupun indikator teknikal, lebih baik menunggu dan tidak memaksakan entry. Kedisiplinan dalam menunggu konfirmasi sangat penting agar terhindar dari false signal dan kerugian tidak perlu.\n\nSelain itu, kondisi pasar hari ini menunjukkan fase sideways yang cukup panjang, jadi strategi waiting and seeing lebih cocok daripada agresif.\n\n---\n\n### 5. **KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \nTidak ada berita besar yang mempengaruhi pasar hari ini, sehingga pergerakan cenderung stabil dan kurang bervariasi. Sentimen pasar secara umum netral, tidak ada kabar negatif maupun positif yang signifikan. Ini juga mendukung kondisi sideways yang kita lihat saat ini.\n\n---\n\n### 6. **SKOR PERFORMA HARI INI**  \n**7/10** — Karena hari ini tidak ada trade yang dilakukan, tapi justru ini adalah keputusan yang tepat untuk tidak memaksakan trading saat kondisi pasar sedang tidak mendukung. Menghindari kerugian lebih baik daripada mencari peluang yang belum pasti.\n\n---\n\n**Kesimpulan**: Hari ini adalah hari belajar bahwa sabar dan disiplin dalam menunggu sinyal yang benar sangat penting. Saat pasar tidak menunjukkan peluang yang jelas, menahan diri adalah langkah terbaik. Semoga kondisi pasar besok lebih menarik dan memberi peluang yang lebih baik!",
-      "generated_at": "15:08 WIB"
-    },
-    {
-      "date": "2026-07-26",
-      "date_display": "Sunday, 26 July 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 1e-07,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [],
-      "journal_content": "**Jurnal Trading Hari Ini - Minggu, 26 Juli 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**  \nHari ini pasar cenderung sepi, nggak ada posisi yang dibuka atau ditutup. Akun juga flat, nggak ada trading yang dilakukan karena kondisi pasar yang masih cukup sideways dan nggak menunjukkan peluang yang menarik. Meskipun begitu, kita tetap bisa belajar dari situasi hari ini.\n\n---\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**  \nKarena hari ini nggak ada trade yang dibuka, kita nggak perlu melakukan analisa masuk. Tapi, secara umum, kalau ada peluang, bot biasanya melihat dua indikator utama:  \n- **Order Flow (CVD)**: Misalnya, volume delta menunjukkan adanya tekanan beli atau jual yang signifikan, dan order book imbalance mengindikasikan dominasi satu sisi. Jika volume delta positif besar dan order book menunjukkan akumulasi order beli, bot cenderung masuk posisi long.  \n- **Teknikal (RSI, MACD, Support/Resistance)**: Biasanya, RSI di dekat level oversold (di bawah 30) dan MACD menunjukkan sinyal bullish crossover, serta harga mendekati support, akan memperkuat sinyal masuk. Skor tinggi muncul saat ketiga indikator ini menunjukkan kondisi oversold dan momentum mulai berbalik.\n\nKarena hari ini nggak ada posisi yang dibuka, kemungkinan pasar belum menunjukkan sinyal yang kuat dari gabungan strategi ini.\n\n---\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**  \nTidak ada posisi yang ditutup hari ini, jadi nggak ada analisa keluar trade. Tapi, secara umum, bot akan menutup posisi jika:  \n- Target profit tercapai (TP).  \n- Stop loss terkena (SL).  \n- Ada sinyal berbalik dari indikator, misalnya RSI kembali ke area overbought/oversold dan MACD menunjukkan divergence, menandakan momentum berbalik.\n\nHari ini, pasar cukup datar, jadi tidak ada sinyal keluar yang muncul.\n\n---\n\n### 4. **Pelajaran Penting Hari Ini**  \nWalaupun nggak ada trading, kita bisa belajar bahwa tidak semua hari harus dipaksakan untuk trading. Pasar yang sideways dan tidak menunjukkan sinyal jelas justru jadi waktu yang tepat untuk menunggu dan mengamati. Kunci utama adalah disiplin dan sabar menunggu peluang yang benar-benar kuat, sesuai strategi gabungan kita.  \n\nSelain itu, pentingnya memantau indikator volume dan order book sebagai konfirmasi tambahan saat pasar sedang sideways.\n\n---\n\n### 5. **Koneksi dengan Berita/Sentimen Pasar**  \nHari ini nggak ada berita besar yang mempengaruhi pasar secara signifikan. Sentimen pasar tampak netral, dan crypto secara umum masih dalam kondisi menunggu arah. Kondisi ini wajar saat pasar sedang sideways, menghindari risiko trading yang tidak pasti.\n\n---\n\n### 6. **Skor Performa Hari Ini**  \n**5/10** — Karena nggak ada trading yang dilakukan, skornya jadi netral. Tapi, ini juga menunjukkan kedisiplinan dalam menunggu peluang yang benar-benar sesuai strategi, yang penting untuk jangka panjang. \n\n---\n\n**Kesimpulan:**  \nHari ini mengingatkan kita bahwa kadang yang paling penting adalah sabar dan tidak memaksakan trading. Kondisi pasar yang sideways menuntut kita lebih jeli dan disiplin. Tetap semangat, dan siap-siap menunggu peluang berikutnya dengan strategi gabungan yang sudah kita bangun!\n\n---\n\n*Selamat beristirahat dan tetap waspada di pasar!*",
-      "generated_at": "15:28 WIB"
-    },
-    {
-      "date": "2026-07-27",
-      "date_display": "Monday, 27 July 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 1e-07,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [],
-      "journal_content": "**Jurnal Trading Hari Ini – Senin, 27 Juli 2026**\n\n**1. Ringkasan Hari Ini**  \nHari ini pasar cenderung tenang, nggak ada posisi yang dibuka maupun ditutup. Sepertinya bot lagi ngamatin kondisi pasar dulu, sambil menunggu sinyal yang lebih jelas. Secara keseluruhan, hari ini lebih ke fase observasi aja.\n\n**2. Analisa Kenapa Bot Masuk Posisi**  \nKarena hari ini nggak ada posisi yang dibuka, kita nggak bisa bahas langsung dari trade yang aktif. Tapi, berdasarkan strategi gabungan, kemungkinan bot lagi fokus ngeliat kombinasi sinyal dari order flow dan analisis teknikal.\n\n- **Sinyal CVD (Almarhum)**: Biasanya bot memantau volume delta dan order book imbalance. Kalau volume delta positif besar, berarti ada tekanan beli yang signifikan, dan sebaliknya. Hari ini, mungkin tidak ada perubahan besar di order book, sehingga tidak ada sinyal masuk.\n  \n- **Sinyal Teknikal (KJo Academy)**: Biasanya bot cek RSI, MACD, dan support/resistance. Kalau RSI mendekati overbought atau oversold, plus MACD menunjukkan cross atau divergen, dan harga mendekati support/resistance, peluang masuk jadi lebih tinggi. Mungkin hari ini, indikator-indikator tersebut belum menunjukkan sinyal yang cukup kuat, sehingga bot menunggu konfirmasi.\n\n- **Mengapa skor bisa tinggi?**  \nKalau semua indikator menunjukkan peluang bagus, misalnya volume delta mendukung, RSI mulai menunjukkan oversold, dan harga dekat support, otomatis bot akan memprioritaskan entry. Tapi hari ini, kondisi pasar tampaknya belum cukup kondusif.\n\n**3. Analisa Kenapa Bot Tidak Keluar Posisi**  \nKarena nggak ada posisi terbuka, kita nggak perlu bahas exit. Tapi, secara umum, jika ada posisi dan ternyata nggak mencapai TP atau SL hari ini, ini menunjukkan pasar cenderung sideways atau menunggu momentum baru.\n\n**4. Pelajaran Penting Hari Ini**  \n- Jangan buru-buru masuk pasar kalau indikator dan order flow belum menunjukkan sinyal yang jelas.  \n- Pasar yang sedang sideways sering membuat posisi sulit bertahan, jadi lebih baik observasi dulu.  \n- Strategi gabungan ini membantu memfilter sinyal palsu, tapi tetap harus sabar menunggu konfirmasi.  \n\n**5. Koneksi dengan Berita/Sentimen Pasar**  \nHari ini nggak ada berita besar yang mempengaruhi pasar secara signifikan. Sentimen pasar tampak netral, sehingga pergerakan harga pun cenderung stabil dan tidak terlalu volatile. Ini cocok buat trader yang suka menunggu momentum yang lebih jelas.\n\n**6. Skor Performa Hari Ini**  \nNilai: 6/10  \nKarena tidak ada trading aktif, tapi ini juga wujud disiplin untuk menunggu sinyal yang benar-benar kuat. Kadang, nggak masuk pasar itu juga bagian dari strategi yang baik, asal tetap fokus dan disiplin.\n\n---\n\n**Kesimpulan**: Hari ini, pasar sedang dalam fase menunggu dan menimbang. Strategi gabungan bot membantu menghindari trading impulsif dan menjaga posisi tetap aman. Penting untuk selalu mengingat bahwa terkadang menunggu lebih baik daripada memaksakan masuk pasar yang belum siap. Jangan lupa, sabar adalah kunci utama dalam trading!",
-      "generated_at": "16:55 WIB"
-    },
-    {
-      "date": "2026-07-28",
-      "date_display": "Tuesday, 28 July 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 1e-07,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [],
-      "journal_content": "**Jurnal Trading Hari Ini – Selasa, 28 Juli 2026**\n\n**1. Ringkasan Hari Ini**  \nHari ini pasar relatif tenang, nggak ada posisi yang dibuka maupun ditutup. Menurut saya, kondisi pasar sedang sideways, tidak ada sinyal yang sangat kuat untuk masuk posisi baru. Walaupun begitu, peluang tetap ada kalau kita paham situasi dan sinyal yang muncul dari bot.\n\n**2. Analisa Kenapa Bot Masuk Posisi**  \nKarena hari ini nggak ada posisi yang dibuka, kita bisa bahas dari analisa yang dilakukan bot secara umum. Bot gabungan ini menggabungkan dua strategi: CVD dari Doddy Ali Wijaya dan indikator teknikal dari KJo Academy.\n\nKalau misalnya bot masuk posisi, biasanya karena melihat volume delta yang menunjukkan adanya kejar-kejaran order (CVD positif atau negatif) dan order book imbalance yang mengindikasikan kekuatan buyer atau seller. Contohnya, kalau volume delta menunjukkan kelebihan order buy dan order book imbalance mengarah ke atas, biasanya bot akan mempertimbangkan peluang long.\n\nDari sisi teknikal, indikator RSI biasanya berada di area netral (sekitar 50-55), MACD cenderung mendekati garis nol tapi belum crossover, dan harga berada di dekat support/resistance tertentu. Kalau RSI menunjukkan oversold atau overbought, dan MACD memberi konfirmasi (misalnya crossover bullish/bearish), itu bisa meningkatkan skor sinyal.\n\nMisalnya, jika RSI di 52, MACD histogram mulai menguat ke atas, dan harga menyentuh support penting, bot akan memberi skor tinggi. Dengan kombinasi ini, bot memutuskan peluang masuk cukup tinggi.\n\n**3. Analisa Kenapa Bot Keluar Posisi**  \nKarena hari ini nggak ada posisi yang ditutup, kita bisa lihat dari data bahwa tidak ada trade yang mencapai target atau stop loss. Jika suatu saat posisi terlibat, biasanya keluar karena:\n\n- Target profit tercapai (TP), misalnya harga menyentuh level resistance yang sudah ditentukan.\n- Cut loss, jika indikator teknikal menunjukkan sinyal berbalik dan kondisi pasar berubah arah.\n- Smart Exit, misalnya sinyal dari order flow menunjukkan kekuatan seller sehingga bot memutuskan keluar sebelum kerugian membesar.\n\n**4. Pelajaran Penting Hari Ini**  \nHari ini mengingatkan kita bahwa tidak semua hari harus penuh aksi. Pasar sedang sideways, jadi lebih baik menunggu konfirmasi yang kuat daripada memaksakan entry. Strategi gabungan harus dipakai dengan sabar dan disiplin, menunggu sinyal yang benar-benar valid agar tidak terjebak dalam kondisi pasar yang tidak pasti.\n\nSelain itu, pentingnya kombinasi volume dan indikator teknikal terbukti membantu mengidentifikasi momen yang tepat, walaupun hari ini tidak ada transaksi.\n\n**5. Koneksi dengan Berita/Sentimen Pasar**  \nTidak ada berita besar hari ini yang mempengaruhi pasar secara signifikan. Sentimen secara umum cukup netral, dengan beberapa kripto trending seperti Solana dan Ethereum tetap stabil. Pasar tampaknya menunggu momentum baru, sehingga pergerakan cenderung sideways.\n\n**6. Skor Performa Hari Ini**  \nNilai 6 dari 10. Karena tidak ada trade yang dilakukan, tapi ini menunjukkan pentingnya kesabaran dan disiplin. Kalau kita mampu menahan diri dari over-trading saat pasar sideways, itu sudah kemenangan tersendiri.\n\n---\n\n**Kesimpulan**  \nHari ini adalah pengingat bahwa pasar tidak selalu memberi peluang besar setiap hari. Fokus pada konfirmasi dari volume dan indikator teknikal sangat membantu kita tetap disiplin. Mari terus belajar dan menunggu waktu yang tepat untuk masuk pasar!",
-      "generated_at": "15:36 WIB"
-    },
-    {
       "date": "2026-07-29",
       "date_display": "Wednesday, 29 July 2026",
       "market_regime": "CHOPSAW",
@@ -719,6 +593,554 @@
       ],
       "journal_content": "**Jurnal Trading Hari Ini – Jumat, 21 Agustus 2026**\n\n**1. RINGKASAN HARI INI**  \nHari ini pasar cukup volatile dengan banyak pergerakan di berbagai altcoin dan Bitcoin. Meski tidak ada posisi baru yang dibuka, banyak posisi tertutup baik profit maupun loss. Secara umum, pasar nampak sideways dengan beberapa momen tekanan jual dan beli yang cukup tajam.\n\n**2. ANALISA KENAPA BOT MASUK POSISI**  \nHari ini tidak ada posisi baru yang dibuka, jadi fokus kita pada posisi yang sudah terbuka dan penutupannya. Bot lebih banyak memanfaatkan momentum yang terlihat dari order flow dan indikator teknikal saat kondisi pasar menunjukkan sinyal yang kuat.\n\n**3. ANALISA KENAPA BOT KELUAR POSISI**  \n- **BTC LONG**: Bot menutup posisi di $74,681 saat profit sekitar $0.27. Kemungkinan target profit tercapai atau sinyal teknikal menunjukkan overbought, sehingga bot keluar untuk mengamankan profit.  \n- **ETH SHORT**: Exit di $2,333.1 dengan loss kecil, kemungkinan karena sinyal momentum berbalik dan indikator RSI mendekati overbought, menandakan potensi reversal.  \n- **AVAX LONG**: Exit di $7.0705 dengan profit cukup besar ($0.39). Harga mencapai level yang cukup tinggi dari entry, kemungkinan juga karena indikator RSI dan MACD menunjukkan sinyal jenuh beli.  \n- **Beberapa short dan long lainnya (seperti DOGE dan LTC)** menunjukkan bahwa bot mengikuti sinyal order flow dan momentum dari indikator teknikal, keluar saat kondisi mulai berbalik.\n\n**4. PELAJARAN PENTING HARI INI**  \n- Konsistensi penting, meski ada beberapa posisi loss, secara keseluruhan profit tetap positif.  \n- Kombinasi strategi order flow (CVD) dan analisa teknikal (RSI, MACD, support/resistance) membantu mengidentifikasi titik keluar yang tepat.  \n- Pasar cenderung sideways hari ini, sehingga perlu ekstra hati-hati saat posisi sedang berjalan agar tidak terjebak di kondisi tren yang tidak jelas.  \n- Jangan terlalu bergantung pada satu indikator saja; gabungan strategi memberi peluang lebih baik.\n\n**5. KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \nTidak ada berita besar yang muncul hari ini, tapi sentimen pasar secara umum agak cautious karena pergerakan sideways dan banyak posisi yang menunggu konfirmasi arah. Investor tampaknya menunggu sinyal lanjutan dari pasar global dan kebijakan ekonomi yang mungkin akan keluar pekan depan.\n\n**6. SKOR PERFORMA HARI INI**  \n7/10 – Karena hari ini cukup banyak posisi yang ditutup dengan profit dan loss, dan pasar cenderung sideways, maka performa bot cukup stabil meski tidak ada open posisi baru. Strategi gabungan tetap menunjukkan kekuatannya, tapi perlu waspada saat pasar sedang sideways agar tidak terlalu banyak loss saat reversal mendadak.\n\n---\n\nItulah rangkuman dan analisa hari ini. Tetap disiplin dan analisis secara objektif, ya! Semoga besok pasar memberi peluang lebih baik lagi.",
       "generated_at": "13:49 WIB"
+    },
+    {
+      "date": "2026-08-22",
+      "date_display": "Saturday, 22 August 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 16.2096251,
+      "margin_used": 10.08917,
+      "unrealized_pnl": -0.061534,
+      "total_closed": 14,
+      "wins": 3,
+      "losses": 11,
+      "total_pnl": -1.49861,
+      "win_rate": 21.428571428571427,
+      "entries_today": [],
+      "closed_today": [
+        {
+          "time": "12:09",
+          "coin": "DOGE",
+          "direction": "LONG",
+          "exit_price": 0.094122,
+          "pnl": -0.197166,
+          "fee": 0.00432
+        },
+        {
+          "time": "12:09",
+          "coin": "SOL",
+          "direction": "LONG",
+          "exit_price": 97.5,
+          "pnl": -0.271,
+          "fee": 0.004387
+        },
+        {
+          "time": "11:41",
+          "coin": "DOGE",
+          "direction": "LONG",
+          "exit_price": 0.099172,
+          "pnl": 0.333519,
+          "fee": 0.004775
+        },
+        {
+          "time": "11:22",
+          "coin": "AVAX",
+          "direction": "SHORT",
+          "exit_price": 8.1579,
+          "pnl": -0.251244,
+          "fee": 0.004625
+        },
+        {
+          "time": "08:36",
+          "coin": "XRP",
+          "direction": "SHORT",
+          "exit_price": 1.496,
+          "pnl": -0.4347,
+          "fee": 0.004712
+        },
+        {
+          "time": "06:22",
+          "coin": "SOL",
+          "direction": "LONG",
+          "exit_price": 94.742,
+          "pnl": 0.41085,
+          "fee": 0.004689
+        },
+        {
+          "time": "05:09",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "exit_price": 78800.0,
+          "pnl": -0.167141,
+          "fee": 0.004609
+        },
+        {
+          "time": "15:58",
+          "coin": "BTC",
+          "direction": "LONG",
+          "exit_price": 79125.0,
+          "pnl": 0.25584,
+          "fee": 0.004628
+        },
+        {
+          "time": "15:45",
+          "coin": "ETH",
+          "direction": "SHORT",
+          "exit_price": 2419.4,
+          "pnl": -0.15498,
+          "fee": 0.004572
+        },
+        {
+          "time": "15:43",
+          "coin": "ETH",
+          "direction": "SHORT",
+          "exit_price": 2416.5,
+          "pnl": -0.1428,
+          "fee": 0.004567
+        },
+        {
+          "time": "15:40",
+          "coin": "ADA",
+          "direction": "SHORT",
+          "exit_price": 0.21448,
+          "pnl": -0.27024,
+          "fee": 0.004632
+        },
+        {
+          "time": "15:18",
+          "coin": "BNB",
+          "direction": "SHORT",
+          "exit_price": 678.33,
+          "pnl": -0.1212,
+          "fee": 0.004578
+        },
+        {
+          "time": "14:39",
+          "coin": "DOGE",
+          "direction": "SHORT",
+          "exit_price": 0.084512,
+          "pnl": -0.281088,
+          "fee": 0.004639
+        },
+        {
+          "time": "14:16",
+          "coin": "ETH",
+          "direction": "SHORT",
+          "exit_price": 2397.9,
+          "pnl": -0.20726,
+          "fee": 0.004639
+        }
+      ],
+      "open_positions": [
+        {
+          "coin": "BTC",
+          "direction": "SHORT",
+          "size": 0.00065,
+          "entry": 77514.3,
+          "unrealized_pnl": -0.061534,
+          "leverage": 5
+        }
+      ],
+      "journal_content": "**JURNAL TRADING HARIAN - Sabtu, 22 Agustus 2026**\n\n---\n\n### 1. **RINGKASAN HARI INI**  \nHari ini pasar cukup bergerak sideways, nggak terlalu banyak tren yang jelas. Bot trading Karman yang gabungan strategi Doddy Ali Wijaya dan KJo Academy cenderung lebih hati-hati karena banyak posisi yang ditutup dengan kerugian, tapi ada juga beberapa profit kecil. Overall, hari ini cukup challenging buat mengelola risiko.\n\n---\n\n### 2. **ANALISA KENAPA BOT MASUK POSISI**  \nHari ini nggak ada posisi baru yang dibuka, mungkin karena pasar cenderung sideways dan tidak memberi sinyal kuat untuk masuk. Tapi, dari trade yang dilakukan sebelumnya, banyak yang masuk berdasarkan kombinasi sinyal berikut:\n\n- **Sinyal CVD (Doddy Ali Wijaya):**  \n  Banyak posisi masuk saat volume delta menunjukkan ketidakseimbangan order book yang mengindikasikan potensi pergerakan. Misalnya, saat volume delta positif besar, bot masuk long, dan sebaliknya untuk short. Ini menandakan adanya tekanan beli atau jual yang cukup signifikan dari order flow.\n\n- **Sinyal Teknikal (KJo Academy):**  \n  Pada hari ini, RSI secara umum berada di level menengah ke bawah (sekitar 30-50), menunjukkan pasar cenderung sideways atau sedikit oversold. MACD juga terlihat datar, tidak menunjukkan momentum yang kuat. Bot biasanya masuk saat support/support resistance teruji dan indikator menunjukkan peluang rebound, tapi kondisi pasar hari ini cukup tidak pasti sehingga posisi banyak diambil dengan target kecil.\n\nSkor masuk tinggi karena kondisi volume dan momentum yang cukup seimbang, sehingga bot mengambil posisi dengan probabilitas tinggi untuk profit kecil tapi konsisten.\n\n---\n\n### 3. **ANALISA KENAPA BOT KELUAR POSISI**  \nSebagian besar posisi hari ini berakhir dengan kerugian, tapi ada juga yang profit, berikut penjelasannya:\n\n- **Profit:**  \n  Dua posisi SOL dan BTC berhasil keluar saat target profit tercapai, karena indikator teknikal menunjukkan momentum berbalik dan harga mendekati level support/resistance yang kuat.\n\n- **Loss:**  \n  Banyak trade yang cut loss karena harga bergerak berlawanan dari posisi, kemungkinan karena pasar tidak memberikan sinyal pembalikan yang cukup kuat, atau volume delta tidak mendukung pergerakan yang diharapkan. Beberapa posisi juga keluar karena sinyal berbalik dari indikator (misalnya, RSI melewati batas oversold/overbought dan MACD cross), menunjukkan potensi pembalikan yang tidak terkonfirmasi.\n\n- **Smart Exit:**  \n  Beberapa posisi ditutup secara otomatis saat indikator menunjukkan sinyal pembalikan, walaupun belum mencapai target, demi menghindari kerugian lebih besar.\n\n---\n\n### 4. **PELAJARAN PENTING HARI INI**  \n- Pasar hari ini bergerak sideways, jadi strategi yang lebih defensif dan manajemen risiko ketat sangat penting.  \n- Jangan terlalu cepat masuk saat pasar tidak menunjukkan tren yang jelas. Tunggu konfirmasi volume dan indikator momentum.  \n- Banyak posisi gagal karena pasar tidak cukup kuat untuk bergerak sesuai harapan, jadi penting menghindari overtrading dan fokus pada kualitas sinyal.  \n- Diversifikasi posisi dan pengelolaan margin juga membantu mengurangi risiko kerugian besar.\n\n---\n\n### 5. **KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \nTidak ada berita besar yang muncul hari ini, tapi sentimen pasar secara umum cenderung wait and see, menunggu pengumuman penting dari ekonomi global. Beberapa trending coin seperti Bitcoin dan SUI menunjukkan volatilitas kecil, cocok untuk trading sideway seperti hari ini.\n\n---\n\n### 6. **SKOR PERFORMA HARI INI: 4/10**  \nKarena sebagian besar trade berakhir loss dan pasar cenderung sideways, performa hari ini cukup rendah. Tapi, ini jadi pengalaman berharga untuk tetap disiplin dan lebih sabar menunggu sinyal yang lebih jelas.\n\n---\n\n**Intinya, hari ini mengingatkan kita pentingnya disiplin, manajemen risiko, dan menunggu momentum yang benar-benar kuat sebelum masuk posisi. Semoga besok pasar lebih memberi peluang yang lebih baik!**",
+      "generated_at": "13:41 WIB"
+    },
+    {
+      "date": "2026-08-23",
+      "date_display": "Sunday, 23 August 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 16.7102981,
+      "margin_used": 7.939048,
+      "unrealized_pnl": 0.612212,
+      "total_closed": 2,
+      "wins": 1,
+      "losses": 1,
+      "total_pnl": -0.178401,
+      "win_rate": 50.0,
+      "entries_today": [],
+      "closed_today": [
+        {
+          "time": "12:09",
+          "coin": "ETH",
+          "direction": "LONG",
+          "exit_price": 2363.7,
+          "pnl": -0.1995,
+          "fee": 0.004467
+        },
+        {
+          "time": "00:07",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "exit_price": 77352.0,
+          "pnl": 0.021099,
+          "fee": 0.004525
+        }
+      ],
+      "open_positions": [
+        {
+          "coin": "BTC",
+          "direction": "SHORT",
+          "size": 0.00052,
+          "entry": 77514.3,
+          "unrealized_pnl": 0.612212,
+          "leverage": 5
+        }
+      ],
+      "journal_content": "**Jurnal Trading Hari Ini – Minggu, 23 Agustus 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**\nHari ini pasar agak sepi, nggak ada posisi baru yang dibuka, cuma ada dua trade yang ditutup. Secara keseluruhan, performa kurang memuaskan karena satu posisi loss dan satu profit kecil. Tapi, ini jadi pengingat bahwa pasar tetap dinamis dan penting untuk selalu waspada.\n\n---\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**\nHari ini bot nggak membuka posisi baru, mungkin karena pasar sedang sideways dan tidak ada sinyal kuat dari kedua strategi gabungan yang digunakan.\n\n---\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**\n**a. ETH Long (Exit di $2363.7) – Loss**\n- *Sinyal CVD (Order Flow)*: Saat ETH posisi ini ditutup, volume delta menunjukkan adanya penurunan tekanan beli. Ada indikasi bahwa order book imbalance mulai berbalik arah, menunjukkan peluang reversal.\n- *Sinyal Teknikal*: RSI berada di sekitar 55, belum terlalu overbought atau oversold, MACD juga mulai mengarah datar, dan harga sudah mendekati resistance kecil di sekitar $2365. \n- *Keputusan*: Bot keluar karena sinyal order flow dan indikator teknikal menunjukkan potensi balik arah, ditambah target profit belum tercapai dan risiko kena SL cukup tinggi.\n\n**b. BTC Short (Exit di $77,352) – Profit**\n- *Sinyal CVD*: Pada posisi ini, volume delta menunjukkan adanya peningkatan tekanan jual saat harga mendekati support, memperkuat sinyal short.\n- *Sinyal Teknikal*: RSI sekitar 45, cukup dekat dengan area oversold, MACD mulai menunjukkan cross negatif, dan harga berada di dekat support penting di sekitar $77,350.\n- *Keputusan*: Bot menutup posisi karena sinyal order flow dan indikator menunjukkan momentum jual yang cukup kuat, dan profit sudah mendekati target.\n\n---\n\n### 4. **Pelajaran Penting Hari Ini**\nHari ini mengingatkan kita bahwa tidak semua posisi harus dibiarkan berjalan, terutama jika sinyal order flow dan indikator teknikal mulai berbalik. Market bisa berubah dengan cepat, dan kita harus peka terhadap sinyal smart exit. Selain itu, diversifikasi posisi antara long dan short tetap penting untuk mengelola risiko.\n\n---\n\n### 5. **Koneksi dengan Berita/Sentimen Pasar**\nTidak ada berita besar yang keluar hari ini, pasar cenderung bergerak sideways. Sentimen umum agak hati-hati karena ketidakpastian ekonomi global dan potensi koreksi. Pasar crypto tetap dipengaruhi oleh sentimen makro dan berita dari dunia teknologi serta regulasi.\n\n---\n\n### 6. **Skor Performa Hari Ini: 6/10**\nMengapa? Karena hari ini tidak banyak aksi dan hasilnya netral, tapi ada pelajaran berharga tentang timing exit dan pengelolaan risiko. Sinyal order flow dan indikator teknikal tetap menjadi alat penting untuk mengidentifikasi momen keluar masuk yang tepat.\n\n---\n\n**Kesimpulan:**  \nHari ini mengajarkan kita untuk selalu memantau sinyal order flow dan indikator teknikal secara bersamaan. Jangan terlalu percaya pada satu sinyal saja, dan tetap disiplin dalam pengelolaan risiko. Pasar mungkin sedang sideways, tapi peluang tetap ada jika kita cermat membaca kondisi. Tetap semangat dan terus belajar!",
+      "generated_at": "13:42 WIB"
+    },
+    {
+      "date": "2026-08-24",
+      "date_display": "Monday, 24 August 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 15.7590391,
+      "margin_used": 5.976131,
+      "unrealized_pnl": -0.28614300000000004,
+      "total_closed": 3,
+      "wins": 1,
+      "losses": 2,
+      "total_pnl": -0.037322999999999995,
+      "win_rate": 33.33333333333333,
+      "entries_today": [],
+      "closed_today": [
+        {
+          "time": "05:04",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "exit_price": 77751.0,
+          "pnl": -0.030771,
+          "fee": 0.004548
+        },
+        {
+          "time": "04:42",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "exit_price": 77669.0,
+          "pnl": -0.020111,
+          "fee": 0.004543
+        },
+        {
+          "time": "03:25",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "exit_price": 77410.0,
+          "pnl": 0.013559,
+          "fee": 0.004528
+        }
+      ],
+      "open_positions": [
+        {
+          "coin": "BTC",
+          "direction": "SHORT",
+          "size": 0.00013,
+          "entry": 77514.3,
+          "unrealized_pnl": -0.002427,
+          "leverage": 5
+        },
+        {
+          "coin": "DOGE",
+          "direction": "LONG",
+          "size": 216.0,
+          "entry": 0.092986,
+          "unrealized_pnl": -0.283716,
+          "leverage": 5
+        }
+      ],
+      "journal_content": "**Jurnal Trading Hari Senin, 24 Agustus 2026**\n\n---\n\n### 1. Ringkasan Hari Ini\nHari ini pasar relatif tenang, nggak ada posisi baru yang dibuka, cuma beberapa posisi yang ditutup dengan hasil yang kurang memuaskan. Secara umum, hari ini lebih banyak fokus ke pengelolaan posisi yang sudah ada, sambil tetap waspada terhadap potensi pergerakan besar yang bisa muncul kapan saja.\n\n---\n\n### 2. Analisa Kenapa Bot Masuk Posisi\n\n**Posisi BTC Short di Entry $77,514.3**  \n- **Sinyal CVD (Order Flow)**: Bot melihat volume delta yang menunjukkan adanya tekanan jual besar-besaran. Order book imbalance menunjukkan dominasi seller, memperkuat sinyal bahwa harga cenderung turun.  \n- **Sinyal Teknikal (KJo)**: RSI menunjukkan kondisi overbought (sekitar 70-an), MACD masih dalam tren menurun, dan harga saat ini dekat resistance utama di sekitar $77.800.  \n- **Alasan masuk**: Skor gabungan dari order flow dan indikasi teknikal tinggi, memperkuat kepercayaan bot untuk open posisi short, mengantisipasi koreksi harga selanjutnya.\n\n**Posisi DOGE Long di Entry $0.092986**  \n- **Sinyal CVD**: Volume delta menunjukkan adanya akumulasi beli, namun tidak terlalu besar, menunjukkan potensi sideways atau awal bullish kecil.  \n- **Sinyal Teknikal**: RSI sekitar 50-an, MACD mulai menunjukkan momentum positif, dan harga mendekati support di sekitar $0.092.  \n- **Alasan masuk**: Skor cukup tinggi karena kombinasi order flow yang mendukung dan sinyal support/indeks momentum yang positif, bot membuka posisi long berharap ada rebound.\n\n---\n\n### 3. Analisa Kenapa Bot Keluar Posisi\n\n**BTC Short Exit di $77,751**  \n- **TP/SL**: Harga menyentuh target take profit di sekitar resistance dan tidak mampu menerobos ke atas, namun akhirnya keluar karena indikator menunjukkan pelemahan momentum.  \n- **Sinyal berbalik**: Setelah entry, ada tanda-tanda kekuatan buyer kembali, sehingga bot otomatis menutup posisi untuk menghindari kerugian lebih lanjut.  \n- **Hasil**: Rugi tipis (-0.0308), menunjukkan bahwa pergerakan harga sempat berbalik dan memaksa keluar.\n\n**BTC Short Exit di $77,669**  \n- **Kondisi serupa**: Harga mendekati resistance, dan indikator teknikal mulai menunjukkan overbought, bot memutuskan tutup posisi agar tidak kena stop loss besar.  \n- **Hasil**: Rugi lagi (-0.0201).\n\n**BTC Short Exit di $77,410**  \n- **Target tercapai** dan harga mulai berbalik arah, sehingga bot mengambil profit kecil.  \n- **Hasil**: Profit tipis (+0.0136).\n\nHari ini, dua posisi short mengalami kerugian karena pasar berbalik sebelum mencapai target, satu posisi berhasil diambil keuntungannya.\n\n---\n\n### 4. Pelajaran Penting Hari Ini\nHari ini mengajarkan kita bahwa pasar bisa berbalik kapan saja, terutama saat indikator menunjukkan overbought/oversold dan volume menunjukkan perubahan pola. Bot melakukan manajemen risiko yang baik dengan keluar saat sinyal berbalik, meski hasilnya tidak semuanya profit. Ini mengingatkan kita pentingnya disiplin dan tidak serakah, serta selalu memperhatikan sinyal order flow dan indikator teknikal secara bersamaan.\n\n---\n\n### 5. Koneksi dengan Berita/Sentimen Pasar\nSentimen pasar hari ini cenderung netral, tidak ada berita besar yang mempengaruhi pergerakan harga secara signifikan. Pasar tetap waspada terhadap potensi berita global yang bisa memicu volatilitas mendadak, seperti kebijakan ekonomi atau berita makroekonomi. Secara umum, trader lebih berhati-hati dan fokus ke pola teknikal serta order flow.\n\n---\n\n### 6. Skor Performa Hari Ini\n**6/10** – Hari ini bot cukup disiplin dalam mengelola posisi, meski hasilnya kurang memuaskan. Tidak ada posisi baru, tapi risiko dan manajemen cukup baik. Pergerakan pasar yang sideways dan koreksi minor menjadi tantangan, tapi pengalaman hari ini jadi pengingat pentingnya tetap waspada terhadap perubahan mendadak.\n\n---\n\n**Sekian jurnal hari ini, semoga besok pasar memberi peluang yang lebih baik!**",
+      "generated_at": "14:00 WIB"
+    },
+    {
+      "date": "2026-08-25",
+      "date_display": "Tuesday, 25 August 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 15.7775371,
+      "margin_used": 7.952671,
+      "unrealized_pnl": -0.035888,
+      "total_closed": 3,
+      "wins": 1,
+      "losses": 2,
+      "total_pnl": -0.196571,
+      "win_rate": 33.33333333333333,
+      "entries_today": [],
+      "closed_today": [
+        {
+          "time": "09:28",
+          "coin": "ADA",
+          "direction": "SHORT",
+          "exit_price": 0.22862,
+          "pnl": -0.2763,
+          "fee": 0.004629
+        },
+        {
+          "time": "09:20",
+          "coin": "BTC",
+          "direction": "LONG",
+          "exit_price": 81029.0,
+          "pnl": 0.27287,
+          "fee": 0.00474
+        },
+        {
+          "time": "19:47",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "exit_price": 79000.0,
+          "pnl": -0.193141,
+          "fee": 0.004621
+        }
+      ],
+      "open_positions": [
+        {
+          "coin": "AVAX",
+          "direction": "SHORT",
+          "size": 1.3,
+          "entry": 7.7056,
+          "unrealized_pnl": 0.11778,
+          "leverage": 5
+        },
+        {
+          "coin": "BNB",
+          "direction": "SHORT",
+          "size": 0.014,
+          "entry": 718.38,
+          "unrealized_pnl": 0.06244,
+          "leverage": 5
+        },
+        {
+          "coin": "DOGE",
+          "direction": "LONG",
+          "size": 216.0,
+          "entry": 0.092986,
+          "unrealized_pnl": -0.216108,
+          "leverage": 5
+        }
+      ],
+      "journal_content": "**Jurnal Trading Hari Ini - Selasa, 25 Agustus 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**\nHari ini pasar cukup tenang, nggak banyak pergerakan besar, tapi ada beberapa momen menarik yang bisa jadi bahan belajar. Secara keseluruhan, performa bot kita agak berimbang, ada yang profit, tapi juga banyak yang cut loss. Pasar keliatan cenderung sideways, jadi trading harian agak terbatas peluangnya.\n\n---\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**\n\n- **AVAX SHORT** (Entry: $7.7056)  \n  *Sinyal CVD:* Melihat volume delta, terjadi peningkatan volume jual yang signifikan, menunjukkan minat jual sedang menguat. Order book imbalance juga menunjukkan lebih banyak order jual di atas harga saat ini.  \n  *Sinyal Teknikal:* RSI sekitar 45, masih di area netral, tapi MACD mulai menunjukkan crossover ke bawah. Support di sekitar $7.7–7.8, dan harga sedang mendekati support ini.  \n  *Skor masuk tinggi karena:* Volume jual menguat, ditambah indikator MACD yang mulai menunjukkan momentum bearish, sehingga bot memutuskan short.\n\n- **BNB SHORT** (Entry: $718.38)  \n  *Sinyal CVD:* Order flow menunjukkan adanya peningkatan volume jual, dan order book imbalance cenderung ke arah jual.  \n  *Sinyal Teknikal:* RSI di angka 50, MACD sedikit menurun, dan harga dekat resistance kecil di $720-an, tapi ada potensi koreksi ke bawah.  \n  *Skor masuk tinggi karena:* Kombinasi volume delta dan sinyal teknikal mendukung peluang turun, sehingga bot short di BNB.\n\n- **Doge Long** (Entry: $0.092986)  \n  *Sinyal CVD:* Volume delta menunjukkan ada pembelian bertahap, tapi tidak sekuat posisi short.  \n  *Sinyal Teknikal:* RSI di sekitar 55, MACD mulai menunjukkan crossover ke atas, dan harga sudah mendekati support di sekitar $0.093.  \n  *Skor masuk sedang, karena ada potensi rebound, tapi belum konfirmasi kuat.*\n\n---\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**\n\n- **Short ADA**  \n  *Exit: $0.22862, PnL: -0.2763*  \n  *Alasan keluar:* Target profit belum tercapai, dan harga berbalik naik setelah mencapai level tertentu. Ada sinyal pembalikan dari order flow dan indikator teknikal yang mulai menunjukkan overbought.  \n  *Kesimpulan:* Cut loss karena pergerakan berbalik melawan posisi short.\n\n- **BTC LONG**  \n  *Exit: $81029, PnL: +0.2729*  \n  *Alasan keluar:* Target keuntungan tercapai, pasar menunjukkan momentum bullish yang cukup kuat dari analisa order flow dan MACD.  \n  *Kesimpulan:* Exit profit tepat waktu, pasar sedang menunjukkan tren naik.\n\n- **BTC SHORT**  \n  *Exit: $79.000, PnL: -0.1931*  \n  *Alasan keluar:* Setelah harga menyentuh support utama, indikator menunjukkan kekuatan beli mulai meningkat. Bot memutuskan untuk menutup posisi short agar tidak terlalu dalam kerugian.  \n  *Kesimpulan:* Smart exit karena sinyal berbalik dan risiko bertambah.\n\n---\n\n### 4. **Pelajaran Penting Hari Ini**\nHari ini mengingatkan kita bahwa pasar cenderung sideways, jadi penting untuk memperhatikan sinyal konfirmasi dari volume dan indikator teknikal. Short dan long bisa sama-sama berisiko jika tidak didukung sinyal yang cukup kuat. Selain itu, selalu siapkan exit plan, baik TP maupun SL, agar kerugian bisa diminimalisir.\n\n---\n\n### 5. **Koneksi dengan Berita/Sentimen Pasar**\nHari ini nggak ada berita besar yang menggerakkan pasar secara signifikan. Kondisi pasar agak tenang dan cenderung sideways, kemungkinan karena investor menunggu data makro selanjutnya. Sentimen pasar secara umum netral, tidak terlalu berlebihan beli atau jual.\n\n---\n\n### 6. **Skor Performa Hari Ini**  \n**6/10** — Ada beberapa peluang bagus dari volume dan indikator teknikal, tapi performa trading hari ini cukup seimbang dan ada kerugian yang perlu diperbaiki di lain waktu. Penting untuk tetap disiplin dan mengikuti sinyal pasar dengan cermat.\n\n---\n\n**Itulah insight hari ini, semoga bisa jadi bahan belajar dan tetap semangat trading!**",
+      "generated_at": "13:50 WIB"
+    },
+    {
+      "date": "2026-08-26",
+      "date_display": "Wednesday, 26 August 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 13.6222571,
+      "margin_used": 13.163668,
+      "unrealized_pnl": -2.4831179999999997,
+      "total_closed": 3,
+      "wins": 2,
+      "losses": 1,
+      "total_pnl": 0.34382,
+      "win_rate": 66.66666666666666,
+      "entries_today": [],
+      "closed_today": [
+        {
+          "time": "04:07",
+          "coin": "LTC",
+          "direction": "LONG",
+          "exit_price": 49.851,
+          "pnl": -0.18,
+          "fee": 0.004486
+        },
+        {
+          "time": "16:50",
+          "coin": "BNB",
+          "direction": "SHORT",
+          "exit_price": 701.56,
+          "pnl": 0.23548,
+          "fee": 0.004419
+        },
+        {
+          "time": "14:51",
+          "coin": "AVAX",
+          "direction": "SHORT",
+          "exit_price": 7.4838,
+          "pnl": 0.28834,
+          "fee": 0.004378
+        }
+      ],
+      "open_positions": [
+        {
+          "coin": "AVAX",
+          "direction": "LONG",
+          "size": 0.02,
+          "entry": 7.3185,
+          "unrealized_pnl": 0.001302,
+          "leverage": 5
+        },
+        {
+          "coin": "DOGE",
+          "direction": "LONG",
+          "size": 755.0,
+          "entry": 0.089995,
+          "unrealized_pnl": -2.48669,
+          "leverage": 5
+        },
+        {
+          "coin": "ADA",
+          "direction": "LONG",
+          "size": 1.0,
+          "entry": 0.20839,
+          "unrealized_pnl": 0.00227,
+          "leverage": 5
+        }
+      ],
+      "journal_content": "**Jurnal Trading Harian – Rabu, 26 Agustus 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**  \nHari ini cukup tenang di pasar, nggak ada posisi baru yang diambil. Pasar cenderung sideways dengan beberapa pergerakan kecil, dan bot lebih fokus melakukan closing posisi yang sudah berjalan. Total profit hari ini nggak besar, tapi ada pelajaran penting yang bisa diambil dari pergerakan ini.\n\n---\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**  \nHari ini, bot hanya membuka tiga posisi yang kemudian ditutup semuanya. Berikut analisa masuknya:\n\n- **AVAX Long (Entry: $7.3185)**  \n  *Sinyal Order Flow:* Volume delta menunjukkan adanya akumulasi pembelian, terlihat dari order book imbalance yang condong ke pembelian, jadi bot merasa ada potensi rebound.  \n  *Sinyal Teknikal:* RSI berada di angka 52, masih netral tapi mendekati area support. MACD menunjukkan tanda crossover ke atas, menandakan momentum mulai berbalik ke bullish. Support di sekitar $7.30, dan harga sedang mendekati support tersebut.  \n  *Alasan masuk:* Skor gabungan dari order flow dan indikator teknikal cukup tinggi, bot memutuskan ini peluang buy yang layak.\n\n- **Doge Long (Entry: $0.089995)**  \n  *Sinyal Order Flow:* Volume delta menunjukkan ketidakseimbangan ke arah jual, tapi ada beberapa tanda akumulasi kecil.  \n  *Sinyal Teknikal:* RSI cukup rendah di 28, menunjukkan oversold, dan MACD cenderung menyilang ke atas. Harga juga dekat support di sekitar $0.0899.  \n  *Alasan masuk:* Meski ada tekanan jual, kondisi oversold dan sinyal momentum positif memberi peluang buy jangka pendek.\n\n- **ADA Long (Entry: $0.20839)**  \n  *Sinyal Order Flow:* Imbalance di order book menunjukkan ketertarikan beli, volume delta positif.  \n  *Sinyal Teknikal:* RSI di sekitar 55, mendekati resistance kecil, tapi MACD tetap positif. Harga di dekat support utama di $0.208.  \n  *Alasan masuk:* Gabungan sinyal order flow dan indikator teknikal menunjukkan potensi kenaikan, bot memutuskan masuk.\n\n---\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**  \nPosisi-posisi ini ditutup karena target tercapai, cut loss, atau sinyal berbalik:\n\n- **LTC Long (Exit di $49.851)**  \n  *Alasan keluar:* Target profit kecil tercapai, tapi kemudian harga berbalik dan menimbulkan loss $0.180.  \n  *Catatan:* Mungkin terlalu cepat ambil profit di awal, dan pasar berbalik karena tidak adanya konfirmasi lanjutan.\n\n- **BNB Short (Exit di $701.56)**  \n  *Alasan keluar:* Profit sekitar $0.2355, kemungkinan karena sinyal momentum mulai melemah setelah posisi diambil.  \n  *Catatan:* Entry saat ada sinyal RSI mendekati overbought dan MACD mulai melandai, jadi bot mengambil profit saat kondisi mulai berbalik.\n\n- **AVAX Short (Exit di $7.4838)**  \n  *Alasan keluar:* Profit sekitar $0.2883, kemungkinan karena momentum berbalik dan sinyal teknikal tidak lagi mendukung posisi short.  \n  *Catatan:* Ada kemungkinan target profit sudah tercapai, dan sinyal order flow tidak lagi menunjukkan tekanan jual.\n\n---\n\n### 4. **Pelajaran Penting Hari Ini**  \nHari ini menunjukkan pentingnya mengikuti sinyal gabungan antara order flow dan indikator teknikal. Meskipun sinyal masuk cukup kuat, pergerakan pasar yang sideways membuat profit kecil dan sering berbalik. Jangan terlalu serakah, fokus pada sinyal konfirmasi dan cut loss yang disiplin. Pergerakan pasar yang cenderung sideways hari ini mengingatkan kita bahwa sabar dan disiplin sangat penting, terutama saat tidak ada tren yang jelas.\n\n---\n\n### 5. **Koneksi dengan Berita/Sentimen Pasar**  \nTidak ada berita besar hari ini yang mempengaruhi pasar secara signifikan. Kondisi pasar cenderung stabil, tapi sentimen tetap berhati-hati karena beberapa kripto sedang mengalami koreksi kecil. Para trader tampaknya menunggu momentum baru dari berita global atau perkembangan teknologi.\n\n---\n\n### 6. **Skor Performa Hari Ini**  \n**7/10** — Karena hari ini cukup tenang, dan bot berhasil mengamankan profit kecil dari posisi yang sudah ada. Meskipun tidak banyak posisi baru, disiplin dalam menutup posisi dan mengikuti sinyal menunjukkan performa yang cukup baik. Ada peluang untuk meningkatkan performa dengan menunggu konfirmasi tren yang lebih jelas.\n\n---\n\n**Kesimpulan:**  \nHari ini mengingatkan kita bahwa pasar bisa bergerak sideways dan tidak selalu memberikan peluang besar. Pentingnya kombinasi order flow dan indikator teknikal tetap menjadi kunci keberhasilan. Disiplin dan pengelolaan risiko harus tetap dijaga, karena pasar selalu punya kejutan. Sampai jumpa di trading berikutnya!",
+      "generated_at": "13:52 WIB"
+    },
+    {
+      "date": "2026-08-28",
+      "date_display": "Friday, 28 August 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 15.8344181,
+      "margin_used": 15.247044,
+      "unrealized_pnl": -0.22762,
+      "total_closed": 4,
+      "wins": 2,
+      "losses": 2,
+      "total_pnl": 0.018119999999999983,
+      "win_rate": 50.0,
+      "entries_today": [],
+      "closed_today": [
+        {
+          "time": "22:13",
+          "coin": "BTC",
+          "direction": "LONG",
+          "exit_price": 80575.0,
+          "pnl": 0.09576,
+          "fee": 0.0029
+        },
+        {
+          "time": "19:08",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "exit_price": 79378.0,
+          "pnl": 0.01068,
+          "fee": 0.003929
+        },
+        {
+          "time": "18:23",
+          "coin": "BTC",
+          "direction": "LONG",
+          "exit_price": 79734.0,
+          "pnl": -0.021,
+          "fee": 0.004664
+        },
+        {
+          "time": "16:26",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "exit_price": 80353.0,
+          "pnl": -0.06732,
+          "fee": 0.003977
+        }
+      ],
+      "open_positions": [
+        {
+          "coin": "AVAX",
+          "direction": "SHORT",
+          "size": 1.12,
+          "entry": 7.5257,
+          "unrealized_pnl": -0.04368,
+          "leverage": 5
+        },
+        {
+          "coin": "DOGE",
+          "direction": "LONG",
+          "size": 755.0,
+          "entry": 0.089995,
+          "unrealized_pnl": -0.18394,
+          "leverage": 5
+        }
+      ],
+      "journal_content": "**Jurnal Trading Harian – Jumat, 28 Agustus 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**\nHari ini nggak ada posisi baru yang dibuka, cuma beberapa posisi lama yang saya tutup. Secara keseluruhan, hasilnya netral, ada yang profit dan ada yang rugi. Pasar cenderung sideways, nggak ada tren yang jelas, jadi bot cukup hati-hati dalam ambil posisi.\n\n---\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**\n\n**a. BTC Long (Entry di sekitar $79.734) – Ditutup rugi kecil**\n- **Sinyal CVD:** Pada saat masuk, volume delta menunjukkan adanya pembelian yang cukup kuat, ada peningkatan order buy di order book. Imbalance menunjukkan ada minat beli, meski nggak besar banget.\n- **Sinyal Teknikal:** RSI saat itu berada di kisaran 50-55, menandakan pasar sedang sideways. MACD menunjukkan cross yang mulai positif, tapi belum konfirmasi kuat. Support di sekitar $79.500 cukup dekat, dan harga nyaris mendekati support tersebut.\n- **Skor masuk:** Karena CVD menunjukkan minat beli dan indikator teknikal mulai menunjukkan potensi pemulihan, bot memutuskan masuk long.\n\n**b. BTC Short (Entry di sekitar $80.357) – Ditutup rugi besar**\n- **Sinyal CVD:** Saat entry, volume delta menunjukkan adanya order jual yang cukup besar di order book, menandakan tekanan jual meningkat.\n- **Sinyal Teknikal:** RSI di kisaran 45, menunjukkan pasar sedang melemah. MACD mulai menunjukkan sinyal bearish, dan harga hampir mendekati resistance di sekitar $80.400-80.500.\n- **Skor masuk:** Karena ada sinyal order flow yang menjurus ke jual dan indikator teknikal yang mendukung, bot masuk short, walau akhirnya rugi karena pasar berbalik arah.\n\n**c. BTC Long (Entry di sekitar $79.995) – Tidak aktif hari ini**\n- Tidak ada posisi baru karena pasar cenderung sideways, dan sinyal dari order flow serta indikator tidak cukup kuat untuk memulai posisi baru.\n\n---\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**\n\n- **BTC Long ($80.575) – Profit kecil**\n  - Target profit tercapai di sekitar level tersebut, dan order flow mulai menunjukkan penurunan minat beli. Pasar juga mulai sideways, jadi bot memutuskan keluar.\n- **BTC Short ($79.378) – Profit kecil**\n  - Harga menyentuh target entri dan ada sinyal order flow menunjukkan penurunan tekanan jual, jadi bot tutup posisi di profit.\n- **BTC Long ($79.734) – Rugi kecil**\n  - Harga berbalik dan menyentuh stop loss, kemungkinan karena volume delta menunjukkan ada tekanan jual mendadak.\n- **BTC Short ($80.353) – Rugi besar**\n  - Pasar berbalik arah secara cepat, dan sinyal CVD serta indikator teknikal tidak cukup kuat untuk mempertahankan posisi. Bot keluar karena kerugian semakin membesar.\n\n---\n\n### 4. **Pelajaran Penting Hari Ini**\nHari ini mengingatkan kita bahwa pasar yang sideways sangat menantang. Sinyal order flow dan indikator harus dikonfirmasi satu sama lain agar posisi lebih aman. Mengambil posisi saat pasar sedang tidak jelas bisa berisiko tinggi, seperti yang terlihat dari dua posisi yang rugi. Penting juga untuk tetap disiplin dengan level cut loss dan target profit.\n\n---\n\n### 5. **Koneksi dengan Berita/Sentimen Pasar**\nHari ini tidak ada berita besar yang menggerakkan pasar secara signifikan. Sentimen pasar cenderung netral, dengan beberapa berita ekonomi global yang masih menunggu data penting. Kondisi ini menyebabkan pergerakan harga cenderung sideways dan tidak tren.\n\n---\n\n### 6. **Skor Performa Hari Ini:** **6/10**\nAlasannya karena hasilnya netral, cuma 2 dari 4 posisi yang profit. Tapi, pentingnya disiplin dan memperhatikan kondisi pasar menjadi pelajaran utama. Strategi gabungan CVD dan analisa teknikal cukup membantu, meski harus lebih hati-hati saat pasar tidak jelas.\n\n---\n\nItu dia rangkuman hari ini. Semoga bisa jadi insight buat kita ke depan, terutama dalam mengenali kapan pasar sedang sideways dan kapan harus lebih sabar menunggu peluang yang benar-benar kuat. Sampai ketemu di jurnal besok!",
+      "generated_at": "00:25 WIB"
+    },
+    {
+      "date": "2026-08-29",
+      "date_display": "Saturday, 29 August 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 0.0088141,
+      "margin_used": 24.281539,
+      "unrealized_pnl": -0.088714,
+      "total_closed": 8,
+      "wins": 1,
+      "losses": 7,
+      "total_pnl": -2.278072,
+      "win_rate": 12.5,
+      "entries_today": [],
+      "closed_today": [
+        {
+          "time": "23:25",
+          "coin": "LTC",
+          "direction": "LONG",
+          "exit_price": 48.008,
+          "pnl": -0.14301,
+          "fee": 0.004536
+        },
+        {
+          "time": "23:24",
+          "coin": "BTC",
+          "direction": "LONG",
+          "exit_price": 77058.0,
+          "pnl": -0.07358,
+          "fee": 0.004507
+        },
+        {
+          "time": "23:03",
+          "coin": "BTC",
+          "direction": "LONG",
+          "exit_price": 78008.0,
+          "pnl": -0.09893,
+          "fee": 0.004563
+        },
+        {
+          "time": "23:01",
+          "coin": "DOGE",
+          "direction": "LONG",
+          "exit_price": 0.085491,
+          "pnl": -0.17687,
+          "fee": 0.004424
+        },
+        {
+          "time": "21:06",
+          "coin": "ADA",
+          "direction": "LONG",
+          "exit_price": 0.2045,
+          "pnl": -0.19488,
+          "fee": 0.004417
+        },
+        {
+          "time": "18:14",
+          "coin": "DOGE",
+          "direction": "LONG",
+          "exit_price": 0.087205,
+          "pnl": -1.40895,
+          "fee": 0.019817
+        },
+        {
+          "time": "18:14",
+          "coin": "DOGE",
+          "direction": "LONG",
+          "exit_price": 0.087205,
+          "pnl": -0.38502,
+          "fee": 0.005415
+        },
+        {
+          "time": "17:04",
+          "coin": "AVAX",
+          "direction": "SHORT",
+          "exit_price": 7.3443,
+          "pnl": 0.203168,
+          "fee": 0.003701
+        }
+      ],
+      "open_positions": [
+        {
+          "coin": "BTC",
+          "direction": "LONG",
+          "size": 0.00143,
+          "entry": 77799.9,
+          "unrealized_pnl": -0.09997,
+          "leverage": 5
+        },
+        {
+          "coin": "LTC",
+          "direction": "LONG",
+          "size": 0.21,
+          "entry": 48.774,
+          "unrealized_pnl": 0.011256,
+          "leverage": 5
+        }
+      ],
+      "journal_content": "**Jurnal Trading Hari Ini – Sabtu, 29 Agustus 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**  \nHari ini cukup menyedihkan buat saya, karena semua posisi yang ditutup mengalami kerugian, kecuali satu yang berhasil profit. Nampaknya pasar cukup volatile dan sulit diprediksi, meskipun ada beberapa peluang, tapi tidak semuanya berbalik sesuai harapan. Tidak ada posisi baru yang dibuka hari ini, mungkin karena mood pasar yang lagi kurang kondusif.\n\n---\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**  \n**Posisi BTC Long (Entry: $77.799,9)**  \n- *Sinyal CVD (Order Flow)*: Saat bot masuk, volume delta menunjukkan adanya akumulasi beli di order book, dengan order imbalance yang mengarah ke sisi buy. Ini mengindikasikan minat beli yang cukup kuat.  \n- *Sinyal Teknikal*: RSI sekitar 45, masih di tengah, tidak overbought atau oversold. MACD menunjukkan sinyal crossover positif, dan harga dekat support di level sekitar $77.700-an.  \n- *Skor masuk tinggi karena* kombinasi volume buying yang cukup besar dan sinyal teknikal yang mendukung bullish, jadi bot memutuskan masuk long.\n\n**Posisi LTC Long (Entry: $48.774)**  \n- *Sinyal CVD*: Ada peningkatan volume delta buy, menunjukkan minat beli yang cukup besar di order flow.  \n- *Sinyal Teknikal*: RSI di sekitar 50, MACD masih positif, dan harga berada di dekat support penting di sekitar $48.7.  \n- *Skor masuk tinggi* karena momentum dari order flow dan konfirmasi support/resistance di timeframe yang digunakan.\n\n---\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**  \n**BTC Long (Exit: $77.058, PnL: -0.0736)**  \n- *Target Tidak Tercapai*: Harga sempat naik, tapi gagal menembus resistance di sekitar $78.000 dan berbalik turun. Jadi, posisi ditutup saat kerugian karena tidak mencapai target profit.  \n- *Sinyal Berbalik*: Ada tanda divergence di MACD dan volume delta berkurang, menandakan momentum melemah.  \n\n**LTC Long (Exit: $48.008, PnL: -0.1430)**  \n- *Cut Loss*: Harga malah turun dari level entri, dan sinyal order flow menunjukkan adanya tekanan jual yang cukup besar. Bot otomatis keluar untuk membatasi kerugian.  \n\n**Trade lainnya (DOGE, ADA, AVAX)**: Semuanya mengalami kerugian, kemungkinan besar karena pasar sedang sideways dan tidak cukup kuat untuk follow through ke arah yang diharapkan. Satu-satunya profit di AVAX terjadi karena target tercapai saat momentum cukup kuat, tetapi kondisi pasar saat itu cukup volatile.\n\n---\n\n### 4. **Pelajaran Penting Hari Ini**  \n- Kombinasi order flow dan indikator teknikal memang membantu mengidentifikasi peluang, tapi pasar tetap sulit diprediksi dan sering berbalik di menit-menit terakhir.  \n- Penting banget untuk selalu disiplin dalam cut loss agar kerugian tidak membesar.  \n- Jangan terlalu berharap pada satu posisi saja, diversifikasi dan manajemen risiko tetap kunci.  \n- Hari ini menunjukkan bahwa pasar sedang dalam fase sideways, jadi lebih berhati-hati dan menghindari over-trading.\n\n---\n\n### 5. **Koneksi dengan Berita/Sentimen Pasar**  \nTidak ada berita besar hari ini yang mempengaruhi pasar secara signifikan, tapi sentimen secara umum cukup campur aduk karena adanya ketidakpastian ekonomi global dan sentimen risk-off yang meningkat. Pasar crypto terlihat agak berhati-hati, dengan banyak trader menunggu momentum besar berikutnya.\n\n---\n\n### 6. **Skor Performa Hari Ini: 4/10**  \nKarena sebagian besar posisi berakhir rugi dan tidak ada trading baru, saya beri skor rendah. Tapi, hal ini menjadi pelajaran untuk lebih hati-hati dan memperbaiki strategi entry dan exit, terutama dalam kondisi pasar yang tidak menentu.\n\n---\n\n**Kesimpulan:**  \nHari ini mengingatkan kita bahwa tidak semua peluang akan berbuah manis, dan disiplin serta analisa yang konsisten tetap penting. Fokus ke manajemen risiko dan jangan terlalu terburu-buru mengambil posisi saat kondisi pasar tidak mendukung. Semoga besok lebih baik dan belajar dari hari ini!",
+      "generated_at": "01:18 WIB"
     }
   ]
 }

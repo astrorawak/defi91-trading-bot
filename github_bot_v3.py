@@ -666,13 +666,29 @@ def manage_open_positions(exchange, info, all_mids):
         u_pnl = float(p.get("unrealizedPnl", 0))
         entry = float(p.get("entryPx", 0))
         mid = all_mids.get(coin, entry)
+        long = szi > 0
         print(f"  {coin} | szi={szi} | entry={entry:.2f} | uPnL=${u_pnl:.2f}")
+
+        # PERISAI LIKUIDASI (FIX: sebelumnya cuma alert read-only di
+        # monitor_positions.py, tidak ada force-close otomatis sama sekali).
+        # Ditaruh di sini karena script ini satu-satunya yang sudah punya
+        # exchange+private key terpercaya & jalan tiap 10 menit.
+        liq_px = p.get("liquidationPx")
+        liq_px = float(liq_px) if liq_px else None
+        if liq_px and mid:
+            dist_pct = abs(mid - liq_px) / mid * 100
+            if dist_pct < LIQ_SAFETY_PCT:
+                print(f"  🚨 PERISAI LIKUIDASI: {coin} jarak {dist_pct:.1f}% < {LIQ_SAFETY_PCT}% -> HARD CLOSE")
+                try:
+                    exchange.market_close(coin)
+                except Exception as e:
+                    print(f"  close err (liq shield): {e}")
+                continue
+
         # hitung ulang sinyal berlawanan -> early close
         onchain, _ = analyze_onchain(coin)
         tech, _ = analyze_technical(coin)
         total = onchain + tech
-        # Arah posisi
-        long = szi > 0
         against = total >= SMART_EXIT_THRESHOLD if long else total <= -SMART_EXIT_THRESHOLD
         if against:
             print(f"  ⚡ Sinyal kuat berlawanan -> early close {coin}")
@@ -759,6 +775,7 @@ def main():
         print("🔬 DRY RUN: hanya menghitung & menampilkan sinyal. TIDAK ada order nyata.")
 
     # KILL SWITCH (hanya berarti bila ada akun/posisi nyata)
+    account_value = 0.0
     if exchange is not None:
         halted, account_value, msg = check_kill_switch(info)
         print(f"Saldo/nilai akun: ${account_value:.2f} | Kill-switch: {msg}")
@@ -783,6 +800,11 @@ def main():
     except Exception as e:
         print("mid err", e)
 
+    # FIX: sebelumnya hanya dihitung jumlah posisi terbuka (open_positions), tanpa
+    # tahu KOIN mana saja yang sudah open -> bot bisa menambah entry baru ke koin
+    # yang sudah punya posisi selama total posisi < MAX_OPEN_POSITIONS (pyramiding
+    # tak terkendali, penyebab BTC menumpuk hampir 100% margin). Sekarang direkam
+    # per-koin: open_coins (guard anti-duplikasi) + coin_margin_used (gerbang cap alokasi).
     open_positions = 0
     acct_value = 0.0
     coin_margin = {}
@@ -810,6 +832,22 @@ def main():
         if not current_price:
             print(f"  Skip {coin}: tak ada harga")
             continue
+
+        # GUARD anti-duplikasi: jangan tambah entry ke koin yang sudah punya posisi
+        # terbuka (satu posisi aktif per koin pada satu waktu).
+        if coin in open_coins:
+            print(f"  ⏭ Skip {coin}: sudah ada posisi terbuka (anti-pyramiding).")
+            continue
+
+        # GERBANG CAP ALOKASI: margin koin ini (+trade baru) tidak boleh melebihi
+        # MAX_COIN_MARGIN_PCT dari ekuitas akun -> cegah satu koin menguras akun.
+        if exchange is not None and account_value > 0:
+            projected_margin = coin_margin_used.get(coin, 0.0) + MARGIN_PER_TRADE
+            cap = MAX_COIN_MARGIN_PCT * account_value
+            if projected_margin > cap:
+                print(f"  ⏭ Skip {coin}: margin proyeksi ${projected_margin:.2f} > cap "
+                      f"{MAX_COIN_MARGIN_PCT*100:.0f}% ekuitas (${cap:.2f}).")
+                continue
 
         # Gate tren (ADX dari 1H) - hanya entry saat TRENDING.
         # Dalam dry-run, HYPERLIQUID_DRY_FORCE=1 melewati gate utk pratinjau order.

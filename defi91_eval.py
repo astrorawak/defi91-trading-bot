@@ -137,7 +137,12 @@ def main():
     os.makedirs(os.path.dirname(REPORT), exist_ok=True)
     with open(REPORT,"w") as f: json.dump(report,f,indent=2)
 
-    # Rekomendasi: koin non-core di WATCHLIST dengan >=3 trade v3 & net negatif
+    # Rekomendasi: SEMUA koin non-core di WATCHLIST dengan >=3 trade v3 & net negatif.
+    # FIX: versi lama hanya menangguhkan SATU koin paling rugi (override di-overwrite
+    # penuh tiap siklus) -> kalau ada 2+ koin sama-sama rugi, yang tidak "paling rugi"
+    # tetap terus trading & terus loss, dan koin yang sudah ditangguhkan bisa "aktif
+    # lagi" bukan karena membaik, tapi cuma karena koin lain jadi lebih buruk.
+    # Sekarang: tangguhkan SEMUA yang memenuhi syarat sebagai satu set setiap siklus.
     recommend = []
     for c,d in per_coin.items():
         if c in CORE: continue
