@@ -1,21 +1,17 @@
 {
-  "total_pnl": -5.759831,
+  "total_pnl": -5.077176,
   "wins": 19,
-  "losses": 43,
-  "total_trades": 62,
-  "today_trades": 6,
-  "today_pnl": -0.6727799999999999,
-  "win_rate": 30.64516129032258,
-  "avg_profit": -0.0929005,
+  "losses": 38,
+  "total_trades": 57,
+  "today_trades": 1,
+  "today_pnl": 0.009875,
+  "win_rate": 33.3333,
+  "avg_profit": -0.089073,
   "best_trade": "+$0.6096 (SUI)",
   "equity_curve": [
     {
-      "time": "11:16",
-      "equity": 58.1098
-    },
-    {
-      "time": "29/08 19:24",
-      "equity": -5.759831
+      "time": "23:17",
+      "equity": 59.6989
     }
   ],
   "daily_pnl": [
@@ -60,11 +56,115 @@
       "pnl": -2.4119
     },
     {
-      "date": "29/08",
-      "pnl": -0.6727799999999999
+      "date": "2026-08-29",
+      "pnl": 0.0099
     }
   ],
   "closed_trades": [
+    {
+      "time": 1787997123739,
+      "coin": "LTC",
+      "side": "Close Long",
+      "px": "48.843",
+      "pnl": 0.0145,
+      "fee": 0.0046
+    },
+    {
+      "time": 1787934316090,
+      "coin": "LTC",
+      "side": "Close Long",
+      "px": "48.008",
+      "pnl": -0.143,
+      "fee": 0.0045
+    },
+    {
+      "time": 1787934275141,
+      "coin": "BTC",
+      "side": "Close Long",
+      "px": "77058.0",
+      "pnl": -0.0736,
+      "fee": 0.0045
+    },
+    {
+      "time": 1787932995074,
+      "coin": "BTC",
+      "side": "Close Long",
+      "px": "78008.0",
+      "pnl": -0.0989,
+      "fee": 0.0046
+    },
+    {
+      "time": 1787932888030,
+      "coin": "DOGE",
+      "side": "Close Long",
+      "px": "0.085491",
+      "pnl": -0.1769,
+      "fee": 0.0044
+    },
+    {
+      "time": 1787925974576,
+      "coin": "ADA",
+      "side": "Close Long",
+      "px": "0.2045",
+      "pnl": -0.1949,
+      "fee": 0.0044
+    },
+    {
+      "time": 1787915699440,
+      "coin": "DOGE",
+      "side": "Close Long",
+      "px": "0.087205",
+      "pnl": -1.4089,
+      "fee": 0.0198
+    },
+    {
+      "time": 1787915699440,
+      "coin": "DOGE",
+      "side": "Close Long",
+      "px": "0.087205",
+      "pnl": -0.385,
+      "fee": 0.0054
+    },
+    {
+      "time": 1787911448702,
+      "coin": "AVAX",
+      "side": "Close Short",
+      "px": "7.3443",
+      "pnl": 0.2032,
+      "fee": 0.0037
+    },
+    {
+      "time": 1787852295328,
+      "coin": "DOGE",
+      "side": "Close Long",
+      "px": "0.089299",
+      "pnl": -0.078,
+      "fee": 0.0045
+    },
+    {
+      "time": 1787843585906,
+      "coin": "BTC",
+      "side": "Close Long",
+      "px": "80575.0",
+      "pnl": 0.0958,
+      "fee": 0.0029
+    },
+    {
+      "time": 1787832480213,
+      "coin": "BTC",
+      "side": "Short > Long",
+      "px": "79378.0",
+      "pnl": 0.0107,
+      "fee": 0.0039
+    },
+    {
+      "time": 1787829838802,
+      "coin": "BTC",
+      "side": "Long > Short",
+      "px": "79734.0",
+      "pnl": -0.021,
+      "fee": 0.0047
+    },
     {
       "time": 1787822770931,
       "coin": "BTC",
@@ -416,92 +516,31 @@
       "px": "1.0211",
       "pnl": -0.93,
       "fee": 0.0276
-    },
-    {
-      "coin": "LTC",
-      "direction": "SHORT",
-      "entry": 48.843,
-      "exit": 48.843,
-      "pnl": 0.01449,
-      "time": "29/08 16:52"
-    },
-    {
-      "coin": "LTC",
-      "direction": "SHORT",
-      "entry": 48.008,
-      "exit": 48.008,
-      "pnl": -0.14301,
-      "time": "29/08 23:25"
-    },
-    {
-      "coin": "BTC",
-      "direction": "SHORT",
-      "entry": 77058.0,
-      "exit": 77058.0,
-      "pnl": -0.07358,
-      "time": "29/08 23:24"
-    },
-    {
-      "coin": "BTC",
-      "direction": "SHORT",
-      "entry": 78008.0,
-      "exit": 78008.0,
-      "pnl": -0.09893,
-      "time": "29/08 23:03"
-    },
-    {
-      "coin": "DOGE",
-      "direction": "SHORT",
-      "entry": 0.085491,
-      "exit": 0.085491,
-      "pnl": -0.17687,
-      "time": "29/08 23:01"
-    },
-    {
-      "coin": "ADA",
-      "direction": "SHORT",
-      "entry": 0.2045,
-      "exit": 0.2045,
-      "pnl": -0.19488,
-      "time": "29/08 21:06"
     }
   ],
-  "account_value": 58.11,
+  "account_value": 59.7,
   "positions": [
     {
       "coin": "BTC",
       "side": "LONG",
       "sz": 0.00365,
       "entry": "77600.2",
-      "uPnl": -0.1689,
-      "liq": "62564.4948153286"
+      "uPnl": 1.4955,
+      "liq": "62442.6989422577"
     },
     {
       "coin": "AVAX",
       "side": "LONG",
       "sz": 0.08,
       "entry": "7.3019",
-      "uPnl": -0.0021,
-      "liq": null
-    },
-    {
-      "coin": "LTC",
-      "side": "LONG",
-      "sz": 0.21,
-      "entry": "48.774",
-      "uPnl": 0.0475,
+      "uPnl": 0.0021,
       "liq": null
     }
   ],
-  "margin_used_pct": 101.2,
+  "margin_used_pct": 95.6,
   "ai_report": {
-    "content": "Laporan Performa Harian 29 Agustus 2026: Hari ini bot mengalami kerugian sebesar $0.6728 dengan 5 dari 6 trading berakhir loss.  \nStatistik: 1 kemenangan dan 5 kerugian, total P&L negatif.  \nInsight: Performa terburuk dari posisi terbuka di BTC dan AVAX yang masih merugi, sementara posisi tertutup menunjukkan kerugian di beberapa koin utama seperti LTC, BTC, DOGE, dan ADA.  \nPosisi terbuka saat ini di BTC dan AVAX masih dalam posisi negatif, perlu pengawasan ketat.  \nSaran: Evaluasi strategi dan hentikan trading sementara sampai kondisi pasar lebih stabil, fokuskan pada analisis risiko untuk mencegah kerugian lebih besar.",
-    "time": "29 August 2026, 19:24 WIB"
+    "content": "Laporan Performa Trading Hari Ini (29 Agustus 2026):\n\nHari ini, bot mengalami kerugian total sekitar $2.28 dengan hanya 1 kemenangan dari 8 trading yang dilakukan. Performanya cukup buruk dengan banyak trade loss.\n\nStatistik menunjukkan 1 win dan 7 loss, dengan total P&L negatif cukup besar. Koin yang paling menunjukkan kerugian adalah Doge dan BTC, sementara AVAX sedikit memberi hasil positif.\n\nPosisi terbuka saat ini ada di BTC dan LTC, dengan unrealized loss sekitar $0.13 di BTC dan profit kecil di LTC.\n\nUntuk besok, disarankan memperhatikan manajemen risiko dan tidak terlalu kejar posisi besar. Fokus pada koin yang menunjukkan sinyal kuat dan hindari posisi over-leverage agar kerugian tidak semakin membesar.",
+    "time": "29 August 2026, 01:15 WIB"
   },
-  "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-08-29",
-  "_prev_today_pnl": -0.6727799999999999,
-  "_prev_today_wins": 1,
-  "_prev_today_losses": 5,
-  "_prev_today_trades": 6
+  "last_refresh": "2026-08-29T16:17:52.765377+00:00"
 }
