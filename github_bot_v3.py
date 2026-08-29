@@ -800,11 +800,10 @@ def main():
     except Exception as e:
         print("mid err", e)
 
-    # FIX: sebelumnya hanya dihitung jumlah posisi terbuka (open_positions), tanpa
-    # tahu KOIN mana saja yang sudah open -> bot bisa menambah entry baru ke koin
-    # yang sudah punya posisi selama total posisi < MAX_OPEN_POSITIONS (pyramiding
-    # tak terkendali, penyebab BTC menumpuk hampir 100% margin). Sekarang direkam
-    # per-koin: open_coins (guard anti-duplikasi) + coin_margin_used (gerbang cap alokasi).
+    # Baca jumlah posisi terbuka + ekuitas akun + margin per-koin (kapasitas alokasi).
+    # Desain: scale-in DIBOLEHKAN sampai margin tiap koin mencapai MAX_COIN_MARGIN_PCT
+    # (tidak anti-pyramiding penuh) — cap mencegah satu simbol menguras akun, tapi
+    # posisi yang sudah terbuka tetap dibiarkan bekerja (TP-ladder / smart-exit).
     open_positions = 0
     acct_value = 0.0
     coin_margin = {}
@@ -833,17 +832,12 @@ def main():
             print(f"  Skip {coin}: tak ada harga")
             continue
 
-        # GUARD anti-duplikasi: jangan tambah entry ke koin yang sudah punya posisi
-        # terbuka (satu posisi aktif per koin pada satu waktu).
-        if coin in open_coins:
-            print(f"  ⏭ Skip {coin}: sudah ada posisi terbuka (anti-pyramiding).")
-            continue
-
         # GERBANG CAP ALOKASI: margin koin ini (+trade baru) tidak boleh melebihi
-        # MAX_COIN_MARGIN_PCT dari ekuitas akun -> cegah satu koin menguras akun.
-        if exchange is not None and account_value > 0:
-            projected_margin = coin_margin_used.get(coin, 0.0) + MARGIN_PER_TRADE
-            cap = MAX_COIN_MARGIN_PCT * account_value
+        # MAX_COIN_MARGIN_PCT dari ekuitas akun -> cegah satu koin menguras akun
+        # (hanya menghambat tranche BARU; posisi lama tak dipaksa tutup).
+        if exchange is not None and acct_value > 0:
+            projected_margin = coin_margin.get(coin, 0.0) + MARGIN_PER_TRADE
+            cap = MAX_COIN_MARGIN_PCT * acct_value
             if projected_margin > cap:
                 print(f"  ⏭ Skip {coin}: margin proyeksi ${projected_margin:.2f} > cap "
                       f"{MAX_COIN_MARGIN_PCT*100:.0f}% ekuitas (${cap:.2f}).")
