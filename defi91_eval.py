@@ -74,18 +74,25 @@ def main():
     os.makedirs(os.path.dirname(REPORT), exist_ok=True)
     with open(REPORT,"w") as f: json.dump(report,f,indent=2)
 
-    # Rekomendasi: koin non-core di WATCHLIST dengan >=3 trade v3 & net negatif
+    # Rekomendasi: SEMUA koin non-core di WATCHLIST dengan >=3 trade v3 & net negatif.
+    # FIX: versi lama hanya menangguhkan SATU koin paling rugi (override di-overwrite
+    # penuh tiap siklus) -> kalau ada 2+ koin sama-sama rugi, yang tidak "paling rugi"
+    # tetap terus trading & terus loss, dan koin yang sudah ditangguhkan bisa "aktif
+    # lagi" bukan karena membaik, tapi cuma karena koin lain jadi lebih buruk.
+    # Sekarang: tangguhkan SEMUA yang memenuhi syarat sebagai satu set setiap siklus.
     recommend = []
     for c,d in per_coin.items():
         if c in CORE: continue
         if d["trades"]>=3 and d["net"]<0:
             recommend.append({"coin":c,"net":round(d["net"],2),"trades":d["trades"]})
     if recommend:
-        rec = sorted(recommend, key=lambda x:x["net"])[0]
+        recommend.sort(key=lambda x:x["net"])
+        coins = [r["coin"] for r in recommend]
+        reason = "; ".join(f"{r['coin']}: net ${r['net']} dari {r['trades']} trade" for r in recommend)
         with open(OVERRIDE,"w") as f:
-            json.dump({"remove":[rec["coin"]],"reason":f"net v3 PnL ${rec['net']} dari {rec['trades']} trade"},f,indent=2)
+            json.dump({"remove":coins,"reason":reason},f,indent=2)
         # stdout terisi -> cron no_agent kirim alert ringkas
-        print(f"🔎 EVAL(v3): {rec['coin']} rugi net ${rec['net']} ({rec['trades']} trade v3) -> ditangguhkan")
+        print(f"🔎 EVAL(v3): ditangguhkan -> {reason}")
     else:
         if os.path.exists(OVERRIDE):
             try:

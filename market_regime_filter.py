@@ -64,63 +64,71 @@ def calculate_atr(highs, lows, closes, period=14):
 
 def calculate_adx(highs, lows, closes, period=14):
     """
-    Calculate Average Directional Index (ADX)
+    Calculate Average Directional Index (ADX) - Wilder sejati.
+
+    FIX: Versi lama hanya menghitung SATU nilai DX dari jumlah DM/TR pada
+    window terakhir lalu memberi label "adx = dx" (komentarnya sendiri jujur
+    bilang "simplified") - tanpa smoothing DX sama sekali. Itu bukan ADX,
+    cuma DX sesaat yang sangat noisy/spiky, sehingga gate regime TRENDING
+    (ADX>=25) jadi tidak stabil (flip-flop). Sekarang: DM+/DM-/TR di-Wilder-
+    smooth dulu sepanjang seri, baru DX dihitung per-bar, baru ADX = Wilder-
+    smoothed average dari seri DX (standar Wilder 1978).
+
     Mengukur kekuatan tren (0-100)
     > 25: Tren kuat
     20-25: Tren sedang
     < 20: Tren lemah / sideways
     """
-    if len(closes) < period * 2:
-        return 50  # Default neutral
-    
-    # Hitung DM+ dan DM-
+    n = len(closes)
+    if n < period * 2 + 1:
+        return 50  # Default neutral - butuh cukup bar utk smoothing DX
+
     plus_dm = []
     minus_dm = []
-    
-    for i in range(1, len(closes)):
+    tr_values = []
+    for i in range(1, n):
         up_move = highs[i] - highs[i-1]
         down_move = lows[i-1] - lows[i]
-        
         if up_move > down_move and up_move > 0:
-            plus_dm.append(up_move)
-            minus_dm.append(0)
+            plus_dm.append(up_move); minus_dm.append(0.0)
         elif down_move > up_move and down_move > 0:
-            plus_dm.append(0)
-            minus_dm.append(down_move)
+            plus_dm.append(0.0); minus_dm.append(down_move)
         else:
-            plus_dm.append(0)
-            minus_dm.append(0)
-    
-    # Hitung True Range
-    tr_values = []
-    for i in range(1, len(closes)):
-        tr = max(
+            plus_dm.append(0.0); minus_dm.append(0.0)
+        tr_values.append(max(
             highs[i] - lows[i],
             abs(highs[i] - closes[i-1]),
             abs(lows[i] - closes[i-1])
-        )
-        tr_values.append(tr)
-    
-    # Hitung DI+ dan DI-
-    sum_plus_dm = sum(plus_dm[-period:])
-    sum_minus_dm = sum(minus_dm[-period:])
-    sum_tr = sum(tr_values[-period:])
-    
-    if sum_tr == 0:
-        return 50
-    
-    di_plus = (sum_plus_dm / sum_tr) * 100
-    di_minus = (sum_minus_dm / sum_tr) * 100
-    
-    # Hitung DX
-    di_sum = di_plus + di_minus
-    if di_sum == 0:
-        return 50
-    
-    dx = abs(di_plus - di_minus) / di_sum * 100
-    
-    # ADX adalah rata-rata DX (simplified)
-    adx = dx
+        ))
+
+    # Wilder smoothing (seed = jumlah `period` bar pertama, lalu rolling)
+    def wilder_smooth(values, period):
+        smoothed = [sum(values[:period])]
+        for v in values[period:]:
+            smoothed.append(smoothed[-1] - (smoothed[-1] / period) + v)
+        return smoothed
+
+    sm_plus_dm = wilder_smooth(plus_dm, period)
+    sm_minus_dm = wilder_smooth(minus_dm, period)
+    sm_tr = wilder_smooth(tr_values, period)
+
+    dx_values = []
+    for pdm, mdm, tr in zip(sm_plus_dm, sm_minus_dm, sm_tr):
+        if tr == 0:
+            dx_values.append(0.0)
+            continue
+        di_plus = (pdm / tr) * 100
+        di_minus = (mdm / tr) * 100
+        di_sum = di_plus + di_minus
+        dx_values.append(abs(di_plus - di_minus) / di_sum * 100 if di_sum > 0 else 0.0)
+
+    if len(dx_values) < period:
+        return 50  # belum cukup DX utk smoothing ADX
+
+    # ADX = Wilder-smoothed average dari seri DX (seed = SMA period pertama)
+    adx = sum(dx_values[:period]) / period
+    for dx in dx_values[period:]:
+        adx = (adx * (period - 1) + dx) / period
     return adx
 
 def calculate_bollinger_band_width(closes, period=20, std_dev=2):

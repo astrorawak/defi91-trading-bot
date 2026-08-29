@@ -57,6 +57,8 @@ if _REMOVE:
 MARGIN_PER_TRADE = 2.00      # $2 margin per trade (<=4% akun $50)
 TARGET_LEVERAGE  = 5         # 5x leverage (bukan 20x - SL tidak mudah likuidasi)
 MAX_OPEN_POSITIONS = 3       # maks 3 posisi paralel (agak agresif, tetap dibatasi)
+MAX_COIN_MARGIN_PCT = 0.15   # maks margin per koin = 15% ekuitas akun (cegah over-konsentrasi)
+LIQ_SAFETY_PCT = 12.0        # perisai likuidasi: force-close bila mark <12% dari harga likuidasi
 
 # === BIAYA (FEE) LANDASAN — riil dari API Hyperliquid wallet ini ===
 # userCrossRate=0.00045 (taker), userAddRate=0.00015 (maker).
@@ -521,6 +523,43 @@ def execute_trade(exchange, info, coin, direction, current_price, atr):
 # ============================================================
 SMART_EXIT_THRESHOLD = 7
 
+def _trail_update_sl(exchange, info, coin, is_long, size, new_sl_price):
+    """Geser SL mengikuti profit (trailing ATR). HANYA memperketat (mendekatkan
+    ke harga saat ini demi mengunci profit) - tidak pernah melonggarkan risiko.
+    Gagal-aman: kalau order SL resting tak ditemukan/tak bisa diparse, tidak
+    menyentuh apa pun (SL asli dari execute_trade tetap berlaku)."""
+    try:
+        orders = info.frontend_open_orders(MAIN_WALLET)
+    except Exception as e:
+        print(f"  ⚠ trailing {coin}: gagal baca open orders: {e}")
+        return
+    sl_order = None
+    for o in orders:
+        if o.get("coin") != coin or not o.get("reduceOnly"):
+            continue
+        if "stop" in str(o.get("orderType", "")).lower():
+            sl_order = o
+            break
+    if sl_order is None:
+        return
+    try:
+        cur_sl = float(sl_order.get("triggerPx") or sl_order.get("limitPx"))
+        oid = sl_order.get("oid")
+    except Exception:
+        return
+    tighter = (new_sl_price > cur_sl) if is_long else (new_sl_price < cur_sl)
+    if not tighter:
+        return
+    try:
+        exchange.modify_order(
+            oid, coin, is_buy=(not is_long), sz=size, limit_px=new_sl_price,
+            order_type={"trigger": {"triggerPx": new_sl_price, "isMarket": True, "tpsl": "sl"}},
+            reduce_only=True,
+        )
+        print(f"  📈 Trailing SL {coin}: {cur_sl} -> {new_sl_price}")
+    except Exception as e:
+        print(f"  ⚠ trailing {coin}: gagal update SL: {e}")
+
 def manage_open_positions(exchange, info, all_mids):
     print(f"\n{'='*60}\nSMART POSITION MANAGEMENT\n{'='*60}")
     user_state = info.user_state(MAIN_WALLET)
@@ -533,13 +572,29 @@ def manage_open_positions(exchange, info, all_mids):
         u_pnl = float(p.get("unrealizedPnl", 0))
         entry = float(p.get("entryPx", 0))
         mid = all_mids.get(coin, entry)
+        long = szi > 0
         print(f"  {coin} | szi={szi} | entry={entry:.2f} | uPnL=${u_pnl:.2f}")
+
+        # PERISAI LIKUIDASI (FIX: sebelumnya cuma alert read-only di
+        # monitor_positions.py, tidak ada force-close otomatis sama sekali).
+        # Ditaruh di sini karena script ini satu-satunya yang sudah punya
+        # exchange+private key terpercaya & jalan tiap 10 menit.
+        liq_px = p.get("liquidationPx")
+        liq_px = float(liq_px) if liq_px else None
+        if liq_px and mid:
+            dist_pct = abs(mid - liq_px) / mid * 100
+            if dist_pct < LIQ_SAFETY_PCT:
+                print(f"  🚨 PERISAI LIKUIDASI: {coin} jarak {dist_pct:.1f}% < {LIQ_SAFETY_PCT}% -> HARD CLOSE")
+                try:
+                    exchange.market_close(coin)
+                except Exception as e:
+                    print(f"  close err (liq shield): {e}")
+                continue
+
         # hitung ulang sinyal berlawanan -> early close
         onchain, _ = analyze_onchain(coin)
         tech, _ = analyze_technical(coin)
         total = onchain + tech
-        # Arah posisi
-        long = szi > 0
         against = total >= SMART_EXIT_THRESHOLD if long else total <= -SMART_EXIT_THRESHOLD
         if against:
             print(f"  ⚡ Sinyal kuat berlawanan -> early close {coin}")
@@ -548,8 +603,19 @@ def manage_open_positions(exchange, info, all_mids):
             except Exception as e:
                 print(f"  close err: {e}")
             continue
-        # Trailing: geser SL (opsional di v3, TP/SL ATR sudah dipasang di broker)
-        # Dicatat di log jurnal; trailing enggak wajib karena TP/SL ATR sudah bekerja.
+
+        # TRAILING STOP (FIX: TRAILING_ATR_MULT sebelumnya didefinisikan tapi
+        # tak pernah dipakai - SL diam di harga entry selamanya).
+        try:
+            closes, highs, lows, _ = get_candles(coin, ANALYSIS_TF, 60)
+            atr = calculate_atr_raw(highs, lows, closes, 14) if len(closes) >= 15 else 0
+            if atr > 0:
+                profit_px = (mid - entry) if long else (entry - mid)
+                if profit_px >= TRAILING_ATR_MULT * atr:
+                    new_sl = format_price(mid - SL_ATR_MULT * atr) if long else format_price(mid + SL_ATR_MULT * atr)
+                    _trail_update_sl(exchange, info, coin, long, abs(szi), new_sl)
+        except Exception as e:
+            print(f"  ⚠ trailing {coin}: {e}")
 
 # ============================================================
 # MAIN
@@ -593,6 +659,7 @@ def main():
         print("🔬 DRY RUN: hanya menghitung & menampilkan sinyal. TIDAK ada order nyata.")
 
     # KILL SWITCH (hanya berarti bila ada akun/posisi nyata)
+    account_value = 0.0
     if exchange is not None:
         halted, account_value, msg = check_kill_switch(info)
         print(f"Saldo/nilai akun: ${account_value:.2f} | Kill-switch: {msg}")
@@ -617,11 +684,24 @@ def main():
     except Exception as e:
         print("mid err", e)
 
+    # FIX: sebelumnya hanya dihitung jumlah posisi terbuka (open_positions), tanpa
+    # tahu KOIN mana saja yang sudah open -> bot bisa menambah entry baru ke koin
+    # yang sudah punya posisi selama total posisi < MAX_OPEN_POSITIONS (pyramiding
+    # tak terkendali, penyebab BTC menumpuk hampir 100% margin). Sekarang direkam
+    # per-koin: open_coins (guard anti-duplikasi) + coin_margin_used (gerbang cap alokasi).
     open_positions = 0
+    open_coins = set()
+    coin_margin_used = {}
     if info is not None:
         try:
-            open_positions = len([p for p in info.user_state(MAIN_WALLET).get("assetPositions", [])
-                                  if float(p.get("position", {}).get("szi", 0)) != 0])
+            for p in info.user_state(MAIN_WALLET).get("assetPositions", []):
+                pos = p.get("position", {})
+                c = pos.get("coin")
+                szi = float(pos.get("szi", 0))
+                if szi != 0:
+                    open_positions += 1
+                    open_coins.add(c)
+                    coin_margin_used[c] = float(pos.get("marginUsed", 0) or 0)
         except Exception:
             pass
 
@@ -635,6 +715,22 @@ def main():
         if not current_price:
             print(f"  Skip {coin}: tak ada harga")
             continue
+
+        # GUARD anti-duplikasi: jangan tambah entry ke koin yang sudah punya posisi
+        # terbuka (satu posisi aktif per koin pada satu waktu).
+        if coin in open_coins:
+            print(f"  ⏭ Skip {coin}: sudah ada posisi terbuka (anti-pyramiding).")
+            continue
+
+        # GERBANG CAP ALOKASI: margin koin ini (+trade baru) tidak boleh melebihi
+        # MAX_COIN_MARGIN_PCT dari ekuitas akun -> cegah satu koin menguras akun.
+        if exchange is not None and account_value > 0:
+            projected_margin = coin_margin_used.get(coin, 0.0) + MARGIN_PER_TRADE
+            cap = MAX_COIN_MARGIN_PCT * account_value
+            if projected_margin > cap:
+                print(f"  ⏭ Skip {coin}: margin proyeksi ${projected_margin:.2f} > cap "
+                      f"{MAX_COIN_MARGIN_PCT*100:.0f}% ekuitas (${cap:.2f}).")
+                continue
 
         # Gate tren (ADX dari 1H) - hanya entry saat TRENDING.
         # Dalam dry-run, HYPERLIQUID_DRY_FORCE=1 melewati gate utk pratinjau order.
