@@ -57,6 +57,7 @@ if _REMOVE:
 MARGIN_PER_TRADE = 2.00      # $2 margin per trade (<=4% akun $50)
 TARGET_LEVERAGE  = 5         # 5x leverage (bukan 20x - SL tidak mudah likuidasi)
 MAX_OPEN_POSITIONS = 3       # maks 3 posisi paralel (agak agresif, tetap dibatasi)
+MAX_COIN_MARGIN_PCT = 0.15   # maks margin per koin = 15% ekuitas akun (cegah akumulasi satu simbol menguras akun)
 
 # === BIAYA (FEE) LANDASAN — riil dari API Hyperliquid wallet ini ===
 # userCrossRate=0.00045 (taker), userAddRate=0.00015 (maker).
@@ -521,6 +522,138 @@ def execute_trade(exchange, info, coin, direction, current_price, atr):
 # ============================================================
 SMART_EXIT_THRESHOLD = 7
 
+# ============================================================
+# PROTEKSI SL MANDIRI: pastikan tiap posisi terbuka tidak terlantar (tanpa SL)
+# ============================================================
+def has_protective_sl(info, wallet, coin, long, mid):
+    """SL protektif ada bila ada order reduceOnly lawan arah yg harga < mark (long) / > mark (short),
+    ATAU order ber-trigger (taker stop). TP limit biasa (harga > mark utk long) TIDAK dihitung sebagai SL."""
+    try:
+        orders = info.open_orders(wallet)
+    except Exception:
+        return False
+    for o in orders:
+        if o.get("coin") != coin or not o.get("reduceOnly"):
+            continue
+        side = o.get("side")
+        is_sell = (side == "A") or (o.get("isBuy") is False)
+        otype = o.get("orderType") or {}
+        has_trig = bool(otype.get("trigger")) if isinstance(otype, dict) else bool("triggerPx" in o)
+        lp = o.get("limitPx")
+        try:
+            lp = float(lp)
+        except Exception:
+            lp = None
+        mid = float(mid)
+        if lp is not None:
+            if long and is_sell and lp < mid:
+                return True
+            if (not long) and (not is_sell) and lp > mid:
+                return True
+        elif has_trig:
+            return True
+    return False
+
+def ensure_protective_sl(exchange, info, wallet, coin, szi, mid):
+    """MANDIRI: pastikan posisi {coin} tidak terlantar (tanpa proteksi).
+    Sadar kapasitas: bila TP-ladder reduce-only sudah mengikat SELURUH size, SL tak bisa
+    ditumpuk — catat status itu (proteksi = smart-exit + kill-switch). Bila ada size tersisa,
+    pasang SL reduce-only ATR. Murni protektif; tidak pernah membuka posisi baru."""
+    mid = float(mid)
+    szi = float(szi)
+    long = szi > 0
+    pos_sz = abs(szi)
+    try:
+        orders = info.open_orders(wallet)
+    except Exception:
+        orders = []
+    committed = 0.0   # size reduce-only sisi berlawanan (TP-ladder + SL) yang dipakai
+    has_sl = False
+    for o in orders:
+        if o.get("coin") != coin or not o.get("reduceOnly"):
+            continue
+        side = o.get("side"); is_sell = (side == "A") or (o.get("isBuy") is False)
+        if is_sell != (not long):  # sisi berlawanan vs posisi
+            try:
+                committed += float(o.get("sz") or 0)
+            except Exception:
+                pass
+        ot = o.get("orderType") or {}
+        if isinstance(ot, dict) and isinstance(ot.get("trigger"), dict):
+            has_sl = True
+    if has_sl:
+        return False  # sudah ada SL protektif
+    free_alloc = pos_sz - committed
+    if free_alloc <= pos_sz * 0.001:
+        # TP-ladder sudah penuh: SL tak bisa ditumpuk. Catat (log jurnal), proteksi aktif =
+        # smart-exit + kill-switch + evaluator. Bukan error.
+        print(f"  ℹ {coin}: seluruh ukuran {pos_sz:.0f} terpasang ke TP-ladder reduce-only; "
+              f"tak ada size sisa utk SL -> proteksi=smart-exit+kill-switch (jarak liq vs mid)")
+        return False
+    try:
+        closes, highs, lows, _ = get_candles(coin, ANALYSIS_TF, 120)
+        atr = calculate_atr_raw(highs, lows, closes, 14) if len(closes) >= 15 else mid * 0.01
+    except Exception:
+        atr = mid * 0.01
+    sl_dist = max(atr * SL_ATR_MULT, mid * 0.005)
+    sl_price = (mid - sl_dist) if long else (mid + sl_dist)
+    sl_price = format_price(sl_price)
+    sl_order = {"coin": coin, "is_buy": (not long), "sz": free_alloc, "limit_px": sl_price,
+                "order_type": {"trigger": {"triggerPx": sl_price, "isMarket": True, "tpsl": "sl"}},
+                "reduce_only": True}
+    try:
+        resp = exchange.bulk_orders([sl_order], grouping="normalTpsl") or []
+        ok = all(isinstance(r, dict) and r.get("status") != "rejected" for r in resp) or not isinstance(resp, list)
+        if ok:
+            print(f"  🛡 AUTO-SL dipasang {coin} @ {sl_price} (size {free_alloc:.4g}, jarak {abs(sl_price-mid)/mid*100:.1f}%)")
+            return True
+        print(f"  ⚠ AUTO-SL ditolak {coin}: {resp}")
+        return False
+    except Exception as e:
+        print(f"  ❌ AUTO-SL gagal {coin}: {e}")
+        return False
+
+# Perisai likuidasi: force-reduce bila posisi sudah terlalu dekat dengan likuidasi
+# (buffer X% di atas/bawah harga likuidasi). Murni protektif utk posisi penuh-ladder.
+LIQ_SAFETY_PCT = 12.0
+
+def _trail_update_sl(exchange, info, coin, is_long, size, new_sl_price):
+    """Geser SL mengikuti profit (trailing ATR). HANYA memperketat (mendekatkan
+    ke harga saat ini demi mengunci profit) - tidak pernah melonggarkan risiko.
+    Gagal-aman: kalau order SL resting tak ditemukan/tak bisa diparse, tidak
+    menyentuh apa pun (SL asli dari execute_trade tetap berlaku)."""
+    try:
+        orders = info.frontend_open_orders(MAIN_WALLET)
+    except Exception as e:
+        print(f"  ⚠ trailing {coin}: gagal baca open orders: {e}")
+        return
+    sl_order = None
+    for o in orders:
+        if o.get("coin") != coin or not o.get("reduceOnly"):
+            continue
+        if "stop" in str(o.get("orderType", "")).lower():
+            sl_order = o
+            break
+    if sl_order is None:
+        return
+    try:
+        cur_sl = float(sl_order.get("triggerPx") or sl_order.get("limitPx"))
+        oid = sl_order.get("oid")
+    except Exception:
+        return
+    tighter = (new_sl_price > cur_sl) if is_long else (new_sl_price < cur_sl)
+    if not tighter:
+        return
+    try:
+        exchange.modify_order(
+            oid, coin, is_buy=(not is_long), sz=size, limit_px=new_sl_price,
+            order_type={"trigger": {"triggerPx": new_sl_price, "isMarket": True, "tpsl": "sl"}},
+            reduce_only=True,
+        )
+        print(f"  📈 Trailing SL {coin}: {cur_sl} -> {new_sl_price}")
+    except Exception as e:
+        print(f"  ⚠ trailing {coin}: gagal update SL: {e}")
+
 def manage_open_positions(exchange, info, all_mids):
     print(f"\n{'='*60}\nSMART POSITION MANAGEMENT\n{'='*60}")
     user_state = info.user_state(MAIN_WALLET)
@@ -548,8 +681,41 @@ def manage_open_positions(exchange, info, all_mids):
             except Exception as e:
                 print(f"  close err: {e}")
             continue
-        # Trailing: geser SL (opsional di v3, TP/SL ATR sudah dipasang di broker)
-        # Dicatat di log jurnal; trailing enggak wajib karena TP/SL ATR sudah bekerja.
+        # MANDIRI: pastikan posisi terbuka punya SL protektif (jangan sampai terlantar tanpanya)
+        ensure_protective_sl(exchange, info, MAIN_WALLET, coin, szi, mid)
+        # TRAILING STOP (ATR): SL diam di harga entry selamanya; saat profit >= 1.0x ATR
+        # geser SL mengikuti harga mengunci profit (fail-safe: SL asli tetap bila gagal).
+        try:
+            closes, highs, lows, _ = get_candles(coin, ANALYSIS_TF, 60)
+            atr = calculate_atr_raw(highs, lows, closes, 14) if len(closes) >= 15 else 0
+            if atr > 0:
+                profit_px = (mid - entry) if long else (entry - mid)
+                if profit_px >= TRAILING_ATR_MULT * atr:
+                    new_sl = format_price(mid - SL_ATR_MULT * atr) if long else format_price(mid + SL_ATR_MULT * atr)
+                    _trail_update_sl(exchange, info, coin, long, abs(szi), new_sl)
+        except Exception as e:
+            print(f"  ⚠ trailing {coin}: {e}")
+        # PERISAI likuidasi: jangan biarkan posisi penuh-ladder terbawa sampai likuidasi
+        try:
+            liq = float(p.get("liquidationPx") or 0)
+        except Exception:
+            liq = 0
+        if liq > 0:
+            mid_f = float(mid)
+            if long:
+                dist_pct = (mid_f - liq) / liq * 100
+                too_close = mid_f <= liq
+            else:
+                dist_pct = (liq - mid_f) / mid_f * 100
+                too_close = mid_f >= liq
+            if too_close or dist_pct <= LIQ_SAFETY_PCT:
+                print(f"  🕶 HARD-CLOSE {coin}: harga {dist_pct:.1f}% dari likuidasi "
+                      f"(buffer {LIQ_SAFETY_PCT:.0f}%) -> reduce exposure")
+                try:
+                    exchange.market_close(coin)
+                except Exception as e:
+                    print(f"  hard-close err: {e}")
+                continue
 
 # ============================================================
 # MAIN
@@ -618,10 +784,19 @@ def main():
         print("mid err", e)
 
     open_positions = 0
+    acct_value = 0.0
+    coin_margin = {}
     if info is not None:
         try:
-            open_positions = len([p for p in info.user_state(MAIN_WALLET).get("assetPositions", [])
+            ust = info.user_state(MAIN_WALLET)
+            open_positions = len([p for p in ust.get("assetPositions", [])
                                   if float(p.get("position", {}).get("szi", 0)) != 0])
+            sm = ust.get("marginSummary", {})
+            acct_value = float(sm.get("accountValue", 0) or 0)
+            for ap in ust.get("assetPositions", []):
+                _c = ap.get("position", {}).get("coin")
+                if _c:
+                    coin_margin[_c] = float(ap.get("position", {}).get("marginUsed", 0) or 0)
         except Exception:
             pass
 
@@ -683,6 +858,17 @@ def main():
             continue
         print(f"  ✅ Fee landasan OK: TP {tp_pct:.2f}% > {MIN_TP_PCT_AFTER_FEE:.2f}% "
               f"(fee 2-sisi {fee_cost_pct:.2f}% => sisa bersih {tp_pct-fee_cost_pct:.2f}%)")
+
+        # === BATAS ALOKASI PER KOIN: cegah satu simbol memboroskan seluruh akun ===
+        # Cap 15% ekuitas. Hanya menghambat TRANCHER/ENTRY BARU; posisi lama DIBIARKAN
+        # bekerja (TP-ladder/smart-management tetap jalan, tidak dipaksa tutup).
+        cap_margin = acct_value * MAX_COIN_MARGIN_PCT
+        cur_margin = coin_margin.get(coin, 0.0)
+        if cap_margin > 0 and (cur_margin + MARGIN_PER_TRADE) > cap_margin:
+            print(f"  ⏭ Skip {coin}: margin koin ${cur_margin:.2f} + $2 melewati cap "
+                  f"${cap_margin:.2f} ({MAX_COIN_MARGIN_PCT:.0%} ekuitas ${acct_value:.2f}). "
+                  f"Posisi lama dibiarkan bekerja; tranche baru dihentikan.")
+            continue
 
         if exchange is None:
             # DRY RUN: hitung & tampilkan order yang SEHARUSNYA dipasang, tanpa eksekusi

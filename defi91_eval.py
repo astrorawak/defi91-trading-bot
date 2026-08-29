@@ -64,12 +64,75 @@ def main():
             if pnl>0: d["wins"]+=1
             elif pnl<0: d["losses"]+=1
 
+    # === RISIKO POSISI TERBUKA (tutup blindspot: sebelum ini HANYA closedPnL) ===
+    # Cek live clearinghouseState + openOrders: margin utilization, jarak liq, rugi terbuka,
+    # dan keberadaan SL protektif. Keluarkan alert garis bila ada kondisi berisiko.
+    try:
+        ma = post({"type": "metaAndAssetCtxs"})
+        marks = {u["name"]: float(ma[1][i]["markPx"]) for i, u in enumerate(ma[0]["universe"])}
+    except Exception:
+        marks = {}
+    try:
+        oo = post({"type": "openOrders", "user": WALLET})
+    except Exception:
+        oo = []
+
+    def has_protective_sl(coin, side, mark):
+        """SL protektif = order reduceOnly lawan arah dgn trigger ATAU harga di bawah/atas mark."""
+        lo = [o for o in oo if o["coin"] == coin and o.get("reduceOnly")]
+        if not lo:
+            return False
+        if any("triggerPx" in o or o.get("orderType") for o in lo):
+            return True
+        for o in lo:
+            lp = o.get("limitPx")
+            if not lp:
+                continue
+            if side == "LONG" and float(lp) < mark:
+                return True
+            if side == "SHORT" and float(lp) > mark:
+                return True
+        return False
+
+    risk_lines = []
+    open_risks = []
+    mu = (float(st["marginSummary"]["totalMarginUsed"]) / acv * 100) if acv else 0
+    for b in st.get("assetPositions", []):
+        p = b["position"]; sz = float(p.get("szi", 0))
+        if abs(sz) < 1e-9:
+            continue
+        coin = p["coin"]; side = "LONG" if sz > 0 else "SHORT"
+        upnl = float(p.get("unrealizedPnl", 0)); entry = float(p.get("entryPx", 0))
+        mark = marks.get(coin, entry)
+        liq = p.get("liquidationPx"); liq = float(liq) if liq else None
+        liqdist = (abs(mark - liq) / mark * 100) if (liq and mark) else None
+        sl_ok = has_protective_sl(coin, side, mark)
+        roe = (upnl / acv * 100) if acv else 0
+        r = {"coin": coin, "side": side, "sz": sz, "entry": entry, "mark": mark,
+             "uPnl": round(upnl, 2), "roePct": round(roe, 1),
+             "liqDistPct": (round(liqdist, 1) if liqdist is not None else None),
+             "marginUsedPct": round(mu, 1), "hasSL": sl_ok}
+        open_risks.append(r)
+        prob = []
+        if liqdist is not None and liqdist < 15:
+            prob.append(f"jarak likuidasi {liqdist:.1f}%")
+        if -roe >= 10:
+            prob.append(f"rugi terbuka {roe:.0f}% equity")
+        if not sl_ok and -roe >= 5:
+            prob.append("TANPA SL protektif")
+        if prob:
+            risk_lines.append(f"{coin} {side}: " + "; ".join(prob) + f" (uPnL=${upnl:.2f}, ROE {roe:+.0f}%)")
+    if mu > 90:
+        risk_lines.insert(0, f"ACCOUNT margin terpakai {mu:.0f}% (hampir full)")
+
     report = {
         "ts": datetime.now(timezone.utc).isoformat(),
         "accountValue": acv,
         "positions": len([b for b in st.get("assetPositions",[]) if float(b.get("position",{}).get("szi",0))!=0]),
         "per_coin": per_coin,
         "v3_fills_since_start": sum(d["trades"] for d in per_coin.values()),
+        "open_risks": open_risks,
+        "margin_used_pct": round(mu, 1),
     }
     os.makedirs(os.path.dirname(REPORT), exist_ok=True)
     with open(REPORT,"w") as f: json.dump(report,f,indent=2)
@@ -81,11 +144,13 @@ def main():
         if d["trades"]>=3 and d["net"]<0:
             recommend.append({"coin":c,"net":round(d["net"],2),"trades":d["trades"]})
     if recommend:
-        rec = sorted(recommend, key=lambda x:x["net"])[0]
+        rec_all = sorted(recommend, key=lambda x: x["net"])
+        coins = [r["coin"] for r in rec_all]
+        detail = ", ".join(f"{r['coin']} ${r['net']}" for r in rec_all)
         with open(OVERRIDE,"w") as f:
-            json.dump({"remove":[rec["coin"]],"reason":f"net v3 PnL ${rec['net']} dari {rec['trades']} trade"},f,indent=2)
+            json.dump({"remove":coins,"reason":f"net v3 PnL negatif: {detail}"},f,indent=2)
         # stdout terisi -> cron no_agent kirim alert ringkas
-        print(f"🔎 EVAL(v3): {rec['coin']} rugi net ${rec['net']} ({rec['trades']} trade v3) -> ditangguhkan")
+        print(f"🔎 EVAL(v3): rugi net -> ditangguhkan: {', '.join(coins)} ({detail})")
     else:
         if os.path.exists(OVERRIDE):
             try:
@@ -94,6 +159,9 @@ def main():
                     print("🔎 EVAL(v3): kinerja pulih, watchlist penuh diaktifkan kembali.")
                     os.remove(OVERRIDE)
             except Exception: pass
+    # Alert risiko posisi terbuka (email: cron no_agent kirim bila stdout non-kosong)
+    for line in risk_lines:
+        print("🔎 RISK(open): " + line)
     return 0
 
 if __name__=="__main__":
