@@ -841,6 +841,7 @@ def main():
                           # hitungan -> MAX_OPEN_POSITIONS "batasi SIMBOL" jadi salah hitung)
     acct_value = 0.0
     coin_margin = {}
+    free_margin = 0.0   # ekuitas bebas utk posisi baru (acct - totalMarginUsed)
     if info is not None:
         try:
             ust = info.user_state(MAIN_WALLET)
@@ -848,6 +849,7 @@ def main():
                          if float(p.get("position", {}).get("szi", 0)) != 0}
             sm = ust.get("marginSummary", {})
             acct_value = float(sm.get("accountValue", 0) or 0)
+            free_margin = acct_value - float(sm.get("totalMarginUsed", 0) or 0)
             for ap in ust.get("assetPositions", []):
                 _c = ap.get("position", {}).get("coin")
                 if _c:
@@ -855,10 +857,18 @@ def main():
         except Exception:
             pass
 
-    # Entry process (dilewati saat kill-switch aktif; posisi tetap dikelola di bawah)
+    # Entry process (dilewati saat kill-switch / akun penuh; posisi tetap dikelola di bawah)
+    entry_blocked = halted or (exchange is not None and free_margin < MARGIN_PER_TRADE)
     if halted:
         print("⛔ Kill-switch aktif: lewati seluruh entry baru siklus ini.")
-    for coin in ([] if halted else WATCHLIST):
+    elif exchange is not None and free_margin < MARGIN_PER_TRADE:
+        # Akun ~100% terpakai (mis. BTC memonopoli collateral) -> sisa margin hanya
+        # cukup utk micro-slayer (~$0.12) yg profitnya ~nol & "tak masuk akal". JANGAN
+        # buka posisi bayangan tak berarti; tunggu ada free margin >= MARGIN_PER_TRADE
+        # agar posisi baru punya ukuran & potensi untung yang layak.
+        print(f"⏭ Skip entry: margin bebas ${free_margin:.2f} < ${MARGIN_PER_TRADE} "
+              f"(akun penuh). Posisi lama tetap dikelola; buka baru saat ada ruang.")
+    for coin in ([] if entry_blocked else WATCHLIST):
         if len(open_coins) >= MAX_OPEN_POSITIONS:
             print(f"⚠ Telah mencapai MAX_OPEN_POSITIONS ({MAX_OPEN_POSITIONS}). Skip entry baru.")
             break
