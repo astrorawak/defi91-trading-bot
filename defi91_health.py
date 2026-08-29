@@ -13,7 +13,8 @@ from datetime import datetime, timezone, timedelta
 
 BOT_DIR = "/data/workspace/defi91-trading-bot"
 SCRIPTS_DIR = "/data/scripts"
-FILES = ["github_bot_v3.py", "defi91_eval.py", "monitor_positions.py"]
+FILES = ["github_bot_v3.py", "defi91_eval.py", "monitor_positions.py",
+         "market_regime_filter.py", "telegram_signals.py"]
 RUNNERS = ["defi91_trader.sh", "defi91_monitor.py", "defi91_eval.py"]
 HEARTBEAT = os.path.expanduser("~/.defi91_heartbeat.json")
 HEARTBEAT_MAX_AGE_MIN = 25   # trader 10 menit -> 25 menit aman (2x + margin)
