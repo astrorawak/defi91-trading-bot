@@ -7,7 +7,7 @@ Perbaikan utama dari Manus v2 (sesuai Proposal Strategis yang disetujui):
 1.  CVD SEJATI  : cumulative volume delta + divergence delta-vs-harga (bukan rasio 200-trade).
 2.  MACD SEJATI : EMA12-EMA26 + signal=EMA9(macd), bukan SMA tak-berkait.
 3.  RSI Wilder  : Wilder smoothing, bukan simple-mean.
-4.  Leverage redam: 5x (bukan 20x), maks 2 posisi (bukan 4).
+4.  Leverage redam: 5x (bukan 20x), maks 3 posisi paralel.
 5.  SL/TP ATR   : 1.5x ATR stop / 2.5x ATR target (menyesuaikan volatilitas, bukan % fixed).
 6.  Filter tren : hanya entry di regime TRENGING (ADX>=25), standby di CHOPSAW.
 7.  Watchlist DNA almarhum: HANYA BTC, ETH, BNB. Microcap DIHAPUS.
@@ -671,6 +671,25 @@ def _trail_update_sl(exchange, info, coin, is_long, size, new_sl_price):
 
 def manage_open_positions(exchange, info, all_mids):
     print(f"\n{'='*60}\nSMART POSITION MANAGEMENT\n{'='*60}")
+
+    # HARGA LIVE utk SEMUA koin berposisi — jangan andalkan dict `all_mids` dari
+    # main() yang cuma berisi WATCHLIST. Koin baru disuspend defi91_eval.py (_REMOVE)
+    # di-exclude dari WATCHLIST, sehingga `all_mids.get(coin, entry)` jatuh ke harga
+    # entry BASI (statis) -> jarak-ke-likuidasi & perisai dihitung dari harga yg tak
+    # mencerminkan pasar (persis pada koin paling berisiko). Ambil mark live sendiri
+    # utk semua aset lewat REST metaAndAssetCtxs (tahan lintas versi SDK).
+    live_mids = {}
+    try:
+        _r2 = requests.post("https://api.hyperliquid.xyz/info",
+                            json={"type": "metaAndAssetCtxs"}, timeout=15).json()
+        _un = _r2[0].get("universe", []); _cx = _r2[1] if len(_r2) > 1 else []
+        for _i, _a in enumerate(_un):
+            _px = _a.get("midPx") or (_cx[_i].get("markPx") if _i < len(_cx) else None)
+            if _px:
+                live_mids[_a.get("name")] = float(_px)
+    except Exception as e:
+        print(f"  live-mid err: {e}")
+
     user_state = info.user_state(MAIN_WALLET)
     positions = user_state.get("assetPositions", [])
     for pos in positions:
@@ -680,7 +699,7 @@ def manage_open_positions(exchange, info, all_mids):
             continue
         u_pnl = float(p.get("unrealizedPnl", 0))
         entry = float(p.get("entryPx", 0))
-        mid = all_mids.get(coin, entry)
+        mid = live_mids.get(coin) or all_mids.get(coin) or entry
         long = szi > 0
         print(f"  {coin} | szi={szi} | entry={entry:.2f} | uPnL=${u_pnl:.2f}")
 

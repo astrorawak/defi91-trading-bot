@@ -25,7 +25,7 @@ OUT=$(.venv/bin/python github_bot_v3.py 2>&1)
 EXIT=$?
 
 # Hanya baris AKSI NYATA / ERROR yang layak dilaporkan. Saldo & skip-entry TIDAK (anti-spam).
-REPORT=$(printf '%s\n' "$OUT" | grep -E '^\s*EXEC |early close|AUTO-SL|HARD-CLOSE|⛔|Execution error|❌|Traceback|KILL|HALTED|Self-eval:')
+REPORT=$(printf '%s\n' "$OUT" | grep -E '^\s*EXEC |early close|AUTO-SL|HARD-CLOSE|HARD CLOSE|Trailing SL|⚠ trailing|close err|⛔|Execution error|❌|Traceback|KILL|HALTED|Self-eval:')
 if [ -n "$REPORT" ]; then
   printf '%s\n' "$REPORT"
   printf '\n(exit=%s • %s WIB)\n' "$EXIT" "$(.venv/bin/python -c "from datetime import datetime,timezone,timedelta;print(datetime.now(timezone(timedelta(hours=7))).strftime('%H:%M'))" 2>/dev/null || date +%H:%M)"

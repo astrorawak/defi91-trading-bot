@@ -15,7 +15,7 @@ import json, os, sys, re, urllib.request
 WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 _URL = "https://api.hyperliquid.xyz/info"
 STATE = os.path.expanduser("~/.defi91_mon_state.json")
-LIQ_ALERT_PCT = 12.0
+LIQ_ALERT_PCT = 12.0   # alert read-only. Harus SAMA dgn LIQ_SAFETY_PCT di github_bot_v3.py (force-close) biar sinkron.
 ACV_DROP_PCT = 10.0
 
 def post(p):
