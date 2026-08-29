@@ -526,10 +526,12 @@ SMART_EXIT_THRESHOLD = 7
 # PROTEKSI SL MANDIRI: pastikan tiap posisi terbuka tidak terlantar (tanpa SL)
 # ============================================================
 def has_protective_sl(info, wallet, coin, long, mid):
-    """SL protektif ada bila ada order reduceOnly lawan arah yg harga < mark (long) / > mark (short),
-    ATAU order ber-trigger (taker stop). TP limit biasa (harga > mark utk long) TIDAK dihitung sebagai SL."""
+    """SL protektif ada bila ada order reduceOnly lawan arah tipe stop / trigger di bawah mark,
+    ATAU order reduceOnly lawan arah yg limitPx-nya di sisi protektif (harga < mark utk long,
+    > mark utk short). TP (take profit, limitPx > mark utk long) TIDAK dihitung sebagai SL.
+    Pakai frontend_open_orders krn open_orders TIDAK mengembalikan orderType/triggerPx."""
     try:
-        orders = info.open_orders(wallet)
+        orders = info.frontend_open_orders(wallet)
     except Exception:
         return False
     for o in orders:
@@ -537,8 +539,13 @@ def has_protective_sl(info, wallet, coin, long, mid):
             continue
         side = o.get("side")
         is_sell = (side == "A") or (o.get("isBuy") is False)
-        otype = o.get("orderType") or {}
-        has_trig = bool(otype.get("trigger")) if isinstance(otype, dict) else bool("triggerPx" in o)
+        # orderType dari frontendOpenOrders berupa STRING ('Stop Market'/'Take Profit Market')
+        # atau dict {'trigger':{...}} — tangani keduanya. Hanya STOP yg dihitung SL (TP bukan).
+        ot = o.get("orderType") or ""
+        is_stop = ("stop" in str(ot).lower()) or (
+            isinstance(ot, dict) and isinstance(ot.get("trigger"), dict))
+        if is_stop:
+            return True
         lp = o.get("limitPx")
         try:
             lp = float(lp)
@@ -550,8 +557,6 @@ def has_protective_sl(info, wallet, coin, long, mid):
                 return True
             if (not long) and (not is_sell) and lp > mid:
                 return True
-        elif has_trig:
-            return True
     return False
 
 def ensure_protective_sl(exchange, info, wallet, coin, szi, mid):
@@ -564,7 +569,7 @@ def ensure_protective_sl(exchange, info, wallet, coin, szi, mid):
     long = szi > 0
     pos_sz = abs(szi)
     try:
-        orders = info.open_orders(wallet)
+        orders = info.frontend_open_orders(wallet)
     except Exception:
         orders = []
     committed = 0.0   # size reduce-only sisi berlawanan (TP-ladder + SL) yang dipakai
@@ -578,8 +583,11 @@ def ensure_protective_sl(exchange, info, wallet, coin, szi, mid):
                 committed += float(o.get("sz") or 0)
             except Exception:
                 pass
-        ot = o.get("orderType") or {}
-        if isinstance(ot, dict) and isinstance(ot.get("trigger"), dict):
+        # frontendOpenOrders mengembalikan orderType STRING ('Stop Market'/'Take Profit Market')
+        # atau dict {'trigger':{...}}. Deteksi SL = tipe stop (TP bukan SL).
+        ot = o.get("orderType") or ""
+        if ("stop" in str(ot).lower() or
+                (isinstance(ot, dict) and isinstance(ot.get("trigger"), dict))):
             has_sl = True
     if has_sl:
         return False  # sudah ada SL protektif

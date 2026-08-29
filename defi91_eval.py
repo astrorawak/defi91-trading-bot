@@ -84,16 +84,20 @@ def main():
     except Exception:
         marks = {}
     try:
-        oo = post({"type": "openOrders", "user": WALLET})
+        oo = post({"type": "frontendOpenOrders", "user": WALLET})
     except Exception:
         oo = []
 
     def has_protective_sl(coin, side, mark):
-        """SL protektif = order reduceOnly lawan arah dgn trigger ATAU harga di bawah/atas mark."""
+        """SL protektif = order reduceOnly lawan arah tipe STOP (atau limitPx di sisi protektif
+        vs mark). TP (take profit) TIDAK dihitung sebagai SL. Pakai frontendOpenOrders krn
+        openOrders tak mengembalikan orderType/triggerPx."""
         lo = [o for o in oo if o["coin"] == coin and o.get("reduceOnly")]
         if not lo:
             return False
-        if any("triggerPx" in o or o.get("orderType") for o in lo):
+        # orderType dari frontendOpenOrders = STRING ('Stop Market'/'Take Profit Market').
+        # Hanya langkah "stop" yg berarti SL protektif; TP punya triggerPx & orderType tapi bukan SL.
+        if any("stop" in str(o.get("orderType", "")).lower() for o in lo):
             return True
         for o in lo:
             lp = o.get("limitPx")
