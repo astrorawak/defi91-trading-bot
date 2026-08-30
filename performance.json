@@ -1,17 +1,17 @@
 {
-  "total_pnl": -3.844892,
+  "total_pnl": -4.119197,
   "wins": 21,
-  "losses": 39,
-  "total_trades": 60,
-  "today_trades": 2,
-  "today_pnl": 1.23265,
-  "win_rate": 35.0,
-  "avg_profit": -0.064082,
+  "losses": 43,
+  "total_trades": 64,
+  "today_trades": 4,
+  "today_pnl": -0.274305,
+  "win_rate": 32.8125,
+  "avg_profit": -0.064362,
   "best_trade": "+$0.8425 (BTC)",
   "equity_curve": [
     {
-      "time": "23:19",
-      "equity": 59.3727
+      "time": "05:19",
+      "equity": 58.9821
     }
   ],
   "daily_pnl": [
@@ -62,6 +62,10 @@
     {
       "date": "2026-08-30",
       "pnl": 1.2327
+    },
+    {
+      "date": "2026-08-31",
+      "pnl": -0.2743
     }
   ],
   "closed_trades": [
@@ -546,12 +550,21 @@
       "fee": 0.0276
     }
   ],
-  "account_value": 59.37,
-  "positions": [],
-  "margin_used_pct": 0.0,
+  "account_value": 58.98,
+  "positions": [
+    {
+      "coin": "BTC",
+      "side": "LONG",
+      "sz": 0.00052,
+      "entry": "78674.7",
+      "uPnl": -0.0779,
+      "liq": null
+    }
+  ],
+  "margin_used_pct": 13.8,
   "ai_report": {
     "content": "Laporan Performa Trading Hari Ini (29 Agustus 2026):\n\nHari ini, bot mengalami kerugian total sekitar $2.28 dengan hanya 1 kemenangan dari 8 trading yang dilakukan. Performanya cukup buruk dengan banyak trade loss.\n\nStatistik menunjukkan 1 win dan 7 loss, dengan total P&L negatif cukup besar. Koin yang paling menunjukkan kerugian adalah Doge dan BTC, sementara AVAX sedikit memberi hasil positif.\n\nPosisi terbuka saat ini ada di BTC dan LTC, dengan unrealized loss sekitar $0.13 di BTC dan profit kecil di LTC.\n\nUntuk besok, disarankan memperhatikan manajemen risiko dan tidak terlalu kejar posisi besar. Fokus pada koin yang menunjukkan sinyal kuat dan hindari posisi over-leverage agar kerugian tidak semakin membesar.",
     "time": "29 August 2026, 01:15 WIB"
   },
-  "last_refresh": "2026-08-30T16:19:28.713697+00:00"
+  "last_refresh": "2026-08-30T22:19:48.693400+00:00"
 }
