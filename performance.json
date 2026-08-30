@@ -10,8 +10,8 @@
   "best_trade": "+$0.6096 (SUI)",
   "equity_curve": [
     {
-      "time": "05:18",
-      "equity": 60.0546
+      "time": "11:18",
+      "equity": 60.0734
     }
   ],
   "daily_pnl": [
@@ -526,21 +526,21 @@
       "fee": 0.0276
     }
   ],
-  "account_value": 60.05,
+  "account_value": 60.07,
   "positions": [
     {
       "coin": "BTC",
       "side": "LONG",
       "sz": 0.00365,
       "entry": "77600.2",
-      "uPnl": 1.8751,
-      "liq": "62441.1866134905"
+      "uPnl": 1.9153,
+      "liq": "62447.1221779088"
     }
   ],
-  "margin_used_pct": 95.0,
+  "margin_used_pct": 94.9,
   "ai_report": {
     "content": "Laporan Performa Trading Hari Ini (29 Agustus 2026):\n\nHari ini, bot mengalami kerugian total sekitar $2.28 dengan hanya 1 kemenangan dari 8 trading yang dilakukan. Performanya cukup buruk dengan banyak trade loss.\n\nStatistik menunjukkan 1 win dan 7 loss, dengan total P&L negatif cukup besar. Koin yang paling menunjukkan kerugian adalah Doge dan BTC, sementara AVAX sedikit memberi hasil positif.\n\nPosisi terbuka saat ini ada di BTC dan LTC, dengan unrealized loss sekitar $0.13 di BTC dan profit kecil di LTC.\n\nUntuk besok, disarankan memperhatikan manajemen risiko dan tidak terlalu kejar posisi besar. Fokus pada koin yang menunjukkan sinyal kuat dan hindari posisi over-leverage agar kerugian tidak semakin membesar.",
     "time": "29 August 2026, 01:15 WIB"
   },
-  "last_refresh": "2026-08-29T22:18:00.875581+00:00"
+  "last_refresh": "2026-08-30T04:18:59.180408+00:00"
 }
