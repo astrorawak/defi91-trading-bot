@@ -1,13 +1,13 @@
 {
-  "total_pnl": -5.759831,
-  "wins": 19,
-  "losses": 43,
-  "total_trades": 62,
-  "today_trades": 6,
-  "today_pnl": -0.6727799999999999,
-  "win_rate": 30.64516129032258,
-  "avg_profit": -0.0929005,
-  "best_trade": "+$0.6096 (SUI)",
+  "total_pnl": -4.399215,
+  "wins": 21,
+  "losses": 44,
+  "total_trades": 65,
+  "today_trades": 3,
+  "today_pnl": 1.360616,
+  "win_rate": 32.30769230769231,
+  "avg_profit": -0.06768023076923077,
+  "best_trade": "+$0.843 (BTC)",
   "equity_curve": [
     {
       "time": "11:16",
@@ -16,6 +16,10 @@
     {
       "time": "29/08 19:24",
       "equity": -5.759831
+    },
+    {
+      "time": "30/08 18:22",
+      "equity": -4.399215
     }
   ],
   "daily_pnl": [
@@ -62,33 +66,13 @@
     {
       "date": "29/08",
       "pnl": -0.6727799999999999
+    },
+    {
+      "date": "30/08",
+      "pnl": 1.360616
     }
   ],
   "closed_trades": [
-    {
-      "time": 1787822770931,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "80353.0",
-      "pnl": -0.0673,
-      "fee": 0.004
-    },
-    {
-      "time": 1787756536896,
-      "coin": "ADA",
-      "side": "Close Long",
-      "px": "0.2035",
-      "pnl": -0.0049,
-      "fee": 0.0001
-    },
-    {
-      "time": 1787756365896,
-      "coin": "AVAX",
-      "side": "Close Long",
-      "px": "7.1897",
-      "pnl": -0.0026,
-      "fee": 0.0001
-    },
     {
       "time": 1787692049396,
       "coin": "LTC",
@@ -464,6 +448,30 @@
       "exit": 0.2045,
       "pnl": -0.19488,
       "time": "29/08 21:06"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77973.0,
+      "exit": 77973.0,
+      "pnl": 0.518192,
+      "time": "30/08 16:29"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77973.0,
+      "exit": 77973.0,
+      "pnl": 0.842528,
+      "time": "30/08 16:29"
+    },
+    {
+      "coin": "AVAX",
+      "direction": "SHORT",
+      "entry": 7.3006,
+      "exit": 7.3006,
+      "pnl": -0.000104,
+      "time": "30/08 23:31"
     }
   ],
   "account_value": 58.11,
@@ -495,13 +503,13 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Performa Harian 29 Agustus 2026: Hari ini bot mengalami kerugian sebesar $0.6728 dengan 5 dari 6 trading berakhir loss.  \nStatistik: 1 kemenangan dan 5 kerugian, total P&L negatif.  \nInsight: Performa terburuk dari posisi terbuka di BTC dan AVAX yang masih merugi, sementara posisi tertutup menunjukkan kerugian di beberapa koin utama seperti LTC, BTC, DOGE, dan ADA.  \nPosisi terbuka saat ini di BTC dan AVAX masih dalam posisi negatif, perlu pengawasan ketat.  \nSaran: Evaluasi strategi dan hentikan trading sementara sampai kondisi pasar lebih stabil, fokuskan pada analisis risiko untuk mencegah kerugian lebih besar.",
-    "time": "29 August 2026, 19:24 WIB"
+    "content": "Laporan Harian 30 Agustus 2026: Trading bot hari ini mencatat hasil positif dengan total P&L sebesar $1.3606. Sebanyak 3 posisi ditutup, 2 di antaranya profit dan 1 mengalami kerugian. \n\nStatistik: Win 2 kali, Loss 1 kali, P&L bersih hari ini $1.3606.  \nPerform terbaik ditunjukkan oleh posisi short BTC yang masing-masing menghasilkan lebih dari $0.5 dan $0.8, sementara posisi short AVAX mengalami kerugian kecil.\n\nKoin yang paling perform baik adalah BTC, sedangkan AVAX mengalami kerugian kecil. Tidak ada posisi terbuka saat ini.\n\nSaran: Perhatikan sinyal dengan skor ketat untuk menjaga risiko tetap terkendali. Fokus pada koin yang menunjukkan tren kuat dan tetap disiplin dengan target dan stop loss. Semoga trading besok lebih menguntungkan!",
+    "time": "30 August 2026, 18:22 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-08-29",
-  "_prev_today_pnl": -0.6727799999999999,
-  "_prev_today_wins": 1,
-  "_prev_today_losses": 5,
-  "_prev_today_trades": 6
+  "last_report_date": "2026-08-30",
+  "_prev_today_pnl": 1.360616,
+  "_prev_today_wins": 2,
+  "_prev_today_losses": 1,
+  "_prev_today_trades": 3
 }
