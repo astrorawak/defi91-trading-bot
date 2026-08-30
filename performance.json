@@ -1,17 +1,17 @@
 {
-  "total_pnl": -5.077542,
-  "wins": 19,
+  "total_pnl": -3.844892,
+  "wins": 21,
   "losses": 39,
-  "total_trades": 58,
-  "today_trades": 0,
-  "today_pnl": 0.0,
-  "win_rate": 32.7586,
-  "avg_profit": -0.087544,
-  "best_trade": "+$0.6096 (SUI)",
+  "total_trades": 60,
+  "today_trades": 2,
+  "today_pnl": 1.23265,
+  "win_rate": 35.0,
+  "avg_profit": -0.064082,
+  "best_trade": "+$0.8425 (BTC)",
   "equity_curve": [
     {
-      "time": "11:18",
-      "equity": 60.0734
+      "time": "17:19",
+      "equity": 59.3727
     }
   ],
   "daily_pnl": [
@@ -58,9 +58,29 @@
     {
       "date": "2026-08-29",
       "pnl": 0.0095
+    },
+    {
+      "date": "2026-08-30",
+      "pnl": 1.2327
     }
   ],
   "closed_trades": [
+    {
+      "time": 1788082198756,
+      "coin": "BTC",
+      "side": "Close Long",
+      "px": "77973.0",
+      "pnl": 0.5182,
+      "fee": 0.0488
+    },
+    {
+      "time": 1788082198756,
+      "coin": "BTC",
+      "side": "Close Long",
+      "px": "77973.0",
+      "pnl": 0.8425,
+      "fee": 0.0793
+    },
     {
       "time": 1788021114138,
       "coin": "AVAX",
@@ -526,21 +546,12 @@
       "fee": 0.0276
     }
   ],
-  "account_value": 60.07,
-  "positions": [
-    {
-      "coin": "BTC",
-      "side": "LONG",
-      "sz": 0.00365,
-      "entry": "77600.2",
-      "uPnl": 1.9153,
-      "liq": "62447.1221779088"
-    }
-  ],
-  "margin_used_pct": 94.9,
+  "account_value": 59.37,
+  "positions": [],
+  "margin_used_pct": 0.0,
   "ai_report": {
     "content": "Laporan Performa Trading Hari Ini (29 Agustus 2026):\n\nHari ini, bot mengalami kerugian total sekitar $2.28 dengan hanya 1 kemenangan dari 8 trading yang dilakukan. Performanya cukup buruk dengan banyak trade loss.\n\nStatistik menunjukkan 1 win dan 7 loss, dengan total P&L negatif cukup besar. Koin yang paling menunjukkan kerugian adalah Doge dan BTC, sementara AVAX sedikit memberi hasil positif.\n\nPosisi terbuka saat ini ada di BTC dan LTC, dengan unrealized loss sekitar $0.13 di BTC dan profit kecil di LTC.\n\nUntuk besok, disarankan memperhatikan manajemen risiko dan tidak terlalu kejar posisi besar. Fokus pada koin yang menunjukkan sinyal kuat dan hindari posisi over-leverage agar kerugian tidak semakin membesar.",
     "time": "29 August 2026, 01:15 WIB"
   },
-  "last_refresh": "2026-08-30T04:18:59.180408+00:00"
+  "last_refresh": "2026-08-30T10:19:14.450925+00:00"
 }
