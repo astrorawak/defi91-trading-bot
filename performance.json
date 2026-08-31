@@ -1,17 +1,29 @@
 {
-  "total_pnl": -4.376798,
-  "wins": 22,
-  "losses": 47,
-  "total_trades": 69,
-  "today_trades": 9,
-  "today_pnl": -0.531906,
-  "win_rate": 31.8841,
-  "avg_profit": -0.063432,
-  "best_trade": "+$0.8425 (BTC)",
+  "total_pnl": -4.816109,
+  "wins": 23,
+  "losses": 53,
+  "total_trades": 76,
+  "today_trades": 11,
+  "today_pnl": -0.416894,
+  "win_rate": 30.263157894736842,
+  "avg_profit": -0.0633698552631579,
+  "best_trade": "+$0.843 (BTC)",
   "equity_curve": [
     {
-      "time": "17:20",
-      "equity": 58.8745
+      "time": "11:16",
+      "equity": 58.1098
+    },
+    {
+      "time": "29/08 19:24",
+      "equity": -5.759831
+    },
+    {
+      "time": "30/08 18:22",
+      "equity": -4.399215
+    },
+    {
+      "time": "31/08 19:52",
+      "equity": -4.816109
     }
   ],
   "daily_pnl": [
@@ -56,259 +68,19 @@
       "pnl": -2.4119
     },
     {
-      "date": "2026-08-29",
-      "pnl": 0.0095
+      "date": "29/08",
+      "pnl": -0.6727799999999999
     },
     {
-      "date": "2026-08-30",
-      "pnl": 1.2327
+      "date": "30/08",
+      "pnl": 1.360616
     },
     {
-      "date": "2026-08-31",
-      "pnl": -0.5319
+      "date": "31/08",
+      "pnl": -0.416894
     }
   ],
   "closed_trades": [
-    {
-      "time": 1788082198756,
-      "coin": "BTC",
-      "side": "Close Long",
-      "px": "77973.0",
-      "pnl": 0.5182,
-      "fee": 0.0488
-    },
-    {
-      "time": 1788082198756,
-      "coin": "BTC",
-      "side": "Close Long",
-      "px": "77973.0",
-      "pnl": 0.8425,
-      "fee": 0.0793
-    },
-    {
-      "time": 1788021114138,
-      "coin": "AVAX",
-      "side": "Close Long",
-      "px": "7.3006",
-      "pnl": -0.0001,
-      "fee": 0.0003
-    },
-    {
-      "time": 1787997123739,
-      "coin": "LTC",
-      "side": "Close Long",
-      "px": "48.843",
-      "pnl": 0.0145,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787934316090,
-      "coin": "LTC",
-      "side": "Close Long",
-      "px": "48.008",
-      "pnl": -0.143,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787934275141,
-      "coin": "BTC",
-      "side": "Close Long",
-      "px": "77058.0",
-      "pnl": -0.0736,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787932995074,
-      "coin": "BTC",
-      "side": "Close Long",
-      "px": "78008.0",
-      "pnl": -0.0989,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787932888030,
-      "coin": "DOGE",
-      "side": "Close Long",
-      "px": "0.085491",
-      "pnl": -0.1769,
-      "fee": 0.0044
-    },
-    {
-      "time": 1787925974576,
-      "coin": "ADA",
-      "side": "Close Long",
-      "px": "0.2045",
-      "pnl": -0.1949,
-      "fee": 0.0044
-    },
-    {
-      "time": 1787915699440,
-      "coin": "DOGE",
-      "side": "Close Long",
-      "px": "0.087205",
-      "pnl": -1.4089,
-      "fee": 0.0198
-    },
-    {
-      "time": 1787915699440,
-      "coin": "DOGE",
-      "side": "Close Long",
-      "px": "0.087205",
-      "pnl": -0.385,
-      "fee": 0.0054
-    },
-    {
-      "time": 1787911448702,
-      "coin": "AVAX",
-      "side": "Close Short",
-      "px": "7.3443",
-      "pnl": 0.2032,
-      "fee": 0.0037
-    },
-    {
-      "time": 1787852295328,
-      "coin": "DOGE",
-      "side": "Close Long",
-      "px": "0.089299",
-      "pnl": -0.078,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787843585906,
-      "coin": "BTC",
-      "side": "Close Long",
-      "px": "80575.0",
-      "pnl": 0.0958,
-      "fee": 0.0029
-    },
-    {
-      "time": 1787832480213,
-      "coin": "BTC",
-      "side": "Short > Long",
-      "px": "79378.0",
-      "pnl": 0.0107,
-      "fee": 0.0039
-    },
-    {
-      "time": 1787829838802,
-      "coin": "BTC",
-      "side": "Long > Short",
-      "px": "79734.0",
-      "pnl": -0.021,
-      "fee": 0.0047
-    },
-    {
-      "time": 1787822770931,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "80353.0",
-      "pnl": -0.0673,
-      "fee": 0.004
-    },
-    {
-      "time": 1787756536896,
-      "coin": "ADA",
-      "side": "Close Long",
-      "px": "0.2035",
-      "pnl": -0.0049,
-      "fee": 0.0001
-    },
-    {
-      "time": 1787756365896,
-      "coin": "AVAX",
-      "side": "Close Long",
-      "px": "7.1897",
-      "pnl": -0.0026,
-      "fee": 0.0001
-    },
-    {
-      "time": 1787692049396,
-      "coin": "LTC",
-      "side": "Close Long",
-      "px": "49.851",
-      "pnl": -0.18,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787651409881,
-      "coin": "BNB",
-      "side": "Close Short",
-      "px": "701.56",
-      "pnl": 0.2355,
-      "fee": 0.0044
-    },
-    {
-      "time": 1787644292278,
-      "coin": "AVAX",
-      "side": "Close Short",
-      "px": "7.4838",
-      "pnl": 0.2883,
-      "fee": 0.0044
-    },
-    {
-      "time": 1787624907033,
-      "coin": "ADA",
-      "side": "Close Short",
-      "px": "0.22862",
-      "pnl": -0.2763,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787624421586,
-      "coin": "BTC",
-      "side": "Close Long",
-      "px": "81029.0",
-      "pnl": 0.2729,
-      "fee": 0.0047
-    },
-    {
-      "time": 1787575642274,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "79000.0",
-      "pnl": -0.1931,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787522695844,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "77751.0",
-      "pnl": -0.0308,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787521376266,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "77669.0",
-      "pnl": -0.0201,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787516755051,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "77410.0",
-      "pnl": 0.0136,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787461755673,
-      "coin": "ETH",
-      "side": "Close Long",
-      "px": "2363.7",
-      "pnl": -0.1995,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787418449379,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "77352.0",
-      "pnl": 0.0211,
-      "fee": 0.0045
-    },
     {
       "time": 1787375369240,
       "coin": "DOGE",
@@ -548,39 +320,204 @@
       "px": "1.0211",
       "pnl": -0.93,
       "fee": 0.0276
+    },
+    {
+      "coin": "LTC",
+      "direction": "SHORT",
+      "entry": 48.843,
+      "exit": 48.843,
+      "pnl": 0.01449,
+      "time": "29/08 16:52"
+    },
+    {
+      "coin": "LTC",
+      "direction": "SHORT",
+      "entry": 48.008,
+      "exit": 48.008,
+      "pnl": -0.14301,
+      "time": "29/08 23:25"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77058.0,
+      "exit": 77058.0,
+      "pnl": -0.07358,
+      "time": "29/08 23:24"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78008.0,
+      "exit": 78008.0,
+      "pnl": -0.09893,
+      "time": "29/08 23:03"
+    },
+    {
+      "coin": "DOGE",
+      "direction": "SHORT",
+      "entry": 0.085491,
+      "exit": 0.085491,
+      "pnl": -0.17687,
+      "time": "29/08 23:01"
+    },
+    {
+      "coin": "ADA",
+      "direction": "SHORT",
+      "entry": 0.2045,
+      "exit": 0.2045,
+      "pnl": -0.19488,
+      "time": "29/08 21:06"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77973.0,
+      "exit": 77973.0,
+      "pnl": 0.518192,
+      "time": "30/08 16:29"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77973.0,
+      "exit": 77973.0,
+      "pnl": 0.842528,
+      "time": "30/08 16:29"
+    },
+    {
+      "coin": "AVAX",
+      "direction": "SHORT",
+      "entry": 7.3006,
+      "exit": 7.3006,
+      "pnl": -0.000104,
+      "time": "30/08 23:31"
+    },
+    {
+      "coin": "BNB",
+      "direction": "SHORT",
+      "entry": 685.33,
+      "exit": 685.33,
+      "pnl": -0.00105,
+      "time": "31/08 19:41"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77882.0,
+      "exit": 77882.0,
+      "pnl": 0.07488,
+      "time": "31/08 19:31"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78494.0,
+      "exit": 78494.0,
+      "pnl": 0.10452,
+      "time": "31/08 15:58"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77866.0,
+      "exit": 77866.0,
+      "pnl": -0.105131,
+      "time": "31/08 06:23"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77978.0,
+      "exit": 77978.0,
+      "pnl": -0.090571,
+      "time": "31/08 06:23"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78087.0,
+      "exit": 78087.0,
+      "pnl": -0.076401,
+      "time": "31/08 06:23"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78158.0,
+      "exit": 78158.0,
+      "pnl": -0.067171,
+      "time": "31/08 06:17"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78263.0,
+      "exit": 78263.0,
+      "pnl": -0.07358,
+      "time": "31/08 04:02"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78356.0,
+      "exit": 78356.0,
+      "pnl": -0.06149,
+      "time": "31/08 04:01"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78418.0,
+      "exit": 78418.0,
+      "pnl": -0.06045,
+      "time": "31/08 03:44"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78418.0,
+      "exit": 78418.0,
+      "pnl": -0.06045,
+      "time": "31/08 03:44"
     }
   ],
-  "account_value": 58.87,
+  "account_value": 58.11,
   "positions": [
     {
       "coin": "BTC",
       "side": "LONG",
-      "sz": 0.00039,
-      "entry": "77690.0",
-      "uPnl": 0.2972,
+      "sz": 0.00365,
+      "entry": "77600.2",
+      "uPnl": -0.1689,
+      "liq": "62564.4948153286"
+    },
+    {
+      "coin": "AVAX",
+      "side": "LONG",
+      "sz": 0.08,
+      "entry": "7.3019",
+      "uPnl": -0.0021,
       "liq": null
     },
     {
-      "coin": "ETH",
+      "coin": "LTC",
       "side": "LONG",
-      "sz": 0.0164,
-      "entry": "2460.2",
-      "uPnl": -0.1804,
-      "liq": null
-    },
-    {
-      "coin": "BNB",
-      "side": "LONG",
-      "sz": 0.015,
-      "entry": "685.4",
-      "uPnl": 0.0081,
+      "sz": 0.21,
+      "entry": "48.774",
+      "uPnl": 0.0475,
       "liq": null
     }
   ],
-  "margin_used_pct": 27.5,
+  "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Performa Trading Hari Ini (29 Agustus 2026):\n\nHari ini, bot mengalami kerugian total sekitar $2.28 dengan hanya 1 kemenangan dari 8 trading yang dilakukan. Performanya cukup buruk dengan banyak trade loss.\n\nStatistik menunjukkan 1 win dan 7 loss, dengan total P&L negatif cukup besar. Koin yang paling menunjukkan kerugian adalah Doge dan BTC, sementara AVAX sedikit memberi hasil positif.\n\nPosisi terbuka saat ini ada di BTC dan LTC, dengan unrealized loss sekitar $0.13 di BTC dan profit kecil di LTC.\n\nUntuk besok, disarankan memperhatikan manajemen risiko dan tidak terlalu kejar posisi besar. Fokus pada koin yang menunjukkan sinyal kuat dan hindari posisi over-leverage agar kerugian tidak semakin membesar.",
-    "time": "29 August 2026, 01:15 WIB"
+    "content": "Hari ini performa trading bot mengalami kerugian sebesar $0.4169 dengan hanya 2 kemenangan dari 11 trading yang dilakukan.  \nStatistik: Win 2, Loss 9, total P&L hari ini -$0.4169.  \nKinerja terbaik ditunjukkan oleh trading BTC short yang memberikan profit, sementara sebagian besar trading BTC mengalami kerugian. Koin ETH saat ini posisi terbuka menunjukkan unrealized loss sekitar $0.1755.  \nPosisi terbuka saat ini adalah ETH long dengan kerugian unrealized. Margin terpakai cukup besar, $8.03, sementara saldo sangat kecil, hanya $0.01.  \nSaran besok, perlu evaluasi strategi agar lebih ketat dan fokus pada peluang yang lebih pasti. Disarankan juga memperhatikan posisi terbuka dan mengurangi risiko kerugian lebih besar.",
+    "time": "31 August 2026, 19:52 WIB"
   },
-  "last_refresh": "2026-08-31T10:20:45.786700+00:00"
+  "last_refresh": "2026-08-29T04:16:20.818295+00:00",
+  "last_report_date": "2026-08-31",
+  "_prev_today_pnl": -0.416894,
+  "_prev_today_wins": 2,
+  "_prev_today_losses": 9,
+  "_prev_today_trades": 11
 }
