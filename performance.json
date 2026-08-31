@@ -1,17 +1,17 @@
 {
-  "total_pnl": -4.119197,
+  "total_pnl": -4.476727,
   "wins": 21,
-  "losses": 43,
-  "total_trades": 64,
-  "today_trades": 4,
-  "today_pnl": -0.274305,
-  "win_rate": 32.8125,
-  "avg_profit": -0.064362,
+  "losses": 47,
+  "total_trades": 68,
+  "today_trades": 8,
+  "today_pnl": -0.631835,
+  "win_rate": 30.8824,
+  "avg_profit": -0.065834,
   "best_trade": "+$0.8425 (BTC)",
   "equity_curve": [
     {
-      "time": "05:19",
-      "equity": 58.9821
+      "time": "11:20",
+      "equity": 57.74
     }
   ],
   "daily_pnl": [
@@ -65,7 +65,7 @@
     },
     {
       "date": "2026-08-31",
-      "pnl": -0.2743
+      "pnl": -0.6318
     }
   ],
   "closed_trades": [
@@ -550,21 +550,37 @@
       "fee": 0.0276
     }
   ],
-  "account_value": 58.98,
+  "account_value": 57.74,
   "positions": [
     {
       "coin": "BTC",
       "side": "LONG",
       "sz": 0.00052,
-      "entry": "78674.7",
-      "uPnl": -0.0779,
+      "entry": "77690.0",
+      "uPnl": -0.0972,
+      "liq": null
+    },
+    {
+      "coin": "ETH",
+      "side": "LONG",
+      "sz": 0.0164,
+      "entry": "2460.2",
+      "uPnl": -0.7856,
+      "liq": null
+    },
+    {
+      "coin": "BNB",
+      "side": "LONG",
+      "sz": 0.015,
+      "entry": "685.4",
+      "uPnl": -0.0331,
       "liq": null
     }
   ],
-  "margin_used_pct": 13.8,
+  "margin_used_pct": 31.2,
   "ai_report": {
     "content": "Laporan Performa Trading Hari Ini (29 Agustus 2026):\n\nHari ini, bot mengalami kerugian total sekitar $2.28 dengan hanya 1 kemenangan dari 8 trading yang dilakukan. Performanya cukup buruk dengan banyak trade loss.\n\nStatistik menunjukkan 1 win dan 7 loss, dengan total P&L negatif cukup besar. Koin yang paling menunjukkan kerugian adalah Doge dan BTC, sementara AVAX sedikit memberi hasil positif.\n\nPosisi terbuka saat ini ada di BTC dan LTC, dengan unrealized loss sekitar $0.13 di BTC dan profit kecil di LTC.\n\nUntuk besok, disarankan memperhatikan manajemen risiko dan tidak terlalu kejar posisi besar. Fokus pada koin yang menunjukkan sinyal kuat dan hindari posisi over-leverage agar kerugian tidak semakin membesar.",
     "time": "29 August 2026, 01:15 WIB"
   },
-  "last_refresh": "2026-08-30T22:19:48.693400+00:00"
+  "last_refresh": "2026-08-31T04:20:03.643013+00:00"
 }
