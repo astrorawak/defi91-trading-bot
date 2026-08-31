@@ -1,12 +1,12 @@
 {
-  "total_pnl": -4.399215,
-  "wins": 21,
-  "losses": 44,
-  "total_trades": 65,
-  "today_trades": 3,
-  "today_pnl": 1.360616,
-  "win_rate": 32.30769230769231,
-  "avg_profit": -0.06768023076923077,
+  "total_pnl": -4.816109,
+  "wins": 23,
+  "losses": 53,
+  "total_trades": 76,
+  "today_trades": 11,
+  "today_pnl": -0.416894,
+  "win_rate": 30.263157894736842,
+  "avg_profit": -0.0633698552631579,
   "best_trade": "+$0.843 (BTC)",
   "equity_curve": [
     {
@@ -20,6 +20,10 @@
     {
       "time": "30/08 18:22",
       "equity": -4.399215
+    },
+    {
+      "time": "31/08 19:52",
+      "equity": -4.816109
     }
   ],
   "daily_pnl": [
@@ -70,97 +74,13 @@
     {
       "date": "30/08",
       "pnl": 1.360616
+    },
+    {
+      "date": "31/08",
+      "pnl": -0.416894
     }
   ],
   "closed_trades": [
-    {
-      "time": 1787692049396,
-      "coin": "LTC",
-      "side": "Close Long",
-      "px": "49.851",
-      "pnl": -0.18,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787651409881,
-      "coin": "BNB",
-      "side": "Close Short",
-      "px": "701.56",
-      "pnl": 0.2355,
-      "fee": 0.0044
-    },
-    {
-      "time": 1787644292278,
-      "coin": "AVAX",
-      "side": "Close Short",
-      "px": "7.4838",
-      "pnl": 0.2883,
-      "fee": 0.0044
-    },
-    {
-      "time": 1787624907033,
-      "coin": "ADA",
-      "side": "Close Short",
-      "px": "0.22862",
-      "pnl": -0.2763,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787624421586,
-      "coin": "BTC",
-      "side": "Close Long",
-      "px": "81029.0",
-      "pnl": 0.2729,
-      "fee": 0.0047
-    },
-    {
-      "time": 1787575642274,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "79000.0",
-      "pnl": -0.1931,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787522695844,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "77751.0",
-      "pnl": -0.0308,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787521376266,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "77669.0",
-      "pnl": -0.0201,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787516755051,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "77410.0",
-      "pnl": 0.0136,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787461755673,
-      "coin": "ETH",
-      "side": "Close Long",
-      "px": "2363.7",
-      "pnl": -0.1995,
-      "fee": 0.0045
-    },
-    {
-      "time": 1787418449379,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "77352.0",
-      "pnl": 0.0211,
-      "fee": 0.0045
-    },
     {
       "time": 1787375369240,
       "coin": "DOGE",
@@ -472,6 +392,94 @@
       "exit": 7.3006,
       "pnl": -0.000104,
       "time": "30/08 23:31"
+    },
+    {
+      "coin": "BNB",
+      "direction": "SHORT",
+      "entry": 685.33,
+      "exit": 685.33,
+      "pnl": -0.00105,
+      "time": "31/08 19:41"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77882.0,
+      "exit": 77882.0,
+      "pnl": 0.07488,
+      "time": "31/08 19:31"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78494.0,
+      "exit": 78494.0,
+      "pnl": 0.10452,
+      "time": "31/08 15:58"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77866.0,
+      "exit": 77866.0,
+      "pnl": -0.105131,
+      "time": "31/08 06:23"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77978.0,
+      "exit": 77978.0,
+      "pnl": -0.090571,
+      "time": "31/08 06:23"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78087.0,
+      "exit": 78087.0,
+      "pnl": -0.076401,
+      "time": "31/08 06:23"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78158.0,
+      "exit": 78158.0,
+      "pnl": -0.067171,
+      "time": "31/08 06:17"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78263.0,
+      "exit": 78263.0,
+      "pnl": -0.07358,
+      "time": "31/08 04:02"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78356.0,
+      "exit": 78356.0,
+      "pnl": -0.06149,
+      "time": "31/08 04:01"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78418.0,
+      "exit": 78418.0,
+      "pnl": -0.06045,
+      "time": "31/08 03:44"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 78418.0,
+      "exit": 78418.0,
+      "pnl": -0.06045,
+      "time": "31/08 03:44"
     }
   ],
   "account_value": 58.11,
@@ -503,13 +511,13 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian 30 Agustus 2026: Trading bot hari ini mencatat hasil positif dengan total P&L sebesar $1.3606. Sebanyak 3 posisi ditutup, 2 di antaranya profit dan 1 mengalami kerugian. \n\nStatistik: Win 2 kali, Loss 1 kali, P&L bersih hari ini $1.3606.  \nPerform terbaik ditunjukkan oleh posisi short BTC yang masing-masing menghasilkan lebih dari $0.5 dan $0.8, sementara posisi short AVAX mengalami kerugian kecil.\n\nKoin yang paling perform baik adalah BTC, sedangkan AVAX mengalami kerugian kecil. Tidak ada posisi terbuka saat ini.\n\nSaran: Perhatikan sinyal dengan skor ketat untuk menjaga risiko tetap terkendali. Fokus pada koin yang menunjukkan tren kuat dan tetap disiplin dengan target dan stop loss. Semoga trading besok lebih menguntungkan!",
-    "time": "30 August 2026, 18:22 WIB"
+    "content": "Hari ini performa trading bot mengalami kerugian sebesar $0.4169 dengan hanya 2 kemenangan dari 11 trading yang dilakukan.  \nStatistik: Win 2, Loss 9, total P&L hari ini -$0.4169.  \nKinerja terbaik ditunjukkan oleh trading BTC short yang memberikan profit, sementara sebagian besar trading BTC mengalami kerugian. Koin ETH saat ini posisi terbuka menunjukkan unrealized loss sekitar $0.1755.  \nPosisi terbuka saat ini adalah ETH long dengan kerugian unrealized. Margin terpakai cukup besar, $8.03, sementara saldo sangat kecil, hanya $0.01.  \nSaran besok, perlu evaluasi strategi agar lebih ketat dan fokus pada peluang yang lebih pasti. Disarankan juga memperhatikan posisi terbuka dan mengurangi risiko kerugian lebih besar.",
+    "time": "31 August 2026, 19:52 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-08-30",
-  "_prev_today_pnl": 1.360616,
+  "last_report_date": "2026-08-31",
+  "_prev_today_pnl": -0.416894,
   "_prev_today_wins": 2,
-  "_prev_today_losses": 1,
-  "_prev_today_trades": 3
+  "_prev_today_losses": 9,
+  "_prev_today_trades": 11
 }
