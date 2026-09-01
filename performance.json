@@ -1,12 +1,12 @@
 {
-  "total_pnl": -4.816109,
-  "wins": 23,
-  "losses": 53,
-  "total_trades": 76,
-  "today_trades": 11,
-  "today_pnl": -0.416894,
-  "win_rate": 30.263157894736842,
-  "avg_profit": -0.0633698552631579,
+  "total_pnl": -5.210387,
+  "wins": 25,
+  "losses": 61,
+  "total_trades": 86,
+  "today_trades": 10,
+  "today_pnl": -0.394278,
+  "win_rate": 29.069767441860467,
+  "avg_profit": -0.06058589534883721,
   "best_trade": "+$0.843 (BTC)",
   "equity_curve": [
     {
@@ -24,6 +24,10 @@
     {
       "time": "31/08 19:52",
       "equity": -4.816109
+    },
+    {
+      "time": "01/09 18:12",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
@@ -78,89 +82,13 @@
     {
       "date": "31/08",
       "pnl": -0.416894
+    },
+    {
+      "date": "01/09",
+      "pnl": -0.394278
     }
   ],
   "closed_trades": [
-    {
-      "time": 1787375369240,
-      "coin": "DOGE",
-      "side": "Close Long",
-      "px": "0.094122",
-      "pnl": -0.1972,
-      "fee": 0.0043
-    },
-    {
-      "time": 1787375351193,
-      "coin": "SOL",
-      "side": "Close Long",
-      "px": "97.5",
-      "pnl": -0.271,
-      "fee": 0.0044
-    },
-    {
-      "time": 1787373670527,
-      "coin": "DOGE",
-      "side": "Close Long",
-      "px": "0.099172",
-      "pnl": 0.3335,
-      "fee": 0.0048
-    },
-    {
-      "time": 1787372576530,
-      "coin": "AVAX",
-      "side": "Close Short",
-      "px": "8.1579",
-      "pnl": -0.2512,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787362582138,
-      "coin": "XRP",
-      "side": "Close Short",
-      "px": "1.496",
-      "pnl": -0.4347,
-      "fee": 0.0047
-    },
-    {
-      "time": 1787354535691,
-      "coin": "SOL",
-      "side": "Close Long",
-      "px": "94.742",
-      "pnl": 0.4108,
-      "fee": 0.0047
-    },
-    {
-      "time": 1787350196858,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "78800.0",
-      "pnl": -0.1671,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787302696527,
-      "coin": "BTC",
-      "side": "Close Long",
-      "px": "79125.0",
-      "pnl": 0.2558,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787301929888,
-      "coin": "ETH",
-      "side": "Close Short",
-      "px": "2419.4",
-      "pnl": -0.155,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787301804428,
-      "coin": "ETH",
-      "side": "Close Short",
-      "px": "2416.5",
-      "pnl": -0.1428,
-      "fee": 0.0046
-    },
     {
       "time": 1787301635074,
       "coin": "ADA",
@@ -480,6 +408,86 @@
       "exit": 78418.0,
       "pnl": -0.06045,
       "time": "31/08 03:44"
+    },
+    {
+      "coin": "AVAX",
+      "direction": "LONG",
+      "entry": 7.2551,
+      "exit": 7.2551,
+      "pnl": -0.053098,
+      "time": "01/09 09:55"
+    },
+    {
+      "coin": "ETH",
+      "direction": "SHORT",
+      "entry": 2464.0,
+      "exit": 2464.0,
+      "pnl": 0.06232,
+      "time": "01/09 09:55"
+    },
+    {
+      "coin": "BNB",
+      "direction": "LONG",
+      "entry": 694.51,
+      "exit": 694.51,
+      "pnl": -0.08697,
+      "time": "01/09 01:44"
+    },
+    {
+      "coin": "BNB",
+      "direction": "LONG",
+      "entry": 694.55,
+      "exit": 694.55,
+      "pnl": -0.08757,
+      "time": "01/09 01:44"
+    },
+    {
+      "coin": "BNB",
+      "direction": "LONG",
+      "entry": 693.74,
+      "exit": 693.74,
+      "pnl": -0.07542,
+      "time": "01/09 01:16"
+    },
+    {
+      "coin": "BNB",
+      "direction": "LONG",
+      "entry": 693.56,
+      "exit": 693.56,
+      "pnl": -0.07272,
+      "time": "01/09 01:16"
+    },
+    {
+      "coin": "BNB",
+      "direction": "LONG",
+      "entry": 690.85,
+      "exit": 690.85,
+      "pnl": -0.081075,
+      "time": "01/09 21:43"
+    },
+    {
+      "coin": "BNB",
+      "direction": "LONG",
+      "entry": 690.35,
+      "exit": 690.35,
+      "pnl": -0.073575,
+      "time": "01/09 21:42"
+    },
+    {
+      "coin": "BNB",
+      "direction": "SHORT",
+      "entry": 685.33,
+      "exit": 685.33,
+      "pnl": -0.00105,
+      "time": "01/09 19:41"
+    },
+    {
+      "coin": "BTC",
+      "direction": "SHORT",
+      "entry": 77882.0,
+      "exit": 77882.0,
+      "pnl": 0.07488,
+      "time": "01/09 19:31"
     }
   ],
   "account_value": 58.11,
@@ -511,13 +519,13 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Hari ini performa trading bot mengalami kerugian sebesar $0.4169 dengan hanya 2 kemenangan dari 11 trading yang dilakukan.  \nStatistik: Win 2, Loss 9, total P&L hari ini -$0.4169.  \nKinerja terbaik ditunjukkan oleh trading BTC short yang memberikan profit, sementara sebagian besar trading BTC mengalami kerugian. Koin ETH saat ini posisi terbuka menunjukkan unrealized loss sekitar $0.1755.  \nPosisi terbuka saat ini adalah ETH long dengan kerugian unrealized. Margin terpakai cukup besar, $8.03, sementara saldo sangat kecil, hanya $0.01.  \nSaran besok, perlu evaluasi strategi agar lebih ketat dan fokus pada peluang yang lebih pasti. Disarankan juga memperhatikan posisi terbuka dan mengurangi risiko kerugian lebih besar.",
-    "time": "31 August 2026, 19:52 WIB"
+    "content": "1. Performa hari ini cukup buruk dengan kerugian total sekitar $0.3943, meskipun ada satu posisi yang profit.  \n2. Win/Loss: 2 kemenangan dari 10 trading, P&L hari ini negatif.  \n3. Koin yang paling buruk performanya adalah BNB, semua posisi Long mengalami kerugian, sementara posisi Short di BNB dan BTC memberikan hasil kecil. ETH memberikan hasil positif meskipun kecil.  \n4. Tidak ada posisi terbuka saat ini.  \n5. Untuk besok, sebaiknya fokus pada analisis lebih ketat dan disiplin dalam mengikuti strategi, karena hari ini banyak posisi yang gagal. Perhatikan manajemen risiko agar kerugian tidak terus berlanjut.",
+    "time": "01 September 2026, 18:12 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-08-31",
-  "_prev_today_pnl": -0.416894,
+  "last_report_date": "2026-09-01",
+  "_prev_today_pnl": -0.394278,
   "_prev_today_wins": 2,
-  "_prev_today_losses": 9,
-  "_prev_today_trades": 11
+  "_prev_today_losses": 8,
+  "_prev_today_trades": 10
 }
