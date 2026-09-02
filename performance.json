@@ -3,8 +3,8 @@
   "wins": 25,
   "losses": 61,
   "total_trades": 86,
-  "today_trades": 10,
-  "today_pnl": -0.394278,
+  "today_trades": 0,
+  "today_pnl": 0.0,
   "win_rate": 29.069767441860467,
   "avg_profit": -0.06058589534883721,
   "best_trade": "+$0.843 (BTC)",
@@ -27,6 +27,10 @@
     },
     {
       "time": "01/09 18:12",
+      "equity": -5.210387
+    },
+    {
+      "time": "02/09 17:45",
       "equity": -5.210387
     }
   ],
@@ -86,6 +90,10 @@
     {
       "date": "01/09",
       "pnl": -0.394278
+    },
+    {
+      "date": "02/09",
+      "pnl": 0.0
     }
   ],
   "closed_trades": [
@@ -519,13 +527,13 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "1. Performa hari ini cukup buruk dengan kerugian total sekitar $0.3943, meskipun ada satu posisi yang profit.  \n2. Win/Loss: 2 kemenangan dari 10 trading, P&L hari ini negatif.  \n3. Koin yang paling buruk performanya adalah BNB, semua posisi Long mengalami kerugian, sementara posisi Short di BNB dan BTC memberikan hasil kecil. ETH memberikan hasil positif meskipun kecil.  \n4. Tidak ada posisi terbuka saat ini.  \n5. Untuk besok, sebaiknya fokus pada analisis lebih ketat dan disiplin dalam mengikuti strategi, karena hari ini banyak posisi yang gagal. Perhatikan manajemen risiko agar kerugian tidak terus berlanjut.",
-    "time": "01 September 2026, 18:12 WIB"
+    "content": "Laporan Harian 02 September 2026:\n\nHari ini, tidak ada trading yang dilakukan sehingga saldo dan posisi tetap kosong. Tidak ada keuntungan maupun kerugian yang tercatat.\n\nStatistik: Win: 0, Loss: 0, P&L hari ini: $0.0000.\n\nInsight: Karena tidak ada transaksi, tidak ada koin yang menunjukkan performa baik atau buruk hari ini.\n\nStatus posisi: Saat ini tidak ada posisi terbuka dan saldo tetap sangat kecil ($0.01). Tidak ada risiko terbuka saat ini.\n\nSaran untuk besok: Pantau kondisi pasar dan tingkatkan sinyal entry sesuai strategi, namun pastikan volume dan peluang cukup sebelum melakukan trading. Fokus pada manajemen risiko dan tetap disiplin mengikuti aturan trading.",
+    "time": "02 September 2026, 17:45 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-01",
-  "_prev_today_pnl": -0.394278,
-  "_prev_today_wins": 2,
-  "_prev_today_losses": 8,
-  "_prev_today_trades": 10
+  "last_report_date": "2026-09-02",
+  "_prev_today_pnl": 0.0,
+  "_prev_today_wins": 0,
+  "_prev_today_losses": 0,
+  "_prev_today_trades": 0
 }
