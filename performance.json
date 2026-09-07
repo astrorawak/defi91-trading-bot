@@ -48,6 +48,10 @@
     {
       "time": "06/09 17:22",
       "equity": -5.210387
+    },
+    {
+      "time": "07/09 18:43",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
@@ -125,6 +129,10 @@
     },
     {
       "date": "06/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "07/09",
       "pnl": 0.0
     }
   ],
@@ -559,11 +567,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Performa Harian - 06 September 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan, sehingga saldo dan performa tetap netral. Tidak ada posisi terbuka maupun hasil trading yang tercatat hari ini. Statistik menunjukkan belum ada kemenangan maupun kerugian, dan P&L tetap nol. Untuk insight, belum ada data trading sehingga sulit menilai kinerja koin tertentu. Saat ini, saldo sangat kecil dan tidak ada posisi terbuka, jadi disarankan untuk menunggu sinyal yang lebih jelas besok sebelum melakukan trading. Pastikan strategi dan threshold terpenuhi agar peluang profit lebih optimal.",
-    "time": "06 September 2026, 17:22 WIB"
+    "content": "1. Hari ini belum ada aktivitas trading, saldo tetap stabil di $0.01.\n2. Statistik: Win: 0, Loss: 0, P&L: $0.0000.\n3. Tidak ada performa koin tertentu karena tidak ada posisi terbuka. Secara umum, pasar cenderung datar hari ini.\n4. Saat ini tidak ada posisi terbuka, kondisi tetap aman dan belum ada risiko.\n5. Untuk besok, perhatikan sinyal entry dengan skor >= 3 dan pastikan kondisi pasar mendukung sebelum melakukan trading. Sabar dan disiplin tetap kunci.",
+    "time": "07 September 2026, 18:43 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-06",
+  "last_report_date": "2026-09-07",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
