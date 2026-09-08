@@ -52,6 +52,10 @@
     {
       "time": "07/09 18:43",
       "equity": -5.210387
+    },
+    {
+      "time": "08/09 17:42",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
@@ -133,6 +137,10 @@
     },
     {
       "date": "07/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "08/09",
       "pnl": 0.0
     }
   ],
@@ -567,11 +575,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "1. Hari ini belum ada aktivitas trading, saldo tetap stabil di $0.01.\n2. Statistik: Win: 0, Loss: 0, P&L: $0.0000.\n3. Tidak ada performa koin tertentu karena tidak ada posisi terbuka. Secara umum, pasar cenderung datar hari ini.\n4. Saat ini tidak ada posisi terbuka, kondisi tetap aman dan belum ada risiko.\n5. Untuk besok, perhatikan sinyal entry dengan skor >= 3 dan pastikan kondisi pasar mendukung sebelum melakukan trading. Sabar dan disiplin tetap kunci.",
-    "time": "07 September 2026, 18:43 WIB"
+    "content": "1. Hari ini, trading bot belum melakukan transaksi sehingga belum ada perubahan posisi atau profit.  \n2. Statistik: Win: 0, Loss: 0, P&L hari ini: $0.0000.  \n3. Tidak ada kinerja koin karena tidak ada posisi terbuka, namun saldo tetap stabil di $0.01.  \n4. Saat ini tidak ada posisi terbuka, bot dalam keadaan siaga untuk peluang berikutnya.  \n5. Saran: Perhatikan sinyal entry besok, tetap siaga dan pastikan parameter sudah sesuai sebelum melakukan trading.",
+    "time": "08 September 2026, 17:42 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-07",
+  "last_report_date": "2026-09-08",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
