@@ -56,6 +56,10 @@
     {
       "time": "08/09 17:42",
       "equity": -5.210387
+    },
+    {
+      "time": "09/09 17:51",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
@@ -141,6 +145,10 @@
     },
     {
       "date": "08/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "09/09",
       "pnl": 0.0
     }
   ],
@@ -575,11 +583,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "1. Hari ini, trading bot belum melakukan transaksi sehingga belum ada perubahan posisi atau profit.  \n2. Statistik: Win: 0, Loss: 0, P&L hari ini: $0.0000.  \n3. Tidak ada kinerja koin karena tidak ada posisi terbuka, namun saldo tetap stabil di $0.01.  \n4. Saat ini tidak ada posisi terbuka, bot dalam keadaan siaga untuk peluang berikutnya.  \n5. Saran: Perhatikan sinyal entry besok, tetap siaga dan pastikan parameter sudah sesuai sebelum melakukan trading.",
-    "time": "08 September 2026, 17:42 WIB"
+    "content": "Laporan Harian - 09 September 2026\n\nHari ini, performa trading bot Karman menunjukkan tidak ada aktivitas perdagangan, dengan saldo tetap di $0.01 dan tidak ada posisi terbuka maupun keuntungan/rugi yang tercatat.  \n\nStatistik: Tidak ada trading yang dilakukan hari ini, sehingga Win/Loss dan P&L tetap nol.  \n\nInsight: Tidak ada data kinerja per koin karena tidak ada posisi terbuka maupun transaksi yang terjadi. Secara umum, pasar tampak sepi dan bot belum melakukan eksekusi.  \n\nStatus posisi: Saat ini, tidak ada posisi terbuka dan margin kosong, menandakan bot menunggu peluang yang sesuai dengan threshold dan strategi.  \n\nSaran: Besok, perhatikan kondisi pasar dan threshold entry agar peluang trading bisa dioptimalkan. Pastikan juga tetap mengikuti strategi ketat agar risiko tetap terkendali.",
+    "time": "09 September 2026, 17:51 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-08",
+  "last_report_date": "2026-09-09",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
