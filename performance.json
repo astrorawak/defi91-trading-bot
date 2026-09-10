@@ -60,6 +60,10 @@
     {
       "time": "09/09 17:51",
       "equity": -5.210387
+    },
+    {
+      "time": "10/09 17:45",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
@@ -149,6 +153,10 @@
     },
     {
       "date": "09/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "10/09",
       "pnl": 0.0
     }
   ],
@@ -583,11 +591,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian - 09 September 2026\n\nHari ini, performa trading bot Karman menunjukkan tidak ada aktivitas perdagangan, dengan saldo tetap di $0.01 dan tidak ada posisi terbuka maupun keuntungan/rugi yang tercatat.  \n\nStatistik: Tidak ada trading yang dilakukan hari ini, sehingga Win/Loss dan P&L tetap nol.  \n\nInsight: Tidak ada data kinerja per koin karena tidak ada posisi terbuka maupun transaksi yang terjadi. Secara umum, pasar tampak sepi dan bot belum melakukan eksekusi.  \n\nStatus posisi: Saat ini, tidak ada posisi terbuka dan margin kosong, menandakan bot menunggu peluang yang sesuai dengan threshold dan strategi.  \n\nSaran: Besok, perhatikan kondisi pasar dan threshold entry agar peluang trading bisa dioptimalkan. Pastikan juga tetap mengikuti strategi ketat agar risiko tetap terkendali.",
-    "time": "09 September 2026, 17:51 WIB"
+    "content": "Laporan Harian Trading Bot Karman - 10 September 2026\n\nHari ini, performa trading bot belum menunjukkan aktivitas karena belum ada posisi terbuka maupun trade yang dilakukan. Saldo tetap di $0.01, tanpa keuntungan maupun kerugian.\n\nStatistik hari ini: Tidak ada kemenangan maupun kekalahan, P&L tetap $0.0000, dan tidak ada posisi terbuka maupun trade yang tertutup.\n\nInsight: Tidak ada data trading hari ini, sehingga belum dapat menilai kinerja koin tertentu. Namun, strategi tetap standby untuk mengidentifikasi peluang terbaik besok.\n\nStatus posisi: Saat ini, posisi masih kosong dan tidak ada risiko terbuka.\n\nSaran: Fokus pada pengamatan kondisi pasar dan tunggu sinyal yang memenuhi skor >= 3 agar trading bisa dilakukan secara ketat dan terukur. Pastikan manajemen risiko tetap disiplin.",
+    "time": "10 September 2026, 17:45 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-09",
+  "last_report_date": "2026-09-10",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
