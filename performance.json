@@ -72,6 +72,10 @@
     {
       "time": "12/09 17:11",
       "equity": -5.210387
+    },
+    {
+      "time": "13/09 18:11",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
@@ -173,6 +177,10 @@
     },
     {
       "date": "12/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "13/09",
       "pnl": 0.0
     }
   ],
@@ -607,11 +615,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian Trading Bot - 12 September 2026\n\nHari ini, performa trading bot relatif diam, belum ada posisi terbuka maupun transaksi yang dilakukan. Saldo tetap stabil di $0.01, dan belum ada keuntungan atau kerugian yang tercatat.\n\nStatistik hari ini: Win: 0, Loss: 0, P&L: $0.0000. Tidak ada transaksi yang dilakukan sehingga hasilnya netral.\n\nInsight: Tidak ada data trading hari ini, jadi belum bisa menilai kinerja koin tertentu. Namun, bot tetap siap memantau koin favorit seperti BTC dan ETH yang biasanya menunjukkan peluang potensial.\n\nStatus posisi: Saat ini, tidak ada posisi terbuka sehingga risiko tetap terkendali.\n\nSaran besok: Perhatikan kondisi pasar dan tingkatkan analisis untuk menemukan peluang yang sesuai dengan threshold skor. Pastikan strategi tetap disiplin dan jangan ragu untuk menunggu kesempatan yang tepat.",
-    "time": "12 September 2026, 17:11 WIB"
+    "content": "Laporan Trading Harian - 13 September 2026\n\nHari ini, tidak ada aktivitas trading yang terjadi, sehingga saldo tetap sama dan belum ada profit atau kerugian yang direalisasikan. Tidak terdapat posisi terbuka maupun trade yang berhasil maupun gagal.\n\nStatistik: Tidak ada win/loss dan P&L hari ini, karena tidak ada posisi yang diperdagangkan.\n\nInsight: Dengan tidak adanya aktivitas hari ini, belum ada koin yang menunjukkan performa baik atau buruk. Monitoring tetap diperlukan untuk pengambilan keputusan di hari berikutnya.\n\nStatus posisi: Saat ini tidak ada posisi terbuka, saldo tetap di $0.01.\n\nSaran: Pertimbangkan untuk menunggu peluang yang sesuai dengan threshold entry dan kondisi pasar yang menguntungkan sebelum melakukan trading besok. Tetap disiplin sesuai strategi yang telah ditetapkan.",
+    "time": "13 September 2026, 18:11 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-12",
+  "last_report_date": "2026-09-13",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
