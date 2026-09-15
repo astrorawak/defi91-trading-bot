@@ -80,6 +80,10 @@
     {
       "time": "14/09 18:58",
       "equity": -5.210387
+    },
+    {
+      "time": "15/09 18:13",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
@@ -189,6 +193,10 @@
     },
     {
       "date": "14/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "15/09",
       "pnl": 0.0
     }
   ],
@@ -623,11 +631,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "1. Hari ini tidak ada aktivitas trading, saldo tetap di $0.01 dan belum ada posisi terbuka maupun keuntungan/loss yang terjadi.  \n2. Statistik: Win: 0, Loss: 0, P&L: $0.  \n3. Karena tidak ada trading hari ini, belum ada koin yang menunjukkan performa baik atau buruk.  \n4. Tidak ada posisi terbuka saat ini.  \n5. Untuk besok, perhatikan peluang sesuai strategi dengan skor >= 3 dan pastikan margin aman sebelum masuk posisi. Jangan lupa evaluasi pasar secara berkala.",
-    "time": "14 September 2026, 18:58 WIB"
+    "content": "Laporan Performa Harian 15 September 2026: Hari ini tidak terdapat aktivitas trading karena saldo tetap di $0.01 dan tidak ada posisi terbuka ataupun trade yang dilakukan.  \n\nStatistik: Tidak ada kemenangan maupun kekalahan, P&L hari ini tetap nol.  \n\nInsight: Dengan tidak adanya trading hari ini, belum ada koin yang menunjukkan performa baik atau buruk. Perlu pengamatan lebih lanjut untuk hari berikutnya.  \n\nStatus posisi: Saat ini, tidak ada posisi terbuka, sehingga risiko tetap terkendali.  \n\nSaran besok: Perhatikan sinyal entry dengan threshold ketat (skor >= 3) dan siap untuk melakukan trading saat kondisi pasar sesuai strategi, agar potensi profit bisa dimaksimalkan.",
+    "time": "15 September 2026, 18:13 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-14",
+  "last_report_date": "2026-09-15",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
