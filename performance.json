@@ -88,6 +88,10 @@
     {
       "time": "16/09 17:56",
       "equity": -5.210387
+    },
+    {
+      "time": "17/09 18:05",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
@@ -205,6 +209,10 @@
     },
     {
       "date": "16/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "17/09",
       "pnl": 0.0
     }
   ],
@@ -639,11 +647,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian 16 September 2026\n\nHari ini, tidak ada aktivitas trading karena saldo masih sangat kecil dan tidak ada posisi terbuka. Performa tetap netral tanpa keuntungan atau kerugian.\n\nStatistik: Tidak ada trading yang dilakukan hari ini, jadi Win/Loss = 0/0 dan P&L = $0.0000.\n\nInsight: Tanpa trading hari ini, belum ada koin yang menunjukkan performa baik maupun buruk. Perlu menunggu peluang yang sesuai dengan strategi.\n\nStatus posisi: Saat ini tidak ada posisi terbuka, kondisi aman dari risiko.\n\nSaran untuk besok: Fokus pada analisis sinyal dan peluang yang memenuhi threshold agar bisa memanfaatkan peluang trading yang valid dan meningkatkan saldo secara perlahan.",
-    "time": "16 September 2026, 17:56 WIB"
+    "content": "Laporan Performa Harian - 17 September 2026\n\nHari ini, tidak ada posisi terbuka maupun trade yang dilakukan. Saldo tetap stabil di $0.01 dan belum ada keuntungan atau kerugian yang tercatat. \n\nStatistik: Win: 0, Loss: 0, P&L: $0.0000.\n\nInsight: Karena tidak ada trade yang berjalan, tidak ada koin tertentu yang menunjukkan performa baik atau buruk hari ini. Performa pasar cenderung datar tanpa sinyal trading yang terpicu.\n\nStatus posisi: Saat ini tidak ada posisi terbuka, kondisi tetap aman dan tidak ada risiko terbuka.\n\nSaran: Tetap pantau pasar besok dan tunggu peluang dengan skor entry yang memenuhi kriteria ketat. Jangan ragu untuk siap melakukan trading saat sinyal muncul dan sesuai strategi.",
+    "time": "17 September 2026, 18:05 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-16",
+  "last_report_date": "2026-09-17",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
