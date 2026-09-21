@@ -104,13 +104,13 @@
     {
       "time": "20/09 17:45",
       "equity": -5.210387
+    },
+    {
+      "time": "21/09 19:09",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
-    {
-      "date": "2026-08-22",
-      "pnl": -0.609
-    },
     {
       "date": "2026-08-23",
       "pnl": -0.1874
@@ -225,6 +225,10 @@
     },
     {
       "date": "20/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "21/09",
       "pnl": 0.0
     }
   ],
@@ -659,11 +663,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian Trading Bot (20 September 2026):\n\nHari ini, Trading Bot tidak melakukan transaksi sehingga saldo tetap stabil di $0.01. Tidak ada posisi terbuka maupun profit/loss yang tercatat hari ini.  \n\nStatistik: Tidak ada trade yang dilakukan, Win: 0, Loss: 0, P&L: $0.0000.  \n\nInsight: Tidak ada data performa koin tertentu karena tidak ada transaksi, namun tetap disarankan untuk memantau koin berkinerja baik seperti BTC dan ETH yang biasanya stabil.  \n\nStatus posisi: Saat ini tidak ada posisi terbuka, bot tetap standby menunggu sinyal yang memenuhi threshold.  \n\nSaran: Besok, perhatikan pergerakan indikator RSI dan MACD, serta skor entry untuk peluang trading yang lebih aktif dan mengoptimalkan peluang profit.",
-    "time": "20 September 2026, 17:45 WIB"
+    "content": "Laporan Harian Trading Bot - 21 September 2026\n\nHari ini, trading bot belum melakukan transaksi sehingga saldo tetap kecil dan tidak ada posisi terbuka atau P&L yang tercatat. Tidak ada kemenangan maupun kerugian hari ini.\n\nStatistik: Win: 0, Loss: 0, P&L: $0.00\n\nInsight: Karena belum ada trading yang dilakukan, tidak ada koin tertentu yang menunjukkan performa baik atau buruk hari ini.\n\nStatus Posisi: Saat ini, tidak ada posisi terbuka dan saldo masih sangat minimal ($0.01).\n\nSaran: Besok, fokus pada pengamatan kondisi pasar dan tingkatkan peluang entry sesuai threshold agar bot dapat mulai melakukan trading secara lebih aktif. Pastikan juga saldo cukup untuk mengoptimalkan peluang profit.",
+    "time": "21 September 2026, 19:09 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-20",
+  "last_report_date": "2026-09-21",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
