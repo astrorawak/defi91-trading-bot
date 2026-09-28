@@ -132,13 +132,13 @@
     {
       "time": "27/09 18:30",
       "equity": -5.210387
+    },
+    {
+      "time": "28/09 20:04",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
-    {
-      "date": "29/08",
-      "pnl": -0.6727799999999999
-    },
     {
       "date": "30/08",
       "pnl": 1.360616
@@ -253,6 +253,10 @@
     },
     {
       "date": "27/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "28/09",
       "pnl": 0.0
     }
   ],
@@ -687,11 +691,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "1. Performa hari ini menunjukkan tidak adanya aktivitas trading, saldo tetap di $0.01 dan belum ada posisi terbuka maupun keuntungan/kerugian yang direalisasikan.  \n2. Statistik: Win: 0, Loss: 0, P&L hari ini: $0.0000.  \n3. Saat ini belum ada data performa per koin karena tidak ada trading yang dilakukan. Namun, strategi tetap siaga untuk kondisi pasar yang sesuai.  \n4. Tidak ada posisi terbuka saat ini. Bot masih dalam mode siaga menunggu sinyal berikutnya sesuai threshold dan kondisi pasar.  \n5. Saran: Pantau pasar dan tetap siaga untuk peluang trading esok hari dengan mengikuti indikator dan threshold yang ketat. Jangan ragu untuk melakukan penyesuaian jika kondisi pasar berubah.",
-    "time": "27 September 2026, 18:30 WIB"
+    "content": "Laporan Performa Harian 28 September 2026:\n\nHari ini, tidak ada aktivitas trading yang dilakukan, sehingga saldo dan P&L tetap sama. Tidak ada posisi terbuka maupun trade yang ditutup hari ini.\n\nStatistiknya: Win: 0, Loss: 0, P&L: $0.0000. Karena belum ada trading, performa belum bisa dinilai.\n\nUntuk insight, belum ada data performa per koin karena tidak ada trading hari ini. Secara umum, pasar belum menunjukkan sinyal trading sesuai strategi.\n\nPosisi saat ini kosong, tidak ada posisi terbuka maupun pengelolaan risiko yang perlu perhatian.\n\nSaran untuk besok, tetap pantau indikator dan kondisi pasar. Jika sinyal memenuhi kriteria, siap untuk melakukan trading sesuai strategi. Jangan lupa kontrol risiko dan sesuaikan posisi dengan kondisi pasar hari ini.",
+    "time": "28 September 2026, 20:04 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-27",
+  "last_report_date": "2026-09-28",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
