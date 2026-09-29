@@ -136,13 +136,13 @@
     {
       "time": "28/09 20:04",
       "equity": -5.210387
+    },
+    {
+      "time": "29/09 19:14",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
-    {
-      "date": "30/08",
-      "pnl": 1.360616
-    },
     {
       "date": "31/08",
       "pnl": -0.416894
@@ -257,6 +257,10 @@
     },
     {
       "date": "28/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "29/09",
       "pnl": 0.0
     }
   ],
@@ -691,11 +695,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Performa Harian 28 September 2026:\n\nHari ini, tidak ada aktivitas trading yang dilakukan, sehingga saldo dan P&L tetap sama. Tidak ada posisi terbuka maupun trade yang ditutup hari ini.\n\nStatistiknya: Win: 0, Loss: 0, P&L: $0.0000. Karena belum ada trading, performa belum bisa dinilai.\n\nUntuk insight, belum ada data performa per koin karena tidak ada trading hari ini. Secara umum, pasar belum menunjukkan sinyal trading sesuai strategi.\n\nPosisi saat ini kosong, tidak ada posisi terbuka maupun pengelolaan risiko yang perlu perhatian.\n\nSaran untuk besok, tetap pantau indikator dan kondisi pasar. Jika sinyal memenuhi kriteria, siap untuk melakukan trading sesuai strategi. Jangan lupa kontrol risiko dan sesuaikan posisi dengan kondisi pasar hari ini.",
-    "time": "28 September 2026, 20:04 WIB"
+    "content": "Laporan Harian 29 September 2026:\nHari ini, tidak ada aktivitas trading yang terjadi, sehingga saldo dan posisi tetap sama. Tidak ada profit atau kerugian yang direalisasikan.\n\nStatistik: Tidak ada trading yang dilakukan hari ini, jadi Win/Loss dan P&L masih nol.\n\nInsight: Tidak ada koin yang menunjukkan performa karena belum ada trading. Monitoring tetap perlu dilakukan untuk peluang berikutnya.\n\nStatus posisi: Saat ini tidak ada posisi terbuka dan saldo masih sangat kecil ($0.01).\n\nSaran: Besok, perhatikan sinyal entry dengan skor >= 3 dan kondisi pasar yang mendukung, agar peluang trading bisa dimaksimalkan sesuai strategi. Pastikan juga untuk mengelola risiko dengan ketat.",
+    "time": "29 September 2026, 19:14 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-28",
+  "last_report_date": "2026-09-29",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
