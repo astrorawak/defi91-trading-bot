@@ -140,13 +140,13 @@
     {
       "time": "29/09 19:14",
       "equity": -5.210387
+    },
+    {
+      "time": "30/09 19:00",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
-    {
-      "date": "31/08",
-      "pnl": -0.416894
-    },
     {
       "date": "01/09",
       "pnl": -0.394278
@@ -261,6 +261,10 @@
     },
     {
       "date": "29/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "30/09",
       "pnl": 0.0
     }
   ],
@@ -695,11 +699,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian 29 September 2026:\nHari ini, tidak ada aktivitas trading yang terjadi, sehingga saldo dan posisi tetap sama. Tidak ada profit atau kerugian yang direalisasikan.\n\nStatistik: Tidak ada trading yang dilakukan hari ini, jadi Win/Loss dan P&L masih nol.\n\nInsight: Tidak ada koin yang menunjukkan performa karena belum ada trading. Monitoring tetap perlu dilakukan untuk peluang berikutnya.\n\nStatus posisi: Saat ini tidak ada posisi terbuka dan saldo masih sangat kecil ($0.01).\n\nSaran: Besok, perhatikan sinyal entry dengan skor >= 3 dan kondisi pasar yang mendukung, agar peluang trading bisa dimaksimalkan sesuai strategi. Pastikan juga untuk mengelola risiko dengan ketat.",
-    "time": "29 September 2026, 19:14 WIB"
+    "content": "1. Performa hari ini menunjukkan tidak adanya aktivitas trading, saldo tetap di $0.01.  \n2. Statistik: Tidak ada trade yang dilakukan, Win/Loss 0/0, P&L hari ini $0.  \n3. Tidak ada performa koin yang terdeteksi karena tidak ada trading hari ini, sehingga belum bisa menarik insight tentang koin mana yang perform baik atau buruk.  \n4. Saat ini tidak ada posisi terbuka, semua posisi masih dalam keadaan standby.  \n5. Saran: Besok fokus pada pemantauan kondisi pasar dan pastikan skor memenuhi ambang batas untuk memulai trading sesuai strategi. Jangan lupa sesuaikan risiko dan tetap disiplin dengan target profit dan stop loss.",
+    "time": "30 September 2026, 19:00 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-29",
+  "last_report_date": "2026-09-30",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
