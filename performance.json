@@ -144,13 +144,13 @@
     {
       "time": "30/09 19:00",
       "equity": -5.210387
+    },
+    {
+      "time": "01/10 19:33",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
-    {
-      "date": "01/09",
-      "pnl": -0.394278
-    },
     {
       "date": "02/09",
       "pnl": 0.0
@@ -265,6 +265,10 @@
     },
     {
       "date": "30/09",
+      "pnl": 0.0
+    },
+    {
+      "date": "01/10",
       "pnl": 0.0
     }
   ],
@@ -699,11 +703,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "1. Performa hari ini menunjukkan tidak adanya aktivitas trading, saldo tetap di $0.01.  \n2. Statistik: Tidak ada trade yang dilakukan, Win/Loss 0/0, P&L hari ini $0.  \n3. Tidak ada performa koin yang terdeteksi karena tidak ada trading hari ini, sehingga belum bisa menarik insight tentang koin mana yang perform baik atau buruk.  \n4. Saat ini tidak ada posisi terbuka, semua posisi masih dalam keadaan standby.  \n5. Saran: Besok fokus pada pemantauan kondisi pasar dan pastikan skor memenuhi ambang batas untuk memulai trading sesuai strategi. Jangan lupa sesuaikan risiko dan tetap disiplin dengan target profit dan stop loss.",
-    "time": "30 September 2026, 19:00 WIB"
+    "content": "Laporan Harian Trading Bot Karman - 01 Oktober 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap stagnan. Tidak ada profit maupun kerugian yang tercatat.\n\nStatistik: Win/Loss = 0/0, P&L = $0.0000.\n\nInsight: Karena tidak ada trading, tidak ada koin yang menunjukkan performa baik atau buruk hari ini.\n\nStatus posisi: Saat ini tidak ada posisi terbuka dan saldo tetap di $0.01.\n\nSaran: Besok, perhatikan sinyal dengan skor >= 3 dan kondisi pasar sebelum melakukan trading. Pastikan saldo cukup dan risiko terkelola dengan baik.",
+    "time": "01 October 2026, 19:33 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-09-30",
+  "last_report_date": "2026-10-01",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
