@@ -148,13 +148,13 @@
     {
       "time": "01/10 19:33",
       "equity": -5.210387
+    },
+    {
+      "time": "02/10 18:58",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
-    {
-      "date": "02/09",
-      "pnl": 0.0
-    },
     {
       "date": "03/09",
       "pnl": 0.0
@@ -269,6 +269,10 @@
     },
     {
       "date": "01/10",
+      "pnl": 0.0
+    },
+    {
+      "date": "02/10",
       "pnl": 0.0
     }
   ],
@@ -703,11 +707,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian Trading Bot Karman - 01 Oktober 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap stagnan. Tidak ada profit maupun kerugian yang tercatat.\n\nStatistik: Win/Loss = 0/0, P&L = $0.0000.\n\nInsight: Karena tidak ada trading, tidak ada koin yang menunjukkan performa baik atau buruk hari ini.\n\nStatus posisi: Saat ini tidak ada posisi terbuka dan saldo tetap di $0.01.\n\nSaran: Besok, perhatikan sinyal dengan skor >= 3 dan kondisi pasar sebelum melakukan trading. Pastikan saldo cukup dan risiko terkelola dengan baik.",
-    "time": "01 October 2026, 19:33 WIB"
+    "content": "Laporan Harian Trading Bot - 02 Oktober 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo tetap minimal dan belum ada posisi terbuka maupun profit/loss. Bot menunggu sinyal yang sesuai dengan threshold ketat.\n\nStatistik: Win: 0, Loss: 0, P&L hari ini: $0.0000.\n\nInsight: Tidak ada perdagangan hari ini, sehingga belum bisa menilai performa koin tertentu. Namun, tetap pantau koin dengan volatilitas tinggi seperti BTC dan ETH untuk peluang ke depan.\n\nStatus posisi: Saat ini, tidak ada posisi terbuka dan tidak ada aktivitas baru.\n\nSaran: Besok, perhatikan sinyal entry yang memenuhi threshold dan pertimbangkan risiko dengan margin kecil. Pastikan kondisi pasar sesuai sebelum membuka posisi.",
+    "time": "02 October 2026, 18:58 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-01",
+  "last_report_date": "2026-10-02",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
