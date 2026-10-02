@@ -17,6 +17,7 @@ FILES = ["github_bot_v3.py", "defi91_eval.py", "monitor_positions.py",
          "market_regime_filter.py", "telegram_signals.py"]
 RUNNERS = ["defi91_trader.sh", "defi91_monitor.py", "defi91_eval.py"]
 HEARTBEAT = os.path.expanduser("~/.defi91_heartbeat.json")
+LAST_OK = os.path.expanduser("~/.defi91_last_ok.json")
 HEARTBEAT_MAX_AGE_MIN = 25   # trader 10 menit -> 25 menit aman (2x + margin)
 WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 
@@ -57,6 +58,18 @@ def main():
         problems.append("MESIN BELUM PERNAH JALAN: tidak ada heartbeat")
     except Exception as e:
         problems.append(f"HEARTBEAT korup: {e}")
+
+    # 4b) Siklus terakhir SELESAI sukses (heartbeat hanya bukti siklus DIMULAI)
+    try:
+        ok = json.load(open(LAST_OK))
+        ok_age = (datetime.now(timezone.utc) - datetime.fromisoformat(ok["ts"])).total_seconds() / 60
+        if ok_age > HEARTBEAT_MAX_AGE_MIN:
+            problems.append(f"SIKLUS GAGAL: tak ada siklus trader sukses {ok_age:.0f} menit "
+                            f"(heartbeat jalan tapi bot exit!=0 / crash)")
+    except FileNotFoundError:
+        problems.append("BELUM ADA SIKLUS SUKSES: ~/.defi91_last_ok.json tidak ada")
+    except Exception as e:
+        problems.append(f"PENANDA SUKSES korup: {e}")
 
     # 5) Kill-switch state file valid (kalau ada)
     ks = os.path.join(BOT_DIR, "v3_daily_state.json")

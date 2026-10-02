@@ -23,11 +23,28 @@ json.dump({"ts":datetime.now(timezone.utc).isoformat(),
 PY
 OUT=$(.venv/bin/python github_bot_v3.py 2>&1)
 EXIT=$?
+# Heartbeat di atas = "siklus DIMULAI". Penanda terpisah = "siklus SELESAI tanpa error
+# proteksi" (exit 0). defi91_health.py memeriksa keduanya -> crash/timeout/exit!=0 tak
+# lagi tersamar sebagai mesin sehat.
+if [ "$EXIT" -eq 0 ]; then
+  python3 - "$HOME/.defi91_last_ok.json" <<'PY2'
+import json,sys
+from datetime import datetime,timezone
+json.dump({"ts":datetime.now(timezone.utc).isoformat()},open(sys.argv[1],"w"))
+PY2
+fi
 
 # Hanya baris AKSI NYATA / ERROR yang layak dilaporkan. Saldo & skip-entry TIDAK (anti-spam).
-REPORT=$(printf '%s\n' "$OUT" | grep -E '^\s*EXEC |early close|AUTO-SL|HARD-CLOSE|HARD CLOSE|Trailing SL|⚠ trailing|close err|⛔|Execution error|❌|Traceback|KILL|HALTED|Self-eval:')
+REPORT=$(printf '%s\n' "$OUT" | grep -E '^\s*EXEC |early close|AUTO-SL|HARD-CLOSE|HARD CLOSE|PERISAI|Trailing SL|⚠ trailing|close err|⛔|Execution error|❌|Traceback|KILL|HALTED|Self-eval:')
+if [ "$EXIT" -ne 0 ] && [ -z "$REPORT" ]; then
+  # Gagal tanpa baris yang cocok regex (mis. dibunuh OOM/timeout) -> tetap laporkan ekornya.
+  REPORT="❌ trader exit=$EXIT tanpa pesan terfilter. Ekor output:
+$(printf '%s\n' "$OUT" | tail -n 15)"
+fi
 if [ -n "$REPORT" ]; then
   printf '%s\n' "$REPORT"
   printf '\n(exit=%s • %s WIB)\n' "$EXIT" "$(.venv/bin/python -c "from datetime import datetime,timezone,timedelta;print(datetime.now(timezone(timedelta(hours=7))).strftime('%H:%M'))" 2>/dev/null || date +%H:%M)"
 fi
+# exit 0 dipertahankan (kontrak cron no_agent lama); kegagalan kini terlihat lewat stdout
+# (exit=N) + penanda ~/.defi91_last_ok.json yang diperiksa defi91_health.py.
 exit 0
