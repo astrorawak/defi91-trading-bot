@@ -152,13 +152,13 @@
     {
       "time": "02/10 18:58",
       "equity": -5.210387
+    },
+    {
+      "time": "03/10 18:12",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
-    {
-      "date": "03/09",
-      "pnl": 0.0
-    },
     {
       "date": "04/09",
       "pnl": 0.0
@@ -273,6 +273,10 @@
     },
     {
       "date": "02/10",
+      "pnl": 0.0
+    },
+    {
+      "date": "03/10",
       "pnl": 0.0
     }
   ],
@@ -707,11 +711,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian Trading Bot - 02 Oktober 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo tetap minimal dan belum ada posisi terbuka maupun profit/loss. Bot menunggu sinyal yang sesuai dengan threshold ketat.\n\nStatistik: Win: 0, Loss: 0, P&L hari ini: $0.0000.\n\nInsight: Tidak ada perdagangan hari ini, sehingga belum bisa menilai performa koin tertentu. Namun, tetap pantau koin dengan volatilitas tinggi seperti BTC dan ETH untuk peluang ke depan.\n\nStatus posisi: Saat ini, tidak ada posisi terbuka dan tidak ada aktivitas baru.\n\nSaran: Besok, perhatikan sinyal entry yang memenuhi threshold dan pertimbangkan risiko dengan margin kecil. Pastikan kondisi pasar sesuai sebelum membuka posisi.",
-    "time": "02 October 2026, 18:58 WIB"
+    "content": "Laporan Harian 03 Oktober 2026\n\nHari ini, tidak ada aktivitas trading yang terjadi sehingga saldo dan posisi tetap sama. Tidak ada profit maupun kerugian yang tercatat.\n\nStatistik: Win: 0, Loss: 0, P&L hari ini: $0.0000. Tidak ada posisi terbuka maupun trade yang ditutup hari ini.\n\nInsight: Karena tidak ada trading hari ini, tidak ada koin tertentu yang menunjukkan performa baik atau buruk. Performa tetap netral.\n\nStatus posisi: Saat ini tidak ada posisi terbuka, kondisi aman dan tidak ada risiko saat ini.\n\nSaran untuk besok: Tetap monitor kondisi pasar dan pastikan skor entry memenuhi threshold ketat sebelum melakukan trading. Fokus pada manajemen risiko untuk menjaga saldo tetap aman.",
+    "time": "03 October 2026, 18:12 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-02",
+  "last_report_date": "2026-10-03",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
