@@ -156,13 +156,13 @@
     {
       "time": "03/10 18:12",
       "equity": -5.210387
+    },
+    {
+      "time": "04/10 18:51",
+      "equity": -5.210387
     }
   ],
   "daily_pnl": [
-    {
-      "date": "04/09",
-      "pnl": 0.0
-    },
     {
       "date": "05/09",
       "pnl": 0.0
@@ -277,6 +277,10 @@
     },
     {
       "date": "03/10",
+      "pnl": 0.0
+    },
+    {
+      "date": "04/10",
       "pnl": 0.0
     }
   ],
@@ -711,11 +715,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian 03 Oktober 2026\n\nHari ini, tidak ada aktivitas trading yang terjadi sehingga saldo dan posisi tetap sama. Tidak ada profit maupun kerugian yang tercatat.\n\nStatistik: Win: 0, Loss: 0, P&L hari ini: $0.0000. Tidak ada posisi terbuka maupun trade yang ditutup hari ini.\n\nInsight: Karena tidak ada trading hari ini, tidak ada koin tertentu yang menunjukkan performa baik atau buruk. Performa tetap netral.\n\nStatus posisi: Saat ini tidak ada posisi terbuka, kondisi aman dan tidak ada risiko saat ini.\n\nSaran untuk besok: Tetap monitor kondisi pasar dan pastikan skor entry memenuhi threshold ketat sebelum melakukan trading. Fokus pada manajemen risiko untuk menjaga saldo tetap aman.",
-    "time": "03 October 2026, 18:12 WIB"
+    "content": "Laporan Harian 04 Oktober 2026\n\nHari ini, performa trading bot relatif stabil dengan satu posisi terbuka dan unrealized profit sekitar $0.39. Tidak ada transaksi tertutup hari ini, dan saldo masih sangat kecil.\n\nStatistik menunjukkan belum ada kemenangan atau kerugian yang tercatat, dan total P&L tetap nol untuk hari ini.\n\nKoin ZEC menunjukkan performa positif dengan unrealized profit, namun belum ada data trading yang menutup posisi. Performa koin lain belum dapat dinilai karena tidak ada transaksi selesai.\n\nPosisi terbuka saat ini berada di ZEC dengan posisi LONG dan keuntungan unrealized sekitar $0.39. Posisi ini masih aktif dan perlu pengawasan.\n\nSaran untuk besok, perhatikan pergerakan pasar dan pastikan kondisi threshold entry tetap ketat agar risiko terkendali. Pertimbangkan untuk menunggu sinyal yang lebih kuat sebelum membuka posisi baru.",
+    "time": "04 October 2026, 18:51 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-03",
+  "last_report_date": "2026-10-04",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
