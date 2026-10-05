@@ -1,12 +1,12 @@
 {
-  "total_pnl": -5.210387,
+  "total_pnl": -39.099602999999995,
   "wins": 25,
-  "losses": 61,
-  "total_trades": 86,
-  "today_trades": 0,
-  "today_pnl": 0.0,
-  "win_rate": 29.069767441860467,
-  "avg_profit": -0.06058589534883721,
+  "losses": 64,
+  "total_trades": 89,
+  "today_trades": 3,
+  "today_pnl": -33.889216,
+  "win_rate": 28.08988764044944,
+  "avg_profit": -0.43932138202247184,
   "best_trade": "+$0.843 (BTC)",
   "equity_curve": [
     {
@@ -160,13 +160,13 @@
     {
       "time": "04/10 18:51",
       "equity": -5.210387
+    },
+    {
+      "time": "05/10 20:46",
+      "equity": -39.099602999999995
     }
   ],
   "daily_pnl": [
-    {
-      "date": "05/09",
-      "pnl": 0.0
-    },
     {
       "date": "06/09",
       "pnl": 0.0
@@ -282,33 +282,13 @@
     {
       "date": "04/10",
       "pnl": 0.0
+    },
+    {
+      "date": "05/10",
+      "pnl": -33.889216
     }
   ],
   "closed_trades": [
-    {
-      "time": 1787301635074,
-      "coin": "ADA",
-      "side": "Close Short",
-      "px": "0.21448",
-      "pnl": -0.2702,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787300293859,
-      "coin": "BNB",
-      "side": "Close Short",
-      "px": "678.33",
-      "pnl": -0.1212,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787297980159,
-      "coin": "DOGE",
-      "side": "Close Short",
-      "px": "0.084512",
-      "pnl": -0.2811,
-      "fee": 0.0046
-    },
     {
       "time": 1787296591130,
       "coin": "ETH",
@@ -684,6 +664,30 @@
       "exit": 77882.0,
       "pnl": 0.07488,
       "time": "01/09 19:31"
+    },
+    {
+      "coin": "HYPE",
+      "direction": "LONG",
+      "entry": 91.545,
+      "exit": 91.545,
+      "pnl": -6.6696,
+      "time": "05/10 13:01"
+    },
+    {
+      "coin": "HYPE",
+      "direction": "LONG",
+      "entry": 91.038,
+      "exit": 91.038,
+      "pnl": -13.832116,
+      "time": "05/10 09:12"
+    },
+    {
+      "coin": "HYPE",
+      "direction": "LONG",
+      "entry": 91.023,
+      "exit": 91.023,
+      "pnl": -13.3875,
+      "time": "05/10 05:07"
     }
   ],
   "account_value": 58.11,
@@ -715,13 +719,13 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian 04 Oktober 2026\n\nHari ini, performa trading bot relatif stabil dengan satu posisi terbuka dan unrealized profit sekitar $0.39. Tidak ada transaksi tertutup hari ini, dan saldo masih sangat kecil.\n\nStatistik menunjukkan belum ada kemenangan atau kerugian yang tercatat, dan total P&L tetap nol untuk hari ini.\n\nKoin ZEC menunjukkan performa positif dengan unrealized profit, namun belum ada data trading yang menutup posisi. Performa koin lain belum dapat dinilai karena tidak ada transaksi selesai.\n\nPosisi terbuka saat ini berada di ZEC dengan posisi LONG dan keuntungan unrealized sekitar $0.39. Posisi ini masih aktif dan perlu pengawasan.\n\nSaran untuk besok, perhatikan pergerakan pasar dan pastikan kondisi threshold entry tetap ketat agar risiko terkendali. Pertimbangkan untuk menunggu sinyal yang lebih kuat sebelum membuka posisi baru.",
-    "time": "04 October 2026, 18:51 WIB"
+    "content": "Laporan Harian 05 Oktober 2026: Performa hari ini cukup buruk dengan total P&L negatif sebesar -33,89 USD. Bot mengalami 3 kali loss berturut-turut dan saldo akhir sangat kecil, hanya 0,01 USD.\n\nStatistik: 0 kemenangan dan 3 kerugian, total P&L hari ini -33,89 USD.\n\nInsight: Koin HYPE mengalami kerugian besar di semua posisi hari ini, sementara posisi terbuka saat ini di XPL yang masih belum menunjukkan keuntungan. Performa buruk ini menunjukkan strategi membutuhkan evaluasi, terutama dalam kondisi pasar saat ini.\n\nStatus posisi terbuka: Saat ini satu posisi di XPL dengan kerugian unrealized sekitar -21,73 USD, posisi ini sangat rentan terhadap pergerakan pasar.\n\nSaran: Perhatikan manajemen risiko dengan kemungkinan mengurangi posisi atau menunggu sinyal yang lebih kuat. Disarankan untuk berhati-hati dan menunggu peluang yang lebih baik besok.",
+    "time": "05 October 2026, 20:46 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-04",
-  "_prev_today_pnl": 0.0,
+  "last_report_date": "2026-10-05",
+  "_prev_today_pnl": -33.889216,
   "_prev_today_wins": 0,
-  "_prev_today_losses": 0,
-  "_prev_today_trades": 0
+  "_prev_today_losses": 3,
+  "_prev_today_trades": 3
 }
