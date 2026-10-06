@@ -1,12 +1,12 @@
 {
-  "total_pnl": -39.099602999999995,
+  "total_pnl": -90.48252099999999,
   "wins": 25,
-  "losses": 64,
-  "total_trades": 89,
-  "today_trades": 3,
-  "today_pnl": -33.889216,
-  "win_rate": 28.08988764044944,
-  "avg_profit": -0.43932138202247184,
+  "losses": 72,
+  "total_trades": 97,
+  "today_trades": 8,
+  "today_pnl": -51.382918000000004,
+  "win_rate": 25.773195876288657,
+  "avg_profit": -0.9328094948453607,
   "best_trade": "+$0.843 (BTC)",
   "equity_curve": [
     {
@@ -164,13 +164,13 @@
     {
       "time": "05/10 20:46",
       "equity": -39.099602999999995
+    },
+    {
+      "time": "06/10 19:51",
+      "equity": -90.48252099999999
     }
   ],
   "daily_pnl": [
-    {
-      "date": "06/09",
-      "pnl": 0.0
-    },
     {
       "date": "07/09",
       "pnl": 0.0
@@ -286,73 +286,13 @@
     {
       "date": "05/10",
       "pnl": -33.889216
+    },
+    {
+      "date": "06/10",
+      "pnl": -51.382918000000004
     }
   ],
   "closed_trades": [
-    {
-      "time": 1787296591130,
-      "coin": "ETH",
-      "side": "Close Short",
-      "px": "2397.9",
-      "pnl": -0.2073,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787287426045,
-      "coin": "LTC",
-      "side": "Close Short",
-      "px": "48.619",
-      "pnl": -0.1607,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787275093300,
-      "coin": "BTC",
-      "side": "Close Long",
-      "px": "74681.0",
-      "pnl": 0.2709,
-      "fee": 0.0047
-    },
-    {
-      "time": 1787244886094,
-      "coin": "AVAX",
-      "side": "Close Short",
-      "px": "7.241",
-      "pnl": -0.2269,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787244846327,
-      "coin": "LTC",
-      "side": "Close Short",
-      "px": "48.444",
-      "pnl": -0.124,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787244776278,
-      "coin": "LTC",
-      "side": "Close Short",
-      "px": "48.347",
-      "pnl": -0.1036,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787244640172,
-      "coin": "LTC",
-      "side": "Close Short",
-      "px": "48.337",
-      "pnl": -0.1015,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787244083658,
-      "coin": "AVAX",
-      "side": "Close Short",
-      "px": "7.1836",
-      "pnl": -0.147,
-      "fee": 0.0046
-    },
     {
       "time": 1787241129002,
       "coin": "ETH",
@@ -688,6 +628,70 @@
       "exit": 91.023,
       "pnl": -13.3875,
       "time": "05/10 05:07"
+    },
+    {
+      "coin": "XPL",
+      "direction": "SHORT",
+      "entry": 0.093162,
+      "exit": 0.093162,
+      "pnl": -2.618352,
+      "time": "06/10 21:33"
+    },
+    {
+      "coin": "XPL",
+      "direction": "SHORT",
+      "entry": 0.093168,
+      "exit": 0.093168,
+      "pnl": -32.201686,
+      "time": "06/10 21:33"
+    },
+    {
+      "coin": "ZEC",
+      "direction": "SHORT",
+      "entry": 1324.4,
+      "exit": 1324.4,
+      "pnl": -4.928,
+      "time": "06/10 13:18"
+    },
+    {
+      "coin": "ZEC",
+      "direction": "SHORT",
+      "entry": 1324.4,
+      "exit": 1324.4,
+      "pnl": -2.112,
+      "time": "06/10 13:18"
+    },
+    {
+      "coin": "HYPE",
+      "direction": "LONG",
+      "entry": 93.343,
+      "exit": 93.343,
+      "pnl": -1.24196,
+      "time": "06/10 10:59"
+    },
+    {
+      "coin": "HYPE",
+      "direction": "LONG",
+      "entry": 93.343,
+      "exit": 93.343,
+      "pnl": -0.22204,
+      "time": "06/10 10:59"
+    },
+    {
+      "coin": "HYPE",
+      "direction": "SHORT",
+      "entry": 93.424,
+      "exit": 93.424,
+      "pnl": -3.39624,
+      "time": "06/10 10:27"
+    },
+    {
+      "coin": "HYPE",
+      "direction": "LONG",
+      "entry": 93.958,
+      "exit": 93.958,
+      "pnl": -4.66264,
+      "time": "06/10 01:00"
     }
   ],
   "account_value": 58.11,
@@ -719,13 +723,13 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian 05 Oktober 2026: Performa hari ini cukup buruk dengan total P&L negatif sebesar -33,89 USD. Bot mengalami 3 kali loss berturut-turut dan saldo akhir sangat kecil, hanya 0,01 USD.\n\nStatistik: 0 kemenangan dan 3 kerugian, total P&L hari ini -33,89 USD.\n\nInsight: Koin HYPE mengalami kerugian besar di semua posisi hari ini, sementara posisi terbuka saat ini di XPL yang masih belum menunjukkan keuntungan. Performa buruk ini menunjukkan strategi membutuhkan evaluasi, terutama dalam kondisi pasar saat ini.\n\nStatus posisi terbuka: Saat ini satu posisi di XPL dengan kerugian unrealized sekitar -21,73 USD, posisi ini sangat rentan terhadap pergerakan pasar.\n\nSaran: Perhatikan manajemen risiko dengan kemungkinan mengurangi posisi atau menunggu sinyal yang lebih kuat. Disarankan untuk berhati-hati dan menunggu peluang yang lebih baik besok.",
-    "time": "05 October 2026, 20:46 WIB"
+    "content": "Laporan Harian 06 Oktober 2026:\n\nHari ini, bot mengalami kerugian besar dengan total P&L -$51.38 dari 8 trade, tanpa kemenangan sekalipun. Performa sangat buruk dan saldo menurun drastis.\n\nStatistik: 0 Win / 8 Loss, total P&L -$51.38.\n\nInsight: Koin XPL dan HYPE paling banyak mengalami kerugian. XPL, meskipun posisi terbuka saat ini menguntungkan, tapi semua trade sebelumnya berujung rugi. HYPE juga banyak mengalami kerugian di semua posisi yang ditutup hari ini.\n\nPosisi terbuka saat ini: XPL LONG menguntungkan, tapi perlu perhatian karena kondisi pasar yang bergejolak.\n\nSaran besok, gunakan pendekatan lebih ketat dan analisis tren pasar secara mendalam sebelum masuk posisi. Perbaiki strategi manajemen risiko agar kerugian tidak bertambah.",
+    "time": "06 October 2026, 19:51 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-05",
-  "_prev_today_pnl": -33.889216,
+  "last_report_date": "2026-10-06",
+  "_prev_today_pnl": -51.382918000000004,
   "_prev_today_wins": 0,
-  "_prev_today_losses": 3,
-  "_prev_today_trades": 3
+  "_prev_today_losses": 8,
+  "_prev_today_trades": 8
 }
