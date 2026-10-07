@@ -1,12 +1,12 @@
 {
-  "total_pnl": -90.48252099999999,
+  "total_pnl": -116.26770499999999,
   "wins": 25,
-  "losses": 72,
-  "total_trades": 97,
-  "today_trades": 8,
-  "today_pnl": -51.382918000000004,
-  "win_rate": 25.773195876288657,
-  "avg_profit": -0.9328094948453607,
+  "losses": 73,
+  "total_trades": 98,
+  "today_trades": 1,
+  "today_pnl": -25.785184,
+  "win_rate": 25.510204081632654,
+  "avg_profit": -1.1864051530612245,
   "best_trade": "+$0.843 (BTC)",
   "equity_curve": [
     {
@@ -168,13 +168,13 @@
     {
       "time": "06/10 19:51",
       "equity": -90.48252099999999
+    },
+    {
+      "time": "07/10 19:45",
+      "equity": -116.26770499999999
     }
   ],
   "daily_pnl": [
-    {
-      "date": "07/09",
-      "pnl": 0.0
-    },
     {
       "date": "08/09",
       "pnl": 0.0
@@ -290,17 +290,13 @@
     {
       "date": "06/10",
       "pnl": -51.382918000000004
+    },
+    {
+      "date": "07/10",
+      "pnl": -25.785184
     }
   ],
   "closed_trades": [
-    {
-      "time": 1787241129002,
-      "coin": "ETH",
-      "side": "Close Short",
-      "px": "2333.1",
-      "pnl": -0.2174,
-      "fee": 0.0046
-    },
     {
       "time": 1787238781679,
       "coin": "AVAX",
@@ -692,6 +688,14 @@
       "exit": 93.958,
       "pnl": -4.66264,
       "time": "06/10 01:00"
+    },
+    {
+      "coin": "XPL",
+      "direction": "SHORT",
+      "entry": 0.08646,
+      "exit": 0.08646,
+      "pnl": -25.785184,
+      "time": "07/10 09:00"
     }
   ],
   "account_value": 58.11,
@@ -723,13 +727,13 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian 06 Oktober 2026:\n\nHari ini, bot mengalami kerugian besar dengan total P&L -$51.38 dari 8 trade, tanpa kemenangan sekalipun. Performa sangat buruk dan saldo menurun drastis.\n\nStatistik: 0 Win / 8 Loss, total P&L -$51.38.\n\nInsight: Koin XPL dan HYPE paling banyak mengalami kerugian. XPL, meskipun posisi terbuka saat ini menguntungkan, tapi semua trade sebelumnya berujung rugi. HYPE juga banyak mengalami kerugian di semua posisi yang ditutup hari ini.\n\nPosisi terbuka saat ini: XPL LONG menguntungkan, tapi perlu perhatian karena kondisi pasar yang bergejolak.\n\nSaran besok, gunakan pendekatan lebih ketat dan analisis tren pasar secara mendalam sebelum masuk posisi. Perbaiki strategi manajemen risiko agar kerugian tidak bertambah.",
-    "time": "06 October 2026, 19:51 WIB"
+    "content": "1. Performa hari ini kurang baik dengan kerugian sebesar sekitar $25,78 dari satu posisi yang ditutup loss.  \n2. Statistik: 0 kemenangan, 1 kerugian, total P&L hari ini -$25.7852.  \n3. Tidak ada koin yang berhasil memberikan keuntungan, posisi terakhir di XPL mengalami kerugian besar.  \n4. Tidak ada posisi terbuka saat ini, saldo sangat kecil dan tidak ada trading aktif.  \n5. Untuk besok, disarankan menunggu sinyal yang lebih kuat dan memperhatikan rasio risiko, serta jangan terlalu terburu-buru dalam open posisi.",
+    "time": "07 October 2026, 19:45 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-06",
-  "_prev_today_pnl": -51.382918000000004,
+  "last_report_date": "2026-10-07",
+  "_prev_today_pnl": -25.785184,
   "_prev_today_wins": 0,
-  "_prev_today_losses": 8,
-  "_prev_today_trades": 8
+  "_prev_today_losses": 1,
+  "_prev_today_trades": 1
 }
