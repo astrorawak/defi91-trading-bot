@@ -3,8 +3,8 @@
   "wins": 25,
   "losses": 74,
   "total_trades": 99,
-  "today_trades": 1,
-  "today_pnl": -11.157912,
+  "today_trades": 0,
+  "today_pnl": 0.0,
   "win_rate": 25.252525252525253,
   "avg_profit": -1.2871274444444443,
   "best_trade": "+$0.843 (BTC)",
@@ -180,13 +180,13 @@
     {
       "time": "09/10 19:40",
       "equity": -127.42561699999999
+    },
+    {
+      "time": "10/10 18:59",
+      "equity": -127.42561699999999
     }
   ],
   "daily_pnl": [
-    {
-      "date": "10/09",
-      "pnl": 0.0
-    },
     {
       "date": "11/09",
       "pnl": 0.0
@@ -302,6 +302,10 @@
     {
       "date": "09/10",
       "pnl": -11.157912
+    },
+    {
+      "date": "10/10",
+      "pnl": 0.0
     }
   ],
   "closed_trades": [
@@ -735,13 +739,13 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "1. Performa hari ini menunjukkan kerugian sebesar $11.1579 dari satu trading yang berakhir loss.  \n2. Statistik: 0 kemenangan, 1 kerugian, total P&L hari ini -$11.1579.  \n3. Tidak ada posisi terbuka saat ini, dan semua trading hari ini berakhir dengan kerugian. Koin XPL mengalami kerugian besar pada posisi short.  \n4. Saat ini tidak ada posisi terbuka, saldo sangat kecil tinggal $0.01.  \n5. Untuk besok, disarankan berhati-hati dan memperhatikan sinyal entry agar mengurangi risiko kerugian besar. Fokus pada pengelolaan risiko dan jangan terlalu agresif.",
-    "time": "09 October 2026, 19:40 WIB"
+    "content": "Laporan Harian 10 Oktober 2026\n\nHari ini, bot tidak melakukan transaksi sehingga saldo tetap di $0.01 dengan P&L nol. Tidak ada posisi terbuka maupun trade yang ditutup hari ini.\n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000. Tidak ada perubahan performa karena tidak ada trade yang dilakukan.\n\nInsight: Karena tidak ada transaksi, belum ada koin yang menunjukkan performa baik atau buruk. Monitoring tetap diperlukan untuk peluang selanjutnya.\n\nStatus posisi: Saat ini, posisi tetap kosong dan tidak ada risiko terbuka.\n\nSaran besok: Tetap awasi kondisi pasar dan pastikan skor entry memenuhi threshold untuk peluang trading berikutnya. Jangan ragu untuk melakukan evaluasi jika ada sinyal yang kuat.",
+    "time": "10 October 2026, 18:59 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-09",
-  "_prev_today_pnl": -11.157912,
+  "last_report_date": "2026-10-10",
+  "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
-  "_prev_today_losses": 1,
-  "_prev_today_trades": 1
+  "_prev_today_losses": 0,
+  "_prev_today_trades": 0
 }
