@@ -184,13 +184,13 @@
     {
       "time": "10/10 18:59",
       "equity": -127.42561699999999
+    },
+    {
+      "time": "11/10 19:12",
+      "equity": -127.42561699999999
     }
   ],
   "daily_pnl": [
-    {
-      "date": "11/09",
-      "pnl": 0.0
-    },
     {
       "date": "12/09",
       "pnl": 0.0
@@ -305,6 +305,10 @@
     },
     {
       "date": "10/10",
+      "pnl": 0.0
+    },
+    {
+      "date": "11/10",
       "pnl": 0.0
     }
   ],
@@ -739,11 +743,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Harian 10 Oktober 2026\n\nHari ini, bot tidak melakukan transaksi sehingga saldo tetap di $0.01 dengan P&L nol. Tidak ada posisi terbuka maupun trade yang ditutup hari ini.\n\nStatistik: Win: 0 | Loss: 0, P&L: $0.0000. Tidak ada perubahan performa karena tidak ada trade yang dilakukan.\n\nInsight: Karena tidak ada transaksi, belum ada koin yang menunjukkan performa baik atau buruk. Monitoring tetap diperlukan untuk peluang selanjutnya.\n\nStatus posisi: Saat ini, posisi tetap kosong dan tidak ada risiko terbuka.\n\nSaran besok: Tetap awasi kondisi pasar dan pastikan skor entry memenuhi threshold untuk peluang trading berikutnya. Jangan ragu untuk melakukan evaluasi jika ada sinyal yang kuat.",
-    "time": "10 October 2026, 18:59 WIB"
+    "content": "1. Hari ini, tidak ada aktivitas trading yang dilakukan, sehingga saldo dan posisi tetap sama.\n2. Statistik: Tidak ada trade yang berhasil maupun rugi hari ini, total P&L tetap Rp0.\n3. Tidak ada kinerja koin yang dapat dianalisis karena belum ada transaksi. Namun, tetap pantau koin dengan volatilitas tinggi seperti BTC dan ETH.\n4. Saat ini, tidak ada posisi terbuka, kondisi pasar menunggu sinyal yang sesuai untuk trading berikutnya.\n5. Saran untuk besok, tetap fokus pada sinyal dengan skor >= 3 dan pastikan kondisi pasar mendukung sebelum masuk posisi baru. Jangan lupa kontrol risiko dan jangan terburu-buru.",
+    "time": "11 October 2026, 19:12 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-10",
+  "last_report_date": "2026-10-11",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
