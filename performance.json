@@ -196,13 +196,13 @@
     {
       "time": "13/10 20:40",
       "equity": -127.42561699999999
+    },
+    {
+      "time": "14/10 18:19",
+      "equity": -127.42561699999999
     }
   ],
   "daily_pnl": [
-    {
-      "date": "14/09",
-      "pnl": 0.0
-    },
     {
       "date": "15/09",
       "pnl": 0.0
@@ -317,6 +317,10 @@
     },
     {
       "date": "13/10",
+      "pnl": 0.0
+    },
+    {
+      "date": "14/10",
       "pnl": 0.0
     }
   ],
@@ -751,11 +755,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "1. Hari ini tidak ada aktivitas trading yang dilakukan, saldo tetap stabil di $0.01.  \n2. Statistik: Tidak ada trade yang ditutup, hasil P&L tetap nol, dan belum ada kemenangan atau kerugian.  \n3. Saat ini belum ada data performa per koin karena tidak ada posisi terbuka maupun trade yang selesai hari ini.  \n4. Tidak ada posisi terbuka saat ini, semua kegiatan trading masih dalam kondisi standby.  \n5. Saran: Tetap pantau market besok dan pastikan kondisi memenuhi threshold entry sebelum melakukan trading. Fokus pada analisis sinyal dan manajemen risiko untuk peluang berikutnya.",
-    "time": "13 October 2026, 20:40 WIB"
+    "content": "Laporan Performa Harian - 14 Oktober 2026\n\nHari ini, trading bot belum melakukan transaksi sehingga saldo tetap stabil di $0.01. Tidak ada posisi terbuka maupun profit/loss yang tercatat hari ini.\n\nStatistik: Tidak ada kemenangan maupun kekalahan karena tidak ada trading yang dilakukan. P&L hari ini juga tetap nol.\n\nInsight: Tanpa aktivitas trading hari ini, tidak ada koin yang menunjukkan performa baik maupun buruk. Performa masih netral dan menunggu sinyal yang sesuai untuk peluang trading selanjutnya.\n\nStatus Posisi: Saat ini tidak ada posisi terbuka, sehingga risiko tetap terkendali dan siap menunggu peluang berikutnya.\n\nSaran: Besok, perhatikan indikator dan threshold entry yang ketat untuk memastikan hanya trade yang benar-benar valid. Pastikan saldo cukup dan monitor kondisi pasar secara aktif agar peluang trading lebih optimal.",
+    "time": "14 October 2026, 18:19 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-13",
+  "last_report_date": "2026-10-14",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
