@@ -200,13 +200,13 @@
     {
       "time": "14/10 18:19",
       "equity": -127.42561699999999
+    },
+    {
+      "time": "15/10 17:56",
+      "equity": -127.42561699999999
     }
   ],
   "daily_pnl": [
-    {
-      "date": "15/09",
-      "pnl": 0.0
-    },
     {
       "date": "16/09",
       "pnl": 0.0
@@ -321,6 +321,10 @@
     },
     {
       "date": "14/10",
+      "pnl": 0.0
+    },
+    {
+      "date": "15/10",
       "pnl": 0.0
     }
   ],
@@ -755,11 +759,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Performa Harian - 14 Oktober 2026\n\nHari ini, trading bot belum melakukan transaksi sehingga saldo tetap stabil di $0.01. Tidak ada posisi terbuka maupun profit/loss yang tercatat hari ini.\n\nStatistik: Tidak ada kemenangan maupun kekalahan karena tidak ada trading yang dilakukan. P&L hari ini juga tetap nol.\n\nInsight: Tanpa aktivitas trading hari ini, tidak ada koin yang menunjukkan performa baik maupun buruk. Performa masih netral dan menunggu sinyal yang sesuai untuk peluang trading selanjutnya.\n\nStatus Posisi: Saat ini tidak ada posisi terbuka, sehingga risiko tetap terkendali dan siap menunggu peluang berikutnya.\n\nSaran: Besok, perhatikan indikator dan threshold entry yang ketat untuk memastikan hanya trade yang benar-benar valid. Pastikan saldo cukup dan monitor kondisi pasar secara aktif agar peluang trading lebih optimal.",
-    "time": "14 October 2026, 18:19 WIB"
+    "content": "Laporan Harian 15 Oktober 2026\n\nHari ini, performa bot relatif stabil dengan posisi terbuka di HYPE yang menghasilkan unrealized profit sekitar $5.97. Tidak ada transaksi baru yang dilakukan hari ini.\n\nStatistik: Tidak ada trading yang ditutup hari ini, hasil P&L tetap nol, dan tidak ada kemenangan atau kerugian yang tercatat.\n\nInsight: Koin HYPE menunjukkan performa yang baik dengan posisi SHORT dan profit unrealized cukup signifikan. Sebaiknya pantau perkembangan koin ini secara ketat.\n\nStatus Posisi: Posisi terbuka di HYPE masih aktif dengan profit unrealized sekitar $5.97, namun margin yang digunakan cukup besar dibanding saldo.\n\nSaran: Besok, fokuskan pengawasan pada posisi terbuka dan pertimbangkan penyesuaian jika pasar tidak menunjukkan sinyal yang kuat. Pastikan manajemen risiko tetap ketat.",
+    "time": "15 October 2026, 17:56 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-14",
+  "last_report_date": "2026-10-15",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
