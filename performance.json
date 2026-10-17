@@ -3,8 +3,8 @@
   "wins": 25,
   "losses": 77,
   "total_trades": 102,
-  "today_trades": 3,
-  "today_pnl": -27.988390000000003,
+  "today_trades": 0,
+  "today_pnl": 0.0,
   "win_rate": 24.509803921568626,
   "avg_profit": -1.5236667352941176,
   "best_trade": "+$0.843 (BTC)",
@@ -208,13 +208,13 @@
     {
       "time": "16/10 17:49",
       "equity": -155.414007
+    },
+    {
+      "time": "17/10 17:14",
+      "equity": -155.414007
     }
   ],
   "daily_pnl": [
-    {
-      "date": "17/09",
-      "pnl": 0.0
-    },
     {
       "date": "18/09",
       "pnl": 0.0
@@ -330,6 +330,10 @@
     {
       "date": "16/10",
       "pnl": -27.988390000000003
+    },
+    {
+      "date": "17/10",
+      "pnl": 0.0
     }
   ],
   "closed_trades": [
@@ -763,13 +767,13 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Performa Harian (16 Oktober 2026):\n\nHari ini, bot mengalami kerugian sebesar sekitar $28, dengan semua 3 posisi yang tertutup berujung loss. Tidak ada posisi terbuka saat ini.\n\nStatistik: 0 kemenangan dari 3 trade, total P&L hari ini -$27.99.\n\nInsight: Koin HYPE menunjukkan performa buruk hari ini, ketiga trading HYPE berakhir rugi besar. Tidak ada koin lain yang menunjukkan hasil positif.\n\nStatus posisi: Tidak ada posisi terbuka saat ini, namun performa hari ini cukup buruk dan perlu evaluasi strategi.\n\nSaran: Untuk besok, pertimbangkan pengaturan ulang dan analisa lebih cermat sebelum masuk pasar, terutama pada koin yang sedang tren turun. Perhatikan juga manajemen risiko agar kerugian tidak bertambah besar.",
-    "time": "16 October 2026, 17:49 WIB"
+    "content": "Laporan Performa Harian - 17 Oktober 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo tetap kecil dan belum ada posisi terbuka maupun keuntungan/kerugian. Secara statistik, tidak ada win atau loss karena tidak ada transaksi yang terjadi hari ini. \n\nDari segi performa koin, tidak ada data trading yang menunjukkan performa baik maupun buruk, karena bot belum menjalankan posisi. Saat ini, saldo sangat terbatas dan belum ada posisi terbuka, jadi fokus ke pengawasan kondisi pasar dan kesiapan strategi besok.\n\nStatus posisi masih kosong, artinya bot belum aktif trading hari ini. Disarankan untuk memantau kondisi pasar dan memastikan semua parameter siap sebelum memulai trading kembali besok agar dapat memanfaatkan peluang dengan optimal.",
+    "time": "17 October 2026, 17:14 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-16",
-  "_prev_today_pnl": -27.988390000000003,
+  "last_report_date": "2026-10-17",
+  "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
-  "_prev_today_losses": 3,
-  "_prev_today_trades": 3
+  "_prev_today_losses": 0,
+  "_prev_today_trades": 0
 }
