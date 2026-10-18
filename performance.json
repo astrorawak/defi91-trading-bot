@@ -212,13 +212,13 @@
     {
       "time": "17/10 17:14",
       "equity": -155.414007
+    },
+    {
+      "time": "18/10 17:29",
+      "equity": -155.414007
     }
   ],
   "daily_pnl": [
-    {
-      "date": "18/09",
-      "pnl": 0.0
-    },
     {
       "date": "19/09",
       "pnl": 0.0
@@ -333,6 +333,10 @@
     },
     {
       "date": "17/10",
+      "pnl": 0.0
+    },
+    {
+      "date": "18/10",
       "pnl": 0.0
     }
   ],
@@ -767,11 +771,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "Laporan Performa Harian - 17 Oktober 2026\n\nHari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo tetap kecil dan belum ada posisi terbuka maupun keuntungan/kerugian. Secara statistik, tidak ada win atau loss karena tidak ada transaksi yang terjadi hari ini. \n\nDari segi performa koin, tidak ada data trading yang menunjukkan performa baik maupun buruk, karena bot belum menjalankan posisi. Saat ini, saldo sangat terbatas dan belum ada posisi terbuka, jadi fokus ke pengawasan kondisi pasar dan kesiapan strategi besok.\n\nStatus posisi masih kosong, artinya bot belum aktif trading hari ini. Disarankan untuk memantau kondisi pasar dan memastikan semua parameter siap sebelum memulai trading kembali besok agar dapat memanfaatkan peluang dengan optimal.",
-    "time": "17 October 2026, 17:14 WIB"
+    "content": "1. Hari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap sama.  \n2. Statistik: Win: 0, Loss: 0, Total P&L: $0.0000.  \n3. Tidak ada koin yang menunjukkan performa karena tidak ada trading hari ini. Secara umum, pasar belum menunjukkan sinyal yang cukup kuat untuk membuka posisi.  \n4. Saat ini, tidak ada posisi terbuka dan saldo tetap sangat kecil, menunjukkan belum ada aktivitas trading aktif.  \n5. Saran: Besok, perhatikan indikator dan threshold entry dengan ketat, dan pastikan ada sinyal yang cukup kuat sebelum membuka posisi. Jaga manajemen risiko dan jangan terburu-buru.",
+    "time": "18 October 2026, 17:29 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-17",
+  "last_report_date": "2026-10-18",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
