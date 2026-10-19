@@ -216,13 +216,13 @@
     {
       "time": "18/10 17:29",
       "equity": -155.414007
+    },
+    {
+      "time": "19/10 19:18",
+      "equity": -155.414007
     }
   ],
   "daily_pnl": [
-    {
-      "date": "19/09",
-      "pnl": 0.0
-    },
     {
       "date": "20/09",
       "pnl": 0.0
@@ -337,6 +337,10 @@
     },
     {
       "date": "18/10",
+      "pnl": 0.0
+    },
+    {
+      "date": "19/10",
       "pnl": 0.0
     }
   ],
@@ -771,11 +775,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "1. Hari ini, tidak ada aktivitas trading yang dilakukan sehingga saldo dan posisi tetap sama.  \n2. Statistik: Win: 0, Loss: 0, Total P&L: $0.0000.  \n3. Tidak ada koin yang menunjukkan performa karena tidak ada trading hari ini. Secara umum, pasar belum menunjukkan sinyal yang cukup kuat untuk membuka posisi.  \n4. Saat ini, tidak ada posisi terbuka dan saldo tetap sangat kecil, menunjukkan belum ada aktivitas trading aktif.  \n5. Saran: Besok, perhatikan indikator dan threshold entry dengan ketat, dan pastikan ada sinyal yang cukup kuat sebelum membuka posisi. Jaga manajemen risiko dan jangan terburu-buru.",
-    "time": "18 October 2026, 17:29 WIB"
+    "content": "1. Hari ini tidak ada aktivitas trading, saldo tetap di $0.01 dengan posisi terbuka kosong.  \n2. Statistik: Tidak ada trade yang dilakukan, Win/Loss: 0/0, P&L hari ini: $0.0000.  \n3. Tidak ada koin yang menunjukkan performa karena tidak ada trading hari ini.  \n4. Saat ini tidak ada posisi terbuka, bot sedang dalam keadaan siaga.  \n5. Untuk besok, pastikan kondisi pasar memenuhi kriteria entry dan pantau skor threshold agar peluang trading lebih optimal.",
+    "time": "19 October 2026, 19:18 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-18",
+  "last_report_date": "2026-10-19",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
