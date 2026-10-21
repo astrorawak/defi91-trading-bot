@@ -224,13 +224,13 @@
     {
       "time": "20/10 17:59",
       "equity": -155.414007
+    },
+    {
+      "time": "21/10 18:16",
+      "equity": -155.414007
     }
   ],
   "daily_pnl": [
-    {
-      "date": "21/09",
-      "pnl": 0.0
-    },
     {
       "date": "22/09",
       "pnl": 0.0
@@ -345,6 +345,10 @@
     },
     {
       "date": "20/10",
+      "pnl": 0.0
+    },
+    {
+      "date": "21/10",
       "pnl": 0.0
     }
   ],
@@ -779,11 +783,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "1. Hari ini tidak ada aktivitas trading yang terjadi, saldo tetap stabil di $0.01.  \n2. Statistik: Win: 0, Loss: 0, P&L: $0.0000.  \n3. Tidak ada koin yang menunjukkan performa karena belum ada posisi terbuka atau transaksi.  \n4. Saat ini tidak ada posisi terbuka dan tidak ada aktivitas trading hari ini.  \n5. Untuk besok, pastikan kondisi pasar memenuhi kriteria entry dan monitor skor threshold agar peluang trading meningkat. Tetap disiplin dengan strategi dan batasan risiko.",
-    "time": "20 October 2026, 17:59 WIB"
+    "content": "Laporan Performa Harian - 21 Oktober 2026\n\nHari ini, bot tidak melakukan perdagangan sehingga saldo tetap stabil di $0.01. Tidak ada posisi terbuka maupun hasil trade yang tercatat. Secara statistik, tidak ada kemenangan maupun kerugian yang terjadi hari ini. Kinerja hari ini menunjukkan bahwa bot masih dalam tahap observasi dan belum melakukan eksekusi trading. Dari data hari ini, belum ada koin tertentu yang menunjukkan performa baik atau buruk karena tidak ada transaksi yang dilakukan. Posisi masih kosong, sehingga tidak ada risiko terbuka. Untuk besok, disarankan agar bot terus memantau kondisi pasar dan menunggu sinyal yang lebih kuat sesuai strategi agar dapat meningkatkan peluang profit. Tetap disiplin dan waspada dengan threshold entry yang ketat.",
+    "time": "21 October 2026, 18:16 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-20",
+  "last_report_date": "2026-10-21",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
