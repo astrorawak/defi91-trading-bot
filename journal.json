@@ -1,24 +1,6 @@
 {
   "journals": [
     {
-      "date": "2026-09-24",
-      "date_display": "Thursday, 24 September 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 0.0088141,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [],
-      "journal_content": "**Jurnal Trading Harian – Kamis, 24 September 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**\nHari ini suasana pasar cukup tenang, tidak ada posisi yang dibuka atau ditutup. Akun cuma nontonin pergerakan sambil menunggu peluang yang benar-benar sesuai dengan strategi. Kondisi pasar cenderung sideways, jadi fokus utama lebih ke observasi dan analisis daripada aksi besar.\n\n---\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**\nHari ini nggak ada posisi yang dibuka, jadi kita bisa belajar dari situasi pasar yang mungkin belum menunjukkan peluang yang cukup kuat. Secara umum, tidak ada sinyal volume delta dan order book imbalance yang menguatkan, jadi bot cenderung berhati-hati dan menunggu konfirmasi lebih dalam dari analisis teknikal dan order flow.\n\n---\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**\nKarena tidak ada posisi yang dibuka hari ini, otomatis tidak ada yang ditutup. Tapi, ini juga menunjukkan bahwa pasar sedang dalam fase menunggu, dan bot memilih untuk tidak memaksakan entry saat sinyal belum cukup kuat.\n\n---\n\n### 4. **Pelajaran Penting Hari Ini**\nSituasi pasar yang sideways mengajarkan kita pentingnya sabar dan disiplin. Tidak semua hari harus digunakan untuk trading aktif. Kadang, menunggu momentum yang tepat lebih menguntungkan daripada memaksakan entry di kondisi yang abu-abu. Strategi gabungan CVD dan indikator teknikal seperti RSI dan MACD membantu memastikan keputusan yang lebih objektif.\n\n---\n\n### 5. **Koneksi dengan Berita/Sentimen Pasar**\nHari ini tidak ada berita besar yang mempengaruhi pasar secara signifikan. Sentimen cenderung netral, dan volume aktivitas juga terbatas. Ini memperkuat alasan kenapa bot tidak masuk posisi karena pasar belum menunjukkan arah yang jelas.\n\n---\n\n### 6. **Skor Performa Hari Ini: 6/10**\nKarena hari ini nggak ada trade, penilaian lebih ke aspek pengelolaan risiko dan observasi. Skor ini diberikan karena bot tetap disiplin dan tidak memaksakan trading di kondisi tidak pasti, yang merupakan hal positif. Tapi tentu, harapan ke depan adalah menemukan peluang yang lebih baik lagi.\n\n---\n\n**Kesimpulan:**  \nHari ini mengingatkan kita bahwa kadang waktu terbaik adalah saat tidak melakukan apa-apa, menunggu sinyal yang benar-benar kuat. Kombinasi indikator order flow dan analisis teknikal sangat membantu menjaga agar kita tetap di jalur saat pasar sedang sideways. Tetap sabar dan disiplin, dan peluang akan datang saat waktunya tiba.",
-      "generated_at": "18:17 WIB"
-    },
-    {
       "date": "2026-09-25",
       "date_display": "Friday, 25 September 2026",
       "market_regime": "CHOPSAW",
@@ -717,6 +699,24 @@
       "open_positions": [],
       "journal_content": "JURNAL TRADING HARIAN - Jumat, 23 Oktober 2026\n\n1. **RINGKASAN HARI INI**  \nHari ini suasana pasar cenderung sideways, nggak banyak pergerakan berarti. Bot nggak melakukan open posisi baru, mungkin karena kondisi pasar yang lagi nggak terlalu menarik buat trading aktif. Jadi, hari ini lebih sebagai hari observasi dan belajar dari kondisi pasar yang agak tenang.\n\n2. **ANALISA KENAPA BOT MASUK POSISI**  \nKarena nggak ada posisi baru yang dibuka hari ini, kita bisa lihat dari data: tidak ada sinyal masuk. Tapi, kalau kita bayangkan kalau bot masuk, biasanya dari kombinasi strategi.  \n- **CVD (Order Flow)**: Biasanya, bot akan masuk kalau ada volume delta positif besar dan order book imbalance yang menunjukkan dominasi pembeli, misalnya volume delta besar ke atas dan order book yang condong ke buy side.  \n- **Teknikal (RSI + MACD + Support/Resistance)**: Kalau RSI menunjukkan kondisi oversold (misalnya di bawah 30) dan MACD mulai cross ke atas, serta harga dekat support, itu jadi sinyal bahwa momentum sedang berpotensi berbalik naik, sehingga bot mempertimbangkan masuk.  \n- **Skor Tinggi**: Biasanya kombinasi volume delta yang kuat, momentum teknikal yang mendukung, dan support/resistance yang relevan membuat bot merasa yakin untuk entry.\n\n3. **ANALISA KENAPA BOT KELUAR POSISI**  \nKarena hari ini nggak ada posisi terbuka, kita nggak bisa bahas trade yang ditutup. Tapi, kalau ada, biasanya keluar karena:  \n- **Target Tercapai (TP)**: Harga menyentuh level target yang sudah dipasang.  \n- **Stop Loss (SL)**: Harga berbalik dan menyentuh level cut loss, menghindari kerugian lebih besar.  \n- **Smart Exit**: Sinyal berbalik dari indikator teknikal, misalnya MACD cross ke arah yang nggak menguntungkan atau volume delta berbalik arah, sehingga bot otomatis keluar untuk mengurangi risiko.\n\n4. **PELAJARAN PENTING HARI INI**  \nHari ini mengingatkan kita bahwa kondisi pasar yang sideways atau kurang tren membuat trading lebih menantang. Bot tetap tidak membuka posisi, menunjukkan disiplin untuk menunggu konfirmasi yang kuat. Penting banget memahami kapan pasar sedang tidak cocok untuk trading aktif dan fokus pada observasi. Keberhasilan trading nggak selalu dari banyaknya posisi, tapi dari kualitas entry dan exit.\n\n5. **KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \nTidak ada berita besar hari ini yang mempengaruhi pasar secara signifikan. Sentimen pasar cenderung netral, mungkin karena kekhawatiran terhadap ketidakpastian ekonomi global atau berita tertentu yang belum muncul. Kondisi ini bikin trader lebih berhati-hati dan menunggu momentum yang benar-benar kuat.\n\n6. **SKOR PERFORMA HARI INI**: 6/10  \nKarena hari ini nggak ada trade aktif, skornya lebih ke arah observasi dan disiplin. Kalau melihat dari kondisi pasar yang nggak terlalu menarik, ini jadi momen yang baik untuk menunggu dan belajar. Tapi kalau ingin lebih tinggi, harusnya ada peluang yang lebih baik untuk masuk.\n\n---\n\nItulah rangkuman hari ini, semoga bisa jadi insight buat kita semua. Ingat, trading itu soal kesabaran dan disiplin, bukan hanya soal banyak posisi. Sampai jumpa di jurnal berikutnya!",
       "generated_at": "18:10 WIB"
+    },
+    {
+      "date": "2026-10-24",
+      "date_display": "Saturday, 24 October 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 0.0088141,
+      "margin_used": 0.0,
+      "unrealized_pnl": 0.0,
+      "total_closed": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_pnl": 0.0,
+      "win_rate": 0,
+      "entries_today": [],
+      "closed_today": [],
+      "open_positions": [],
+      "journal_content": "JURNAL TRADING - Saturday, 24 October 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 0 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 0\n- Win: 0 | Loss: 0\n- Win Rate: 0%\n- Total P&L: $0.0000\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
+      "generated_at": "17:28 WIB"
     }
   ]
 }
