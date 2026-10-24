@@ -236,13 +236,13 @@
     {
       "time": "23/10 18:06",
       "equity": -155.414007
+    },
+    {
+      "time": "24/10 17:23",
+      "equity": -155.414007
     }
   ],
   "daily_pnl": [
-    {
-      "date": "24/09",
-      "pnl": 0.0
-    },
     {
       "date": "25/09",
       "pnl": 0.0
@@ -357,6 +357,10 @@
     },
     {
       "date": "23/10",
+      "pnl": 0.0
+    },
+    {
+      "date": "24/10",
       "pnl": 0.0
     }
   ],
@@ -791,11 +795,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "1. Performa hari ini menunjukkan tidak ada aktivitas trading, saldo tetap stabil di $0.01.  \n2. Statistik: Tidak ada win atau loss, P&L nihil.  \n3. Insight: Tidak ada trading yang dilakukan, sehingga belum ada koin yang menunjukkan performa baik atau buruk.  \n4. Status posisi: Saat ini tidak ada posisi terbuka.  \n5. Saran: Pantau pasar dan tingkatkan sinyal trading besok agar peluang profit meningkat. Pastikan juga kondisi pasar memenuhi kriteria entry sebelum beraksi.",
-    "time": "23 October 2026, 18:06 WIB"
+    "content": "LAPORAN 24 October 2026: 0 trade, P&L: $0.0000, Saldo: $0.01",
+    "time": "24 October 2026, 17:23 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-10-23",
+  "last_report_date": "2026-10-24",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,
