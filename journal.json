@@ -1,33 +1,6 @@
 {
   "journals": [
     {
-      "date": "2026-10-04",
-      "date_display": "Sunday, 04 October 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 0.0088141,
-      "margin_used": 135.9456,
-      "unrealized_pnl": 0.029,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [
-        {
-          "coin": "ZEC",
-          "direction": "LONG",
-          "size": 0.51,
-          "entry": 1332.7431,
-          "unrealized_pnl": 0.029,
-          "leverage": 5
-        }
-      ],
-      "journal_content": "**Jurnal Trading Hari Ini – Minggu, 04 Oktober 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**  \nHari ini suasana pasar agak tenang, nggak banyak pergerakan besar. Bot nggak membuka posisi baru dan cuma menjaga posisi yang sudah ada. Jadi, hari ini lebih ke fase observasi dan menunggu momentum yang tepat.\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**  \nHari ini nggak ada posisi baru yang dibuka, jadi nggak ada analisis entry. Tapi posisi yang masih terbuka di ZEC menunjukkan bahwa bot masih melihat potensi kenaikan. Entry di sekitar $1332.74, dan saat ini posisi masih menguntungkan dengan unrealized profit sekitar $0.029, yang menunjukkan sinyal positif dari analisa flow dan teknikal.\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**  \nKarena posisi ZEC masih terbuka dan belum mencapai target, bot belum menutup posisi. Tidak ada alasan keluar hari ini karena belum ada sinyal pembalikan atau pencapaian target.\n\n### 4. **Pelajaran Penting Hari Ini**  \nHari ini mengingatkan kita bahwa kadang pasar nggak selalu bergerak cepat, dan kesabaran adalah kunci. Bot tetap menjaga posisi dan menunggu sinyal yang pasti dari gabungan indikator flow dan teknikal. Kalau pasar sedang sideways, biasanya bot akan lebih berhati-hati dan menunggu momen yang jelas.\n\n### 5. **Koneksi dengan Berita/Sentimen Pasar**  \nTidak ada berita besar hari ini yang mempengaruhi pasar secara signifikan. Sentimen secara umum cenderung stabil, dan ini cocok dengan kondisi pasar yang cenderung sideways, jadi nggak banyak trader yang berani ambil posisi besar.\n\n### 6. **Skor Performa Hari Ini**  \nSkor: 6/10 — Karena hari ini cuma observasi dan tidak ada trading aktif, jadi performa nggak terlalu menonjol. Tapi, ini juga menunjukkan disiplin dan mental yang stabil, nggak serakah menambah posisi saat pasar nggak pasti.\n\n---\n\n**Kesimpulan:**  \nHari ini lebih ke fase istirahat dan menjaga posisi. Strategi gabungan dari flow dan teknikal tetap berjalan baik, meski nggak ada trading baru. Penting banget buat kita belajar sabar dan selalu menunggu sinyal yang benar sebelum masuk pasar. Semoga ke depannya, ada peluang yang lebih jelas dan menguntungkan!",
-      "generated_at": "18:55 WIB"
-    },
-    {
       "date": "2026-10-05",
       "date_display": "Monday, 05 October 2026",
       "market_regime": "CHOPSAW",
@@ -717,6 +690,24 @@
       "open_positions": [],
       "journal_content": "JURNAL TRADING - Monday, 02 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 0 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 0\n- Win: 0 | Loss: 0\n- Win Rate: 0%\n- Total P&L: $0.0000\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
       "generated_at": "21:59 WIB"
+    },
+    {
+      "date": "2026-11-03",
+      "date_display": "Tuesday, 03 November 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 0.0088141,
+      "margin_used": 0.0,
+      "unrealized_pnl": 0.0,
+      "total_closed": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_pnl": 0.0,
+      "win_rate": 0,
+      "entries_today": [],
+      "closed_today": [],
+      "open_positions": [],
+      "journal_content": "JURNAL TRADING - Tuesday, 03 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 0 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 0\n- Win: 0 | Loss: 0\n- Win Rate: 0%\n- Total P&L: $0.0000\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
+      "generated_at": "20:46 WIB"
     }
   ]
 }
