@@ -1,98 +1,6 @@
 {
   "journals": [
     {
-      "date": "2026-10-06",
-      "date_display": "Tuesday, 06 October 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 0.0088141,
-      "margin_used": 46.408788,
-      "unrealized_pnl": 1.851802,
-      "total_closed": 8,
-      "wins": 0,
-      "losses": 8,
-      "total_pnl": -51.382918000000004,
-      "win_rate": 0.0,
-      "entries_today": [],
-      "closed_today": [
-        {
-          "time": "13:18",
-          "coin": "ZEC",
-          "direction": "LONG",
-          "exit_price": 1324.4,
-          "pnl": -4.928,
-          "fee": 0.166874
-        },
-        {
-          "time": "13:18",
-          "coin": "ZEC",
-          "direction": "LONG",
-          "exit_price": 1324.4,
-          "pnl": -2.112,
-          "fee": 0.071517
-        },
-        {
-          "time": "10:59",
-          "coin": "HYPE",
-          "direction": "SHORT",
-          "exit_price": 93.343,
-          "pnl": -1.24196,
-          "fee": 0.213802
-        },
-        {
-          "time": "10:59",
-          "coin": "HYPE",
-          "direction": "SHORT",
-          "exit_price": 93.343,
-          "pnl": -0.22204,
-          "fee": 0.038223
-        },
-        {
-          "time": "10:27",
-          "coin": "HYPE",
-          "direction": "LONG",
-          "exit_price": 93.424,
-          "pnl": -3.39624,
-          "fee": 0.267379
-        },
-        {
-          "time": "01:00",
-          "coin": "HYPE",
-          "direction": "SHORT",
-          "exit_price": 93.958,
-          "pnl": -4.66264,
-          "fee": 0.564029
-        },
-        {
-          "time": "21:33",
-          "coin": "XPL",
-          "direction": "LONG",
-          "exit_price": 0.093162,
-          "pnl": -2.618352,
-          "fee": 0.032825
-        },
-        {
-          "time": "21:33",
-          "coin": "XPL",
-          "direction": "LONG",
-          "exit_price": 0.093168,
-          "pnl": -32.201686,
-          "fee": 0.404456
-        }
-      ],
-      "open_positions": [
-        {
-          "coin": "XPL",
-          "direction": "LONG",
-          "size": 5048.0,
-          "entry": 0.091568,
-          "unrealized_pnl": 1.851802,
-          "leverage": 10
-        }
-      ],
-      "journal_content": "**JURNAL TRADING HARIAN – Selasa, 06 Oktober 2026**\n\n---\n\n### 1. **RINGKASAN HARI INI**  \nHari ini cukup berat buat bot, semua posisi yang dibuka berakhir loss. Nggak ada posisi baru yang masuk, dan total kerugian dari seluruh trade hari ini cukup signifikan. Pasar hari ini kelihatan sideways dan agak tricky, sehingga bot lebih berhati-hati.\n\n---\n\n### 2. **ANALISA KENAPA BOT MASUK POSISI**  \nKarena tidak ada posisi baru hari ini, kita bahas saja dari posisi yang pernah dibuka sebelumnya dan kenapa bot memutuskan masuk.\n\n- **XPL LONG (Entry di $0.091568)**  \n  - **CVD / Order Flow:** Bot melihat volume delta positif di area ini, menunjukkan adanya tekanan beli yang cukup kuat. Order book imbalance juga mengindikasikan adanya keinginan pembeli untuk masuk, jadi bot merasa peluang naik masih terbuka.  \n  - **Teknikal (KJo):** RSI sedang di sekitar 45, belum overbought, dan MACD masih menunjukkan tren naik kecil. Support di sekitar harga entry cukup kuat, jadi bot yakin ini momentum yang cukup aman untuk masuk.  \n  - **Skor masuk:** Karena volume dan indikator teknikal mendukung, bot memutuskan masuk dengan skor cukup tinggi, sekitar 7 dari 10.\n\n---\n\n### 3. **ANALISA KENAPA BOT KELUAR POSISI**  \nSemua posisi hari ini berakhir loss, dan berikut analisisnya:\n\n- **ZEC LONG (Exit di $1324.4)**  \n  - **Kenapa keluar?**  \n    - Tidak mencapai target profit yang diharapkan. Harga sempat naik, tapi kemudian berbalik dan menyentuh stop loss.  \n    - **CVD & Order Book:** Volume delta mulai berbalik menjadi negatif, menandakan tekanan jual mulai mendominasi.  \n    - **Teknikal:** RSI naik ke sekitar 55, tapi MACD mulai menunjukkan divergence negatif, jadi sinyal bahwa tren mungkin akan berbalik.  \n    - **Penyebab keluar:** Cut loss karena sinyal berbalik dan pasar menunjukkan ketidakpastian.\n\n- **HYPE SHORT & LONG, XPL LONG**  \n  - **Kenapa keluar?**  \n    - Target profit tidak tercapai dan indikator menunjukkan sinyal berbalik.  \n    - Ada momen pasar sideways yang membuat posisi tidak efektif, sehingga bot otomatis menutup posisi untuk menghindari kerugian lebih dalam.\n\n---\n\n### 4. **PELAJARAN PENTING HARI INI**  \nHari ini mengingatkan kita bahwa pasar bisa sangat tricky, terutama dalam kondisi sideways. Meskipun volume delta dan order book menunjukkan peluang, jika indikator teknikal mulai berbalik, lebih baik waspada.  \nKinerja bot hari ini mengajarkan pentingnya manajemen risiko dan tidak serakah. Bahkan strategi gabungan pun belum cukup untuk menghindari loss saat pasar tidak menentu.\n\n---\n\n### 5. **KONEKSI DENGAN BERITA/SENTIMEN PASAR**  \nTidak ada berita besar hari ini yang saya tahu, tapi kondisi pasar tampak cenderung sideways dan agak tidak pasti. Sentimen umum mungkin dipengaruhi oleh ketidakpastian ekonomi global atau sentimen pasar yang sedang wait and see. Ini membuat pergerakan harga menjadi datar dan sulit diprediksi.\n\n---\n\n### 6. **SKOR PERFORMA HARI INI**  \n**Skor: 4 dari 10**  \nKarena semua posisi berakhir loss, dan pasar tidak memberikan peluang yang cukup untuk profit, performa hari ini cukup buruk. Tapi ini jadi pembelajaran berharga tentang pentingnya disiplin dan manajemen risiko di kondisi pasar seperti ini.\n\n---\n\n**Penutup:**  \nHari ini mengingatkan kita bahwa tidak semua hari adalah hari yang cerah di dunia trading. Penting untuk tetap disiplin, waspada, dan belajar dari setiap kondisi pasar. Semoga besok kondisi lebih baik dan peluang lebih menjanjikan!",
-      "generated_at": "19:56 WIB"
-    },
-    {
       "date": "2026-10-07",
       "date_display": "Wednesday, 07 October 2026",
       "market_regime": "CHOPSAW",
@@ -674,6 +582,24 @@
       "open_positions": [],
       "journal_content": "JURNAL TRADING - Wednesday, 04 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 0 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 0\n- Win: 0 | Loss: 0\n- Win Rate: 0%\n- Total P&L: $0.0000\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
       "generated_at": "20:55 WIB"
+    },
+    {
+      "date": "2026-11-05",
+      "date_display": "Thursday, 05 November 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 0.0088141,
+      "margin_used": 0.0,
+      "unrealized_pnl": 0.0,
+      "total_closed": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_pnl": 0.0,
+      "win_rate": 0,
+      "entries_today": [],
+      "closed_today": [],
+      "open_positions": [],
+      "journal_content": "JURNAL TRADING - Thursday, 05 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 0 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 0\n- Win: 0 | Loss: 0\n- Win Rate: 0%\n- Total P&L: $0.0000\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
+      "generated_at": "21:10 WIB"
     }
   ]
 }
