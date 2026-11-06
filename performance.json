@@ -288,13 +288,13 @@
     {
       "time": "05/11 21:05",
       "equity": -155.414007
+    },
+    {
+      "time": "06/11 20:49",
+      "equity": -155.414007
     }
   ],
   "daily_pnl": [
-    {
-      "date": "07/10",
-      "pnl": -25.785184
-    },
     {
       "date": "08/10",
       "pnl": 0.0
@@ -409,6 +409,10 @@
     },
     {
       "date": "05/11",
+      "pnl": 0.0
+    },
+    {
+      "date": "06/11",
       "pnl": 0.0
     }
   ],
@@ -843,11 +847,11 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "LAPORAN 05 November 2026: 0 trade, P&L: $0.0000, Saldo: $0.01",
-    "time": "05 November 2026, 21:05 WIB"
+    "content": "LAPORAN 06 November 2026: 0 trade, P&L: $0.0000, Saldo: $0.01",
+    "time": "06 November 2026, 20:49 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-11-05",
+  "last_report_date": "2026-11-06",
   "_prev_today_pnl": 0.0,
   "_prev_today_wins": 0,
   "_prev_today_losses": 0,

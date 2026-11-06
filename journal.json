@@ -1,33 +1,6 @@
 {
   "journals": [
     {
-      "date": "2026-10-07",
-      "date_display": "Wednesday, 07 October 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 0.0088141,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 1,
-      "wins": 0,
-      "losses": 1,
-      "total_pnl": -25.785184,
-      "win_rate": 0.0,
-      "entries_today": [],
-      "closed_today": [
-        {
-          "time": "09:00",
-          "coin": "XPL",
-          "direction": "LONG",
-          "exit_price": 0.08646,
-          "pnl": -25.785184,
-          "fee": 0.196402
-        }
-      ],
-      "open_positions": [],
-      "journal_content": "**Jurnal Trading Hari Ini – Rabu, 07 Oktober 2026**\n\n---\n\n### 1. Ringkasan Hari Ini\nHari ini cukup tenang, nggak ada posisi baru yang dibuka, dan cuma satu trade yang ditutup dengan kerugian besar. Pasar kayak lagi sideways, jadi peluangnya terbatas dan memang nggak semua kondisi cocok buat entry. Overall, hari ini lebih banyak belajar tentang pentingnya manajemen risiko dan memahami sinyal pasar.\n\n---\n\n### 2. Analisa Kenapa Bot Masuk Posisi\nSayangnya hari ini nggak ada posisi baru yang terbuka, jadi kita nggak bisa bahas sinyal masuk dari bot. Tapi, dari kondisi pasar saat ini dan trade yang sebelumnya, bisa disimpulkan bahwa bot lebih berhati-hati karena pasar cenderung sideways dan nggak ada konfirmasi sinyal kuat dari kedua strategi.\n\n---\n\n### 3. Analisa Kenapa Bot Keluar Posisi\nTrade yang terakhir, XPL long di jam 09:00, harus berakhir dengan kerugian besar.  \n- **Sinyal CVD (Order Flow)**: Saat itu, volume delta menunjukkan adanya tekanan jual yang cukup besar, dengan order book imbalance ke arah jual. Ini menandakan bahwa ada tekanan distribusi dan pasar mulai berbalik.  \n- **Sinyal Teknikal (KJo Academy)**: RSI saat itu berada di level sekitar 70-an, sudah mendekati area overbought, sedangkan MACD mulai menunjukkan histogram yang menurun. Harga juga mendekati level resistance utama, jadi ada tanda-tanda pembalikan.  \n- **Keputusan Keluar**: Bot akhirnya menutup posisi karena sinyal berbalik muncul — indikator teknikal dan order flow menunjukkan bahwa momentum berubah dan risiko reversal meningkat. Sayangnya, target profit tidak tercapai, dan kerugian besar terjadi.\n\n---\n\n### 4. Pelajaran Penting Hari Ini\nDari kejadian hari ini, kita belajar bahwa:\n- Penting banget memperhatikan sinyal order flow dan momentum teknikal secara bersamaan agar bisa memutuskan keluar lebih tepat waktu.\n- Saat pasar cenderung sideways, lebih baik menghindari posisi besar karena risiko tinggi terjadinya reversal yang cepat.\n- Manajemen risiko harus tetap diutamakan, terutama saat sinyal mulai berbalik dan indikator menunjukkan overbought atau oversold.\n\nPasar hari ini memang agak datar, jadi tidak banyak peluang, dan itu mengingatkan kita bahwa sabar dan disiplin sangat dibutuhkan dalam trading.\n\n---\n\n### 5. Koneksi dengan Berita/Sentimen Pasar\nTidak ada berita besar hari ini yang mempengaruhi pasar secara signifikan, sehingga pergerakan cenderung dipengaruhi oleh sentimen teknikal dan order flow saja. Secara umum, pasar sedang dalam kondisi sideways dan menunggu sentimen global atau berita ekonomi penting yang bisa menggerakkan harga lebih tajam.\n\n---\n\n### 6. Skor Performa Hari Ini: 5/10\nHari ini cukup flat dan tidak ada peluang besar, bahkan satu posisi berakhir rugi besar. Tapi dari segi belajar, ini jadi pengingat bahwa tidak semua hari cocok untuk trading aktif dan pentingnya disiplin mematuhi sinyal serta manajemen risiko. Jadi, skor tengah karena ada pelajaran berharga meski hasilnya kurang memuaskan.\n\n---\n\n**Penutup:**  \nHari ini mengingatkan kita bahwa pasar bisa sangat dinamis dan tidak selalu memberi peluang besar. Tetap fokus pada sinyal yang valid dan tetap disiplin dengan risk management. Semoga ke depan, kondisi pasar lebih bersahabat dan peluangnya lebih banyak!",
-      "generated_at": "19:50 WIB"
-    },
-    {
       "date": "2026-10-08",
       "date_display": "Thursday, 08 October 2026",
       "market_regime": "CHOPSAW",
@@ -600,6 +573,24 @@
       "open_positions": [],
       "journal_content": "JURNAL TRADING - Thursday, 05 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 0 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 0\n- Win: 0 | Loss: 0\n- Win Rate: 0%\n- Total P&L: $0.0000\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
       "generated_at": "21:10 WIB"
+    },
+    {
+      "date": "2026-11-06",
+      "date_display": "Friday, 06 November 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 0.0088141,
+      "margin_used": 0.0,
+      "unrealized_pnl": 0.0,
+      "total_closed": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_pnl": 0.0,
+      "win_rate": 0,
+      "entries_today": [],
+      "closed_today": [],
+      "open_positions": [],
+      "journal_content": "JURNAL TRADING - Friday, 06 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 0 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 0\n- Win: 0 | Loss: 0\n- Win Rate: 0%\n- Total P&L: $0.0000\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
+      "generated_at": "20:52 WIB"
     }
   ]
 }
