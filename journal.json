@@ -1,33 +1,6 @@
 {
   "journals": [
     {
-      "date": "2026-10-08",
-      "date_display": "Thursday, 08 October 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 0.0088141,
-      "margin_used": 19.747006,
-      "unrealized_pnl": -3.483378,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [
-        {
-          "coin": "XPL",
-          "direction": "LONG",
-          "size": 2313.0,
-          "entry": 0.08688,
-          "unrealized_pnl": -3.483378,
-          "leverage": 10
-        }
-      ],
-      "journal_content": "**Jurnal Trading Harian – Kamis, 08 Oktober 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**  \nHari ini pasar cenderung tenang, nggak ada posisi baru yang dibuka maupun ditutup. Akun cuma ngeblok posisi XPL dengan kerugian unrealized cukup besar, karena pasar sedang sideways dan nggak banyak gerakan signifikan. Secara umum, hari ini lebih ke fase observasi aja.\n\n---\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**  \nHari ini nggak ada posisi baru yang dibuka, jadi kita fokus ke posisi yang masih berjalan, yaitu XPL Long entry di $0.08688.  \n- **Sinyal CVD (Order Flow):**  \n  Bot melihat volume delta yang menunjukkan adanya tekanan beli, meskipun tidak besar, tapi ada minat untuk naik. Imbalance di order book menunjukkan sedikit dominasi pembeli, jadi bot merasa peluang upside masih terbuka.\n\n- **Sinyal Teknikal (KJo Academy):**  \n  RSI saat ini masih di sekitar 40-an, mendekati area oversold tapi belum terlalu ekstrem. MACD menunjukkan sinyal sideways dengan histogram kecil, dan harga berada di dekat support utama. Jadi, kombinasi ini memberi gambaran bahwa pasar belum terlalu kuat untuk bergerak turun jauh.\n\n- **Skor Keputusan:**  \n  Karena ada volume beli minor dan support yang cukup kuat, bot memutuskan untuk tetap hold posisi long ini, berharap ada sinyal penguatan nanti.\n\n---\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**  \nTidak ada trade yang ditutup hari ini, jadi posisi XPL masih terbuka. Tapi, kerugian unrealized cukup besar, menunjukkan bahwa pasar belum bergerak sesuai harapan.  \n- **Kenapa belum keluar?**  \n  Belum mencapai target profit dan tidak ada sinyal berbalik dari indikator teknikal maupun order flow. Bot menunggu konfirmasi lain sebelum melakukan cut loss atau ambil untung.\n\n---\n\n### 4. **Pelajaran Penting Hari Ini**  \nHari ini mengingatkan kita bahwa pasar bisa bergerak sideways dan tidak selalu memberi peluang breakout besar. Penting banget untuk selalu memantau kondisi order flow dan indikator teknikal agar tidak terlalu cepat panik saat posisi merugi. Kedisiplinan dan sabar jadi kunci, apalagi saat pasar sedang tidak tren kuat.\n\n---\n\n### 5. **Koneksi Dengan Berita/Sentimen Pasar**  \nTidak ada berita besar yang muncul hari ini, jadi sentimen cenderung netral. Market cenderung sideways karena investor masih menunggu sinyal kuat dari faktor fundamental maupun teknikal. Kondisi ini cocok buat strategi menunggu dan observasi, bukan panik cut loss.\n\n---\n\n### 6. **Skor Performa Hari Ini**  \n**6/10** — Karena tidak ada trading aktif hari ini, tapi posisi yang ada masih menunggu konfirmasi, jadi belum ada hasil nyata. Tapi, dari strategi, bot tetap konsisten menjalankan analisa dan menunggu peluang yang tepat.\n\n---\n\n### Penutup  \nHari ini mengingatkan kita bahwa tidak semua hari harus penuh aksi. Kadang, menunggu dan memantau pasar dengan disiplin lebih baik daripada memaksakan posisi. Semoga esok pasar menunjukkan sinyal yang lebih jelas!",
-      "generated_at": "19:59 WIB"
-    },
-    {
       "date": "2026-10-09",
       "date_display": "Friday, 09 October 2026",
       "market_regime": "CHOPSAW",
@@ -591,6 +564,24 @@
       "open_positions": [],
       "journal_content": "JURNAL TRADING - Friday, 06 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 0 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 0\n- Win: 0 | Loss: 0\n- Win Rate: 0%\n- Total P&L: $0.0000\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
       "generated_at": "20:52 WIB"
+    },
+    {
+      "date": "2026-11-07",
+      "date_display": "Saturday, 07 November 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 0.0088141,
+      "margin_used": 0.0,
+      "unrealized_pnl": 0.0,
+      "total_closed": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_pnl": 0.0,
+      "win_rate": 0,
+      "entries_today": [],
+      "closed_today": [],
+      "open_positions": [],
+      "journal_content": "JURNAL TRADING - Saturday, 07 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 0 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 0\n- Win: 0 | Loss: 0\n- Win Rate: 0%\n- Total P&L: $0.0000\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
+      "generated_at": "19:37 WIB"
     }
   ]
 }
