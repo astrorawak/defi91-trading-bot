@@ -1,24 +1,6 @@
 {
   "journals": [
     {
-      "date": "2026-10-13",
-      "date_display": "Tuesday, 13 October 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 0.0088141,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [],
-      "journal_content": "**Jurnal Trading Harian – Selasa, 13 Oktober 2026**  \n\n**1. Ringkasan Hari Ini**  \nHari ini nggak ada posisi baru yang dibuka, dan nggak ada juga yang ditutup. Kondisi pasar cenderung datar, nggak banyak gerakan berarti. Saldo tetap kecil banget, cuma $0.01, jadi fokusnya lebih ke observasi dan belajar.  \n\n**2. Analisa Kenapa Bot Masuk Posisi**  \nKarena nggak ada trade baru hari ini, kita nggak bisa bahas masuknya posisi. Tapi, kalau misalnya ada, bot biasanya masuk kalau melihat kombinasi sinyal dari order flow dan indikator teknikal yang mendukung.  \n\n**3. Analisa Kenapa Bot Keluar Posisi**  \nTidak ada posisi yang ditutup hari ini, jadi nggak ada analisa keluar posisi. Tapi, secara umum, bot akan keluar kalau target profit tercapai, kerugian melebihi batas, atau ada sinyal berbalik dari indikator teknikal.  \n\n**4. Pelajaran Penting Hari Ini**  \nHari ini mengingatkan kita bahwa tidak semua hari harus aktif trading. Kadang, pasar sedang sideways dan momen terbaik adalah menunggu peluang yang benar-benar kuat. Menggunakan strategi gabungan membantu kita tetap disiplin dan tidak asal masuk. Saat pasar tidak menunjukkan sinyal yang jelas, lebih baik menahan diri daripada terjebak kerugian.  \n\n**5. Koneksi dengan Berita/Sentimen Pasar**  \nTidak ada berita besar hari ini yang berpengaruh signifikan, pasar cenderung tenang. Sentimen secara umum netral, tidak ada kabar yang membuat pasar bergolak. Ini cocok untuk trader yang lebih fokus analisis teknikal dan order flow, karena tidak ada gangguan eksternal yang besar.  \n\n**6. Skor Performa Hari Ini**  \nSkor: 6/10.  \nKarena hari ini tidak ada aktivitas trading, secara performa kayaknya nggak ada yang bisa dinilai bagus atau buruk. Tapi, dari sisi disiplin dan observasi, ini adalah hari yang baik untuk belajar bersabar dan tetap fokus.  \n\n**Penutup**  \nHari ini adalah hari yang santai dan penuh pembelajaran. Kadang, penting juga untuk menunggu momentum yang tepat, bukan cuma kejar posisi demi posisi. Semoga besok pasar lebih menarik dan memberi peluang yang lebih jelas buat bot kita!",
-      "generated_at": "20:45 WIB"
-    },
-    {
       "date": "2026-10-14",
       "date_display": "Wednesday, 14 October 2026",
       "market_regime": "CHOPSAW",
@@ -582,6 +564,74 @@
       ],
       "journal_content": "JURNAL TRADING - Wednesday, 11 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 0 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 0\n- Win: 0 | Loss: 0\n- Win Rate: 0%\n- Total P&L: $0.0000\n- Saldo: $0.01\n\nPOSISI TERBUKA: 1 posisi aktif\nUnrealized P&L: $4.6922\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
       "generated_at": "20:43 WIB"
+    },
+    {
+      "date": "2026-11-12",
+      "date_display": "Thursday, 12 November 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 0.0088141,
+      "margin_used": 9.665348,
+      "unrealized_pnl": 6.2524,
+      "total_closed": 5,
+      "wins": 0,
+      "losses": 5,
+      "total_pnl": -11.112639999999999,
+      "win_rate": 0.0,
+      "entries_today": [],
+      "closed_today": [
+        {
+          "time": "18:30",
+          "coin": "XPL",
+          "direction": "LONG",
+          "exit_price": 0.049915,
+          "pnl": -6.522313,
+          "fee": 0.052717
+        },
+        {
+          "time": "18:30",
+          "coin": "XPL",
+          "direction": "LONG",
+          "exit_price": 0.049916,
+          "pnl": -0.613938,
+          "fee": 0.004964
+        },
+        {
+          "time": "18:30",
+          "coin": "XPL",
+          "direction": "LONG",
+          "exit_price": 0.049919,
+          "pnl": -0.613275,
+          "fee": 0.004964
+        },
+        {
+          "time": "18:30",
+          "coin": "XPL",
+          "direction": "LONG",
+          "exit_price": 0.049923,
+          "pnl": -0.612391,
+          "fee": 0.004964
+        },
+        {
+          "time": "18:30",
+          "coin": "XPL",
+          "direction": "LONG",
+          "exit_price": 0.049935,
+          "pnl": -2.750723,
+          "fee": 0.022403
+        }
+      ],
+      "open_positions": [
+        {
+          "coin": "BTC",
+          "direction": "SHORT",
+          "size": 0.00539,
+          "entry": 72888.0,
+          "unrealized_pnl": 6.2524,
+          "leverage": 40
+        }
+      ],
+      "journal_content": "JURNAL TRADING - Thursday, 12 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 5 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 5\n- Win: 0 | Loss: 5\n- Win Rate: 0%\n- Total P&L: $-11.1126\n- Saldo: $0.01\n\nPOSISI TERBUKA: 1 posisi aktif\nUnrealized P&L: $6.2524\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
+      "generated_at": "21:47 WIB"
     }
   ]
 }

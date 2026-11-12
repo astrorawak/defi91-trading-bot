@@ -1,12 +1,12 @@
 {
-  "total_pnl": -155.414007,
+  "total_pnl": -166.526647,
   "wins": 25,
-  "losses": 77,
-  "total_trades": 102,
-  "today_trades": 0,
-  "today_pnl": 0.0,
-  "win_rate": 24.509803921568626,
-  "avg_profit": -1.5236667352941176,
+  "losses": 82,
+  "total_trades": 107,
+  "today_trades": 5,
+  "today_pnl": -11.112639999999999,
+  "win_rate": 23.364485981308412,
+  "avg_profit": -1.5563238037383178,
   "best_trade": "+$0.843 (BTC)",
   "equity_curve": [
     {
@@ -312,13 +312,13 @@
     {
       "time": "11/11 20:39",
       "equity": -155.414007
+    },
+    {
+      "time": "12/11 21:43",
+      "equity": -166.526647
     }
   ],
   "daily_pnl": [
-    {
-      "date": "13/10",
-      "pnl": 0.0
-    },
     {
       "date": "14/10",
       "pnl": 0.0
@@ -434,49 +434,13 @@
     {
       "date": "11/11",
       "pnl": 0.0
+    },
+    {
+      "date": "12/11",
+      "pnl": -11.112639999999999
     }
   ],
   "closed_trades": [
-    {
-      "time": 1787213685889,
-      "coin": "BNB",
-      "side": "Close Long",
-      "px": "640.77",
-      "pnl": 0.2357,
-      "fee": 0.0046
-    },
-    {
-      "time": 1787151377512,
-      "coin": "SUI",
-      "side": "Close Long",
-      "px": "0.67019",
-      "pnl": 0.6096,
-      "fee": 0.0138
-    },
-    {
-      "time": 1787148563531,
-      "coin": "BTC",
-      "side": "Close Short",
-      "px": "65337.0",
-      "pnl": -0.9012,
-      "fee": 0.0273
-    },
-    {
-      "time": 1787146024563,
-      "coin": "XRP",
-      "side": "Close Short",
-      "px": "1.0211",
-      "pnl": -0.93,
-      "fee": 0.0276
-    },
-    {
-      "coin": "LTC",
-      "direction": "SHORT",
-      "entry": 48.843,
-      "exit": 48.843,
-      "pnl": 0.01449,
-      "time": "29/08 16:52"
-    },
     {
       "coin": "LTC",
       "direction": "SHORT",
@@ -836,6 +800,46 @@
       "exit": 80.513,
       "pnl": -15.41679,
       "time": "16/10 21:39"
+    },
+    {
+      "coin": "XPL",
+      "direction": "SHORT",
+      "entry": 0.049915,
+      "exit": 0.049915,
+      "pnl": -6.522313,
+      "time": "12/11 18:30"
+    },
+    {
+      "coin": "XPL",
+      "direction": "SHORT",
+      "entry": 0.049916,
+      "exit": 0.049916,
+      "pnl": -0.613938,
+      "time": "12/11 18:30"
+    },
+    {
+      "coin": "XPL",
+      "direction": "SHORT",
+      "entry": 0.049919,
+      "exit": 0.049919,
+      "pnl": -0.613275,
+      "time": "12/11 18:30"
+    },
+    {
+      "coin": "XPL",
+      "direction": "SHORT",
+      "entry": 0.049923,
+      "exit": 0.049923,
+      "pnl": -0.612391,
+      "time": "12/11 18:30"
+    },
+    {
+      "coin": "XPL",
+      "direction": "SHORT",
+      "entry": 0.049935,
+      "exit": 0.049935,
+      "pnl": -2.750723,
+      "time": "12/11 18:30"
     }
   ],
   "account_value": 58.11,
@@ -867,13 +871,13 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "LAPORAN 11 November 2026: 0 trade, P&L: $0.0000, Saldo: $0.01",
-    "time": "11 November 2026, 20:39 WIB"
+    "content": "LAPORAN 12 November 2026: 5 trade, P&L: $-11.1126, Saldo: $0.01",
+    "time": "12 November 2026, 21:43 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-11-11",
-  "_prev_today_pnl": 0.0,
+  "last_report_date": "2026-11-12",
+  "_prev_today_pnl": -11.112639999999999,
   "_prev_today_wins": 0,
-  "_prev_today_losses": 0,
-  "_prev_today_trades": 0
+  "_prev_today_losses": 5,
+  "_prev_today_trades": 5
 }
