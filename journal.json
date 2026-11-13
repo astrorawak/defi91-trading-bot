@@ -1,24 +1,6 @@
 {
   "journals": [
     {
-      "date": "2026-10-14",
-      "date_display": "Wednesday, 14 October 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 0.0088141,
-      "margin_used": 0.0,
-      "unrealized_pnl": 0.0,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [],
-      "journal_content": "**Jurnal Trading Harian – Rabu, 14 Oktober 2026**\n\n---\n\n### 1. **Ringkasan Hari Ini**  \nHari ini kondisi pasar relatif tenang, nggak ada posisi yang dibuka maupun ditutup. Saldo kecil di akun menunjukkan ini hari observasi dan belajar, bukan hari aktif trading. Pasar sedang sideways, dimana pergerakan harga cenderung datar dan nggak banyak peluang besar.\n\n---\n\n### 2. **Analisa Kenapa Bot Masuk Posisi**  \nHari ini nggak ada trade yang dibuka, jadi kita nggak bisa analisa langsung dari bot. Tapi, secara umum, strategi gabungan yang digunakan bot ini biasanya akan masuk saat ada sinyal kuat dari dua sisi:  \n- **CVD/Order Flow (Doddy Ali Wijaya)**: Biasanya bot akan melihat volume delta dan order book imbalance. Kalau terjadi lonjakan volume beli yang signifikan dengan order book yang menunjukkan dominasi pembeli, itu sinyal positif buat buy.  \n- **Teknikal (KJo Academy)**: Bot juga mengamati RSI yang biasanya di atas 50 untuk mengindikasikan momentum naik, serta MACD yang menunjukkan crossover bullish. Support dan resistance juga dipertimbangkan, jika harga mendekati support dan indikator mendukung, peluang masuk lebih tinggi.\n\nKarena hari ini nggak ada posisi, kemungkinan pasar sedang tidak menunjukkan sinyal yang cukup kuat dari kedua indikator tersebut, atau pasar sedang sideways sehingga bot menunggu konfirmasi yang lebih jelas.\n\n---\n\n### 3. **Analisa Kenapa Bot Keluar Posisi**  \nKarena tidak ada posisi hari ini, nggak ada analisa keluar juga. Tapi, secara umum, bot akan menutup posisi jika:  \n- Target profit tercapai (TP)  \n- Kerugian melebihi batas (SL)  \n- Ada sinyal berbalik dari indikator CVD atau pola teknikal (Smart Exit)\n\nKarena pasar cenderung sideways, biasanya bot akan menghindari open posisi untuk mengurangi risiko false signal.\n\n---\n\n### 4. **Pelajaran Penting Hari Ini**  \nHari ini mengingatkan kita bahwa tidak semua hari cocok untuk trading aktif. Saat pasar sideways, lebih baik menunggu konfirmasi yang lebih kuat dan menghindari open posisi impulsif. Strategi gabungan memang bagus karena mengurangi peluang masuk yang salah, tapi tetap harus disiplin dan sabar.  \nSelain itu, pentingnya memantau kondisi pasar secara menyeluruh, termasuk sentimen dan berita, agar tidak terjebak dalam kondisi yang tidak menguntungkan.\n\n---\n\n### 5. **Koneksi dengan Berita/Sentimen Pasar**  \nTidak ada berita besar hari ini yang mempengaruhi pasar secara signifikan. Sentimen umum cenderung netral, dengan beberapa peluang yang tertahan di level support resistance. Pasar tampak menunggu data atau berita baru yang bisa memicu pergerakan lebih jelas.\n\n---\n\n### 6. **Skor Performa Hari Ini**  \n**Skor: 6/10**  \nKarena hari ini nggak ada aktivitas trading, skornya lebih ke bagaimana kita bisa tetap disiplin menunggu peluang yang benar-benar valid. Kondisi pasar yang sideways memang menantang, tapi itu juga mengajarkan kita untuk lebih sabar dan tidak memaksakan diri masuk saat kondisi tidak mendukung.  \n\n---\n\n**Kesimpulan:**  \nHari ini jadi pengingat bahwa kadang, tidak trading itu juga bagian dari strategi. Menunggu momentum yang tepat dan tetap disiplin menjaga kondisi akun sangat penting agar tetap profitable dalam jangka panjang. Mari terus belajar dan pantau pasar dengan cermat!",
-      "generated_at": "18:23 WIB"
-    },
-    {
       "date": "2026-10-15",
       "date_display": "Thursday, 15 October 2026",
       "market_regime": "CHOPSAW",
@@ -632,6 +614,41 @@
       ],
       "journal_content": "JURNAL TRADING - Thursday, 12 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 5 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 5\n- Win: 0 | Loss: 5\n- Win Rate: 0%\n- Total P&L: $-11.1126\n- Saldo: $0.01\n\nPOSISI TERBUKA: 1 posisi aktif\nUnrealized P&L: $6.2524\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
       "generated_at": "21:47 WIB"
+    },
+    {
+      "date": "2026-11-13",
+      "date_display": "Friday, 13 November 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 0.0088141,
+      "margin_used": 0.0,
+      "unrealized_pnl": 0.0,
+      "total_closed": 2,
+      "wins": 2,
+      "losses": 0,
+      "total_pnl": 21.882270000000002,
+      "win_rate": 100.0,
+      "entries_today": [],
+      "closed_today": [
+        {
+          "time": "11:15",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "exit_price": 68829.0,
+          "pnl": 18.99612,
+          "fee": 0.144953
+        },
+        {
+          "time": "11:15",
+          "coin": "BTC",
+          "direction": "SHORT",
+          "exit_price": 68823.0,
+          "pnl": 2.88615,
+          "fee": 0.021988
+        }
+      ],
+      "open_positions": [],
+      "journal_content": "JURNAL TRADING - Friday, 13 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 2 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 2\n- Win: 2 | Loss: 0\n- Win Rate: 100%\n- Total P&L: $21.8823\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
+      "generated_at": "21:05 WIB"
     }
   ]
 }
