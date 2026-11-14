@@ -3,8 +3,8 @@
   "wins": 27,
   "losses": 82,
   "total_trades": 109,
-  "today_trades": 2,
-  "today_pnl": 21.882270000000002,
+  "today_trades": 0,
+  "today_pnl": 0.0,
   "win_rate": 24.770642201834864,
   "avg_profit": -1.327012633027523,
   "best_trade": "+$18.996 (BTC)",
@@ -320,13 +320,13 @@
     {
       "time": "13/11 21:00",
       "equity": -144.644377
+    },
+    {
+      "time": "14/11 20:02",
+      "equity": -144.644377
     }
   ],
   "daily_pnl": [
-    {
-      "date": "15/10",
-      "pnl": 0.0
-    },
     {
       "date": "16/10",
       "pnl": -27.988390000000003
@@ -442,6 +442,10 @@
     {
       "date": "13/11",
       "pnl": 21.882270000000002
+    },
+    {
+      "date": "14/11",
+      "pnl": 0.0
     }
   ],
   "closed_trades": [
@@ -875,13 +879,13 @@
   ],
   "margin_used_pct": 101.2,
   "ai_report": {
-    "content": "LAPORAN 13 November 2026: 2 trade, P&L: $21.8823, Saldo: $0.01",
-    "time": "13 November 2026, 21:00 WIB"
+    "content": "LAPORAN 14 November 2026: 0 trade, P&L: $0.0000, Saldo: $0.01",
+    "time": "14 November 2026, 20:02 WIB"
   },
   "last_refresh": "2026-08-29T04:16:20.818295+00:00",
-  "last_report_date": "2026-11-13",
-  "_prev_today_pnl": 21.882270000000002,
-  "_prev_today_wins": 2,
+  "last_report_date": "2026-11-14",
+  "_prev_today_pnl": 0.0,
+  "_prev_today_wins": 0,
   "_prev_today_losses": 0,
-  "_prev_today_trades": 2
+  "_prev_today_trades": 0
 }
