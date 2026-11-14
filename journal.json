@@ -1,33 +1,6 @@
 {
   "journals": [
     {
-      "date": "2026-10-15",
-      "date_display": "Thursday, 15 October 2026",
-      "market_regime": "CHOPSAW",
-      "balance": 0.0088141,
-      "margin_used": 101.8584,
-      "unrealized_pnl": 4.61714,
-      "total_closed": 0,
-      "wins": 0,
-      "losses": 0,
-      "total_pnl": 0.0,
-      "win_rate": 0,
-      "entries_today": [],
-      "closed_today": [],
-      "open_positions": [
-        {
-          "coin": "HYPE",
-          "direction": "SHORT",
-          "size": 12.9,
-          "entry": 79.3179,
-          "unrealized_pnl": 4.61714,
-          "leverage": 10
-        }
-      ],
-      "journal_content": "**Jurnal Trading Hari Ini – Kamis, 15 Oktober 2026**\n\n---\n\n### 1. Ringkasan Hari Ini\nHari ini suasana pasar cukup tenang, tidak ada posisi baru yang diambil, tapi posisi lama masih berjalan dengan posisi short di Bitcoin. Market cenderung sideway, tapi bot tetap waspada dengan memanfaatkan kombinasi sinyal volume dan teknikal. Total unrealized profit sedikit membantu mental tetap tenang walau saldo masih minim.\n\n---\n\n### 2. Analisa Kenapa Bot Masuk Posisi\nSaat ini, bot masih mempertahankan posisi short di Bitcoin di sekitar harga $79.3179. Berikut detailnya:\n\n- **Sinyal CVD (Order Flow):** Bot melihat adanya imbalance order book dan volume delta negatif di area tersebut, menunjukkan banyak trader yang menjual (market selling pressure). Ini biasanya sinyal awal bahwa harga akan cenderung turun.\n- **Sinyal Teknikal (KJo):** RSI saat ini sekitar 42, cukup dekat dengan area oversold tapi belum menyentuh level ekstrem. MACD menunjukkan histogram negatif dan garis MACD sedikit di bawah garis sinyal, menandakan momentum bearish. Harga juga berada di dekat support penting di sekitar $79.3, yang menjadi titik entry.\n- **Skor Keputusan:** Kombinasi volume delta yang menunjukkan tekanan jual dan indikator teknikal yang mendukung (MACD dan RSI) membuat bot memutuskan untuk open posisi short. Skor prediksi tinggi, karena kondisi pasar saat ini memungkinkan peluang turun lebih lanjut.\n\n---\n\n### 3. Analisa Kenapa Bot Tidak Menutup Posisi\nKarena posisi masih terbuka dan unrealized P&L sekitar +$4.6171, berikut alasan bot tetap bertahan:\n\n- **TP/SL:** Belum mencapai target profit tertentu, dan support di sekitar $78.5 masih jauh dari harga saat ini.\n- **Sinyal Berbalik:** Tidak ada tanda-tanda reversal yang kuat hari ini, indikator menunjukkan tren bearish masih kuat.\n- **Smart Exit:** Jika harga berbalik ke atas dan melampaui resistance di sekitar $79.7, bot akan mempertimbangkan cut loss atau menutup posisi untuk menghindari kerugian lebih besar.\n\n---\n\n### 4. Pelajaran Penting Hari Ini\nHari ini mengingatkan kita pentingnya menggabungkan volume order flow dengan indikator teknikal. Kalau cuma mengandalkan satu, bisa jadi sinyal palsu. Bot tetap bertahan karena sinyal volume dan indikator turun sejalan, menunjukkan kekuatan tren saat ini. Tapi, tetap harus waspada jika pasar mulai sideways atau berbalik arah.\n\n---\n\n### 5. Koneksi dengan Berita/Sentimen Pasar\nTidak ada berita besar hari ini yang mempengaruhi pasar secara signifikan. Sentimen terlihat netral ke mildly bearish karena tekanan jual dari order flow dan indikator teknikal. Market cenderung menunggu katalis baru, jadi trader harus lebih fokus pada sinyal teknikal dan volume untuk mengantisipasi pergerakan berikutnya.\n\n---\n\n### 6. Skor Performa Hari Ini\n**Skor: 7/10**  \nBot menunjukkan konsistensi dengan mengandalkan strategi gabungan, dan posisi yang diambil cukup tepat. Tapi, pasar yang sideways membuat potensi keuntungan terbatas dan risiko sedikit lebih tinggi. Perlu pengamatan lebih ketat agar bisa memaksimalkan peluang di kondisi pasar seperti ini.\n\n---\n\n**Kesimpulannya**, hari ini mengajarkan kita pentingnya menggabungkan analisa order flow dan teknikal untuk mendapatkan sinyal yang lebih akurat. Meski belum ada langkah baru, posisi tetap terjaga dengan profit yang lumayan, dan tetap waspada terhadap pergerakan pasar selanjutnya.",
-      "generated_at": "18:00 WIB"
-    },
-    {
       "date": "2026-10-16",
       "date_display": "Friday, 16 October 2026",
       "market_regime": "CHOPSAW",
@@ -649,6 +622,24 @@
       "open_positions": [],
       "journal_content": "JURNAL TRADING - Friday, 13 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 2 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 2\n- Win: 2 | Loss: 0\n- Win Rate: 100%\n- Total P&L: $21.8823\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
       "generated_at": "21:05 WIB"
+    },
+    {
+      "date": "2026-11-14",
+      "date_display": "Saturday, 14 November 2026",
+      "market_regime": "CHOPSAW",
+      "balance": 0.0088141,
+      "margin_used": 0.0,
+      "unrealized_pnl": 0.0,
+      "total_closed": 0,
+      "wins": 0,
+      "losses": 0,
+      "total_pnl": 0.0,
+      "win_rate": 0,
+      "entries_today": [],
+      "closed_today": [],
+      "open_positions": [],
+      "journal_content": "JURNAL TRADING - Saturday, 14 November 2026\n\nRINGKASAN: Bot menjalankan 0 entry baru dan menutup 0 posisi hari ini.\n\nSTATISTIK:\n- Trade Closed: 0\n- Win: 0 | Loss: 0\n- Win Rate: 0%\n- Total P&L: $0.0000\n- Saldo: $0.01\n\nPOSISI TERBUKA: 0 posisi aktif\nUnrealized P&L: $0.0000\n\nBot berjalan normal sesuai strategi Almarhum + KJo Academy.",
+      "generated_at": "20:07 WIB"
     }
   ]
 }
