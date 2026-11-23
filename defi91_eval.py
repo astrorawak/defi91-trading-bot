@@ -28,14 +28,18 @@ def post(p):
 
 def main():
     now = int(time.time()*1000)
-    days = 7
+    # FIX: dulu `days=7` dibuat tapi tak pernah dipakai -> koin yg ditangguhkan tak pernah
+    # "pulih" (rugi lama tak pernah keluar jendela). Sekarang jendela bergulir EVAL_DAYS:
+    # setelah rugi lama keluar jendela, koin kembali boleh dicoba (masa percobaan).
+    days = int(os.environ.get("DEFI91_EVAL_DAYS", "30"))
     start = now - days*86400*1000
     # Ambil state publik (0 kredit/readonly)
     try:
         st = post({"type":"clearinghouseState","user":WALLET})
         acv = float(st["marginSummary"]["accountValue"])
     except Exception as e:
-        print(f"[EVAL] gagal state: {e}"); return 0
+        # FIX: dulu return 0 -> scheduler mencatat "ok" padahal tahap bisnis gagal.
+        print(f"[EVAL] gagal state: {e}"); return 1
 
     # PENTING: evaluasi HANYA hasil bot v3 yang mulai jalan 19 Agu 2026 (sejak ~12:00 WIB),
     # dan HANYA koin yang live di watchlist kita. JANGAN campur data scalping v2 lama.
@@ -54,26 +58,36 @@ def main():
     # salah menganggap "pulih" saat sebenarnya cuma gagal ambil data.
     fills_ok = False
     fills = []
+    win_start = max(v3_start_ms, start)
     try:
-        fills = post({"type":"userFills","user":WALLET,"startTime":v3_start_ms,"endTime":now})
-        fills_ok = True
+        fills = post({"type":"userFillsByTime","user":WALLET,"startTime":win_start,"endTime":now})
+        fills_ok = isinstance(fills, list)
     except Exception as e:
         print(f"[EVAL] gagal ambil userFills: {e}")
     if fills_ok:
+        closes = {}   # (coin, oid) -> pnl bersih satu kejadian penutupan
         for f in fills:
             c = f.get("coin")
             if c not in eval_coins:        # abaikan koin luar watchlist / microcap lama
                 continue
             ts = f.get("time", 0)
-            if ts < v3_start_ms:           # abaikan data sebelum bot v3 hidup
+            if ts < win_start:             # di luar jendela evaluasi
                 continue
             if c not in per_coin:
-                per_coin[c] = {"net":0.0,"wins":0,"losses":0,"trades":0,"fees":0.0}
+                per_coin[c] = {"net":0.0,"wins":0,"losses":0,"trades":0,"fees":0.0,"fills":0}
             fee = float(f.get("fee",0)); pnl = float(f.get("closedPnl",0))
             d = per_coin[c]
-            d["trades"]+=1; d["fees"]+=fee; d["net"]+=pnl+(-fee)
-            if pnl>0: d["wins"]+=1
-            elif pnl<0: d["losses"]+=1
+            d["fills"]+=1; d["fees"]+=fee; d["net"]+=pnl-fee   # fee entry & exit ikut dihitung
+            if pnl != 0:
+                k = (c, f.get("oid"))
+                closes[k] = closes.get(k, 0.0) + pnl - fee
+        # FIX: dulu `trades` = jumlah FILL (partial fill/entry ikut terhitung). Sekarang
+        # trades = jumlah ORDER PENUTUP (closedPnl != 0, dikelompokkan per oid).
+        for (c, _), p in closes.items():
+            d = per_coin[c]
+            d["trades"] += 1
+            if p > 0: d["wins"] += 1
+            elif p < 0: d["losses"] += 1
 
     # === RISIKO POSISI TERBUKA (tutup blindspot: sebelum ini HANYA closedPnL) ===
     # Cek live clearinghouseState + openOrders: margin utilization, jarak liq, rugi terbuka,

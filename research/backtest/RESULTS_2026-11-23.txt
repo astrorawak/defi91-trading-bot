@@ -1,0 +1,15 @@
+Periode: 2026-05-07 .. 2026-11-23 | TRAIN 2026-05-07..2026-08-15 | TEST 2026-08-15..2026-11-23
+TRAIN |spot_cvd| persentil 50/60/70/80: 0.0635 0.0794 0.0979 0.1225
+spot_strong dipakai: 0.06
+legacy_asis   TRAIN {'trades': 74, 'net$': -2.16, 'ret%': -3.7, 'win%': 40.5, 'avgW': 0.106, 'avgL': -0.121, 'PF': 0.6, 'maxDD%': 5.5}
+legacy_asis   TEST  {'trades': 114, 'net$': -2.77, 'ret%': -4.8, 'win%': 38.6, 'avgW': 0.173, 'avgL': -0.149, 'PF': 0.73, 'maxDD%': 6.5}
+legacy_asis   FULL  {'trades': 187, 'net$': -4.75, 'ret%': -8.2, 'win%': 39.6, 'avgW': 0.146, 'avgL': -0.138, 'PF': 0.69, 'maxDD%': 11.5}
+   exit: {'SL+/trail': 36, 'SL': 109, 'TP': 37, 'netting': 5}
+legacy_fixed  TRAIN {'trades': 74, 'net$': -2.16, 'ret%': -3.7, 'win%': 40.5, 'avgW': 0.106, 'avgL': -0.121, 'PF': 0.6, 'maxDD%': 5.5}
+legacy_fixed  TEST  {'trades': 114, 'net$': -2.77, 'ret%': -4.8, 'win%': 38.6, 'avgW': 0.173, 'avgL': -0.149, 'PF': 0.73, 'maxDD%': 6.5}
+legacy_fixed  FULL  {'trades': 187, 'net$': -4.75, 'ret%': -8.2, 'win%': 39.6, 'avgW': 0.146, 'avgL': -0.138, 'PF': 0.69, 'maxDD%': 11.5}
+   exit: {'SL+/trail': 36, 'SL': 109, 'TP': 37, 'netting': 5}
+dna           TRAIN {'trades': 106, 'net$': 0.54, 'ret%': 0.9, 'win%': 50.9, 'avgW': 0.104, 'avgL': -0.098, 'PF': 1.11, 'maxDD%': 4.5}
+dna           TEST  {'trades': 120, 'net$': 2.18, 'ret%': 3.8, 'win%': 46.7, 'avgW': 0.147, 'avgL': -0.094, 'PF': 1.36, 'maxDD%': 3.2}
+dna           FULL  {'trades': 226, 'net$': 2.72, 'ret%': 4.7, 'win%': 48.7, 'avgW': 0.126, 'avgL': -0.096, 'PF': 1.24, 'maxDD%': 6.2}
+   exit: {'SL': 68, 'SL+/trail': 47, 'TP': 53, 'flow spot kuat melawan (kelanjutan gagal)': 40, 'marking tidak jalan -> cepat tutup': 18}

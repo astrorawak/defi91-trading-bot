@@ -14,7 +14,9 @@ from market_regime_filter import get_candles, calculate_adx
 WATCHLIST = ["BTC","ETH","BNB","SOL","XRP","DOGE","ADA","LINK","AVAX","LTC"]
 VOL_SPIKE_MULT = 3.5      # lonjakan volume 5m vs median 24j
 OI_DELTA_MIN_PCT = 8.0    # OI naik >= ini (modal baru masuk) utk jadi "flow kuat"
-FUNDING_EXTREME = 0.004   # funding 1-jam ekstrem (>0.4% -> ramai)
+# Kontrak satuan: ctx["funding"] Hyperliquid = pecahan per JAM (mis. 0.0000125 = 0.00125%/jam).
+# funding_h di bawah = persen/jam. Ambang 0.004 %/jam ≈ 3x baseline -> "ramai".
+FUNDING_EXTREME_PCT_H = 0.004
 ADX_STRONG = 40           # ADX kuat utk konfirmasi tren
 MIN_DAILY_VLM_USD = 5_000_000  # minimal likuiditas koin (hindari goreng mikro)
 STATE_FILE = "/data/workspace/defi91-trading-bot/.defi91_momentum_state.json"
@@ -47,8 +49,10 @@ def main():
     univ, ctxs = get_asset_ctxs()
     ctx_map = {u["name"]: c for u, c in zip(univ, ctxs)}
     state = load_state()
-    reported = set(state.get("reported_today", []))
-    today = time.strftime("%Y-%m-%d")
+    # FIX: tanggal dedupe pakai hari WIB (bukan zona proses), dan reset DILAKUKAN SEBELUM
+    # loop deteksi (dulu sesudah -> alert pertama hari baru bisa tertekan/terduplikasi).
+    today = time.strftime("%Y-%m-%d", time.gmtime(time.time() + 7 * 3600))
+    reported = set(state.get("reported_today", [])) if state.get("day") == today else set()
 
     for coin in WATCHLIST:
         ctx = ctx_map.get(coin)
@@ -68,8 +72,9 @@ def main():
         spike = (vol_last / med) if med > 0 else 0
 
         # === 2. Momentum arah (perubahan harga 1h, 30m, 5m) ===
-        chg_1h = (closes[-1] / closes[-12] - 1) * 100 if len(closes) > 12 else 0
-        chg_30m = (closes[-1] / closes[-6] - 1) * 100 if len(closes) > 6 else 0
+        # FIX horizon: 12 interval 5m = closes[-13] (dulu [-12] = 11 interval)
+        chg_1h = (closes[-1] / closes[-13] - 1) * 100 if len(closes) > 13 else 0
+        chg_30m = (closes[-1] / closes[-7] - 1) * 100 if len(closes) > 7 else 0
         sign = 1 if chg_1h >= 0 else -1
 
         # === 3. ADX (kekuatan tren) ===
@@ -89,7 +94,7 @@ def main():
         strong = spike >= VOL_SPIKE_MULT and consistent and adx >= ADX_STRONG
         # Flow tambahan (modal baru) menaikkan keyakinan
         extra = " | 🔺OI +%.0f%% (modal baru)" % oi_delta if flow_up else ""
-        fund = f" | funding {funding_h:+.3f}%/h" if abs(funding_h) >= 0.004 else ""
+        fund = f" | funding {funding_h:+.4f}%/h" if abs(funding_h) >= FUNDING_EXTREME_PCT_H else ""
 
         if strong:
             tag = f"{coin} {('🚀NAIK' if sign > 0 else '📉TURUN')} {abs(chg_1h):.1f}%/1h"
@@ -106,8 +111,6 @@ def main():
         c = ctx_map.get(coin)
         if c:
             new_oi[coin] = float(c.get("openInterest") or 0)
-    if today != state.get("day"):
-        reported = set()
     save_state({"oi": new_oi, "reported_today": sorted(reported), "day": today, "last": stamp})
 
     if alerts:

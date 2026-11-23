@@ -81,7 +81,9 @@ perf = {
     "best_trade": (f"+${best['pnl']} ({best['label']})" if best else "--"),
     "equity_curve": eq,
     "daily_pnl": [{"date":d,"pnl":round(v,4)} for d,v in sorted(daily_pnl.items())[-21:]],
-    "closed_trades": sorted(closes, key=lambda x:x["time"] , reverse=True)[-60:],
+    # FIX: dulu sorted(desc)[-60:] = 60 penutupan TERTUA. index.html membaca
+    # slice(-15).reverse() (mengharapkan urut lama->baru), jadi: 60 terbaru, urut naik.
+    "closed_trades": sorted(closes, key=lambda x:x["time"])[-60:],
     "account_value": round(acv,2),
     "positions": positions,
     "margin_used_pct": round((float(st["marginSummary"]["totalMarginUsed"])/acv*100) if acv else 0,1),
