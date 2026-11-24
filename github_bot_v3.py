@@ -60,10 +60,27 @@ if _REMOVE:
     print(f"🔎 Self-eval: koin ditangguhkan hingga evaluasi membaik -> {sorted(_REMOVE)}")
 
 # === RISK / SIZING (aman untuk $50-100) ===
-MARGIN_PER_TRADE = 2.00      # $2 margin per trade (<=4% akun $50)
+def _env_float(name, default, lo, hi):
+    """Baca angka dari env dgn PAGAR keras [lo, hi]. Nilai rusak/di luar pagar -> default (aman)."""
+    raw = os.getenv(name)
+    if raw is None or raw.strip() == "":
+        return default
+    try:
+        v = float(raw)
+        if not (lo <= v <= hi) or not math.isfinite(v):
+            raise ValueError
+        return v
+    except Exception:
+        print(f"⚠ {name}='{raw}' tidak valid/di luar pagar [{lo},{hi}] -> pakai default {default}")
+        return default
+
+# Profil risiko diatur pemilik lewat env (default = STANDAR). Pagar keras di kode:
+#   DEFI91_MARGIN_PER_TRADE  : $2 (standar) .. $8  | DEFI91_MAX_COIN_MARGIN_PCT : 0.15 .. 0.50
+# Backtest 23 Nov 2026: margin $2/15% (standar), $4/30% (agresif), $6/45% (sangat agresif).
+MARGIN_PER_TRADE = _env_float("DEFI91_MARGIN_PER_TRADE", 2.00, 2.00, 8.00)
 TARGET_LEVERAGE  = 5         # 5x leverage (bukan 20x - SL tidak mudah likuidasi)
 MAX_OPEN_POSITIONS = 3       # maks 3 posisi paralel (agak agresif, tetap dibatasi)
-MAX_COIN_MARGIN_PCT = 0.15   # maks margin per koin = 15% ekuitas akun (cegah akumulasi satu simbol menguras akun)
+MAX_COIN_MARGIN_PCT = _env_float("DEFI91_MAX_COIN_MARGIN_PCT", 0.15, 0.15, 0.50)  # cap margin per koin (% ekuitas)
 
 # === BIAYA (FEE) LANDASAN — riil dari API Hyperliquid wallet ini ===
 # userCrossRate=0.00045 (taker), userAddRate=0.00015 (maker).

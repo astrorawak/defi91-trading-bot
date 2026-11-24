@@ -171,3 +171,26 @@ def test_closed_candles_drop_running_and_reject_gaps(bot, monkeypatch):
     gap = rows[:40] + rows[41:]
     resp.json.return_value = gap
     assert bot.get_closed_candles("BTC", "1h", 70) is None
+
+
+def _reload_with_env(tmp_path, monkeypatch, **env):
+    monkeypatch.setenv("HOME", str(tmp_path))
+    for k, v in env.items():
+        monkeypatch.setenv(k, v)
+    import github_bot_v3
+    return importlib.reload(github_bot_v3)
+
+
+def test_risk_profile_env_default_and_fences(tmp_path, monkeypatch):
+    for k in ("DEFI91_MARGIN_PER_TRADE", "DEFI91_MAX_COIN_MARGIN_PCT"):
+        monkeypatch.delenv(k, raising=False)
+    m = _reload_with_env(tmp_path, monkeypatch)
+    assert m.MARGIN_PER_TRADE == 2.0 and m.MAX_COIN_MARGIN_PCT == 0.15      # default STANDAR
+    m = _reload_with_env(tmp_path, monkeypatch, DEFI91_MARGIN_PER_TRADE="4", DEFI91_MAX_COIN_MARGIN_PCT="0.30")
+    assert m.MARGIN_PER_TRADE == 4.0 and m.MAX_COIN_MARGIN_PCT == 0.30       # profil agresif
+    m = _reload_with_env(tmp_path, monkeypatch, DEFI91_MARGIN_PER_TRADE="50", DEFI91_MAX_COIN_MARGIN_PCT="0.9")
+    assert m.MARGIN_PER_TRADE == 2.0 and m.MAX_COIN_MARGIN_PCT == 0.15      # di luar pagar -> default
+    m = _reload_with_env(tmp_path, monkeypatch, DEFI91_MARGIN_PER_TRADE="abc", DEFI91_MAX_COIN_MARGIN_PCT="nan")
+    assert m.MARGIN_PER_TRADE == 2.0 and m.MAX_COIN_MARGIN_PCT == 0.15      # rusak -> default
+    m = _reload_with_env(tmp_path, monkeypatch, DEFI91_MARGIN_PER_TRADE="1")
+    assert m.MARGIN_PER_TRADE == 2.0                                          # di bawah pagar bawah
