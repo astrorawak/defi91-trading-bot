@@ -7,6 +7,20 @@
 cd /data/workspace/defi91-trading-bot || exit 1
 # Otak strategi: doddy (default) | legacy (rollback). Lihat docs/DODDY_DNA.md.
 export DEFI91_STRATEGY="${DEFI91_STRATEGY:-doddy}"
+# Profil risiko (opsional): file kecil ~/.defi91_risk.env, isi dua baris, mis.
+#   DEFI91_MARGIN_PER_TRADE=4
+#   DEFI91_MAX_COIN_MARGIN_PCT=0.30
+# Hanya 2 nama itu yang dibaca (tidak ada eksekusi kode); kode bot memagari nilainya
+# ($2..$8 dan 0.15..0.50). Tanpa file -> STANDAR ($2 / 15%).
+RISK_FILE="$HOME/.defi91_risk.env"
+if [ -f "$RISK_FILE" ]; then
+  while IFS='=' read -r k v; do
+    case "$k" in
+      DEFI91_MARGIN_PER_TRADE|DEFI91_MAX_COIN_MARGIN_PCT)
+        export "$k=$(printf '%s' "$v" | tr -cd '0-9.')" ;;
+    esac
+  done < "$RISK_FILE"
+fi
 # Kunci-jalan: cegah dua invokasi tumpang tindih (mis. bila kedua salinan live
 # trader.sh di /data/scripts & /data/.hermes/scripts terjadwal cron bersamaan).
 # Non-blocking: kalau siklus sebelumnya masih jalan, lewati diam-diam.
