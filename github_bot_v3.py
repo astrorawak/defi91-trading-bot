@@ -18,8 +18,10 @@ Mode: LIVE dengan TP/SL. Bot dijalankan oleh GitHub Actions (cron).
 Gerbang keamanan: hanya jalankan & eksekusi SETELAH (a) strategi disetujui & (b) saldo diisi Pak Karman.
 """
 import json
+import math
 import time
 import os
+import tempfile
 import numpy as np
 import requests
 from datetime import datetime, timezone, timedelta
@@ -29,6 +31,7 @@ from hyperliquid.exchange import Exchange
 from hyperliquid.utils import constants
 from market_regime_filter import detect_market_regime, calculate_atr, calculate_adx
 from telegram_signals import send_trade_signal, send_close_signal
+import doddy_engine as dna
 
 # ============================================================
 # KONFIGURASI V3 (KONSERVATIF - MODAL KECIL)
@@ -39,25 +42,45 @@ MAIN_WALLET = "0x03562722fE32Ff3BaFE214be3F1828A9157eC23D"
 # === SELF-EVALUATION OVERRIDE (dari defi91_eval.py) ===
 # Hermes membaca rekomendasi otomatis: koin non-core yang rugi terus ditangguhkan.
 _EVAL_OVERRIDE = os.path.expanduser("~/.defi91_watch_override.json")
+_ALL_COINS = ["BTC", "ETH", "BNB", "SOL", "XRP", "DOGE", "ADA", "LINK", "AVAX", "LTC"]
 try:
     _OV = json.load(open(_EVAL_OVERRIDE)) if os.path.exists(_EVAL_OVERRIDE) else {}
     _REMOVE = set(_OV.get("remove", []))
 except Exception:
-    _REMOVE = set()
+    # FIX: dulu file override rusak -> remove kosong -> SEMUA koin aktif lagi (fail-open).
+    # Sekarang fail-closed: kalau penangguhan tak terbaca, hanya koin core yang boleh.
+    _REMOVE = {c for c in _ALL_COINS if c not in dna.CORE_COINS}
+    print("⚠ Self-eval: file override tak terbaca -> fail-closed, hanya BTC/ETH/BNB")
 
 # === WATCHLIST: 10 koin likuid (majors) — diperluas atas permintaan Pak Karman ===
 # Tetap likuid & mapan (bukan microcap): hasil evaluasi otomatis (defi91_eval.py)
 # menangguhkan koin yang rugi terus via _REMOVE. Core BTC/ETH/BNB tak pernah off.
-WATCHLIST = [c for c in ["BTC", "ETH", "BNB", "SOL", "XRP", "DOGE", "ADA", "LINK", "AVAX", "LTC"]
-             if c not in _REMOVE]
+WATCHLIST = [c for c in _ALL_COINS if c not in _REMOVE or c in dna.CORE_COINS]
 if _REMOVE:
     print(f"🔎 Self-eval: koin ditangguhkan hingga evaluasi membaik -> {sorted(_REMOVE)}")
 
 # === RISK / SIZING (aman untuk $50-100) ===
-MARGIN_PER_TRADE = 2.00      # $2 margin per trade (<=4% akun $50)
+def _env_float(name, default, lo, hi):
+    """Baca angka dari env dgn PAGAR keras [lo, hi]. Nilai rusak/di luar pagar -> default (aman)."""
+    raw = os.getenv(name)
+    if raw is None or raw.strip() == "":
+        return default
+    try:
+        v = float(raw)
+        if not (lo <= v <= hi) or not math.isfinite(v):
+            raise ValueError
+        return v
+    except Exception:
+        print(f"⚠ {name}='{raw}' tidak valid/di luar pagar [{lo},{hi}] -> pakai default {default}")
+        return default
+
+# Profil risiko diatur pemilik lewat env (default = STANDAR). Pagar keras di kode:
+#   DEFI91_MARGIN_PER_TRADE  : $2 (standar) .. $8  | DEFI91_MAX_COIN_MARGIN_PCT : 0.15 .. 0.50
+# Backtest 23 Nov 2026: margin $2/15% (standar), $4/30% (agresif), $6/45% (sangat agresif).
+MARGIN_PER_TRADE = _env_float("DEFI91_MARGIN_PER_TRADE", 2.00, 2.00, 8.00)
 TARGET_LEVERAGE  = 5         # 5x leverage (bukan 20x - SL tidak mudah likuidasi)
 MAX_OPEN_POSITIONS = 3       # maks 3 posisi paralel (agak agresif, tetap dibatasi)
-MAX_COIN_MARGIN_PCT = 0.15   # maks margin per koin = 15% ekuitas akun (cegah akumulasi satu simbol menguras akun)
+MAX_COIN_MARGIN_PCT = _env_float("DEFI91_MAX_COIN_MARGIN_PCT", 0.15, 0.15, 0.50)  # cap margin per koin (% ekuitas)
 
 # === BIAYA (FEE) LANDASAN — riil dari API Hyperliquid wallet ini ===
 # userCrossRate=0.00045 (taker), userAddRate=0.00015 (maker).
@@ -88,6 +111,18 @@ STATE_FILE = os.path.join(os.path.dirname(__file__), "v3_daily_state.json")
 # Mode AMAN: bila 1, bot hanya menghitung & mencetak sinyal, TIDAK eksekusi order.
 DRY_RUN = os.getenv("HYPERLIQUID_DRY_RUN", "0") == "1"
 
+# === OTAK STRATEGI ===
+# "doddy" (default): DNA alm. Doddy AW — bias HTF + kompas BTC + CVD spot vs perp,
+#   marking dulu, tambah hanya yang menang (lihat doddy_engine.py & docs/DODDY_DNA.md).
+# "legacy": skor v3 lama (disimpan untuk rollback/perbandingan).
+STRATEGY = os.getenv("DEFI91_STRATEGY", "doddy").strip().lower()
+DNA_CFG = dna.DnaConfig()
+DNA_STATE_FILE = os.path.expanduser("~/.defi91_dna_state.json")
+MIN_NOTIONAL_USD = 10.5      # minimum order Hyperliquid $10 (+ buffer pembulatan)
+# CVD spot SUNGGUHAN dari volume taker Binance spot (endpoint data publik; cadangan api.binance.com)
+BINANCE_SPOT_KLINES = ["https://data-api.binance.vision/api/v3/klines",
+                       "https://api.binance.com/api/v3/klines"]
+
 # Max leverage per koin (dari API Hyperliquid, dibatasi 5x di atas)
 MAX_LEVERAGE_MAP = {"BTC": 40, "ETH": 25, "BNB": 10, "SOL": 20, "XRP": 10,
                     "DOGE": 10, "ADA": 10, "LINK": 15, "AVAX": 10, "LTC": 10}
@@ -102,6 +137,12 @@ def get_wib_time():
 
 def round_size(coin, size):
     return round(size, SZ_DECIMALS.get(coin, 4))
+
+def ceil_size(coin, size):
+    """Bulatkan ukuran KE ATAS ke desimal koin (agar notional tidak jatuh di bawah minimum)."""
+    dec = SZ_DECIMALS.get(coin, 4)
+    f = 10 ** dec
+    return math.ceil(size * f - 1e-9) / f
 
 def format_price(price):
     if price >= 10000: return round(price, 0)
@@ -466,9 +507,11 @@ def execute_trade(exchange, info, coin, direction, current_price, atr):
     max_coin = MAX_LEVERAGE_MAP.get(coin, 5)
     lev = min(TARGET_LEVERAGE, max_coin)
 
-    # Size berdasar margin $2 x lev (notional kecil, aman)
-    position_value = MARGIN_PER_TRADE * lev
-    size = round_size(coin, position_value / current_price)
+    # Size berdasar margin $2 x lev (notional kecil, aman). FIX: dibulatkan KE ATAS agar
+    # notional >= MIN_NOTIONAL_USD (minimum order Hyperliquid $10; $2x5 = tepat $10 dan
+    # round() bisa membulatkan ke bawah -> order ditolak).
+    position_value = max(MARGIN_PER_TRADE * lev, MIN_NOTIONAL_USD)
+    size = ceil_size(coin, position_value / current_price)
 
     # SL/TP berbasis ATR (harga), bukan % fixed
     sl_dist = atr * SL_ATR_MULT
@@ -486,9 +529,14 @@ def execute_trade(exchange, info, coin, direction, current_price, atr):
     print(f"  SL~${sl_price} | TP~${tp_price} | R:R={(tp_dist/sl_dist if sl_dist else 0):.2f}")
 
     try:
-        exchange.update_leverage(lev, coin, is_cross=True)
+        lr = exchange.update_leverage(lev, coin, is_cross=True)
+        if isinstance(lr, dict) and lr.get("status") not in (None, "ok"):
+            raise RuntimeError(lr)
     except Exception as e:
-        print(f"  ⚠ leverage: {e}")
+        # FIX: dulu tetap lanjut order walau leverage gagal diset -> leverage aktual tak
+        # diketahui. Sekarang batalkan entry (fail-closed).
+        print(f"  ❌ leverage gagal diset ({e}) -> entry {coin} dibatalkan")
+        return {"success": False, "error": "leverage"}
 
     orders = [
         {"coin": coin, "is_buy": is_buy, "sz": size, "limit_px": limit_px,
@@ -672,10 +720,288 @@ def _trail_update_sl(exchange, info, coin, is_long, size, new_sl_price):
     # tersemat di dalamnya tanpa exception. Cek badan respons sebelum klaim berhasil (fail-safe:
     # bila ditolak, SL lama yg masih resting di exchange TETAP berlaku - tidak disentuh).
     rejected = not (isinstance(resp, dict) and resp.get("status") == "ok")
+    if not rejected:
+        # FIX: error per-order tersemat di response.data.statuses walau status top-level "ok".
+        sts = (resp.get("response") or {}).get("data", {}).get("statuses", []) \
+            if isinstance(resp.get("response"), dict) else []
+        rejected = any(isinstance(s, dict) and "error" in s for s in sts)
     if rejected:
         print(f"  ⚠ trailing {coin}: SL modify ditolak exchange: {resp}")
         return
     print(f"  📈 Trailing SL {coin}: {cur_sl} -> {new_sl_price}")
+
+# ============================================================
+# OTAK DNA DODDY — DATA LIVE (fail-closed) + ENTRY
+# ============================================================
+_TF_MS = {"1h": 3600_000, "4h": 4 * 3600_000, "1d": 86400_000}
+
+
+def get_closed_candles(coin, tf, n):
+    """Candle Hyperliquid yang SUDAH TERTUTUP saja, tervalidasi (urut, kontinu, finite).
+    Return dict of lists {t,o,h,l,c,v} atau None (-> fail-closed / WNS)."""
+    ms = _TF_MS[tf]
+    now = int(time.time() * 1000)
+    payload = {"type": "candleSnapshot",
+               "req": {"coin": coin, "interval": tf, "startTime": now - (n + 2) * ms, "endTime": now}}
+    try:
+        rows = requests.post("https://api.hyperliquid.xyz/info", json=payload, timeout=10).json()
+        out = {k: [] for k in "tohlcv"}
+        for r in rows:
+            t = int(r["t"])
+            if t + ms > now:          # candle berjalan -> buang
+                continue
+            vals = [float(r[k]) for k in "ohlcv"]
+            if not all(math.isfinite(x) for x in vals) or min(vals[:4]) <= 0:
+                return None
+            out["t"].append(t)
+            for k, x in zip("ohlcv", vals):
+                out[k].append(x)
+        ts = out["t"]
+        if len(ts) < min(n, 60) or any(b - a != ms for a, b in zip(ts[:-1], ts[1:])):
+            return None               # data kurang / bolong -> jangan dipakai
+        if now - (ts[-1] + ms) > 2 * ms:
+            return None               # basi
+        return {k: v[-n:] for k, v in out.items()}
+    except Exception:
+        return None
+
+
+def get_spot_flow(coin, window):
+    """Volume & taker-buy Binance SPOT 1h tertutup (CVD spot sungguhan). None bila gagal."""
+    sym = coin + "USDT"
+    now = int(time.time() * 1000)
+    for url in BINANCE_SPOT_KLINES:
+        try:
+            rows = requests.get(url, params={"symbol": sym, "interval": "1h", "limit": window + 2},
+                                timeout=10).json()
+            if not isinstance(rows, list):
+                continue
+            closed = [r for r in rows if int(r[6]) < now]   # r[6] = close time
+            if len(closed) < window:
+                continue
+            closed = closed[-window:]
+            if now - int(closed[-1][6]) > 2 * 3600_000:
+                continue                                      # basi
+            return [float(r[5]) for r in closed], [float(r[9]) for r in closed]
+        except Exception:
+            continue
+    return None
+
+
+def dna_signals(coin):
+    """Semua masukan DNA utk satu koin dari data live. None = data tidak lengkap (WNS)."""
+    c1 = get_closed_candles(coin, "1h", 160)
+    c4 = get_closed_candles(coin, "4h", 120)
+    cd = get_closed_candles(coin, "1d", 120)
+    if c1 is None or c4 is None or cd is None:
+        return None
+    w = DNA_CFG.flow_window
+    spot = get_spot_flow(coin, w)
+    spot_norm = dna.spot_cvd_norm(spot[0], spot[1], w) if spot else None
+    atr = dna.atr_price(c1["h"], c1["l"], c1["c"], 14)
+    if not atr:
+        return None
+    return {
+        "bias": dna.htf_bias(c4["c"], cd["c"], DNA_CFG),
+        "spot": spot_norm,
+        "perp": dna.perp_ad_sign(c1["h"], c1["l"], c1["c"], c1["v"], w),
+        "atr": atr,
+        "close": c1["c"][-1],
+        "trig": {1: dna.entry_trigger(c1["c"], c1["h"], c1["l"], 1, DNA_CFG)[0],
+                 -1: dna.entry_trigger(c1["c"], c1["h"], c1["l"], -1, DNA_CFG)[0]},
+        "vol24": sum(v * c for v, c in zip(c1["v"][-24:], c1["c"][-24:])),
+    }
+
+
+def load_dna_state():
+    try:
+        with open(DNA_STATE_FILE) as f:
+            st = json.load(f)
+        return st if isinstance(st, dict) else {}
+    except Exception:
+        return {}
+
+
+def save_dna_state(st):
+    """Tulis atomik (file sementara + fsync + replace), mode 0600."""
+    d = os.path.dirname(DNA_STATE_FILE) or "."
+    os.makedirs(d, exist_ok=True)
+    fd, tmp = tempfile.mkstemp(prefix=".dna_", dir=d)
+    try:
+        with os.fdopen(fd, "w") as f:
+            json.dump(st, f, indent=2)
+            f.flush()
+            os.fsync(f.fileno())
+        os.chmod(tmp, 0o600)
+        os.replace(tmp, DNA_STATE_FILE)
+    finally:
+        if os.path.exists(tmp):
+            os.unlink(tmp)
+
+
+def discipline_from_fills(info, now_ms=None):
+    """Aturan anti re-entry impulsif dari riwayat fill nyata 36 jam terakhir.
+    Return {"cooldown_until": {coin: ms}, "losses_today": int} atau None (gagal -> blok entry)."""
+    now_ms = now_ms or int(time.time() * 1000)
+    try:
+        fills = info.user_fills_by_time(MAIN_WALLET, now_ms - 36 * 3600_000, now_ms)
+    except Exception:
+        return None
+    closes = {}
+    for f in fills or []:
+        try:
+            pnl = float(f.get("closedPnl", 0) or 0)
+            if pnl == 0:
+                continue
+            key = (f.get("coin"), f.get("oid"))      # satu order penutup = satu kejadian
+            c = closes.setdefault(key, {"pnl": 0.0, "t": 0})
+            c["pnl"] += pnl - float(f.get("fee", 0) or 0)
+            c["t"] = max(c["t"], int(f.get("time", 0)))
+        except Exception:
+            continue
+    wib = timezone(timedelta(hours=7))
+    today = datetime.now(wib).date()
+    cooldown, losses_today = {}, 0
+    for (coin, _), c in closes.items():
+        if c["pnl"] >= 0:
+            continue
+        until = c["t"] + DNA_CFG.loss_cooldown_bars * 3600_000
+        cooldown[coin] = max(cooldown.get(coin, 0), until)
+        if datetime.fromtimestamp(c["t"] / 1000, wib).date() == today:
+            losses_today += 1
+    return {"cooldown_until": cooldown, "losses_today": losses_today}
+
+
+def run_dna_entries(exchange, info, mids, ust, acct_value, free_margin):
+    """Loop entry DNA: core dulu (BTC, ETH, BNB), lalu alt diurut volume."""
+    now_ms = int(time.time() * 1000)
+    state = load_dna_state()
+    positions = {}
+    coin_margin = {}
+    for ap in ust.get("assetPositions", []):
+        p = ap.get("position", {})
+        szi = float(p.get("szi", 0) or 0)
+        if szi == 0:
+            continue
+        c = p.get("coin")
+        positions[c] = {"dir": 1 if szi > 0 else -1, "entry": float(p.get("entryPx", 0) or 0),
+                        "upnl": float(p.get("unrealizedPnl", 0) or 0)}
+        coin_margin[c] = float(p.get("marginUsed", 0) or 0)
+
+    disc = discipline_from_fills(info, now_ms) if info is not None else None
+    if disc is None:
+        print("⏭ DNA: riwayat fill tak terbaca -> disiplin tak bisa dicek -> tidak entry (fail-closed)")
+        return
+    if disc["losses_today"] >= DNA_CFG.max_losses_per_day:
+        print(f"⛔ DNA: {disc['losses_today']} kekalahan hari ini -> WNS sampai besok (anti re-entry impulsif)")
+        return
+
+    sigs = {}
+    btc = dna_signals("BTC")
+    sigs["BTC"] = btc
+    btc_bias = btc["bias"] if btc else 0
+    print(f"🧭 Kompas BTC: bias={btc_bias:+d} | CVD spot={btc['spot'] if btc else None}")
+
+    core_dir = None
+    for cc in dna.CORE_COINS:
+        p = positions.get(cc)
+        if p and p["upnl"] > 0:
+            core_dir = p["dir"]
+            break
+
+    core = [c for c in dna.CORE_COINS if c in WATCHLIST]
+    alts = [c for c in WATCHLIST if c not in dna.CORE_COINS]
+    for c in alts:
+        sigs[c] = dna_signals(c)
+    alts.sort(key=lambda c: -(sigs[c]["vol24"] if sigs.get(c) else 0))
+
+    for coin in core + alts:
+        if free_margin < MARGIN_PER_TRADE:
+            print(f"⏭ DNA: margin bebas ${free_margin:.2f} habis")
+            break
+        s = sigs.get(coin) if coin in sigs else dna_signals(coin)
+        sigs[coin] = s
+        price = mids.get(coin)
+        if s is None or not price:
+            print(f"  [{coin}] data tak lengkap -> WNS")
+            continue
+        bias = s["bias"]
+        flow = dna.classify_flow(bias, s["spot"], s["perp"], DNA_CFG)
+        p = positions.get(coin)
+        pdir = p["dir"] if p else 0
+        st = state.get(coin) or {}
+        newest = None
+        if p:
+            ref = float(st.get("last_add_px") or p["entry"])
+            newest = (price - ref) * pdir / s["atr"]
+        cap_ok = (exchange is None or acct_value <= 0 or
+                  coin_margin.get(coin, 0.0) + MARGIN_PER_TRADE <= MAX_COIN_MARGIN_PCT * acct_value)
+        disc_ok = now_ms >= disc["cooldown_until"].get(coin, 0)
+        dec = dna.decide_entry(coin, bias, btc_bias, flow, s["trig"].get(bias, False) if bias else False,
+                               pdir, newest, core_dir, cap_ok, len(positions) < MAX_OPEN_POSITIONS,
+                               disc_ok, DNA_CFG)
+        spot_txt = f"{s['spot']:+.3f}" if s["spot"] is not None else "n/a"
+        print(f"  [{coin}] bias={bias:+d} spot={spot_txt} perp={s['perp']:+d} flow={flow} "
+              f"-> {dec.action} ({'; '.join(dec.reasons)})")
+        if dec.action == "SKIP":
+            continue
+        tp_pct = DNA_CFG.tp_atr * s["atr"] / price * 100
+        if tp_pct < MIN_TP_PCT_AFTER_FEE:
+            print(f"  ⏭ {coin}: TP {tp_pct:.2f}% < {MIN_TP_PCT_AFTER_FEE:.2f}% (fee) -> skip")
+            continue
+        direction = "LONG" if dec.direction == 1 else "SHORT"
+        if exchange is None:
+            print(f"  🔬[DRY] {dec.action} {direction} {coin} @~{price} | stage={dec.stage} | "
+                  f"SL {DNA_CFG.sl_atr}ATR / TP {DNA_CFG.tp_atr}ATR")
+            continue
+        res = execute_trade(exchange, info, coin, direction, price, s["atr"])
+        if not res.get("success"):
+            continue
+        print(f"  🧠 DNA {dec.action} {direction} {coin}: {'; '.join(dec.reasons)}")
+        fill = float(res.get("entry_price") or price)
+        if dec.action == "OPEN":
+            state[coin] = {"dir": dec.direction, "stage": dec.stage, "opened_ms": now_ms,
+                           "last_add_px": fill}
+            positions[coin] = {"dir": dec.direction, "entry": fill, "upnl": 0.0}
+        else:
+            st["last_add_px"] = fill
+            state[coin] = st
+        coin_margin[coin] = coin_margin.get(coin, 0.0) + MARGIN_PER_TRADE
+        free_margin -= MARGIN_PER_TRADE
+        save_dna_state(state)
+
+
+def dna_manage_position(exchange, info, coin, szi, entry, mid, state, btc_bias):
+    """PA utk langkah lanjutan. Return True bila posisi ditutup.
+    Exit DNA HANYA utk posisi yang dibuka bot (ada di state) — posisi manual/lama pemilik
+    tidak ditutup oleh alasan strategi (aturan keamanan #3), hanya dilindungi."""
+    d = 1 if szi > 0 else -1
+    s = dna_signals(coin)
+    if s is None:
+        print(f"  {coin}: data DNA tak lengkap -> tidak ada aksi strategi (proteksi tetap)")
+        return False
+    st = state.get(coin)
+    if st and int(st.get("dir", 0)) == d:
+        flow_d = dna.classify_flow(d, s["spot"], s["perp"], DNA_CFG)
+        bars_open = int((time.time() * 1000 - int(st.get("opened_ms", 0))) // 3600_000)
+        pnl_atr = (mid - entry) * d / s["atr"]
+        why = dna.exit_reason(d, coin, s["bias"], btc_bias, flow_d, st.get("stage", ""),
+                              bars_open, pnl_atr, DNA_CFG)
+        if why:
+            print(f"  ⚡ DNA early close {coin}: {why}")
+            try:
+                exchange.market_close(coin)
+                state.pop(coin, None)
+                save_dna_state(state)
+                return True
+            except Exception as e:
+                print(f"  close err: {e}")
+                return False
+    new_sl = dna.stop_ladder(entry, mid, s["atr"], d, None, DNA_CFG)
+    if new_sl is not None:
+        _trail_update_sl(exchange, info, coin, d == 1, abs(szi), format_price(new_sl))
+    return False
+
 
 def manage_open_positions(exchange, info, all_mids):
     print(f"\n{'='*60}\nSMART POSITION MANAGEMENT\n{'='*60}")
@@ -700,6 +1026,20 @@ def manage_open_positions(exchange, info, all_mids):
 
     user_state = info.user_state(MAIN_WALLET)
     positions = user_state.get("assetPositions", [])
+
+    dna_state, btc_bias = {}, 0
+    if STRATEGY == "doddy":
+        dna_state = load_dna_state()
+        live = {ap.get("position", {}).get("coin") for ap in positions
+                if float(ap.get("position", {}).get("szi", 0) or 0) != 0}
+        stale = [c for c in dna_state if c not in live]   # sudah tutup (SL/TP/manual)
+        for c in stale:
+            dna_state.pop(c, None)
+        if stale:
+            save_dna_state(dna_state)
+        b = dna_signals("BTC") if live else None
+        btc_bias = b["bias"] if b else 0
+
     for pos in positions:
         p = pos.get("position", {})
         coin = p.get("coin"); szi = float(p.get("szi", 0))
@@ -727,11 +1067,20 @@ def manage_open_positions(exchange, info, all_mids):
                     print(f"  close err (liq shield): {e}")
                 continue
 
+        if STRATEGY == "doddy":
+            if dna_manage_position(exchange, info, coin, szi, entry, mid, dna_state, btc_bias):
+                continue
+            ensure_protective_sl(exchange, info, MAIN_WALLET, coin, szi, mid)
+            continue
+
+        # ---- jalur LEGACY (DEFI91_STRATEGY=legacy) ----
         # hitung ulang sinyal berlawanan -> early close
         onchain, _ = analyze_onchain(coin)
         tech, _ = analyze_technical(coin)
         total = onchain + tech
-        against = total >= SMART_EXIT_THRESHOLD if long else total <= -SMART_EXIT_THRESHOLD
+        # FIX BUG TERBALIK: skor positif = LONG. Versi lama `total >= 7 if long` justru
+        # menutup LONG saat sinyal LONG makin kuat. "Berlawanan" utk LONG = skor <= -7.
+        against = total <= -SMART_EXIT_THRESHOLD if long else total >= SMART_EXIT_THRESHOLD
         if against:
             print(f"  ⚡ Sinyal kuat berlawanan -> early close {coin}")
             try:
@@ -784,7 +1133,7 @@ def parse_private_key(val):
 
 def main():
     print("=" * 60)
-    print("DeFi91 Bot V3 (Hermes Strategic Revision)")
+    print(f"DeFi91 Bot V3 | otak strategi: {STRATEGY.upper()}")
     print(f"Time: {get_wib_time().strftime('%Y-%m-%d %H:%M:%S')} WIB")
     print("=" * 60)
 
@@ -850,6 +1199,7 @@ def main():
     acct_value = 0.0
     coin_margin = {}
     free_margin = 0.0   # ekuitas bebas utk posisi baru (acct - totalMarginUsed)
+    ust = {}
     if info is not None:
         try:
             ust = info.user_state(MAIN_WALLET)
@@ -876,7 +1226,11 @@ def main():
         # agar posisi baru punya ukuran & potensi untung yang layak.
         print(f"⏭ Skip entry: margin bebas ${free_margin:.2f} < ${MARGIN_PER_TRADE} "
               f"(akun penuh). Posisi lama tetap dikelola; buka baru saat ada ruang.")
-    for coin in ([] if entry_blocked else WATCHLIST):
+    if STRATEGY == "doddy" and not entry_blocked:
+        if exchange is None:
+            free_margin = max(free_margin, MARGIN_PER_TRADE * MAX_OPEN_POSITIONS)  # pratinjau
+        run_dna_entries(exchange, info, mids, ust, acct_value, free_margin)
+    for coin in ([] if (entry_blocked or STRATEGY == "doddy") else WATCHLIST):
         if len(open_coins) >= MAX_OPEN_POSITIONS:
             print(f"⚠ Telah mencapai MAX_OPEN_POSITIONS ({MAX_OPEN_POSITIONS}). Skip entry baru.")
             break

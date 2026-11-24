@@ -14,7 +14,9 @@ from datetime import datetime, timezone, timedelta
 BOT_DIR = "/data/workspace/defi91-trading-bot"
 SCRIPTS_DIR = "/data/scripts"
 FILES = ["github_bot_v3.py", "defi91_eval.py", "monitor_positions.py",
-         "market_regime_filter.py", "telegram_signals.py"]
+         "market_regime_filter.py", "telegram_signals.py", "doddy_engine.py"]
+# Hermes menyentuh file ini saat SENGAJA mem-pause trader -> heartbeat basi bukan "mesin mati".
+PAUSE_FLAG = os.path.expanduser("~/.defi91_trader_paused")
 RUNNERS = ["defi91_trader.sh", "defi91_monitor.py", "defi91_eval.py"]
 HEARTBEAT = os.path.expanduser("~/.defi91_heartbeat.json")
 HEARTBEAT_MAX_AGE_MIN = 25   # trader 10 menit -> 25 menit aman (2x + margin)
@@ -46,17 +48,20 @@ def main():
         if not os.path.exists(os.path.join(SCRIPTS_DIR, r)):
             problems.append(f"RUNNER HILANG: /data/scripts/{r}")
 
-    # 4) Heartbeat masih segar -> mesin hidup
-    try:
-        hb = json.load(open(HEARTBEAT))
-        hb_ts = datetime.fromisoformat(hb["ts"])
-        age_min = (datetime.now(timezone.utc) - hb_ts).total_seconds() / 60
-        if age_min > HEARTBEAT_MAX_AGE_MIN:
-            problems.append(f"MESIN MATI: trader tak jalan {age_min:.0f} menit (heartbeat basi)")
-    except FileNotFoundError:
-        problems.append("MESIN BELUM PERNAH JALAN: tidak ada heartbeat")
-    except Exception as e:
-        problems.append(f"HEARTBEAT korup: {e}")
+    # 4) Heartbeat masih segar -> mesin hidup (kecuali pause disengaja)
+    if os.path.exists(PAUSE_FLAG):
+        pass   # PAUSED by configuration: heartbeat basi adalah konsekuensi yang diharapkan
+    else:
+        try:
+            hb = json.load(open(HEARTBEAT))
+            hb_ts = datetime.fromisoformat(hb["ts"])
+            age_min = (datetime.now(timezone.utc) - hb_ts).total_seconds() / 60
+            if age_min > HEARTBEAT_MAX_AGE_MIN:
+                problems.append(f"MESIN MATI: trader tak jalan {age_min:.0f} menit (heartbeat basi)")
+        except FileNotFoundError:
+            problems.append("MESIN BELUM PERNAH JALAN: tidak ada heartbeat")
+        except Exception as e:
+            problems.append(f"HEARTBEAT korup: {e}")
 
     # 5) Kill-switch state file valid (kalau ada)
     ks = os.path.join(BOT_DIR, "v3_daily_state.json")
@@ -77,10 +82,24 @@ def main():
     except Exception as e:
         problems.append(f"API Hyperliquid TAK TERJANGKAU: {e}")
 
+    # 7) Sumber CVD spot (otak DNA). Tanpa ini bot fail-closed: tidak membuka posisi baru.
+    spot_ok = False
+    for url in ("https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=2",
+                "https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=2"):
+        try:
+            rows = json.loads(urllib.request.urlopen(url, timeout=15).read())
+            if isinstance(rows, list) and rows and len(rows[0]) > 9:
+                spot_ok = True
+                break
+        except Exception:
+            continue
+    if not spot_ok:
+        problems.append("SUMBER CVD SPOT (Binance) TAK TERJANGKAU -> otak DNA tidak akan entry")
+
     if problems:
         print("🩺 [DEFI91-HEALTH] masalah ditemukan:\n  - " + "\n  - ".join(problems))
         print(f"(cek: {wibnow()} WIB)")
-        return 0
+        return 1   # FIX: dulu 0 -> scheduler mencatat "ok" walau ada masalah
     # sehat -> diam
     return 0
 
